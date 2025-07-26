@@ -1,0 +1,192 @@
+// Zellij config inspired by Neovim rose-pine theme
+// Alt-based keybinds to avoid conflicts with Neovim
+
+keybinds clear-defaults=true {
+    normal {
+        // Quick pane actions with Alt (no mode switching needed)
+        bind "Alt h" { MoveFocus "Left"; }
+        bind "Alt j" { MoveFocus "Down"; }
+        bind "Alt k" { MoveFocus "Up"; }
+        bind "Alt l" { MoveFocus "Right"; }
+        bind "Alt n" { NewPane; }
+        bind "Alt x" { CloseFocus; }
+        bind "Alt f" { ToggleFocusFullscreen; }
+        bind "Alt z" { TogglePaneFrames; }
+        
+        // Tab navigation with Alt
+        bind "Alt [" { GoToPreviousTab; }
+        bind "Alt ]" { GoToNextTab; }
+        bind "Alt t" { NewTab; }
+        bind "Alt w" { CloseTab; }
+        bind "Alt 1" { GoToTab 1; }
+        bind "Alt 2" { GoToTab 2; }
+        bind "Alt 3" { GoToTab 3; }
+        bind "Alt 4" { GoToTab 4; }
+        bind "Alt 5" { GoToTab 5; }
+        bind "Alt 6" { GoToTab 6; }
+        bind "Alt 7" { GoToTab 7; }
+        bind "Alt 8" { GoToTab 8; }
+        bind "Alt 9" { GoToTab 9; }
+        
+        // Resize with Alt+Shift
+        bind "Alt H" { Resize "Left"; }
+        bind "Alt J" { Resize "Down"; }
+        bind "Alt K" { Resize "Up"; }
+        bind "Alt L" { Resize "Right"; }
+        bind "Alt =" { Resize "Increase"; }
+        bind "Alt -" { Resize "Decrease"; }
+        
+        // Session management
+        bind "Alt d" { Detach; }
+        bind "Alt s" {
+            LaunchOrFocusPlugin "session-manager" {
+                floating true
+                move_to_focused_tab true
+            };
+        }
+        
+        // Scroll mode
+        bind "Alt /" { SwitchToMode "Scroll"; }
+        
+        // Lock mode
+        bind "Ctrl g" { SwitchToMode "Locked"; }
+        bind "Ctrl q" { Quit; }
+        
+        // Floating panes
+        bind "Alt F" { ToggleFloatingPanes; }
+        bind "Alt e" { TogglePaneEmbedOrFloating; }
+        
+        
+        // Rename tab/pane
+        bind "Alt r" { SwitchToMode "RenameTab"; TabNameInput 0; }
+        bind "Alt p" { SwitchToMode "RenamePane"; PaneNameInput 0; }
+    }
+    
+    locked {
+        bind "Ctrl g" { SwitchToMode "Normal"; }
+    }
+    
+    scroll {
+        bind "Ctrl c" "q" "Esc" { SwitchToMode "Normal"; }
+        bind "e" { EditScrollback; SwitchToMode "Normal"; }
+        bind "/" { SwitchToMode "EnterSearch"; SearchInput 0; }
+        bind "j" "Down" { ScrollDown; }
+        bind "k" "Up" { ScrollUp; }
+        bind "d" { HalfPageScrollDown; }
+        bind "u" { HalfPageScrollUp; }
+        bind "Ctrl f" "PageDown" { PageScrollDown; }
+        bind "Ctrl b" "PageUp" { PageScrollUp; }
+        bind "Ctrl d" { ScrollToBottom; }
+        bind "Ctrl u" { ScrollToTop; }
+    }
+    
+    search {
+        bind "Ctrl c" "q" "Esc" { ScrollToBottom; SwitchToMode "Normal"; }
+        bind "j" "Down" { ScrollDown; }
+        bind "k" "Up" { ScrollUp; }
+        bind "d" { HalfPageScrollDown; }
+        bind "u" { HalfPageScrollUp; }
+        bind "Ctrl f" "PageDown" { PageScrollDown; }
+        bind "Ctrl b" "PageUp" { PageScrollUp; }
+        bind "n" { Search "down"; }
+        bind "p" { Search "up"; }
+        bind "c" { SearchToggleOption "CaseSensitivity"; }
+        bind "w" { SearchToggleOption "Wrap"; }
+        bind "o" { SearchToggleOption "WholeWord"; }
+    }
+    
+    entersearch {
+        bind "Ctrl c" "Esc" { SwitchToMode "Scroll"; }
+        bind "Enter" { SwitchToMode "Search"; }
+    }
+    
+    renametab {
+        bind "Ctrl c" "Esc" { SwitchToMode "Normal"; }
+        bind "Enter" { SwitchToMode "Normal"; }
+    }
+    
+    renamepane {
+        bind "Ctrl c" "Esc" { SwitchToMode "Normal"; }
+        bind "Enter" { SwitchToMode "Normal"; }
+    }
+}
+
+plugins {
+    tab-bar location="zellij:tab-bar"
+    status-bar location="zellij:status-bar"
+    strider location="zellij:strider"
+    compact-bar location="zellij:compact-bar"
+    session-manager location="zellij:session-manager"
+    welcome-screen location="zellij:session-manager" {
+        welcome_screen true
+    }
+    filepicker location="zellij:strider" {
+        cwd "/"
+    }
+}
+
+// Rose Pine theme inspired by Neovim config
+themes {
+    rose-pine {
+        fg "#e0def4"        // text
+        bg "#191724"        // base
+        black "#26233a"     // surface
+        red "#eb6f92"       // love
+        green "#9ccfd8"     // foam
+        yellow "#f6c177"    // gold
+        blue "#3e8fb0"      // pine
+        magenta "#c4a7e7"   // iris
+        cyan "#9ccfd8"      // foam
+        white "#e0def4"     // text
+        orange "#f6c177"    // gold
+    }
+    
+    rose-pine-moon {
+        fg "#e0def4"        // text
+        bg "#232136"        // base (moon variant)
+        black "#393552"     // surface
+        red "#eb6f92"       // love
+        green "#9ccfd8"     // foam
+        yellow "#f6c177"    // gold
+        blue "#3e8fb0"      // pine
+        magenta "#c4a7e7"   // iris
+        cyan "#9ccfd8"      // foam
+        white "#e0def4"     // text
+        orange "#f6c177"    // gold
+    }
+    
+    rose-pine-dawn {
+        fg "#575279"        // text (dawn variant)
+        bg "#faf4ed"        // base
+        black "#f2e9e1"     // surface
+        red "#b4637a"       // love
+        green "#56949f"     // foam
+        yellow "#ea9d34"    // gold
+        blue "#286983"      // pine
+        magenta "#907aa9"   // iris
+        cyan "#56949f"      // foam
+        white "#575279"     // text
+        orange "#ea9d34"    // gold
+    }
+}
+
+// Configuration options
+theme "rose-pine"
+default_layout "compact"
+simplified_ui true
+pane_frames true
+mouse_mode true
+copy_on_select true
+copy_command "pbcopy"
+
+// Session behavior
+session_serialization true
+serialize_pane_viewport false
+auto_layout true
+
+// Scrollback
+scroll_buffer_size 10000
+scrollback_editor "nvim"
+
+// Shell
+default_shell "zsh"

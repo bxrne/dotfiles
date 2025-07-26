@@ -41,10 +41,12 @@ fpath=(/Users/adambyrne/.docker/completions $fpath)
 autoload -Uz compinit
 compinit -C  # use zcompdump cache to speed up
 
+### k9s
+export K9S_CONFIG_DIR=".config/k9s"
+
 ### Enhanced Terminal Experience
 # Zoxide: smarter cd replacement
 eval "$(zoxide init zsh)"
 
 # Fastfetch system info
-[[ -x "$(command -v fastfetch)" ]] && fastfetch
-
+[[ -x "$(command -v nerdfetch)" ]] && nerdfetch

@@ -3,6 +3,13 @@ return {
 	-- Auto-detect indent settings
 	"tpope/vim-sleuth",
 
+	-- Preview papers
+	{
+		"chomosuke/typst-preview.nvim",
+		lazy = false, -- or ft = 'typst'
+		version = "1.*",
+		opts = {}, -- lazy.nvim will implicitly calls `setup {}`
+	},
 	-- File explorer (replaces telescope-file-browser)
 	{
 		"stevearc/oil.nvim",

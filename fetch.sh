@@ -2,15 +2,30 @@
 
 fetch() {
   local COLOR="\033[0;34m"
-  local BOLD="\033[1m"
   local RESET="\033[0m"
 
-  # Info commands
-  local uptime_info=$(uptime | cut -d ',' -f1 | cut -d ' ' -f3-)
+  # Info command
+  local uptime_info=$(uptime | sed -E 's/^.*up ([^,]+), ([^,]+),.*$/\1 \2/')
   local shell_info=$(basename "$SHELL")
   local host_info=$(hostname)
   local ip_info=$(ifconfig en0 2>/dev/null | awk '/inet /{print $2}')
   local external_ip_info=$(curl -s --max-time 1 ifconfig.me)
+
+  # Battery
+  local battery_info=$(pmset -g batt | grep -Eo '[0-9]+%.*' | cut -d ';' -f1)
+
+  # Git status (if inside a repo)
+  local git_branch=""
+  local git_status=""
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
+    git_branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD)
+    git_dirty=$(git status --porcelain)
+    if [[ -n "$git_dirty" ]]; then
+      git_status="${git_branch}*"
+    else
+      git_status="${git_branch}"
+    fi
+  fi
 
   # Info lines
   local lines=(
@@ -19,6 +34,8 @@ fetch() {
     "host:         ${COLOR}${host_info}${RESET}"
     "ip:           ${COLOR}${ip_info}${RESET}"
     "external ip:  ${COLOR}${external_ip_info}${RESET}"
+    "power:        ${COLOR}${battery_info}${RESET}"
+    "repo:         ${COLOR}${git_status}${RESET}"
   )
 
   # Calculate max visible length
@@ -48,3 +65,4 @@ fetch() {
 }
 
 fetch
+

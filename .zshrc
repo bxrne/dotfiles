@@ -38,4 +38,3 @@ compinit -C  # use zcompdump cache to speed up
 
 ZSHRC_DIR="$(dirname "$(readlink -f "$HOME/.zshrc")")"
 source "$ZSHRC_DIR/fetch.sh"
-fetch

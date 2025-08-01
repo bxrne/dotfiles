@@ -6,18 +6,27 @@ return {
 	-- Preview papers
 	{
 		"chomosuke/typst-preview.nvim",
-		lazy = false, -- or ft = 'typst'
+		lazy = false,
 		version = "1.*",
-		opts = {}, -- lazy.nvim will implicitly calls `setup {}`
+		opts = {},
 	},
-	-- File explorer (replaces telescope-file-browser)
+
+	-- File explorer
+	{
+		"benomahony/oil-git.nvim",
+		dependencies = { "stevearc/oil.nvim" },
+	},
 	{
 		"stevearc/oil.nvim",
 		dependencies = { "echasnovski/mini.icons" },
+		opts = {
+			win_options = { signcolumn = "yes" },
+		},
 		config = function()
 			require("oil").setup {
 				default_file_explorer = true,
-				columns = { "icon", "permissions", "size", "mtime" },
+				skip_confirm_for_simple_edits = true,
+				columns = { "permissions", "size", "icons", "mtime" },
 				view_options = {
 					show_hidden = true,
 				},

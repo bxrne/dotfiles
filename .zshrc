@@ -38,3 +38,10 @@ compinit -C  # use zcompdump cache to speed up
 
 ZSHRC_DIR="$(dirname "$(readlink -f "$HOME/.zshrc")")"
 source "$ZSHRC_DIR/fetch.sh"
+
+# bun completions
+[ -s "/Users/adambyrne/.bun/_bun" ] && source "/Users/adambyrne/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

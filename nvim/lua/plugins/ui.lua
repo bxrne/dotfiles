@@ -19,6 +19,45 @@ return {
 		end,
 	},
 
+	-- transparent
+	{
+		"xiyaowong/transparent.nvim",
+		config = function()
+			require("transparent").setup {
+				groups = { -- Default groups to clear
+					"Normal",
+					"NormalNC",
+					"Comment",
+					"Constant",
+					"Special",
+					"Identifier",
+					"Statement",
+					"PreProc",
+					"Type",
+					"Underlined",
+					"Todo",
+					"String",
+					"Function",
+					"Conditional",
+					"Repeat",
+					"Operator",
+					"Structure",
+					"LineNr",
+					"NonText",
+					"SignColumn",
+					"CursorLine",
+					"CursorLineNr",
+					"StatusLine",
+					"StatusLineNC",
+					"EndOfBuffer",
+				},
+				extra_groups = {}, -- Add more groups if needed
+				exclude_groups = {}, -- Groups to keep opaque
+			}
+			vim.cmd "TransparentEnable"
+		end,
+	},
+
 	-- Better buffer tabs (replacing barbar for performance)
 	{
 		"akinsho/bufferline.nvim",

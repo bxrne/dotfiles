@@ -1,0 +1,12 @@
+shell-integration = "zsh"
+macos-titlebar-style = "hidden"
+theme = "rose-pine"
+font-family = "Monaspace Neon"
+font-size = 19.5
+mouse-hide-while-typing = true
+confirm-close-surface = false
+macos-icon-frame = chrome
+macos-icon="glass"
+background-opacity=0.95
+window-padding-x=2
+window-padding-y=2

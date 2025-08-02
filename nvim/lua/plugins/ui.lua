@@ -97,4 +97,17 @@ return {
 		"j-hui/fidget.nvim",
 		opts = {},
 	},
+
+	-- Pomodoro timer
+	{
+		"bxrne/pomo.nvim",
+		name = "pomo",
+		opts = {
+			session_minutes = 1,
+			break_minutes = 2,
+		},
+		config = function()
+			require("pomo").setup {}
+		end,
+	},
 }

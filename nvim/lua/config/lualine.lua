@@ -1,7 +1,21 @@
 -- Status line configuration
-local navic = require("nvim-navic")
+local navic = require "nvim-navic"
 
-require("lualine").setup({
+local function pomo_status()
+	local status, remaining, cycles = require("pomo").status()
+
+	if status == "running" then
+		local minutes = math.floor(remaining / 60)
+		local seconds = remaining % 60
+		return string.format("🍅 S%d %02d:%02d", cycles + 1, minutes, seconds)
+	elseif status == "break" then
+		return string.format("☕ Break (after %d sessions)", cycles)
+	else
+		return cycles > 0 and string.format("✅ %d sessions", cycles) or ""
+	end
+end
+
+require("lualine").setup {
 	options = {
 		theme = "auto",
 		globalstatus = true,
@@ -54,7 +68,7 @@ require("lualine").setup({
 			},
 		},
 		lualine_y = {
-			{ "progress" },
+			{ pomo_status, "progress" },
 		},
 		lualine_z = {
 			{ "location" },
@@ -69,4 +83,5 @@ require("lualine").setup({
 		lualine_z = {},
 	},
 	extensions = { "oil", "toggleterm", "lazy" },
-})
+}
+

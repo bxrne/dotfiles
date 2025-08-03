@@ -1,4 +1,4 @@
--- Menu bar mode indicator
+-- Menu Bar Mode Indicator
 local modeMenu = hs.menubar.new()
 local currentMode = "NOR"
 local modes = { "NOR", "APP", "WIN" }
@@ -9,95 +9,120 @@ local normalMode = hs.hotkey.modal.new()
 local appMode = hs.hotkey.modal.new()
 local winMode = hs.hotkey.modal.new()
 
--- Mode lookup table
 local modeObjects = {
 	NOR = normalMode,
 	APP = appMode,
 	WIN = winMode,
 }
 
--- Update menubar
 local function updateModeMenu()
 	modeMenu:setTitle(currentMode)
 end
 
--- Enter a given mode
 local function enterMode(modeName)
-	-- Exit all
 	for _, m in pairs(modeObjects) do
 		m:exit()
 	end
-
 	currentMode = modeName
 	updateModeMenu()
-
-	local modal = modeObjects[modeName]
-	if modal then
-		modal:enter()
+	if modeObjects[modeName] then
+		modeObjects[modeName]:enter()
 	end
-
 	hs.notify.new({ title = "Hammerspoon", informativeText = modeName .. " Mode" }):send()
 end
 
--- Cycle mode on Alt+Space
+-- Cycle modes on Alt+Space
 hs.hotkey.bind({ "alt" }, "space", function()
-	modeIndex = modeIndex % #modes + 1
+	modeIndex = (modeIndex % #modes) + 1
 	enterMode(modes[modeIndex])
 end)
 
--- ESC always returns to normal
-for _, m in pairs(modeObjects) do
-	m:bind({}, "escape", function()
-		modeIndex = 1
-		enterMode("NOR")
+-- APP MODE BINDINGS (via loop)
+local apps = {
+	c = "Google Chrome",
+	t = "Ghostty",
+	w = "Windows App",
+	d = "Docker Desktop",
+	f = "Finder",
+	o = "Obsidian",
+	s = "System Preferences",
+}
+for key, appName in pairs(apps) do
+	appMode:bind({}, key, function()
+		hs.application.launchOrFocus(appName)
 	end)
 end
 
--- APP MODE: Application Shortcuts
-appMode:bind({}, "c", function()
-	hs.application.launchOrFocus("Google Chrome")
-end)
-appMode:bind({}, "t", function()
-	hs.application.launchOrFocus("Ghostty")
-end)
-appMode:bind({}, "w", function()
-	hs.application.launchOrFocus("Windows App")
-end)
-appMode:bind({}, "d", function()
-	hs.application.launchOrFocus("Docker Desktop")
-end)
-appMode:bind({}, "f", function()
-	hs.application.launchOrFocus("Finder")
-end)
-appMode:bind({}, "o", function()
-	hs.application.launchOrFocus("Obsidian")
-end)
-appMode:bind({}, "s", function()
-	hs.application.launchOrFocus("System Preferences")
-end)
+-- WIN MODE BINDINGS (snapping + screen aware movement)
 
--- WIN MODE: Window Movement
-local function moveWindowTo(unit)
+-- Snapping shortcuts: {key, {x, y, w, h}}
+local snaps = {
+	h = { 0, 0, 0.5, 1.0 }, -- left half
+	l = { 0.5, 0, 0.5, 1.0 }, -- right half
+	k = { 0, 0, 1.0, 0.5 }, -- top half
+	j = { 0, 0.5, 1.0, 0.5 }, -- bottom half
+	y = { 0, 0, 0.5, 0.5 }, -- top-left
+	u = { 0.5, 0, 0.5, 0.5 }, -- top-right
+	b = { 0, 0.5, 0.5, 0.5 }, -- bottom-left
+	n = { 0.5, 0.5, 0.5, 0.5 }, -- bottom-right
+}
+
+local function snap(x, y, w, h)
 	local win = hs.window.focusedWindow()
 	if win then
-		win:moveToUnit(unit)
+		win:moveToUnit({ x = x, y = y, w = w, h = h })
 	end
 end
 
-winMode:bind({}, "h", function()
-	moveWindowTo(hs.layout.left50)
-end)
-winMode:bind({}, "l", function()
-	moveWindowTo(hs.layout.right50)
-end)
+for key, frame in pairs(snaps) do
+	winMode:bind({}, key, function()
+		snap(table.unpack(frame))
+	end)
+end
+
+-- Maximize
 winMode:bind({}, "m", function()
-	moveWindowTo(hs.layout.maximized)
+	local win = hs.window.focusedWindow()
+	if win then
+		win:maximize()
+	end
 end)
 
--- Reload config
+-- Center window
+winMode:bind({}, "c", function()
+	local win = hs.window.focusedWindow()
+	if not win then
+		return
+	end
+	local screenFrame = win:screen():frame()
+	local winFrame = win:frame()
+	win:setFrame({
+		x = screenFrame.x + (screenFrame.w - winFrame.w) / 2,
+		y = screenFrame.y + (screenFrame.h - winFrame.h) / 2,
+		w = winFrame.w,
+		h = winFrame.h,
+	})
+end)
+
+-- Move to next/previous screen
+winMode:bind({}, "n", function()
+	local win = hs.window.focusedWindow()
+	if win then
+		win:moveToScreen(win:screen():next())
+	end
+end)
+
+winMode:bind({}, "p", function()
+	local win = hs.window.focusedWindow()
+	if win then
+		win:moveToScreen(win:screen():previous())
+	end
+end)
+
+-- Reload Config
 hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "R", function()
 	hs.reload()
 end)
 
--- Start in normal mode
+-- Initialize
 enterMode("NOR")

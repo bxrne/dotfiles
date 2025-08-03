@@ -8,6 +8,7 @@ My collective configuration for tools.
 - **zsh**: Z shell configuration
 - **zellij**: Terminal workspace manager configuration
 - **ghostty**: Terminal emulator config 
+- **hammerspoon**: custom macOS keybinding (open app and manage window)
 
 ## Setting Up on Unix/Linux
 
@@ -24,6 +25,7 @@ To use these configurations, you can create symbolic links from the configuratio
    ln -s ~/dotfiles/nvim ~/.config/nvim
    ln -s ~/dotfiles/.zshrc ~/.zshrc
    ln -s ~/dotfiles/zellij ~/.config/zellij
+   ln -s ~/dotfiles/hammerspoon ~/.hammerspoon
    ln -s ~/dotfiles/zellij/ghostty $HOME/Library/Application\ Support/com.mitchellh.ghostty/config # Use XDG home on non-macOS systems
    ```
 

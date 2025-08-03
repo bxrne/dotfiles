@@ -45,3 +45,6 @@ source "$ZSHRC_DIR/fetch.sh"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/Users/adambyrne/.opencode/bin:$PATH

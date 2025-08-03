@@ -1,77 +1,103 @@
--- ~/.hammerspoon/init.lua
-
--- Create menu bar item to display mode
+-- Menu bar mode indicator
 local modeMenu = hs.menubar.new()
-local currentMode = "NOR" -- Default mode
+local currentMode = "NOR"
+local modes = { "NOR", "APP", "WIN" }
+local modeIndex = 1
 
--- Function to update menu bar display
-function updateModeMenu()
+-- Mode objects
+local normalMode = hs.hotkey.modal.new()
+local appMode = hs.hotkey.modal.new()
+local winMode = hs.hotkey.modal.new()
+
+-- Mode lookup table
+local modeObjects = {
+	NOR = normalMode,
+	APP = appMode,
+	WIN = winMode,
+}
+
+-- Update menubar
+local function updateModeMenu()
 	modeMenu:setTitle(currentMode)
 end
 
--- Create modal states
-local normalMode = hs.hotkey.modal.new()
-local insertMode = hs.hotkey.modal.new()
-
--- Function to toggle modes
-function toggleMode()
-	if currentMode == "NOR" then
-		normalMode:exit()
-		insertMode:enter()
-		currentMode = "INS"
-		hs.notify.new({ title = "Hammerspoon", informativeText = "Insert Mode" }):send()
-	else
-		insertMode:exit()
-		normalMode:enter()
-		currentMode = "NOR"
-		hs.notify.new({ title = "Hammerspoon", informativeText = "Normal Mode" }):send()
+-- Enter a given mode
+local function enterMode(modeName)
+	-- Exit all
+	for _, m in pairs(modeObjects) do
+		m:exit()
 	end
+
+	currentMode = modeName
 	updateModeMenu()
+
+	local modal = modeObjects[modeName]
+	if modal then
+		modal:enter()
+	end
+
+	hs.notify.new({ title = "Hammerspoon", informativeText = modeName .. " Mode" }):send()
 end
 
--- Bind Alt+Space to toggle modes
-hs.hotkey.bind({ "alt" }, "space", toggleMode)
+-- Cycle mode on Alt+Space
+hs.hotkey.bind({ "alt" }, "space", function()
+	modeIndex = modeIndex % #modes + 1
+	enterMode(modes[modeIndex])
+end)
 
--- browser on c
-normalMode:bind({}, "c", function()
+-- ESC always returns to normal
+for _, m in pairs(modeObjects) do
+	m:bind({}, "escape", function()
+		modeIndex = 1
+		enterMode("NOR")
+	end)
+end
+
+-- APP MODE: Application Shortcuts
+appMode:bind({}, "c", function()
 	hs.application.launchOrFocus("Google Chrome")
 end)
-
--- terminal on t
-normalMode:bind({}, "t", function()
+appMode:bind({}, "t", function()
 	hs.application.launchOrFocus("Ghostty")
 end)
-
--- rdp on w
-normalMode:bind({}, "w", function()
-	hs.application.launchOrFocus("Windows App") -- Adjust if app name differs
+appMode:bind({}, "w", function()
+	hs.application.launchOrFocus("Windows App")
 end)
-
--- docker on d
-normalMode:bind({}, "d", function()
+appMode:bind({}, "d", function()
 	hs.application.launchOrFocus("Docker Desktop")
 end)
-
--- finder on f
-normalMode:bind({}, "f", function()
+appMode:bind({}, "f", function()
 	hs.application.launchOrFocus("Finder")
 end)
-
--- obsidian on o
-normalMode:bind({}, "o", function()
+appMode:bind({}, "o", function()
 	hs.application.launchOrFocus("Obsidian")
 end)
-
--- settings on s
-normalMode:bind({}, "s", function()
+appMode:bind({}, "s", function()
 	hs.application.launchOrFocus("System Preferences")
 end)
 
--- Reload config with Cmd+Alt+Ctrl+R
+-- WIN MODE: Window Movement
+local function moveWindowTo(unit)
+	local win = hs.window.focusedWindow()
+	if win then
+		win:moveToUnit(unit)
+	end
+end
+
+winMode:bind({}, "h", function()
+	moveWindowTo(hs.layout.left50)
+end)
+winMode:bind({}, "l", function()
+	moveWindowTo(hs.layout.right50)
+end)
+winMode:bind({}, "m", function()
+	moveWindowTo(hs.layout.maximized)
+end)
+
+-- Reload config
 hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "R", function()
 	hs.reload()
 end)
 
--- Initialize Normal mode and menu on startup
-normalMode:enter()
-updateModeMenu()
+-- Start in normal mode
+enterMode("NOR")

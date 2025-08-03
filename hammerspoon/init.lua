@@ -1,3 +1,18 @@
+-- Alert Style (Global)
+hs.alert.defaultStyle = {
+	strokeWidth = 2, -- Add this line to define strokeWidth
+	strokeColor = { white = 1, alpha = 0.1 },
+	fillColor = { white = 0.1, alpha = 0.85 },
+	textColor = { white = 1 },
+	textFont = "Monaspace Neon", -- optional: change to a font you have
+	textSize = 20,
+	radius = 10,
+	padding = 15,
+	atScreenEdge = 0,
+	fadeInDuration = 0.15,
+	fadeOutDuration = 0.15,
+}
+
 -- Menu Bar Mode Indicator
 local modeMenu = hs.menubar.new()
 local currentMode = "NOR"
@@ -28,7 +43,7 @@ local function enterMode(modeName)
 	if modeObjects[modeName] then
 		modeObjects[modeName]:enter()
 	end
-	hs.notify.new({ title = "Hammerspoon", informativeText = modeName .. " Mode" }):send()
+	hs.alert.show(modeName)
 end
 
 -- Cycle modes on Alt+Space
@@ -54,8 +69,6 @@ for key, appName in pairs(apps) do
 end
 
 -- WIN MODE BINDINGS (snapping + screen aware movement)
-
--- Snapping shortcuts: {key, {x, y, w, h}}
 local snaps = {
 	h = { 0, 0, 0.5, 1.0 }, -- left half
 	l = { 0.5, 0, 0.5, 1.0 }, -- right half

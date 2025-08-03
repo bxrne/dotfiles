@@ -9,6 +9,7 @@ My collective configuration for tools.
 - **zellij**: Terminal workspace manager configuration
 - **ghostty**: Terminal emulator config 
 - **hammerspoon**: custom macOS keybinding (open app and manage window)
+- **fetch.sh**: custom terminal sysinfo prompt
 
 ## Setting Up on Unix/Linux
 

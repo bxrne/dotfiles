@@ -104,21 +104,6 @@ winMode:bind({}, "c", function()
 	})
 end)
 
--- Move to next/previous screen
-winMode:bind({}, "n", function()
-	local win = hs.window.focusedWindow()
-	if win then
-		win:moveToScreen(win:screen():next())
-	end
-end)
-
-winMode:bind({}, "p", function()
-	local win = hs.window.focusedWindow()
-	if win then
-		win:moveToScreen(win:screen():previous())
-	end
-end)
-
 -- Reload Config
 hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "R", function()
 	hs.reload()

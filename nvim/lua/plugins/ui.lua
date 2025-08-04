@@ -120,17 +120,6 @@ return {
 		end,
 	},
 
-	-- Better diagnostics
-	{
-		"rachartier/tiny-inline-diagnostic.nvim",
-		event = "LspAttach",
-		priority = 1000,
-		config = function()
-			require("tiny-inline-diagnostic").setup()
-			vim.diagnostic.config { virtual_text = true }
-		end,
-	},
-
 	-- Loading notifications
 	{
 		"j-hui/fidget.nvim",

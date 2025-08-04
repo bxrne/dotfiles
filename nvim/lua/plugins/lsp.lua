@@ -40,9 +40,25 @@ return {
 			"SmiteshP/nvim-navic",
 		},
 		config = function()
-			local lspconfig = require("lspconfig")
+			local lspconfig = require "lspconfig"
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local navic = require("nvim-navic")
+			local navic = require "nvim-navic"
+
+			-- Configure diagnostics for popup windows with rounded borders
+			vim.diagnostic.config({
+				virtual_text = false,
+				float = {
+					border = "rounded",
+					source = "always",
+					header = "",
+					prefix = "",
+					focusable = true,
+				},
+				signs = true,
+				underline = true,
+				update_in_insert = false,
+				severity_sort = true,
+			})
 
 			-- Common on_attach function
 			local on_attach = function(client, bufnr)
@@ -60,6 +76,7 @@ return {
 				vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+				vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
 			end
 
 			-- Language server configurations
@@ -115,3 +132,4 @@ return {
 		end,
 	},
 }
+

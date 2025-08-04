@@ -37,17 +37,17 @@ function M.setup(appModeBinds, winModeBinds)
 		modeIndex = (modeIndex % #modes) + 1
 		enterMode(modes[modeIndex])
 	end)
-	
+
 	-- Set up app mode bindings
 	if appModeBinds then
 		appModeBinds(appMode)
 	end
-	
+
 	-- Set up window mode bindings
 	if winModeBinds then
 		winModeBinds(winMode)
 	end
-	
+
 	-- Initialize
 	enterMode("NOR")
 end
@@ -57,3 +57,4 @@ function M.getModeObjects()
 end
 
 return M
+

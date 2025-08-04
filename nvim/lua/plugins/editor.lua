@@ -36,7 +36,6 @@ return {
 					["<C-k>"] = false,
 					["<C-j>"] = false,
 				},
-				watch_for_changes = true,
 			}
 			vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Open file explorer" })
 		end,

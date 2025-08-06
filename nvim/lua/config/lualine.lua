@@ -23,28 +23,28 @@ require("lualine").setup {
 	},
 	sections = {
 		lualine_a = {
-			{ "mode", icon = "", right_padding = 2 },
+			{ "mode", icon = "", right_padding = 2 },
 		},
 		lualine_b = {
-			{ "branch", icon = "" },
+			{ "branch", icon = "" },
 			{
 				"diff",
 				colored = true,
-				symbols = { added = " ", modified = " ", removed = " " },
+				symbols = { added = " ", modified = " ", removed = " " },
 			},
 		},
 		lualine_c = {
 			{
 				"filename",
-				icon = "",
+				icon = "",
 				file_status = true,
 				newfile_status = true,
 				path = 1,
 				symbols = {
 					modified = "●",
-					readonly = "",
+					readonly = "",
 					unnamed = "[No Name]",
-					newfile = "",
+					newfile = "",
 				},
 			},
 			{
@@ -62,19 +62,13 @@ require("lualine").setup {
 				"diagnostics",
 				sources = { "nvim_lsp" },
 				symbols = {
-					error = " ",
-					warn = " ",
-					info = " ",
-					hint = " ",
+					error = " ",
+					warn = " ",
+					info = " ",
+					hint = " ",
 				},
 				colored = true,
 				update_in_insert = false,
-			},
-			{
-				"filetype",
-				icon_only = true,
-				separator = "",
-				padding = { left = 1, right = 1 },
 			},
 		},
 		lualine_y = {
@@ -82,7 +76,12 @@ require("lualine").setup {
 			{ "progress" },
 		},
 		lualine_z = {
-			{ "location" },
+			{
+				"filetype",
+				icon_only = true,
+				separator = "",
+				padding = { left = 1, right = 1 },
+			},
 		},
 	},
 	inactive_sections = {

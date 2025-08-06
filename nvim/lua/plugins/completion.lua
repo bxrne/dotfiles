@@ -53,8 +53,21 @@ return {
 	-- Better AI chat (replacing CopilotChat for performance)
 	{
 		"yetone/avante.nvim",
-		event = "VeryLazy",
-		lazy = false,
+		lazy = true,
+		cmd = {
+			"AvanteAsk",
+			"AvanteRefresh", 
+			"AvanteEdit",
+			"AvanteChat",
+			"AvanteBuild",
+			"AvanteConflictNextConflict",
+			"AvanteConflictPrevConflict",
+			"AvanteConflictChooseOurs",
+			"AvanteConflictChooseTheirs",
+			"AvanteConflictChooseBoth",
+			"AvanteConflictChooseNone",
+			"AvanteConflictChooseCursor",
+		},
 		version = false,
 		opts = function()
 			return require "config.avante"

@@ -79,6 +79,15 @@ return {
 		opts = {},
 	},
 
+	-- Symbols outline
+	{
+		"simrat39/symbols-outline.nvim",
+		config = function()
+			require("symbols-outline").setup(require "config.symbols-outline")
+			vim.keymap.set("n", "<leader>so", "<cmd>SymbolsOutline<cr>", { desc = "Toggle symbols outline" })
+		end,
+	},
+
 	-- Pomodoro timer
 	{
 		"bxrne/pomo.nvim",

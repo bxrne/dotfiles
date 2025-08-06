@@ -23,20 +23,7 @@ return {
 			win_options = { signcolumn = "yes" },
 		},
 		config = function()
-			require("oil").setup {
-				default_file_explorer = true,
-				skip_confirm_for_simple_edits = true,
-				columns = { "permissions", "size", "icons", "mtime" },
-				view_options = {
-					show_hidden = true,
-				},
-				keymaps = {
-					["<C-h>"] = false,
-					["<C-l>"] = false,
-					["<C-k>"] = false,
-					["<C-j>"] = false,
-				},
-			}
+			require("oil").setup(require "config.oil")
 			vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Open file explorer" })
 		end,
 	},
@@ -46,21 +33,7 @@ return {
 		"akinsho/toggleterm.nvim",
 		version = "*",
 		config = function()
-			require("toggleterm").setup {
-				size = 20,
-				open_mapping = [[<c-\>]],
-				hide_numbers = true,
-				shade_terminals = true,
-				start_in_insert = true,
-				insert_mappings = true,
-				persist_size = true,
-				direction = "float",
-				close_on_exit = true,
-				shell = vim.o.shell,
-				float_opts = {
-					border = "curved",
-				},
-			}
+			require("toggleterm").setup(require "config.toggleterm")
 
 			-- Terminal keymaps
 			vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
@@ -74,31 +47,7 @@ return {
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			local harpoon = require "harpoon"
-			harpoon:setup()
-
-			vim.keymap.set("n", "<leader>a", function()
-				harpoon:list():add()
-			end, { desc = "Add to harpoon" })
-			vim.keymap.set("n", "<leader>h", function()
-				harpoon.ui:toggle_quick_menu(harpoon:list())
-			end, { desc = "Harpoon menu" })
-
-			-- Quick file access
-			for i = 1, 4 do
-				vim.keymap.set("n", "<leader>" .. i, function()
-					harpoon:list():select(i)
-				end, { desc = "Harpoon file " .. i })
-			end
-
-			vim.keymap.set("n", "<leader>hp", function()
-				harpoon:list():prev()
-			end, { desc = "Previous harpoon" })
-			vim.keymap.set("n", "<leader>hn", function()
-				harpoon:list():next()
-			end, { desc = "Next harpoon" })
-		end,
+		config = require "config.harpoon",
 	},
 
 	-- Telescope for fuzzy finding
@@ -179,29 +128,7 @@ return {
 		build = ":TSUpdate",
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
-			require("nvim-treesitter.configs").setup {
-				ensure_installed = {
-					"bash",
-					"c",
-					"diff",
-					"html",
-					"lua",
-					"luadoc",
-					"markdown",
-					"vim",
-					"vimdoc",
-					"go",
-					"typescript",
-					"yaml",
-					"cpp",
-					"json",
-					"python",
-				},
-				auto_install = true,
-				highlight = {
-					enable = true,
-				},
-			}
+			require("nvim-treesitter.configs").setup(require "config.treesitter")
 		end,
 	},
 
@@ -219,17 +146,8 @@ return {
 				desc = "Format buffer",
 			},
 		},
-		opts = {
-			notify_on_error = true,
-			format_on_save = true,
-			formatters_by_ft = {
-				lua = { "stylua" },
-				python = { "black" },
-				javascript = { "prettier" },
-				typescript = { "prettier" },
-				go = { "gofmt" },
-				groovy = { "groovyformatter" },
-			},
-		},
+		opts = function()
+			return require "config.conform"
+		end,
 	},
 }

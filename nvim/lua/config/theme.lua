@@ -1,8 +1,8 @@
 -- Theme configuration
-require("rose-pine").setup({
+require("rose-pine").setup {
 	variant = "auto", -- auto, main, moon, or dawn
 	dark_variant = "main", -- main, moon, or dawn
-	dim_inactive_windows = false,
+	dim_inactive_windows = true,
 	extend_background_behind_borders = true,
 
 	enable = {
@@ -14,7 +14,7 @@ require("rose-pine").setup({
 	styles = {
 		bold = true,
 		italic = true,
-		transparency = false,
+		transparency = true,
 	},
 
 	groups = {
@@ -49,21 +49,21 @@ require("rose-pine").setup({
 	},
 
 	highlight_groups = {
-		-- Comment = { fg = "foam" },
-		-- VertSplit = { fg = "muted", bg = "muted" },
+		Comment = { fg = "foam" },
+		VertSplit = { fg = "muted", bg = "muted" },
 	},
 
 	before_highlight = function(group, highlight, palette)
 		-- Disable all undercurls
-		-- if highlight.undercurl then
-		--     highlight.undercurl = false
-		-- end
+		if highlight.undercurl then
+			highlight.undercurl = false
+		end
 		--
 		-- Change palette colour
-		-- if highlight.fg == palette.pine then
-		--     highlight.fg = palette.foam
-		-- end
+		if highlight.fg == palette.pine then
+			highlight.fg = palette.foam
+		end
 	end,
-})
+}
 
-vim.cmd("colorscheme rose-pine")
+vim.cmd "colorscheme rose-pine"

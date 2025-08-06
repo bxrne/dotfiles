@@ -9,6 +9,19 @@ return {
 		end,
 	},
 
+	-- cmds in center
+	-- lazy.nvim
+	{
+		"folke/noice.nvim",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+		config = function()
+			require("noice").setup(require "config.noice")
+		end,
+	},
+
 	-- Theme
 	{
 		"rose-pine/neovim",
@@ -23,37 +36,7 @@ return {
 	{
 		"xiyaowong/transparent.nvim",
 		config = function()
-			require("transparent").setup {
-				groups = { -- Default groups to clear
-					"Normal",
-					"NormalNC",
-					"Comment",
-					"Constant",
-					"Special",
-					"Identifier",
-					"Statement",
-					"PreProc",
-					"Type",
-					"Underlined",
-					"Todo",
-					"String",
-					"Function",
-					"Conditional",
-					"Repeat",
-					"Operator",
-					"Structure",
-					"LineNr",
-					"NonText",
-					"SignColumn",
-					"CursorLine",
-					"CursorLineNr",
-					"StatusLine",
-					"StatusLineNC",
-					"EndOfBuffer",
-				},
-				extra_groups = {}, -- Add more groups if needed
-				exclude_groups = {}, -- Groups to keep opaque
-			}
+			require("transparent").setup(require "config.transparent")
 			vim.cmd "TransparentEnable"
 		end,
 	},
@@ -64,37 +47,7 @@ return {
 		version = "*",
 		dependencies = "echasnovski/mini.icons",
 		config = function()
-			require("bufferline").setup {
-				options = {
-					mode = "buffers",
-					numbers = "none",
-					close_command = "bdelete! %d",
-					right_mouse_command = "bdelete! %d",
-					left_mouse_command = "buffer %d",
-					middle_mouse_command = nil,
-					indicator = {
-						icon = "▎",
-						style = "icon",
-					},
-					buffer_close_icon = "󰅖",
-					modified_icon = "●",
-					close_icon = "",
-					left_trunc_marker = "",
-					right_trunc_marker = "",
-					max_name_length = 30,
-					max_prefix_length = 30,
-					tab_size = 21,
-					diagnostics = "nvim_lsp",
-					show_buffer_icons = true,
-					show_buffer_close_icons = true,
-					show_close_icon = true,
-					show_tab_indicators = true,
-					persist_buffer_sort = true,
-					separator_style = "slant",
-					enforce_regular_tabs = false,
-					always_show_bufferline = true,
-				},
-			}
+			require("bufferline").setup(require "config.bufferline")
 		end,
 	},
 

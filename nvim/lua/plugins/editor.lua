@@ -11,6 +11,22 @@ return {
 		opts = {},
 	},
 
+	{
+		"stevearc/oil.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" }, -- optional
+		config = function()
+			require("oil").setup {
+				default_file_explorer = true,
+				view_options = {
+					show_hidden = true,
+				},
+			}
+
+			-- Toggle oil with <leader>o
+			vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Open parent directory in Oil" })
+		end,
+	},
+
 	-- File explorer and fuzzy finder
 	{
 		"ibhagwan/fzf-lua",
@@ -50,10 +66,7 @@ return {
 				},
 			}
 
-			-- File explorer and fuzzy finding keymaps
-			vim.keymap.set("n", "<leader>e", function()
-				require("fzf-lua").files()
-			end, { desc = "Open file explorer" })
+			-- Fuzzy finding keymaps
 
 			vim.keymap.set("n", "<leader>ff", function()
 				require("fzf-lua").files()

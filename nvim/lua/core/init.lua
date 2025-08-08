@@ -33,3 +33,6 @@ vim.opt.expandtab = true
 
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 3
+
+-- Suppress deprecation warnings from plugins
+vim.deprecate = function() end

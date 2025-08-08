@@ -92,5 +92,5 @@ require("lualine").setup {
 		lualine_y = {},
 		lualine_z = {},
 	},
-	extensions = { "oil", "toggleterm", "lazy", "nvim-tree", "man", "quickfix" },
+	extensions = { "toggleterm", "lazy", "nvim-tree", "man", "quickfix" },
 }

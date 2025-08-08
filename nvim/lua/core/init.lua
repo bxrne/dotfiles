@@ -9,7 +9,7 @@ vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = "a"
-vim.opt.showmode = true
+vim.opt.showmode = false
 vim.opt.clipboard = "unnamedplus"
 vim.opt.fileformat = "unix"
 vim.opt.breakindent = false
@@ -24,10 +24,12 @@ vim.opt.splitbelow = true
 vim.opt.list = false
 vim.opt.inccommand = "split"
 vim.opt.cursorline = true
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 0
 vim.opt.hlsearch = true
-vim.opt.cmdheight = 0
 
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
+
+vim.opt.cmdheight = 1
+vim.opt.laststatus = 3

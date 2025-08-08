@@ -14,3 +14,12 @@ vim.api.nvim_create_autocmd("TermOpen", {
 		vim.opt_local.relativenumber = false
 	end,
 })
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		vim.defer_fn(function()
+			vim.opt.cmdheight = 0
+		end, 100)
+	end,
+})
+

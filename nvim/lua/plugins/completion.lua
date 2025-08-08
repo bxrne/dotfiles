@@ -17,8 +17,8 @@ return {
 		},
 		config = function()
 			local cmp = require "cmp"
-			
-			cmp.setup(require("config.completion")())
+
+			cmp.setup(require "config.completion"())
 
 			-- Use buffer source for `/` and `?`
 			cmp.setup.cmdline({ "/", "?" }, {
@@ -40,7 +40,7 @@ return {
 		end,
 	},
 
-	-- GitHub Copilot (faster than CopilotChat)
+	-- GitHub Copilot
 	{
 		"github/copilot.vim",
 		event = "InsertEnter",
@@ -56,7 +56,7 @@ return {
 		lazy = true,
 		cmd = {
 			"AvanteAsk",
-			"AvanteRefresh", 
+			"AvanteRefresh",
 			"AvanteEdit",
 			"AvanteChat",
 			"AvanteBuild",
@@ -82,12 +82,6 @@ return {
 		},
 		config = function(_, opts)
 			require("avante").setup(opts)
-
-			-- AI Chat keymaps
-			vim.keymap.set("n", "<leader>aa", "<cmd>AvanteAsk<cr>", { desc = "Avante ask" })
-			vim.keymap.set("v", "<leader>aa", "<cmd>AvanteAsk<cr>", { desc = "Avante ask" })
-			vim.keymap.set("n", "<leader>ar", "<cmd>AvanteRefresh<cr>", { desc = "Avante refresh" })
-			vim.keymap.set("n", "<leader>ae", "<cmd>AvanteEdit<cr>", { desc = "Avante edit" })
 		end,
 	},
 

@@ -19,3 +19,4 @@ function M.bindKeys(appMode)
 end
 
 return M
+

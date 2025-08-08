@@ -1,5 +1,5 @@
 shell-integration = "zsh"
-macos-titlebar-style = "hidden"
+macos-titlebar-style = "native"
 theme = "rose-pine"
 font-family = "Monaspace Neon"
 font-size = 19.5

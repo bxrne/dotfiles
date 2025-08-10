@@ -10,7 +10,13 @@ return {
 		version = "1.*",
 		opts = {},
 	},
-
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {},
+	},
 	{
 		"stevearc/oil.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" }, -- optional
@@ -24,6 +30,14 @@ return {
 
 			-- Toggle oil with <leader>o
 			vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Open parent directory in Oil" })
+		end,
+	},
+
+	{
+		"echasnovski/mini.pairs",
+		event = "InsertEnter",
+		config = function()
+			require("mini.pairs").setup()
 		end,
 	},
 

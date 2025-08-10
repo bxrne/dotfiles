@@ -2,17 +2,15 @@ local M = {}
 
 local modeMenu = hs.menubar.new()
 local currentMode = "NOR"
-local modes = { "NOR", "APP", "WIN" }
+local modes = { "NOR", "HMR" }
 local modeIndex = 1
 
 local normalMode = hs.hotkey.modal.new()
-local appMode = hs.hotkey.modal.new()
-local winMode = hs.hotkey.modal.new()
+local hmrMode = hs.hotkey.modal.new()
 
 local modeObjects = {
 	NOR = normalMode,
-	APP = appMode,
-	WIN = winMode,
+	HMR = hmrMode,
 }
 
 local function updateModeMenu()
@@ -28,7 +26,6 @@ local function enterMode(modeName)
 	if modeObjects[modeName] then
 		modeObjects[modeName]:enter()
 	end
-	hs.alert.show(modeName)
 end
 
 function M.setup(appModeBinds, winModeBinds)
@@ -40,12 +37,12 @@ function M.setup(appModeBinds, winModeBinds)
 
 	-- Set up app mode bindings
 	if appModeBinds then
-		appModeBinds(appMode)
+		appModeBinds(hmrMode)
 	end
 
 	-- Set up window mode bindings
 	if winModeBinds then
-		winModeBinds(winMode)
+		winModeBinds(hmrMode)
 	end
 
 	-- Initialize
@@ -57,4 +54,3 @@ function M.getModeObjects()
 end
 
 return M
-

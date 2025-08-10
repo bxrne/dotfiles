@@ -21,21 +21,21 @@ end
 function M.bindKeys(winMode)
 	-- Snap bindings
 	for key, frame in pairs(snaps) do
-		winMode:bind({}, key, function()
+		winMode:bind({ "ctrl" }, key, function()
 			snap(table.unpack(frame))
 		end)
 	end
-	
+
 	-- Maximize
-	winMode:bind({}, "m", function()
+	winMode:bind({ "ctrl" }, "m", function()
 		local win = hs.window.focusedWindow()
 		if win then
 			win:maximize()
 		end
 	end)
-	
+
 	-- Center window
-	winMode:bind({}, "c", function()
+	winMode:bind({ "ctrl" }, "c", function()
 		local win = hs.window.focusedWindow()
 		if not win then
 			return
@@ -52,3 +52,4 @@ function M.bindKeys(winMode)
 end
 
 return M
+

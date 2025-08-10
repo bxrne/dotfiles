@@ -1,8 +1,8 @@
-local Clipboard = {}
+local M = {}
 local history = {}
 local historySize = 20
 
--- Save clipboard change
+-- Save M change
 local function storeClipboard()
 	local content = hs.pasteboard.getContents()
 	if content and content ~= history[1] then
@@ -28,12 +28,12 @@ local function showChooser()
 		:show()
 end
 
-function Clipboard.setup()
-	-- Watch clipboard for changes
+function M.setup()
+	-- Watch for changes
 	hs.pasteboard.watcher.new(storeClipboard):start()
 
-	-- Hotkey to show clipboard history
+	-- Hotkey to show history
 	hs.hotkey.bind({ "cmd" }, "e", showChooser)
 end
 
-return Clipboard
+return M

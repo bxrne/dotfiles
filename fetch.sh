@@ -1,7 +1,7 @@
 #!/bin/bash
 
 fetch() {
-  local COLOR="\033[0;34m"
+  local COLOR="\033[38;2;167;192;128m" # Everforest Green
   local RESET="\033[0m"
   local OS=$(uname -s)
 
@@ -47,7 +47,7 @@ fetch() {
   fi
 
   # Info lines with some color variations for jazz
-  local LABEL_COLOR="\033[0;35m"  # Magenta for labels
+  local LABEL_COLOR="\033[38;2;142;190;151m" # Everforest Aqua
   local lines=(
     "${LABEL_COLOR}shell:${RESET}        ${COLOR}${shell_info}${RESET}"
     "${LABEL_COLOR}host:${RESET}         ${COLOR}${host_info}${RESET}"

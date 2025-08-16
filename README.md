@@ -10,6 +10,7 @@ My collective configuration for tools.
 - **ghostty**: Terminal emulator config 
 - **hammerspoon**: custom macOS keybinding (open app and manage window)
 - **fetch.sh**: custom terminal sysinfo prompt
+- **starship**: Cross-shell prompt
 
 ## Setting Up on Unix/Linux
 
@@ -28,6 +29,7 @@ To use these configurations, you can create symbolic links from the configuratio
    ln -s ~/dotfiles/zellij ~/.config/zellij
    ln -s ~/dotfiles/hammerspoon ~/.hammerspoon
    ln -s ~/dotfiles/zellij/ghostty $HOME/Library/Application\ Support/com.mitchellh.ghostty/config # Use XDG home on non-macOS systems
+   ln -s ~/dotfiles/starship.toml ~/.config/starship.toml
    ```
 
 3. Restart your terminal or reload the configurations for the changes to take effect.

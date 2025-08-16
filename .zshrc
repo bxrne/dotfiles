@@ -45,6 +45,7 @@ source "$ZSHRC_DIR/fetch.sh"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 # opencode
 export PATH=/Users/adambyrne/.opencode/bin:$PATH

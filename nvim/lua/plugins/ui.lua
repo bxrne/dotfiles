@@ -29,8 +29,8 @@ return {
 
 	-- Theme
 	{
-		"rose-pine/neovim",
-		name = "rose-pine",
+		"sainnhe/everforest",
+		name = "everforest",
 		priority = 1000,
 		config = function()
 			require "config.theme"

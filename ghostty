@@ -1,6 +1,6 @@
 shell-integration = "zsh"
 macos-titlebar-style = "native"
-theme = "rose-pine"
+theme = "Everforest Dark - Hard"
 font-family = "Monaspace Neon"
 font-size = 19.5
 mouse-hide-while-typing = true

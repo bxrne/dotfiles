@@ -198,53 +198,25 @@ plugins {
     }
 }
 
-// Rose Pine theme inspired by Neovim config
+// Everforest theme
 themes {
-    rose-pine {
-        fg "#e0def4"        // text
-        bg "#191724"        // base
-        black "#26233a"     // surface
-        red "#eb6f92"       // love
-        green "#9ccfd8"     // foam
-        yellow "#f6c177"    // gold
-        blue "#3e8fb0"      // pine
-        magenta "#c4a7e7"   // iris
-        cyan "#9ccfd8"      // foam
-        white "#e0def4"     // text
-        orange "#f6c177"    // gold
-    }
-    
-    rose-pine-moon {
-        fg "#e0def4"        // text
-        bg "#232136"        // base (moon variant)
-        black "#393552"     // surface
-        red "#eb6f92"       // love
-        green "#9ccfd8"     // foam
-        yellow "#f6c177"    // gold
-        blue "#3e8fb0"      // pine
-        magenta "#c4a7e7"   // iris
-        cyan "#9ccfd8"      // foam
-        white "#e0def4"     // text
-        orange "#f6c177"    // gold
-    }
-    
-    rose-pine-dawn {
-        fg "#575279"        // text (dawn variant)
-        bg "#faf4ed"        // base
-        black "#f2e9e1"     // surface
-        red "#b4637a"       // love
-        green "#56949f"     // foam
-        yellow "#ea9d34"    // gold
-        blue "#286983"      // pine
-        magenta "#907aa9"   // iris
-        cyan "#56949f"      // foam
-        white "#575279"     // text
-        orange "#ea9d34"    // gold
+    everforest {
+        fg "#d3c6aa"        // fg
+        bg "#2d353b"        // bg0
+        black "#475258"     // bg2
+        red "#e67e80"       // red
+        green "#a7c080"     // green
+        yellow "#dbbc7f"    // yellow
+        blue "#7fbbb3"      // blue
+        magenta "#d699b6"   // purple
+        cyan "#83c092"      // aqua
+        white "#d3c6aa"     // fg
+        orange "#e69875"    // orange
     }
 }
 
 // Configuration options
-theme "rose-pine"
+theme "everforest"
 default_layout "compact"
 simplified_ui true
 pane_frames true

@@ -1,50 +1,46 @@
-"$schema" = 'https://starship.rs/config-schema.json'
-
-format = """$directory$git_branch$git_status$fill$time"""
-add_newline = false
-palette = 'everforest_dark'
-
-[palettes.everforest_dark]
-foreground = '#d3c6aa'
-background = '#2e383c'
-red = '#e67e80'
-orange = '#e69875'
-yellow = '#dbbc7f'
-green = '#a7c080'
-aqua = '#83c092'
-blue = '#7fbbb3'
-purple = '#d699b6'
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$cmd_duration\
+$line_break\
+$python\
+$character"""
 
 [directory]
-style = "yellow"
-truncation_length = 4
-truncate_to_repo = false
-format = "[$path]($style) "
-
-[git_branch]
-symbol = ""
-style = "green"
-format = "on [$symbol$branch]($style) "
-
-[git_status]
-style = "aqua"
-format = "([$all_status$ahead_behind]($style)) "
-
-[time]
-disabled = false
-time_format = "%T"
 style = "blue"
-format = "at [$time]($style) "
 
 [character]
-success_symbol = "[⚡](bold green)"
-error_symbol = "[⚡](bold red)"
-vimcmd_symbol = "[❮](bold green)"
-vimcmd_replace_one_symbol = "[❮](bold purple)"
-vimcmd_replace_symbol = "[❮](bold purple)"
-vimcmd_visual_symbol = "[❮](bold yellow)"
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
 
-# A "fill" is a flexible space that will grow to fit the available space.
-# It is useful for right-aligning elements in a prompt.
-[fill]
-symbol = " "
+[git_branch]
+format = "[$branch]($style)"
+style = "bright-black"
+
+[git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+style = "cyan"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "yellow"
+
+[python]
+format = "[$virtualenv]($style) "
+style = "bright-black"

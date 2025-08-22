@@ -4,8 +4,8 @@ return {
 		view = "cmdline_popup", -- floating centered command-line
 		format = {
 			cmdline = { icon = "" },
-			search_down = { icon = "🔍 " },
-			search_up = { icon = "🔍 " },
+			search_down = { icon = "" },
+			search_up = { icon = "" },
 		},
 	},
 	views = {

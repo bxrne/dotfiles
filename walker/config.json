@@ -1,0 +1,11 @@
+{
+  "theme": "everforest-dark",
+  "colors": {
+    "background": "#2b3339",
+    "foreground": "#d3c6aa",
+    "accent": "#a7c080",
+    "selection": "#4a555b"
+  },
+  "font": "Cascadia Code NF",
+  "opacity": 0.9
+}

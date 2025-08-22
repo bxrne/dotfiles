@@ -1,59 +1,53 @@
-# dotfiles
+# Arch Linux Dotfiles
 
-My collective configuration for tools.
+My dotfiles configuration for Arch Linux setup, including window manager, terminal, editor, and more.
 
 ## Tools Configured
 
-- **nvim**: Neovim configuration
-- **zsh**: Z shell configuration
-- **zellij**: Terminal workspace manager configuration
-- **ghostty**: Terminal emulator config 
-- **hammerspoon**: custom macOS keybinding (open app and manage window)
-- **fetch.sh**: custom terminal sysinfo prompt
-- **starship**: Cross-shell prompt
+- **hypr**: Hyprland window manager configuration (compositor for wayland)
+- **kitty**: Kitty terminal emulator configuration
+- **ranger**: Ranger file manager configuration
+- **nvim**: Neovim editor configuration
+- **waybar**: Waybar status bar configuration
+- **walker**: Walker application launcher configuration
+- **starship**: Cross-shell prompt configuration
+- **bash**: Simple shell
 
-## Setting Up on Unix/Linux
+## Setting Up on Arch Linux
 
-To use these configurations, you can create symbolic links from the configuration files in this repository to your `~/.config` directory. Here's how you can do it:
+1. Install required packages via pacman:
+   ```bash
+   sudo pacman -S hyprland kitty ranger neovim waybar starship
+   ```
 
-1. Clone this repository to your home directory or any preferred location:
+2. Clone this repository:
    ```bash
    git clone https://github.com/bxrne/dotfiles.git ~/dotfiles
    ```
 
-2. Create symbolic links for each tool:
-
+3. Create symbolic links to `~/.config`:
    ```bash
+   ln -s ~/dotfiles/hypr ~/.config/hypr
+   ln -s ~/dotfiles/kitty ~/.config/kitty
+   ln -s ~/dotfiles/ranger ~/.config/ranger
    ln -s ~/dotfiles/nvim ~/.config/nvim
-   ln -s ~/dotfiles/.zshrc ~/.zshrc
-   ln -s ~/dotfiles/zellij ~/.config/zellij
-   ln -s ~/dotfiles/hammerspoon ~/.hammerspoon
-   ln -s ~/dotfiles/zellij/ghostty $HOME/Library/Application\ Support/com.mitchellh.ghostty/config # Use XDG home on non-macOS systems
+   ln -s ~/dotfiles/waybar ~/.config/waybar
+   ln -s ~/dotfiles/walker ~/.config/walker
    ln -s ~/dotfiles/starship.toml ~/.config/starship.toml
+   ln -s ~/dotfiles/.bashrc ~/.bashrc
    ```
 
-3. Restart your terminal or reload the configurations for the changes to take effect.
+4. Restart your session or reload configurations.
+
+## macOS Note
+
+For macOS users, switch to the 'macos' branch for zellij and hammerspoon configs. Use Homebrew for setup.
 
 ## Setting Up on Windows
 
-For Windows, you can use symbolic links as well, but the process is slightly different. Here's how you can do it:
-
-1. Clone this repository to your preferred location, e.g., `C:\Users\YourUsername\dotfiles`.
-
-2. Open a Command Prompt or PowerShell with Administrator privileges.
-
-3. Create symbolic links for each tool:
-   ```powershell
-   mklink /D %USERPROFILE%\.config\nvim C:\Users\YourUsername\dotfiles\nvim
-   mklink /D %USERPROFILE%\.zshrc C:\Users\YourUsername\dotfiles\.zshrc
-   mklink /D %USERPROFILE%\.config\zellij C:\Users\YourUsername\dotfiles\zellij
-   ```
-
-4. Restart your terminal or reload the configurations for the changes to take effect.
-
-## Notes
-
-- Ensure that the `~/.config` directory exists on Unix/Linux or `%USERPROFILE%\.config` exists on Windows before creating the symbolic links.
-- If you encounter any issues, double-check the paths and permissions.
-
+For Windows, clone the repo and create symbolic links using PowerShell with admin privileges:
+```powershell
+mklink /D %USERPROFILE%\.config\nvim C:\Users\YourUsername\dotfiles\nvim
+# Add similar for other tools as needed
+```
 

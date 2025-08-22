@@ -1,0 +1,44 @@
+* {
+	font-family: "Cascadia Code NF", "Cascadia Mono NF", monospace;
+	font-size: 12px;
+	color: #d3c6aa;
+}
+
+#waybar {
+	background: transparent;
+	border-radius: 12px;
+	padding: 4px 10px;
+	margin-left: 100px;
+}
+
+#workspaces button {
+	padding: 4px 6px;
+	margin: 2px;
+	border-radius: 6px;
+	background: transparent;
+	color: #859289;
+	transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+	background: rgba(71, 82, 88, 0.5);
+	color: #d3c6aa;
+}
+
+#workspaces button.focused {
+	padding: 6px 8px;
+	margin: 2px;
+	border-radius: 8px;
+	border: 2px solid #83c092;
+	background: #475258;
+	color: #83c092;
+	font-weight: bold;
+	font-size: 13px;
+	box-shadow: 0 0 8px rgba(131, 192, 146, 0.3);
+}
+
+#clock, #pulseaudio, #network, #battery {
+	padding: 4px 10px;
+	margin: 0px 4px;
+	background: transparent;
+}

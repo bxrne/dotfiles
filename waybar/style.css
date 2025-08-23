@@ -1,44 +1,79 @@
+/* Everforest Dark Theme for Waybar */
 * {
-	font-family: "Cascadia Code NF", "Cascadia Mono NF", monospace;
-	font-size: 12px;
+	font-family: "CaskaydiaCove Nerd Font", monospace;
+	font-size: 14px;
 	color: #d3c6aa;
 }
 
 #waybar {
-	background: transparent;
-	border-radius: 12px;
-	padding: 4px 10px;
-	margin-left: 100px;
+	background: rgba(43, 51, 57, 0.8);
+	padding: 2px 8px;
+}
+
+#workspaces {
+	border-radius: 6px;
+	padding: 1px;
+	margin: 0 4px;
 }
 
 #workspaces button {
-	padding: 4px 6px;
-	margin: 2px;
+	padding: 2px 6px;
+	margin: 1px;
 	border-radius: 6px;
 	background: transparent;
 	color: #859289;
-	transition: all 0.2s ease;
+	font-weight: normal;
 }
 
 #workspaces button:hover {
-	background: rgba(71, 82, 88, 0.5);
+	background: rgba(71, 82, 88, 0.6);
 	color: #d3c6aa;
 }
 
-#workspaces button.focused {
-	padding: 6px 8px;
+#workspaces button.active {
+	padding: 3px 5px;
 	margin: 2px;
-	border-radius: 8px;
+	border-radius: 6px;
 	border: 2px solid #83c092;
 	background: #475258;
 	color: #83c092;
 	font-weight: bold;
-	font-size: 13px;
-	box-shadow: 0 0 8px rgba(131, 192, 146, 0.3);
+	font-size: 15px;
+}
+
+#workspaces button.urgent {
+	color: #15191e;
+	border: 2px solid #e67e80;
 }
 
 #clock, #pulseaudio, #network, #battery {
-	padding: 4px 10px;
-	margin: 0px 4px;
-	background: transparent;
+	padding: 2px 8px;
+	margin: 0 2px;
+	border-radius:6px;
+	border: 1px solid rgba(71, 82, 88, 0.3);
+}
+
+#clock {
+	color: #d3c6aa;
+	font-weight: bold;
+}
+
+#pulseaudio {
+	color: #7fbbb3;
+}
+
+#network {
+	color: #83c092;
+}
+
+#battery {
+	color: #a7c080;
+}
+
+#battery.charging {
+	color: #dbbc7f;
+}
+
+#battery.critical {
+	color: #e67e80;
 }

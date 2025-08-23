@@ -13,6 +13,7 @@ require("lazy").setup({
 	{ import = "plugins.git" },
 	{ import = "plugins.lsp" },
 	{ import = "plugins.completion" },
+	{import = "plugins.debug" },
 }, {
 	change_detection = {
 		notify = false,

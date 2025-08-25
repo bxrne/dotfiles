@@ -1,79 +1,108 @@
-/* Everforest Dark Theme for Waybar */
+/* Nord Dark Theme - Minimal */
 * {
-	font-family: "CaskaydiaCove Nerd Font", monospace;
-	font-size: 14px;
-	color: #d3c6aa;
+    font-family: "CaskaydiaCove Nerd Font", monospace;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
 }
 
-#waybar {
-	background: rgba(43, 51, 57, 0.8);
-	padding: 2px 8px;
-}
-
-#workspaces {
-	border-radius: 6px;
-	padding: 1px;
-	margin: 0 4px;
+window#waybar {
+    background-color: #2e3440;
+    color: #d8dee9;
 }
 
 #workspaces button {
-	padding: 2px 6px;
-	margin: 1px;
-	border-radius: 6px;
-	background: transparent;
-	color: #859289;
-	font-weight: normal;
+    background-color: transparent;
+    color: #81a1c1;
+    padding: 0 8px;
+    margin: 0 2px;
+    border: none;
+    border-radius: 0;
 }
 
 #workspaces button:hover {
-	background: rgba(71, 82, 88, 0.6);
-	color: #d3c6aa;
+    color: #88c0d0;
 }
 
 #workspaces button.active {
-	padding: 3px 5px;
-	margin: 2px;
-	border-radius: 6px;
-	border: 2px solid #83c092;
-	background: #475258;
-	color: #83c092;
-	font-weight: bold;
-	font-size: 15px;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 0;
+    font-weight: bold;
+}
+
+#workspaces button.empty {
+    color: #4c566a;
 }
 
 #workspaces button.urgent {
-	color: #15191e;
-	border: 2px solid #e67e80;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 0;
 }
 
-#clock, #pulseaudio, #network, #battery {
-	padding: 2px 8px;
-	margin: 0 2px;
-	border-radius:6px;
-	border: 1px solid rgba(71, 82, 88, 0.3);
+#window {
+    background-color: #2e3440;
+    color: #d8dee9;
+    padding: 0 10px;
 }
 
 #clock {
-	color: #d3c6aa;
-	font-weight: bold;
+    background-color: #2e3440;
+    color: #d8dee9;
+    padding: 0 10px;
 }
 
 #pulseaudio {
-	color: #7fbbb3;
+    background-color: #2e3440;
+    color: #a3be8c;
+    padding: 0 10px;
 }
 
 #network {
-	color: #83c092;
+    background-color: #2e3440;
+    color: #88c0d0;
+    padding: 0 10px;
+}
+
+#bluetooth {
+    background-color: #2e3440;
+    color: #81a1c1;
+    padding: 0 10px;
+}
+
+#cpu {
+    background-color: #2e3440;
+    color: #ebcb8b;
+    padding: 0 10px;
+}
+
+#memory {
+    background-color: #2e3440;
+    color: #bf616a;
+    padding: 0 10px;
 }
 
 #battery {
-	color: #a7c080;
+    background-color: #2e3440;
+    color: #a3be8c;
+    padding: 0 10px;
 }
 
-#battery.charging {
-	color: #dbbc7f;
+#battery.warning {
+    color: #ebcb8b;
 }
 
 #battery.critical {
-	color: #e67e80;
+    color: #bf616a;
+}
+
+#battery.charging {
+    color: #88c0d0;
+}
+
+#tray {
+    background-color: #2e3440;
+    color: #d8dee9;
+    padding: 0 10px;
 }

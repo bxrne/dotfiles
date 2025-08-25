@@ -1,0 +1,86 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 4,
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["memory", "cpu", "bluetooth", "pulseaudio", "network", "battery", "tray"],
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10"
+        },
+        "on-click": "activate"
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 50
+    },
+
+    "clock": {
+        "format": "{:%a %d %b %H:%M}",
+        "format-alt": "{:%Y-%m-%d}",
+        "locale": "en_GB.utf8"
+    },
+
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-icons": {
+            "default": [""]
+        },
+        "on-click": "kitty -e wiremix"
+    },
+
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%)",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+        "format-disconnected": "Disconnected",
+        "on-click": "kitty -e impala"
+    },
+
+    "bluetooth": {
+        "format": "BT ({num_connections})",
+        "format-connected": "BT ({num_connections})",
+        "format-disabled": "",
+        "on-click": "blueman-manager"
+    },
+
+    "cpu": {
+        "format": "CPU {usage}%",
+        "on-click": "kitty -e btop"
+    },
+
+    "memory": {
+        "format": "RAM {}%",
+        "on-click": "kitty -e btop"
+    },
+
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% {icon} ↑",
+        "format-discharging": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "format-charging-icons": ["", "", "", "", ""],
+        "states": {
+            "warning": 30,
+            "critical": 15
+        }
+    },
+
+    "tray": {
+        "spacing": 10
+    }
+}

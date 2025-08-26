@@ -12,6 +12,7 @@ return {
 				"pyright",
 				"tsserver",
 				"zls",
+				"rust-analyzer",
 				"stylua",
 				"shellcheck",
 				"shfmt",
@@ -24,7 +25,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "mason.nvim" },
 		opts = {
-			ensure_installed = { "gopls", "ts_ls", "lua_ls", "pyright", "zls" },
+			ensure_installed = { "gopls", "ts_ls", "lua_ls", "pyright", "zls", "rust_analyzer" },
 			automatic_installation = true,
 		},
 	},
@@ -33,6 +34,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
+		cmd = { "LspInfo", "LspStart", "LspStop", "LspRestart" },
 		dependencies = {
 			"mason.nvim",
 			"mason-lspconfig.nvim",
@@ -76,7 +78,7 @@ return {
 				vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-				vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+				vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, opts)
 			end
 
 			-- Language server configurations
@@ -122,6 +124,17 @@ return {
 				zls = {
 					capabilities = capabilities,
 					on_attach = on_attach,
+				},
+				rust_analyzer = {
+					capabilities = capabilities,
+					on_attach = on_attach,
+					settings = {
+						["rust-analyzer"] = {
+							checkOnSave = {
+								command = "clippy",
+							},
+						},
+					},
 				},
 			}
 

@@ -34,5 +34,12 @@ vim.opt.expandtab = true
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 3
 
+-- Font configuration with fallback
+vim.opt.guifont = "Cascadia Code:h12, Noto Sans:h12"
+
+-- Encoding settings
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
+
 -- Suppress deprecation warnings from plugins
 vim.deprecate = function() end

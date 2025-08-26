@@ -1,10 +1,9 @@
 -- Theme configuration
-vim.g.everforest_background = 'medium'
-vim.g.everforest_better_performance = 1
-vim.g.everforest_enable_italic = 1
-vim.g.everforest_disable_italic_comment = 0
-vim.g.everforest_transparent_background = 1
-vim.g.everforest_dim_inactive_windows = 0
-vim.g.everforest_sign_column_background = 'none'
+vim.g.nord_contrast = true
+vim.g.nord_borders = false
+vim.g.nord_disable_background = false
+vim.g.nord_italic = true
+vim.g.nord_uniform_diff_background = true
+vim.g.nord_bold = false
 
-vim.cmd "colorscheme everforest"
+vim.cmd "colorscheme nord"

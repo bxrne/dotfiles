@@ -1,0 +1,11 @@
+shell-integration = "bash"
+macos-titlebar-style = "transparent"
+theme = "Everforest Dark - Hard"
+font-family = "IBM Plex Mono"
+font-size = 19.5
+mouse-hide-while-typing = true
+confirm-close-surface = false
+macos-icon-frame = chrome
+macos-icon="microchip"
+background-opacity=0.95
+

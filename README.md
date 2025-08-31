@@ -7,7 +7,7 @@ My dotfiles configuration organized by platform.
 - **[Arch Linux](./archlinux/README.md)** - Hyprland, Kitty, Ranger, Waybar, Walker
 - **[macOS](./macos/README.md)** - Hammerspoon, Zellij, Ghostty
 - **[Common](./common/README.md)** - Neovim, Starship, Bash (shared across platforms)
- Bash (shared
+
 ## General Setup
 
 1. Clone this repository:

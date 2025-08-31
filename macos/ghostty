@@ -1,6 +1,6 @@
 shell-integration = "bash"
 macos-titlebar-style = "transparent"
-theme = "Everforest Dark - Hard"
+theme = "nord"
 font-family = "IBM Plex Mono"
 font-size = 19.5
 mouse-hide-while-typing = true

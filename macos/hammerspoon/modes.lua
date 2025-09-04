@@ -15,6 +15,8 @@ local modeObjects = {
 
 local function updateModeMenu()
 	modeMenu:setTitle(currentMode)
+	-- Show alert notification for mode change
+	hs.alert.show("Mode: " .. currentMode, 2)
 end
 
 local function enterMode(modeName)

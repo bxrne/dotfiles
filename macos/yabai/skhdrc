@@ -1,0 +1,25 @@
+# Focus window (vim-style)
+ctrl - h : yabai -m window --focus west
+ctrl - j : yabai -m window --focus south
+ctrl - k : yabai -m window --focus north
+ctrl - l : yabai -m window --focus east
+
+# Swap windows
+shift + ctrl - h : yabai -m window --swap west
+shift + ctrl - j : yabai -m window --swap south
+shift + ctrl - k : yabai -m window --swap north
+shift + ctrl - l : yabai -m window --swap east
+
+# Launch apps (ctrl + letter)
+ctrl - t : open -a Ghostty
+ctrl - b : open -a "Google Chrome"
+ctrl - f : open -a Finder
+ctrl - o : open -a Obsidian
+ctrl - w : open -a "Microsoft Teams" && open -a "Microsoft Outlook"
+
+# Toggle window properties
+ctrl - f : yabai -m window --toggle float
+ctrl - z : yabai -m window --toggle zoom-fullscreen
+
+# Restart yabai
+shift + ctrl - r : yabai --restart-service

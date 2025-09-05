@@ -15,7 +15,7 @@ end
 
 require("lualine").setup {
 	options = {
-		theme = "everforest",
+		theme = "nord",
 		globalstatus = true,
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },

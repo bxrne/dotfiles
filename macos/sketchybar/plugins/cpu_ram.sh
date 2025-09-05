@@ -16,4 +16,4 @@ else
 fi
 
 # Set the display
-sketchybar --set $NAME label="CPU: ${CPU_USAGE}% | RAM: ${RAM_USAGE}%" icon=""
+sketchybar --set $NAME label="CPU ${CPU_USAGE}% RAM ${RAM_USAGE}%" icon=""

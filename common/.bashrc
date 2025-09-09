@@ -21,3 +21,6 @@ eval "$(zoxide init bash)"
 # export BUN_INSTALL="$HOME/.bun"
 # export PATH="$BUN_INSTALL/bin:$PATH"
 # . "$HOME/.cargo/env"
+
+# opencode
+export PATH=/home/bxrne/.opencode/bin:$PATH

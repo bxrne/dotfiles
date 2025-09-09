@@ -4,8 +4,8 @@
     "background": "#2b3339",
     "foreground": "#d3c6aa",
     "accent": "#a7c080",
-    "selection": "#4a555b"
+    "selection": "#475258"
   },
-  "font": "Cascadia Code NF",
+  "font": "CaskaydiaCove Nerd Font Mono",
   "opacity": 0.9
 }

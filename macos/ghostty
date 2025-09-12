@@ -1,4 +1,4 @@
-shell-integration = "bash"
+shellintegration = "bash"
 macos-titlebar-style = "transparent"
 theme = "nord"
 font-family = "IBM Plex Mono"

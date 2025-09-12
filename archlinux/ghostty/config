@@ -44,6 +44,8 @@
 
 # Set transparent background
 background-opacity = 0.95
-
+theme = "nord"
+mouse-hide-while-typing = true
+confirm-close-surface = false
 # Set font to CaskaydiaCove Mono
 font-family = "CaskaydiaCove Nerd Font Mono"

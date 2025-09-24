@@ -1,0 +1,95 @@
+-- LSP configuration
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+parser_config.ripple = {
+	install_info = {
+		url = "https://github.com/bxrne/tree-sitter-ripple",
+		files = { "src/parser.c" },
+		branch = "main",
+	},
+	filetype = "ripple",
+}
+
+return {
+	-- Mason for LSP management
+	{
+		"williamboman/mason.nvim",
+		cmd = "Mason",
+		keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
+		build = ":MasonUpdate",
+		opts = {
+			ensure_installed = {
+				"gopls",
+				"pyright",
+				"tsserver",
+				"zls",
+				"rust-analyzer",
+				"stylua",
+				"shellcheck",
+				"shfmt",
+				"marksman",
+				"clangd",
+				"omnisharp",
+				"jsonls",
+				"taplo",
+				"yamlls",
+				"htmx-lsp",
+				"prettytypst",
+				"bashls",
+				"cssls",
+				"black",
+				"prettier",
+				"rustfmt",
+				"zig",
+				"clang-format",
+				"csharpier",
+				"gofmt",
+				"debugpy",
+				"js-debug-adapter",
+			},
+		},
+	},
+
+	-- Mason LSP config bridge
+	{
+		"williamboman/mason-lspconfig.nvim",
+		dependencies = { "mason.nvim" },
+		opts = {
+			ensure_installed = {
+				"gopls",
+				"lua_ls",
+				"zls",
+				"rust_analyzer",
+				"clangd",
+				"jsonls",
+				"taplo",
+				"yamlls",
+				"marksman",
+				"bashls",
+				"cssls",
+				"ty",
+				"tsgo",
+			},
+			automatic_installation = true,
+		},
+	},
+	{
+		"bxrne/ripple.nvim",
+		ft = "ripple",
+		config = function()
+			require("ripple").setup()
+		end,
+	},
+	-- Main LSP configuration
+	{
+		"neovim/nvim-lspconfig",
+		event = { "BufReadPre", "BufNewFile" },
+		cmd = { "LspInfo", "LspStart", "LspStop", "LspRestart" },
+		dependencies = {
+			"mason.nvim",
+			"mason-lspconfig.nvim",
+			"hrsh7th/cmp-nvim-lsp",
+			"SmiteshP/nvim-navic",
+		},
+		config = require "config.lsp",
+	},
+}

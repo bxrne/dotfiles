@@ -1,0 +1,81 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 5,
+    "margin-top": 0,
+    "margin-left":0,
+    "margin-right":0,
+    "spacing": 0,
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["backlight","clock","pulseaudio"] ,
+    "modules-right": ["bluetooth", "network", "memory", "cpu", "battery"],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
+            "special":"/"
+        },
+        "on-click": "activate",
+        "all-outputs": true,
+        "show-special": true,
+    },
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 45
+    },
+    "clock": {
+        "format": "{:%H:%M %a %d %b}",
+        "format-alt": "{:%Y-%m-%d}",
+        "locale": "en_GB.utf8"
+    },
+    "pulseaudio": {
+        "format": "VOL {volume}",
+        "format-muted": "VOL ∅",
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "scroll-step": 5
+    },
+    "backlight": {
+      "device": "gmux_backlight", 
+      "format": "DIS {percent}",
+      "on-scroll-up": "brightnessctl -d gmux_backlight s +5%",
+      "on-scroll-down": "brightnessctl -d gmux_backlight s 5%-"
+    },
+    "network": {
+        "format-wifi": "WIFI {signalStrength}",
+        "format-ethernet": "ETH {ipaddr}",
+        "format-disconnected": "ETH ∅",
+        "on-click": "ghostty -e impala"
+    },
+    "bluetooth": {
+        "format": "BT {num_connections}",
+        "format-connected": "BT {num_connections}",
+        "format-disabled": "BT ∅",
+        "on-click": "ghostty -e bluetuith"
+    },
+    "cpu": {
+        "format": "CPU {usage}",
+        "on-click": "ghostty -e btop"
+    },
+    "memory": {
+        "format": "RAM {percentage}",
+        "on-click": "ghostty -e btop"
+    },
+    "battery": {
+  "states": { "warning": 30, "critical": 15 },
+  "format": "PWR {capacity} -{power}",
+  "format-charging": "PWR {capacity} +{power}",
+  "format-plugged": "PWR {capacity} -{power}",
+  "format-full": "PWR FULL",
+  "format-alt": "{time} REM",
+    }
+}

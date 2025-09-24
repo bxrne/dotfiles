@@ -1,0 +1,153 @@
+
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 12px;
+    border-radius: 0px;
+    min-height: 0;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+window#waybar {
+    background:  #000;
+    margin: 0px 0px 0px 0px;
+    color: #BEBEBE;
+    border-radius: 0px;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    margin: 0;
+}
+
+/* -------------------- WORKSPACES -------------------- */
+
+#workspaces {
+    padding: 0px;
+    margin: 0px;
+}
+
+#workspaces button {
+    color: #BEBEBE;
+    background: rgba(18,18,18,0.8);
+    padding: 2px 8px;
+    margin: 4px;
+    border-radius: 0px;
+}
+
+#workspaces button.active {
+    color: #FFC107;
+    background: rgba(51,51,51,0.9);
+    border: 2px solid #FFC107;
+}
+
+#workspaces button.special {
+    color: #E68E0D;
+}
+
+#workspaces button.special.active {
+    color: #8A8A8D;
+}
+
+#workspaces button:hover {
+    color: #EAEAEA;
+    background: rgba(51,51,51,0.95);
+}
+
+#workspaces button.urgent {
+    color: #D35F5F;
+    background: rgba(211,95,95,0.2);
+}
+
+/* -------------------- WINDOW / TRAY / CLOCK -------------------- */
+
+#window,
+#tray,
+#clock {
+    padding: 3px 4px;
+    margin: 0px;
+}
+
+#window {
+    font-weight: 700;
+}
+
+#clock {
+    color: #FFC107;
+    font-weight: 900;
+    padding: 2px 4px;
+}
+
+/* -------------------- MAIN MODULE CHIPS -------------------- */
+
+#network,
+#custom-lock,
+#custom-reboot,
+#bluetooth,
+#battery,
+#pulseaudio,
+#backlight,
+#custom-temperature,
+#memory,
+#cpu,
+#custom-power {
+    color: #BEBEBE;
+    padding: 2px 8px;
+    margin: 4px;
+    background: rgba(18,18,18,0.8);
+    border-radius: 0px;
+}
+
+/* -------------------- STATES -------------------- */
+
+#pulseaudio.muted,
+#custom-temperature.critical {
+    color: #D35F5F;
+}
+
+#battery.warning {
+    color: #FFC107;
+}
+
+#battery.critical {
+    color: #D35F5F;
+}
+
+#battery.charging {
+    color: #BEBEBE;
+}
+
+/* -------------------- HOVER EFFECTS (TEXT + BG) -------------------- */
+
+#network:hover,
+#bluetooth:hover,
+#battery:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#custom-temperature:hover,
+#memory:hover,
+#cpu:hover,
+#clock:hover,
+#window:hover {
+    color: #EAEAEA;
+    background: rgba(51,51,51,0.9);
+}
+
+#custom-lock:hover,
+#custom-reboot:hover,
+#custom-power:hover {
+    color: #D35F5F;
+    background: rgba(211, 95, 95, 0.18);
+}
+
+/* -------------------- TOOLTIP -------------------- */
+
+tooltip {
+    background: #121212;
+    border: 1px solid #333333;
+    color: #BEBEBE;
+    border-radius: 0px;
+}
+

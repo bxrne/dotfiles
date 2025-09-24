@@ -1,0 +1,63 @@
+k9s:
+  # General K9s styles
+  body:
+    fgColor: "#BEBEBE"
+    bgColor: default # Matches your transparent Waybar vibe
+    logoColor: "#FFC107"
+
+  # ClusterInfoView (Top left info)
+  info:
+    fgColor: "#FFC107"
+    sectionColor: "#EAEAEA"
+
+  frame:
+    border:
+      fgColor: "#333333"
+      focusColor: "#FFC107" # Active window border
+
+    menu:
+      fgColor: "#BEBEBE"
+      keyColor: "#FFC107" # Hotkeys match your clock/active workspace
+      numKeyColor: "#E68E0D"
+
+    crumbs:
+      fgColor: "#121212"
+      bgColor: "#BEBEBE"
+      activeColor: "#FFC107"
+
+    status:
+      newColor: "#8A8A8D"
+      modifyColor: "#FFC107"
+      addColor: "#BEBEBE"
+      errorColor: "#D35F5F" # Matches your 'urgent'/'critical' color
+      highlightcolor: "#FFC107"
+      killColor: "#D35F5F"
+      completedColor: "#333333"
+
+    title:
+      fgColor: "#FFC107"
+      bgColor: default
+      highlightColor: "#EAEAEA"
+      counterColor: "#8A8A8D"
+      filterColor: "#E68E0D"
+
+  views:
+    table:
+      fgColor: "#BEBEBE"
+      bgColor: default
+      cursorColor: "#333333" # Subtle dark highlight for selection
+      header:
+        fgColor: "#FFC107"
+        bgColor: default
+        sorterColor: "#E68E0D"
+
+    yaml:
+      keyColor: "#FFC107"
+      colonColor: "#BEBEBE"
+      valueColor: "#EAEAEA"
+
+    logs:
+      fgColor: "#BEBEBE"
+      bgColor: default
+      indicator:
+        fgColor: "#FFC107"

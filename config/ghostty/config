@@ -1,0 +1,49 @@
+# === Font Settings ===
+font-family = "JetBrainsMono Nerd Font"
+font-size = 12
+
+# === Color Theme (Omarchy Matte Black) ===
+background = #121212
+background-opacity = 1.0
+foreground = #BEBEBE
+cursor-color = #EAEAEA
+cursor-text = #121212
+selection-background = #333333
+selection-foreground = #EAEAEA
+
+# === 16-Color Palette (Omarchy Matte Black) ===
+# Normal colors (0-7)
+palette = 0=#333333
+palette = 1=#D35F5F
+palette = 2=#FFC107
+palette = 3=#B91C1C
+palette = 4=#E68E0D
+palette = 5=#D35F5F
+palette = 6=#BEBEBE
+palette = 7=#BEBEBE
+
+# Bright colors (8-15)
+palette = 8=#8A8A8D
+palette = 9=#B91C1C
+palette = 10=#FFC107
+palette = 11=#B90A0A
+palette = 12=#F59E0B
+palette = 13=#B91C1C
+palette = 14=#EAEAEA
+palette = 15=#FFFFFF
+
+# === Cursor Settings ===
+cursor-style = block
+cursor-style-blink = false
+
+# === Window Settings ===
+window-padding-x = 0
+window-padding-y = 0
+
+# === Misc Settings ===
+confirm-close-surface = false
+
+# === Shell Integration ===
+shell-integration = bash
+shell-integration-features = cursor,sudo,title
+

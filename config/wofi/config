@@ -1,0 +1,6 @@
+show=drun
+term=alacritty
+prompt=
+hide_scroll=true
+insensitive=true
+

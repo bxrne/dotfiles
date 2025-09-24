@@ -1,0 +1,55 @@
+format = """$username$hostname$directory$git_branch$git_status$git_state$python$cmd_duration$character"""
+
+[directory]
+style = "bold yellow"
+truncation_length = 3
+truncate_to_repo = true
+format = "[$path]($style) "
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold blue)"
+
+[git_branch]
+symbol = ""
+format = "on [$symbol$branch]($style) "
+style = "bold bright-yellow"
+
+[git_status]
+format = "([$all_status$ahead_behind]($style) )"
+style = "yellow"
+conflicted = "="
+untracked = "?"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+stashed = "≡"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bold red"
+
+[cmd_duration]
+min_time = 500
+format = "took [$duration]($style) "
+style = "bright-black"
+
+[python]
+symbol = ""
+format = "via [$symbol$virtualenv]($style) "
+style = "blue"
+
+[username]
+style_user = "bold blue"
+style_root = "bold red"
+format = "[$user]($style) "
+disabled = false
+show_always = false
+
+[hostname]
+ssh_only = true
+format = "at [$hostname]($style) "
+style = "bold cyan"
+disabled = false

@@ -1,0 +1,79 @@
+/* Gruvbox Dark Theme for Waybar */
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #282828; /* bg0 */
+    color: #ebdbb2;      /* fg */
+}
+
+#window {
+    color: #d79921;
+}
+
+
+#workspaces button {
+    padding: 0 6px;
+    color: #ebdbb2;
+    margin: 2px;
+}
+#workspaces button:hover {
+
+    background: #282828; /* bg0 */
+    padding: 0 6px;
+    color: #ebdbb2;
+    margin: 0px;
+}
+
+#workspaces button.active {
+    background: #d79921; /* yellow */
+    color: #282828;
+}
+
+#workspaces button.urgent {
+    background: #cc241d; /* red */
+    color: #fbf1c7;
+}
+
+#cpu,
+#memory,
+#bluetooth,
+#pulseaudio,
+#network,
+#battery {
+    color: #d79921;
+    padding:0;
+    margin:0 8px;
+}
+
+#clock {
+    color: #fff ;
+   padding:0;
+    margin:0 8px;
+}
+
+#battery.warning {
+    color: #d79921;
+}
+#battery.critical {
+    color: #cc241d;
+}
+#battery.charging {
+    color: #b8bb26; /* green */
+}
+
+#pipewire.muted {
+    color: #fb4934;
+}
+
+tooltip {
+    background: #1d2021;
+    border: 1px solid #665c54;
+    color: #ebdbb2;
+}
+

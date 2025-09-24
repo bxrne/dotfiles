@@ -1,0 +1,31 @@
+return {
+	groups = { -- Default groups to clear
+		"Normal",
+		"NormalNC",
+		"Comment",
+		"Constant",
+		"Special",
+		"Identifier",
+		"Statement",
+		"PreProc",
+		"Type",
+		"Underlined",
+		"Todo",
+		"String",
+		"Function",
+		"Conditional",
+		"Repeat",
+		"Operator",
+		"Structure",
+		"LineNr",
+		"NonText",
+		"SignColumn",
+		"CursorLine",
+		"CursorLineNr",
+		"StatusLine",
+		"StatusLineNC",
+		"EndOfBuffer",
+	},
+	extra_groups = {}, -- Add more groups if needed
+	exclude_groups = {}, -- Groups to keep opaque
+}

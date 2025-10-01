@@ -1,23 +1,23 @@
 #!/bin/bash
 
-options="⏻ Shutdown\n⟳ Reboot\n Lock\n Logout\n⏾ Suspend"
+options="Shutdown\nReboot\nLock\nLogout\nSuspend"
 
 chosen=$(echo -e "$options" | wofi --dmenu --prompt "System" --width 250 --height 220)
 
 case $chosen in
-    "⏻ Shutdown")
+    "Shutdown")
         systemctl poweroff
         ;;
-    "⟳ Reboot")
+    "Reboot")
         systemctl reboot
         ;;
-    " Lock")
+    "Lock")
         hyprlock
         ;;
-    " Logout")
+    "Logout")
         hyprctl dispatch exit
         ;;
-    "⏾ Suspend")
+    "Suspend")
         systemctl suspend
         ;;
 esac

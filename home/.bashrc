@@ -10,6 +10,7 @@ eval "$(zoxide init bash)"
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH=/home/bxrne/.opencode/bin:$PATH
+export DOCKER_HOST=unix:///run/user/$UID/podman/podman.sock
 
 # bun
 export BUN_INSTALL="$HOME/.bun"

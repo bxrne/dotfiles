@@ -12,4 +12,7 @@ stow -t ~/.config config
 # ~
 stow -t ~/ home
 
+# etc 
+sudo stow -t /etc etc
+
 ```

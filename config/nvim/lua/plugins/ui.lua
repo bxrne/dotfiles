@@ -8,6 +8,7 @@ return {
 			require("mini.icons").setup()
 		end,
 	},
+
 	{
   'NickvanDyke/opencode.nvim',
   dependencies = {

@@ -73,6 +73,7 @@ require("lualine").setup {
 		},
 		lualine_y = {
 			{ pomo_status },
+			{ "lsp", icons_enabled = false },
 			{ "progress" },
 		},
 		lualine_z = {

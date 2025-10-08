@@ -1,5 +1,5 @@
 show=drun
-term=alacritty
+term=ghostty
 prompt=
 hide_scroll=true
 insensitive=true

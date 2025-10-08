@@ -48,7 +48,7 @@
         "format-wifi": "[WIFI {signalStrength}%]",
         "format-ethernet": "[ETH {ipaddr}]",
         "format-disconnected": "[ETH DIS]",
-        "on-click": "alacritty -e impala"
+        "on-click": "ghostty -e impala"
     },
     "bluetooth": {
         "format": "[BT {num_connections}]",
@@ -58,11 +58,11 @@
     },
     "cpu": {
         "format": "[CPU {usage}%]",
-        "on-click": "alacritty -e btop"
+        "on-click": "ghostty -e btop"
     },
     "memory": {
         "format": "[RAM {percentage}%]",
-        "on-click": "alacritty -e btop"
+        "on-click": "ghostty -e btop"
     },
     "battery": {
         "format": "[PWR {capacity}%]",

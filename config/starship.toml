@@ -7,9 +7,9 @@ truncate_to_repo = true
 format = "[$path]($style) "
 
 [character]
-success_symbol = "[❯](bold bright-yellow)"
-error_symbol = "[❯](bold red)"
-vimcmd_symbol = "[❮](bold blue)"
+success_symbol = "[♦](bold bright-yellow) "
+error_symbol = "[♦](bold red) "
+vimcmd_symbol = "[♦](bold blue) "
 
 [git_branch]
 symbol = ""

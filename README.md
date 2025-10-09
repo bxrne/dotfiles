@@ -2,17 +2,22 @@
 
 Arch linux config
 
-## Usage
+## Cfgs
 ```bash
-cd dotfiles
-
 # .configs 
 stow -t ~/.config config
 
-# ~
+# ~/'s
 stow -t ~/ home
 
-# etc 
+# etc/'s
 sudo stow -t /etc etc
 
+```
+
+## Pkgs
+
+```bash
+sudo pacman -S --needed - < pacman.txt
+yay -S --needed - < aur.txt
 ```

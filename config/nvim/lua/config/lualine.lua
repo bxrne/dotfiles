@@ -1,17 +1,17 @@
 local navic = require "nvim-navic"
 
-local function pomo_status()
-	local status, remaining, cycles = require("pomo").status()
-	if status == "running" then
-		local minutes = math.floor(remaining / 60)
-		local seconds = remaining % 60
-		return string.format("🍅 S%d %02d:%02d", cycles + 1, minutes, seconds)
-	elseif status == "break" then
-		return string.format("☕ Break (%d)", cycles)
-	else
-		return cycles > 0 and string.format("✅ %d", cycles) or ""
-	end
-end
+-- local function pomo_status()
+-- 	local status, remaining, cycles = require("pomo").status()
+-- 	if status == "running" then
+-- 		local minutes = math.floor(remaining / 60)
+-- 		local seconds = remaining % 60
+-- 		return string.format("🍅 S%d %02d:%02d", cycles + 1, minutes, seconds)
+-- 	elseif status == "break" then
+-- 		return string.format("☕ Break (%d)", cycles)
+-- 	else
+-- 		return cycles > 0 and string.format("✅ %d", cycles) or ""
+-- 	end
+-- end
 
 require("lualine").setup {
 	options = {
@@ -22,28 +22,89 @@ require("lualine").setup {
 		disabled_filetypes = { statusline = {}, winbar = {} },
 	},
 	sections = {
-		lualine_a = {
-			{ "mode", icon = "", right_padding = 2 },
-		},
+		lualine_a = {},
 		lualine_b = {
 			{ "branch", icon = "" },
 			{
 				"diff",
-				colored = true,
-				symbols = { added = " ", modified = " ", removed = " " },
+				symbols = { added = "+", modified = "~", removed = "-" },
 			},
 		},
 		lualine_c = {
+			{ "filename", icon = "" },
 			{
-				"filename",
+				function()
+					local line = vim.fn.line "."
+					local file = vim.fn.expand "%"
+					local result = vim.fn.system("git blame --porcelain -L " .. line .. "," .. line .. " " .. file .. " 2>/dev/null")
+					local hash = result:match "^(%w+)"
+					if hash then
+						local summary = vim.fn.system("git show --format=%s -s " .. hash .. " 2>/dev/null"):gsub("\n", "")
+						local author = result:match "author (.-)\n"
+						if author and summary then
+							return author .. ": " .. summary
+						end
+					end
+					return ""
+				end,
+			},
+		},
+		lualine_x = {
+			{
+				function()
+					local clients = vim.lsp.get_active_clients()
+					local seen = {}
+					local names = {}
+					for _, client in ipairs(clients) do
+						if not seen[client.name] then
+							seen[client.name] = true
+							table.insert(names, client.name)
+						end
+					end
+					if #names > 0 then
+						local lsp_str = table.concat(names, ", ")
+						return "lsp: " .. lsp_str
+					else
+						return ""
+					end
+				end,
+			},
+			{
+				"diagnostics",
+				sources = { "nvim_lsp" },
+				symbols = {
+					error = "E",
+					warn = "W",
+					info = "I",
+					hint = "H",
+				},
+				colored = true,
+				update_in_insert = false,
+			},
+		},
+		lualine_y = {},
+		lualine_z = {
+			{ "mode", icon = "" },
+		},
+	},
+	winbar = {
+		lualine_c = {
+			{
+				function()
+					local filename = vim.fn.expand "%:t"
+					if filename == "" or filename == "[No Name]" then
+						return ""
+					else
+						return vim.fn.pathshorten(vim.fn.expand "%:~")
+					end
+				end,
 				icon = "",
 				file_status = true,
 				newfile_status = true,
-				path = 1,
 				symbols = {
 					modified = "●",
 					readonly = "",
-					unnamed = "[No Name]",
+					unnamed = "",
 					newfile = "",
 				},
 			},
@@ -54,44 +115,38 @@ require("lualine").setup {
 				cond = function()
 					return navic.is_available()
 				end,
-				color = { fg = "#9CDCFE" },
 			},
 		},
-		lualine_x = {
+	},
+	inactive_winbar = {
+		lualine_c = {
 			{
-				"diagnostics",
-				sources = { "nvim_lsp" },
+				function()
+					local filename = vim.fn.expand "%:t"
+					if filename == "" or filename == "[No Name]" then
+						return ""
+					else
+						return vim.fn.pathshorten(vim.fn.expand "%:~")
+					end
+				end,
+				icon = "",
+				file_status = true,
+				newfile_status = true,
 				symbols = {
-					error = " ",
-					warn = " ",
-					info = " ",
-					hint = " ",
+					modified = "●",
+					readonly = "",
+					unnamed = "",
+					newfile = "",
 				},
-				colored = true,
-				update_in_insert = false,
 			},
-		},
-		lualine_y = {
-			{ pomo_status },
-			{ "lsp", icons_enabled = false },
-			{ "progress" },
-		},
-		lualine_z = {
 			{
-				"filetype",
-				icon_only = true,
-				separator = "",
-				padding = { left = 1, right = 1 },
+				function()
+					return navic.get_location()
+				end,
+				cond = function()
+					return navic.is_available()
+				end,
 			},
 		},
 	},
-	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = { "filename" },
-		lualine_x = { "location" },
-		lualine_y = {},
-		lualine_z = {},
-	},
-	extensions = { "toggleterm", "lazy", "nvim-tree", "man", "quickfix" },
 }

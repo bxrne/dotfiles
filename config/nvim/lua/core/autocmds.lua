@@ -23,3 +23,10 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "Outline",
+	callback = function()
+		vim.opt_local.spell = false
+	end,
+})
+

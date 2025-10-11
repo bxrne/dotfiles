@@ -1,10 +1,15 @@
-return function ()
+return function()
 	local alpha = require "alpha"
 	local startify = require "alpha.themes.startify"
 
 	startify.file_icons.provider = "mini"
-	alpha.setup(
-		startify.config
-	)
+	local dirname = vim.fn.getcwd():match "([^/]+)$"
+	local version_str = "nvim v" .. vim.version().major .. "." .. vim.version().minor .. "." .. vim.version().patch
+	startify.section.header.val = {
+		dirname,
+		"",
+		version_str,
+	}
 
+	alpha.setup(startify.config)
 end

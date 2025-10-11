@@ -5,9 +5,9 @@ return function()
 
 	-- Configure diagnostics for popup windows with rounded borders
 	vim.diagnostic.config({
-		virtual_text = false,
+		virtual_text = true,
 		float = {
-			border = "rounded",
+			border = "single",
 			source = "always",
 			header = "",
 			prefix = "",
@@ -18,6 +18,21 @@ return function()
 		update_in_insert = false,
 		severity_sort = true,
 	})
+
+	-- Custom diagnostic signs
+	local signs = {
+		{ name = "DiagnosticSignError", text = "E" },
+		{ name = "DiagnosticSignWarn", text = "W" },
+		{ name = "DiagnosticSignInfo", text = "I" },
+		{ name = "DiagnosticSignHint", text = "H" },
+	}
+	for _, sign in ipairs(signs) do
+		vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+	end
+
+	-- Configure LSP handlers for bordered popups
+	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signatureHelp, { border = "rounded" })
 
 	-- Common on_attach function
 	local on_attach = function(client, bufnr)
@@ -36,67 +51,17 @@ return function()
 		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 		vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, opts)
+		vim.keymap.set("n", "<RightMouse>", vim.lsp.buf.code_action, opts)
 	end
 
 	-- Language server configurations
-	local servers = {
-		lua_ls = {
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = {
-				Lua = {
-					diagnostics = { globals = { "vim" } },
-					workspace = { checkThirdParty = false },
-					telemetry = { enable = false },
-				},
-			},
-		},
-		gopls = {
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = {
-				gopls = {
-					analyses = { unusedparams = true },
-					staticcheck = true,
-					gofumpt = true,
-				},
-			},
-		},
-		ts_ls = {
-			capabilities = capabilities,
-			on_attach = on_attach,
-		},
-		pyright = {
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = {
-				python = {
-					analysis = {
-						autoSearchPaths = true,
-						useLibraryCodeForTypes = true,
-					},
-				},
-			},
-		},
-		zls = {
-			capabilities = capabilities,
-			on_attach = on_attach,
-		},
-		rust_analyzer = {
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = {
-				["rust-analyzer"] = {
-					checkOnSave = {
-						command = "clippy",
-					},
-				},
-			},
-		},
-	}
+	local servers = { "lua_ls", "gopls", "ts_ls", "pyright", "zls", "rust_analyzer", "clangd", "omnisharp", "jsonls", "taplo", "yamlls", "marksman", "htmx", "bashls", "cssls" }
 
 	-- Setup servers
-	for server, config in pairs(servers) do
+	for _, server in ipairs(servers) do
+		local config = require("config." .. server)
+		config.capabilities = capabilities
+		config.on_attach = on_attach
 		lspconfig[server].setup(config)
 	end
 end

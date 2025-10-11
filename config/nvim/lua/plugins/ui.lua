@@ -19,21 +19,6 @@ return {
 
 	-- cmds in center
 	-- lazy.nvim
-	{
-		"folke/noice.nvim",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			{
-				"rcarriga/nvim-notify",
-				config = function()
-					require("notify").setup(require "config.notify")
-				end,
-			},
-		},
-		config = function()
-			require("noice").setup(require "config.noice")
-		end,
-	},
 
 	-- Theme
 	--
@@ -76,17 +61,17 @@ return {
 	},
 
 	-- Navigation breadcrumbs
-	{
-		"SmiteshP/nvim-navic",
-		config = function()
-			require("nvim-navic").setup {
-				highlight = true,
-				separator = " > ",
-				depth_limit = 0,
-				depth_limit_indicator = "..",
-			}
-		end,
-	},
+		{
+			"SmiteshP/nvim-navic",
+			config = function()
+				require("nvim-navic").setup {
+					highlight = true,
+					separator = " › ",
+					depth_limit = 0,
+					depth_limit_indicator = "..",
+				}
+			end,
+		},
 
 	-- Loading notifications
 	{
@@ -111,5 +96,11 @@ return {
 		config = function()
 			require("pomo").setup {}
 		end,
+	},
+
+	-- Image viewing
+	{
+		"3rd/image.nvim",
+		opts = { backend = "kitty" },
 	},
 }

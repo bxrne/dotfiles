@@ -54,7 +54,7 @@
         "format": "[BT {num_connections}]",
         "format-connected": "[BT {num_connections}]",
         "format-disabled": "[BT OFF]",
-        "on-click": "blueberry"
+        "on-click": "ghostty -e bluetuith"
     },
     "cpu": {
         "format": "[CPU {usage}%]",

@@ -44,7 +44,7 @@ return {
 	{
 		"github/copilot.vim",
 		cmd = "Copilot",
-		event = "InsertEnter",
+		event = "BufRead",
 		config = function()
 			vim.g.copilot_context = "git"
 			vim.g.copilot_assume_mapped = true

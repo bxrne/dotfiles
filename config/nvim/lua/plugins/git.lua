@@ -7,6 +7,12 @@ return {
 		config = require "config.git",
 	},
 
+	-- Lazygit integration
+	{
+		"kdheepak/lazygit.nvim",
+		cmd = "LazyGit",
+	},
+
 	-- Git signs in gutter
 	{
 		"lewis6991/gitsigns.nvim",

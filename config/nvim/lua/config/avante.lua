@@ -2,12 +2,13 @@ return {
 	providers = {
 		copilot = {
 			endpoint = "https://api.githubcopilot.com",
-			model = "gpt-4o-2024-05-13",
+			model = "gpt-4o",
+			system_prompt = "You are a principal developer who specializes in well-designed, robust software. You challenge assumptions, take a GIVEN WHEN THEN approach following SOLID, YAGNI, and KISS principles.",
 			proxy = nil,
-			allow_insecure = false,
+			allow_insecure = true,
 			timeout = 30000,
 			extra_request_body = {
-				temperature = 0,
+				temperature = 0.8,
 				max_tokens = 4096,
 			},
 		},
@@ -68,4 +69,3 @@ return {
 		list_opener = "copen",
 	},
 }
-

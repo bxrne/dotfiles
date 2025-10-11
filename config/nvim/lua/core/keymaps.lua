@@ -12,3 +12,8 @@ vim.keymap.set("n", "<leader>x", "<cmd>bd<CR>", { desc = "Close buffer" })
 -- Terminal mode escape
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
+-- FZF fuzzy search
+vim.keymap.set("n", "<leader>fr", ":FzfLua registers<CR>", { desc = "Fuzzy search registers" })
+vim.keymap.set("n", "<leader>fq", ":FzfLua quickfix<CR>", { desc = "Fuzzy search quickfix list" })
+vim.keymap.set("n", "<leader>fl", ":FzfLua loclist<CR>", { desc = "Fuzzy search location list" })
+

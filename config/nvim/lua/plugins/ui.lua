@@ -2,10 +2,10 @@
 return {
 	-- Icons (consolidated)
 	{
-		"echasnovski/mini.icons",
+		"nvim-tree/nvim-web-devicons",
 		version = false,
 		config = function()
-			require("mini.icons").setup()
+			require("nvim-web-devicons").setup()
 		end,
 	},
 
@@ -45,7 +45,7 @@ return {
 	{
 		"akinsho/bufferline.nvim",
 		version = "*",
-		dependencies = "echasnovski/mini.icons",
+		dependencies = "nvim-tree/nvim-web-devicons",
 		config = function()
 			require("bufferline").setup(require "config.bufferline")
 		end,
@@ -54,7 +54,7 @@ return {
 	-- Status line
 	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = { "echasnovski/mini.icons", "SmiteshP/nvim-navic" },
+		dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
 		config = function()
 			require "config.lualine"
 		end,

@@ -22,7 +22,7 @@ return {
 	{
 	    'MeanderingProgrammer/render-markdown.nvim',
 	 
-	     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' }, 
+	     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, 
 	    ---@module 'render-markdown'
 	    ---@type render.md.UserConfig
 	    opts = {},
@@ -58,10 +58,10 @@ return {
 	},
 
 	{
-		"echasnovski/mini.pairs",
+		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = function()
-			require("mini.pairs").setup()
+			require("nvim-autopairs").setup()
 		end,
 	},
 

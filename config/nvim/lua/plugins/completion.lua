@@ -79,7 +79,7 @@ return {
 			"stevearc/dressing.nvim",
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
-			"echasnovski/mini.icons",
+			"nvim-tree/nvim-web-devicons",
 		},
 		config = function(_, opts)
 			require("avante").setup(opts)

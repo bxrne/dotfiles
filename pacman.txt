@@ -5,6 +5,7 @@ base
 base-devel
 bat
 blueberry
+bluetuith-bin
 brightnessctl
 btop
 cava
@@ -12,8 +13,6 @@ chromium
 circumflex
 cmake
 discord
-dotnet-runtime
-dotnet-sdk
 doxygen
 evince
 facetimehd-data
@@ -31,15 +30,19 @@ gum
 hyprland
 hyprlock
 hyprpaper
+imagemagick
 impala
 imv
 iwd
 jq
+jre-openjdk
 kubectl
+lazygit
 linux-firmware
 linux-headers
 linux-t2
 linux-t2-headers
+luarocks
 ly
 maim
 mako
@@ -79,7 +82,6 @@ ttf-jetbrains-mono-nerd
 typescript
 typescript-language-server
 typst
-unityhub
 unzip
 uv
 vim

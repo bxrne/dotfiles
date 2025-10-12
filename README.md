@@ -13,6 +13,8 @@ stow -t ~/ home
 # etc/'s
 sudo stow -t /etc etc
 
+# scripts (conv commits, tmux sessions)
+stow -t ~/scripts scripts
 ```
 
 ## Pkgs

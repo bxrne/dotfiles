@@ -7,6 +7,10 @@ alias lg='lazygit'
 alias grep='grep --color=auto'
 alias cd='z'
 
+# scripts
+alias cm='~/scripts/cm/cm.sh'
+alias tmuxy='~/scripts/tmuxy/tmuxy.sh'
+
 # enable 
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
@@ -33,3 +37,4 @@ export DOCKER_HOST=unix:///run/user/$UID/podman/podman.sock
 # set editor to neovim
 export EDITOR='nvim'
 
+tmuxy

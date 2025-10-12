@@ -1,0 +1,7 @@
+[submodule "scripts/cm"]
+	path = scripts/cm
+	url = https://github.com/bxrne/cm
+
+[submodule "scripts/tmuxy"]
+	path = scripts/tmuxy
+	url = https://github.com/bxrne/tmuxy

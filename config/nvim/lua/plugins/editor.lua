@@ -4,28 +4,28 @@ return {
 	"tpope/vim-sleuth",
 
 	{
-		dir = "~/code/euporie.nvim", 
+		"bxrne/euporie.nvim",
 		opts = {
-			  path = ".",  -- Directory to open the notebook session in
-  graphics_dpi = 9000,  -- DPI for graphics rendering (default: 300)
-  graphics_height = 100  -- Maximum graphics height in pixels (default: 40)
-		}
+			path = ".", -- Directory to open the notebook session in
+			graphics_dpi = 9000, -- DPI for graphics rendering (default: 300)
+			graphics_height = 100, -- Maximum graphics height in pixels (default: 40)
+		},
 	},
 	{
-	    "ramilito/kubectl.nvim",
-	    version = "2.*",
-	    dependencies = "saghen/blink.download",
-	    config = function()
-	      require("kubectl").setup()
-	    end,
+		"ramilito/kubectl.nvim",
+		version = "2.*",
+		dependencies = "saghen/blink.download",
+		config = function()
+			require("kubectl").setup()
+		end,
 	},
 	{
-	    'MeanderingProgrammer/render-markdown.nvim',
-	 
-	     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, 
-	    ---@module 'render-markdown'
-	    ---@type render.md.UserConfig
-	    opts = {},
+		"MeanderingProgrammer/render-markdown.nvim",
+
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		opts = {},
 	},
 	-- Preview papers
 	{

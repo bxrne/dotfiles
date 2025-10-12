@@ -18,13 +18,9 @@ sudo stow -t /etc etc
 ## Pkgs
 
 ```bash
-# install pacman pkgs
-sudo pacman -S --needed - < pacman.txt
-# dump pacman 
-sudo pacman -Qqe > pacman.txt
+sudo pacman -S --needed - < pacman.txt # install pacman pkgs
+sudo pacman -Qqe > pacman.txt # dump pacman pkgs
 
-# install aur pkgs 
-yay -S --needed - < aur.txt
-# dump aur 
-yay -Qqe > aur.txt
+yay -S --needed - < aur.txt # install aur pkgs
+yay -Qqm > aur.txt # dump aur pkgs
 ```

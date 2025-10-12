@@ -9,7 +9,6 @@ bluetuith-bin
 brightnessctl
 btop
 cava
-chromium
 circumflex
 cmake
 discord
@@ -27,6 +26,7 @@ graphviz
 grim
 gruvbox-icon-theme
 gum
+helium-browser-bin
 hyprland
 hyprlock
 hyprpaper

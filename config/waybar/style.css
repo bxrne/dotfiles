@@ -20,15 +20,16 @@ window#waybar {
 
 #workspaces button {
     padding: 0 6px;
-    color: #ebdbb2;
+    color:#d79921;
     margin: 0px;
 }
 #workspaces button:hover {
 
     background: #282828; /* bg0 */
     padding: 0 6px;
-    color: #ebdbb2;
+    color:  #ebdbb2;
     margin: 0px;
+    border: 0;
 }
 
 #workspaces button.active {

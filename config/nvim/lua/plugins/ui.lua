@@ -10,18 +10,14 @@ return {
 	},
 
 	{
-  'NickvanDyke/opencode.nvim',
-  dependencies = {
-    { 'folke/snacks.nvim', opts = { input = { enabled = true } } },
-  },
-  config = require "config.opencode",
-},
-
-	-- cmds in center
-	-- lazy.nvim
+		"NickvanDyke/opencode.nvim",
+		dependencies = {
+			{ "folke/snacks.nvim", opts = { input = { enabled = true } } },
+		},
+		config = require "config.opencode",
+	},
 
 	-- Theme
-	--
 
 	{
 		"ellisonleao/gruvbox.nvim",
@@ -61,17 +57,17 @@ return {
 	},
 
 	-- Navigation breadcrumbs
-		{
-			"SmiteshP/nvim-navic",
-			config = function()
-				require("nvim-navic").setup {
-					highlight = true,
-					separator = " › ",
-					depth_limit = 0,
-					depth_limit_indicator = "..",
-				}
-			end,
-		},
+	{
+		"SmiteshP/nvim-navic",
+		config = function()
+			require("nvim-navic").setup {
+				highlight = true,
+				separator = " › ",
+				depth_limit = 0,
+				depth_limit_indicator = "..",
+			}
+		end,
+	},
 
 	-- Loading notifications
 	{
@@ -96,11 +92,5 @@ return {
 		config = function()
 			require("pomo").setup {}
 		end,
-	},
-
-	-- Image viewing
-	{
-		"3rd/image.nvim",
-		opts = { backend = "kitty" },
 	},
 }

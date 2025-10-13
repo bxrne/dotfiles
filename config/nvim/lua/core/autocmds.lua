@@ -24,9 +24,8 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "Outline",
+	pattern = { "toggleterm", "avante", "Outline" },
 	callback = function()
 		vim.opt_local.spell = false
 	end,
 })
-

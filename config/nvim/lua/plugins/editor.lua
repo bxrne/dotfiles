@@ -2,7 +2,17 @@
 return {
 	-- Auto-detect indent settings
 	"tpope/vim-sleuth",
-
+	{
+		dir = "~/code/diagrascii.nvim",
+		config = function()
+			require("diagrascii").setup {
+				border_char = "+",
+				horizontal_char = "-",
+				vertical_char = "|",
+				arrow_char = "->",
+			}
+		end,
+	},
 	{
 		"bxrne/euporie.nvim",
 		opts = {

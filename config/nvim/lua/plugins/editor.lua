@@ -3,7 +3,7 @@ return {
 	-- Auto-detect indent settings
 	"tpope/vim-sleuth",
 	{
-		dir = "~/code/diagrascii.nvim",
+		"bxrne/diagrascii.nvim",
 		config = function()
 			require("diagrascii").setup {
 				border_char = "+",

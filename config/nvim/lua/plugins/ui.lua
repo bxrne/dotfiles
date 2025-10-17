@@ -20,11 +20,12 @@ return {
 	-- Theme
 
 	{
-		"ellisonleao/gruvbox.nvim",
-		name = "gruxbox",
+		"tahayvr/matteblack.nvim",
+		lazy = false,
 		priority = 1000,
 		config = function()
-			require "config.theme"
+			vim.o.background = "dark"
+			vim.cmd.colorscheme "matteblack"
 		end,
 	},
 
@@ -32,7 +33,8 @@ return {
 	{
 		"xiyaowong/transparent.nvim",
 		config = function()
-			require("transparent").setup(require "config.transparent")
+			--require("transparent").setup(require "config.transparent")
+			require "config.transparent"
 			vim.cmd "TransparentEnable"
 		end,
 	},

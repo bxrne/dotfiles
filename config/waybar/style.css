@@ -1,4 +1,4 @@
-/* Gruvbox Dark Theme for Waybar */
+/* Matte Black Theme for Waybar */
 * {
     font-family: "JetBrainsMono Nerd Font", monospace;
     font-size: 13px;
@@ -8,80 +8,130 @@
 }
 
 window#waybar {
-    background: #282828; /* bg0 */
-    color: #ebdbb2;      /* fg */
+    background: rgba(0, 0, 0, 0);
+    color: #8a8a8d;
 }
 
-#window {
-    color: #d79921;
-    padding-left:5px;
+#workspaces,
+#window,
+#tray {
+    background-color: #0e0e0e;
+    color: #8a8a8d;
+    padding: 4px 8px;
+    margin-top: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
+    border-radius: 10px;
+    border-width: 0px;
 }
 
+#clock,
+#custom-power {
+    background-color: #0e0e0e;
+    color: #8a8a8d;
+    margin-top: 6px;
+    margin-right: 6px;
+    padding: 4px 8px;
+    border-radius: 0 10px 10px 0;
+    border-width: 0px;
+}
+
+#network,
+#custom-lock {
+    background-color: #0e0e0e;
+    color: #8a8a8d;
+    margin-top: 6px;
+    margin-left: 12px;
+    padding: 4px 8px;
+    border-radius: 10px 0 0 10px;
+    border-width: 0px;
+}
+
+#custom-reboot,
+#bluetooth,
+#battery,
+#pulseaudio,
+#backlight,
+#custom-temperature,
+#memory,
+#cpu {
+    background-color: #0e0e0e;
+    color: #8a8a8d;
+    margin-top: 6px;
+    padding: 4px 8px;
+    border-width: 0px;
+}
+
+#custom-temperature.critical,
+#pulseaudio.muted {
+    color: #b91c1c;
+}
+
+#bluetooth:hover,
+#network:hover,
+#backlight:hover,
+#battery:hover,
+#pulseaudio:hover,
+#custom-temperature:hover,
+#memory:hover,
+#cpu:hover,
+#clock:hover,
+#window:hover {
+    color: #f59e0b;
+}
+
+#custom-lock:hover {
+    color: #b91c1c;
+}
+
+#custom-reboot:hover {
+    color: #b91c1c;
+}
+
+#custom-power {
+    color: #8a8a8d;
+}
+
+#custom-power:hover {
+    color: #b91c1c;
+}
 
 #workspaces button {
-    padding: 0 6px;
-    color: #ebdbb2;
-    margin: 0px;
+    background-color: #0e0e0e;
+    color: #8a8a8d;
 }
-#workspaces button:hover {
 
-    background: #282828; /* bg0 */
-    padding: 0 6px;
-    color: #ebdbb2;
-    margin: 0px;
+#workspaces button:hover {
+    background-color: #0e0e0e;
+    color: #f59e0b;
 }
 
 #workspaces button.active {
-    background: #d79921; /* yellow */
-    color: #282828;
+    color: #f59e0b;
 }
 
 #workspaces button.urgent {
-    background: #cc241d; /* red */
-    color: #fbf1c7;
+    color: #b91c1c;
 }
 
-#cpu,
-#memory,
-#bluetooth,
-#network,
-#battery {
-    color: #d79921;
-    padding:0;
-    margin:0 8px;
-}
-
-#pulseaudio, #backlight, #clock {
-    color: #fff ;
-   padding:0;
-    margin:0 8px;
-}
-
-#pulseaudio, #backlight {
-    font-size: 11px;
-}
-
-#clock {
-    font-weight: bold;
+#window {
+    font-weight: 500;
 }
 
 #battery.warning {
-    color: #d79921;
-}
-#battery.critical {
-    color: #cc241d;
-}
-#battery.charging {
-    color: #b8bb26; /* green */
+    color: #f59e0b;
 }
 
-#pipewire.muted {
-    color: #fb4934;
+#battery.critical {
+    color: #b91c1c;
+}
+
+#battery.charging {
+    color: #22c55e;
 }
 
 tooltip {
-    background: #1d2021;
-    border: 1px solid #665c54;
-    color: #ebdbb2;
+    background: #0e0e0e;
+    border: 1px solid #333333;
+    color: #8a8a8d;
 }
-

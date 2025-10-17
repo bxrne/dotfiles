@@ -1,55 +1,57 @@
- format = """$username$hostname$directory$git_branch$git_status$git_state$python$cmd_duration$character"""
+format = """
+$username$hostname$directory$git_branch$git_status$git_state$python$cmd_duration$character
+"""
 
- [directory]
- style = "bold #f59e0b"
- truncation_length = 3
- truncate_to_repo = true
- format = "[$path]($style) "
+[directory]
+style = "bold #f59e0b"
+truncation_length = 3
+truncate_to_repo = true
+format = "[$path]($style) "
 
- [character]
- success_symbol = "[♦](bold #f59e0b) "
- error_symbol = "[♦](bold #b91c1c) "
- vimcmd_symbol = "[♦](bold #22c55e) "
+[character]
+success_symbol = "[∷](bold #f59e0b)"
+error_symbol = "[∷](bold #b91c1c)"
+vimcmd_symbol = "[∷](bold #22c55e)"
 
- [git_branch]
- symbol = ""
- format = "on [$symbol$branch]($style) "
- style = "bold #f59e0b"
+[git_branch]
+symbol = " "                        # branch symbol
+format = "[$symbol$branch]($style) "
+style = "bold #f59e0b"
 
- [git_status]
- format = "([$all_status$ahead_behind]($style) )"
- style = "#f59e0b"
- conflicted = "="
- untracked = "?"
- modified = "!"
- staged = "+"
- renamed = "»"
- deleted = "✘"
- stashed = "≡"
+[git_status]
+format = "([$all_status$ahead_behind]($style)) "
+style = "#f59e0b"
+conflicted = "="
+untracked = "?"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+stashed = "≡"
 
- [git_state]
- format = '\([$state( $progress_current/$progress_total)]($style)\) '
- style = "bold #b91c1c"
+[git_state]
+format = "[$state( $progress_current/$progress_total)]($style)"
+style = "bold #b91c1c"
 
- [cmd_duration]
- min_time = 500
- format = "took [$duration]($style) "
- style = "#8a8a8d"
+[cmd_duration]
+min_time = 500
+format = " [$duration]($style) "
+style = "#8a8a8d"
 
- [python]
- symbol = ""
- format = "via [$symbol$virtualenv]($style) "
- style = "#22c55e"
+[python]
+symbol = "  "                          # Python logo glyph
+format = "[$symbol$virtualenv]($style)"
+style = "#22c55e"
 
- [username]
- style_user = "bold #f59e0b"
- style_root = "bold #b91c1c"
- format = "[$user]($style) "
- disabled = false
- show_always = false
+[username]
+style_user = "bold #f59e0b"
+style_root = "bold #b91c1c"
+format = "[$user]($style)@"
+disabled = false
+show_always = true
 
- [hostname]
- ssh_only = true
- format = "at [$hostname]($style) "
- style = "bold #22c55e"
- disabled = false
+[hostname]
+ssh_only = true
+format = "📡 [$hostname]($style) "
+style = "bold #22c55e"
+disabled = false

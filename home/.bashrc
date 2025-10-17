@@ -10,6 +10,10 @@ alias cd='z'
 # scripts
 alias cm='~/scripts/cm/cm.sh'
 alias tmuxy='~/scripts/tmuxy/tmuxy.sh'
+export GUM_INPUT_CURSOR_FOREGROUND="#f59e0b"
+export GUM_INPUT_PROMPT_FOREGROUND="#8a8a8d"
+export GUM_INPUT_PROMPT="* "
+export GUM_INPUT_WIDTH=80
 
 # enable 
 eval "$(starship init bash)"

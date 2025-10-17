@@ -1,111 +1,111 @@
 gui:
   theme:
     activeBorderColor:
-      - "#d65d0e"
+      - "#f59e0b"
       - bold
     inactiveBorderColor:
-      - "#3c3836"
+      - "#333333"
     optionsTextColor:
-      - "#d65d0e"
+      - "#f59e0b"
     selectedLineBgColor:
-      - "#504945"
+      - "#333333"
     selectedRangeBgColor:
-      - "#504945"
+      - "#333333"
     cherryPickedCommitBgColor:
-      - "#d65d0e"
+      - "#f59e0b"
     cherryPickedCommitFgColor:
-      - "#282828"
+      - "#121212"
     unstagedChangesColor:
-      - "#cc241d"
+      - "#b91c1c"
     defaultFgColor:
-      - "#ebdbb2"
+      - "#eaeaea"
     searchingActiveBorderColor:
-      - "#b8bb26"
+      - "#f59e0b"
     searchingMatchFgColor:
-      - "#282828"
+      - "#121212"
     searchingMatchBgColor:
-      - "#fabd2f"
+      - "#f59e0b"
     diffTerminalColor:
-      - "#ebdbb2"
+      - "#eaeaea"
     diffAddedFgColor:
-      - "#b8bb26"
+      - "#f59e0b"
     diffAddedBgColor:
-      - "#282828"
+      - "#121212"
     diffModifiedFgColor:
-      - "#d79921"
+      - "#8a8a8d"
     diffModifiedBgColor:
-      - "#282828"
+      - "#121212"
     diffDeletedFgColor:
-      - "#fb4934"
+      - "#b91c1c"
     diffDeletedBgColor:
-      - "#282828"
+      - "#121212"
     diffUntrackedFgColor:
-      - "#83a598"
+      - "#8a8a8d"
     diffUntrackedBgColor:
-      - "#282828"
+      - "#121212"
     diffStagedAddedFgColor:
-      - "#b8bb26"
+      - "#f59e0b"
     diffStagedAddedBgColor:
-      - "#282828"
+      - "#121212"
     diffStagedModifiedFgColor:
-      - "#d79921"
+      - "#8a8a8d"
     diffStagedModifiedBgColor:
-      - "#282828"
+      - "#121212"
     diffStagedDeletedFgColor:
-      - "#fb4934"
+      - "#b91c1c"
     diffStagedDeletedBgColor:
-      - "#282828"
+      - "#121212"
     diffStagedUntrackedFgColor:
-      - "#83a598"
+      - "#8a8a8d"
     diffStagedUntrackedBgColor:
-      - "#282828"
+      - "#121212"
     mergeConflictBgColor:
-      - "#fb4934"
+      - "#b91c1c"
     mergeConflictFgColor:
-      - "#282828"
+      - "#121212"
     commitHashColor:
-      - "#83a598"
+      - "#8a8a8d"
     commitTimeColor:
-      - "#a89984"
+      - "#8a8a8d"
     commitAuthorColor:
-      - "#fe8019"
+      - "#f59e0b"
     commitMessageColor:
-      - "#ebdbb2"
+      - "#eaeaea"
     branchFgColor:
-      - "#b8bb26"
+      - "#f59e0b"
     branchCurrentFgColor:
-      - "#b8bb26"
+      - "#f59e0b"
     branchCurrentBgColor:
-      - "#282828"
+      - "#121212"
     tagFgColor:
-      - "#fabd2f"
+      - "#f59e0b"
     remoteBranchFgColor:
-      - "#83a598"
+      - "#8a8a8d"
     pullRequestFgColor:
-      - "#d3869b"
+      - "#8a8a8d"
     statusShortBranchFgColor:
-      - "#b8bb26"
+      - "#f59e0b"
     statusShortBranchBgColor:
-      - "#282828"
+      - "#121212"
     statusShortStatusFgColor:
-      - "#ebdbb2"
+      - "#eaeaea"
     statusShortStatusBgColor:
-      - "#282828"
+      - "#121212"
     fileStagedFgColor:
-      - "#b8bb26"
+      - "#f59e0b"
     fileUnstagedFgColor:
-      - "#d79921"
+      - "#8a8a8d"
     fileUntrackedFgColor:
-      - "#83a598"
+      - "#8a8a8d"
     fileDeletedFgColor:
-      - "#fb4934"
+      - "#b91c1c"
     fileAddedFgColor:
-      - "#b8bb26"
+      - "#f59e0b"
     fileModifiedFgColor:
-      - "#d79921"
+      - "#8a8a8d"
     fileRenamedFgColor:
-      - "#83a598"
+      - "#8a8a8d"
     fileCopiedFgColor:
-      - "#83a598"
+      - "#8a8a8d"
     fileIgnoredFgColor:
-      - "#a89984"
+      - "#8a8a8d"

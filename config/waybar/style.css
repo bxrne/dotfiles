@@ -22,10 +22,10 @@ window#waybar {
 #window,
 #tray {
     color: #8a8a8d;
-    padding: 4px 0px;
+    padding: 0px 0px;
     margin-top: 0px;
     margin-left: 0px;
-    margin-right: 6px;
+    margin-right: 0px;
     border-radius: 0px;
     border-width: 0px;
 }
@@ -34,8 +34,8 @@ window#waybar {
 #custom-power {
     color: #8a8a8d;
     margin-top: 0px;
-    margin-right: 6px;
-    padding: 4px 0px;
+    margin-right: 0px;
+    padding: 0px 12px;
     border-radius: 0;
     border-width: 0px;
 }
@@ -45,8 +45,8 @@ window#waybar {
     background-color: #0e0e0e;
     color: #8a8a8d;
     margin-top: 0px;
-    margin-left: 12px;
-    padding: 4px 0px;
+    margin-left: 0px;
+    padding: 0px 6px;
     border-radius: 0;
     border-width: 0px;
 }
@@ -62,7 +62,7 @@ window#waybar {
     background-color: #0e0e0e;
     color: #8a8a8d;
     margin-top: 0px;
-    padding: 4px 8px;
+    padding: 0px 6px;
     border-width: 0px;
 }
 
@@ -106,7 +106,7 @@ window#waybar {
 }
 
 #workspaces button:hover {
-    background-color: #0e0e0e !important;
+    background-color: #0e0e0e;
     color: #f59e0b;
 }
 

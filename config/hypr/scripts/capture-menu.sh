@@ -2,7 +2,7 @@
 
 options="[CAP] - Region\n[CAP] - Full\n[CAP] - Window\n[REC] - Region\n[REC] - Stop"
 
-chosen=$(echo -e "$options" | wofi --dmenu --no-input --prompt "Capture" --width 300 --height 250)
+chosen=$(echo -e "$options" | wofi --dmenu --hide_search --prompt "Capture" --width 300 --height 250) 
 
 case $chosen in
     "[CAP] - Region")

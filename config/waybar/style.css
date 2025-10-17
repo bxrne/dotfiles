@@ -1,10 +1,11 @@
 /* Matte Black Theme for Waybar */
 * {
     font-family: "JetBrainsMono Nerd Font", monospace;
-    font-size: 13px;
+    font-size: 12px;
     border: none;
     border-radius: 0;
     min-height: 0;
+    background-color: #0e0e0e;
 }
 
 window#waybar {
@@ -12,27 +13,30 @@ window#waybar {
     color: #8a8a8d;
 }
 
+#workspaces:hover {
+    background: rgba(0, 0, 0, 0);
+    color:  #f59e0b;
+}
+
 #workspaces,
 #window,
 #tray {
-    background-color: #0e0e0e;
     color: #8a8a8d;
-    padding: 4px 8px;
-    margin-top: 6px;
-    margin-left: 6px;
+    padding: 4px 0px;
+    margin-top: 0px;
+    margin-left: 0px;
     margin-right: 6px;
-    border-radius: 10px;
+    border-radius: 0px;
     border-width: 0px;
 }
 
 #clock,
 #custom-power {
-    background-color: #0e0e0e;
     color: #8a8a8d;
-    margin-top: 6px;
+    margin-top: 0px;
     margin-right: 6px;
-    padding: 4px 8px;
-    border-radius: 0 10px 10px 0;
+    padding: 4px 0px;
+    border-radius: 0;
     border-width: 0px;
 }
 
@@ -40,10 +44,10 @@ window#waybar {
 #custom-lock {
     background-color: #0e0e0e;
     color: #8a8a8d;
-    margin-top: 6px;
+    margin-top: 0px;
     margin-left: 12px;
-    padding: 4px 8px;
-    border-radius: 10px 0 0 10px;
+    padding: 4px 0px;
+    border-radius: 0;
     border-width: 0px;
 }
 
@@ -57,7 +61,7 @@ window#waybar {
 #cpu {
     background-color: #0e0e0e;
     color: #8a8a8d;
-    margin-top: 6px;
+    margin-top: 0px;
     padding: 4px 8px;
     border-width: 0px;
 }
@@ -102,7 +106,7 @@ window#waybar {
 }
 
 #workspaces button:hover {
-    background-color: #0e0e0e;
+    background-color: #0e0e0e !important;
     color: #f59e0b;
 }
 

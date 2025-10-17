@@ -1,38 +1,38 @@
 # Ghostty Configuration
-# Dark Gruvbox Theme with JetBrains Mono
+# Matte Black Theme with JetBrains Mono
 
 # === Font Settings ===
 font-family = "JetBrainsMono Nerd Font"
 font-size = 12
 
-# === Color Theme (Gruvbox Dark) ===
-background = #282828
+# === Color Theme (Matte Black) ===
+background = #121212
 background-opacity = 0.95
-foreground = #ebdbb2
-cursor-color = #ebdbb2
-selection-background = #3c3836
-selection-foreground = #ebdbb2
+foreground = #EAEAEA
+cursor-color = #F59E0B
+selection-background = #262626
+selection-foreground = #FFFFFF
 
 # === 16-Color Palette ===
 # Normal colors (0-7)
-palette = 0=#282828
-palette = 1=#cc241d
-palette = 2=#98971a
-palette = 3=#d79921
-palette = 4=#458588
-palette = 5=#b16286
-palette = 6=#689d6a
-palette = 7=#a89984
+palette = 0=#333333
+palette = 1=#B91C1C
+palette = 2=#129B70
+palette = 3=#F59E0B
+palette = 4=#325DCA
+palette = 5=#8D20B2
+palette = 6=#1EA7A0
+palette = 7=#BEBEBE
 
 # Bright colors (8-15)
-palette = 8=#928374
-palette = 9=#fb4934
-palette = 10=#b8bb26
-palette = 11=#fabd2f
-palette = 12=#83a598
-palette = 13=#d3869b
-palette = 14=#8ec07c
-palette = 15=#ebdbb2
+palette = 8=#8A8A8D
+palette = 9=#E62222
+palette = 10=#22C55E
+palette = 11=#F1CB42
+palette = 12=#3C71F6
+palette = 13=#B027DE
+palette = 14=#24D0C7
+palette = 15=#FFFFFF
 
 # === Cursor Settings ===
 cursor-style = block

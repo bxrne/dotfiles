@@ -4,7 +4,7 @@ font-size = 12
 
 # === Color Theme (Matte Black) ===
 background = #121212
-background-opacity = 0.97
+background-opacity = 0.96
 foreground = #EAEAEA
 cursor-color = #F59E0B
 selection-background = #262626

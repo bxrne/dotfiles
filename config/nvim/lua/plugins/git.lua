@@ -10,7 +10,20 @@ return {
 	-- Lazygit integration
 	{
 		"kdheepak/lazygit.nvim",
-		cmd = "LazyGit",
+		lazy = true,
+		cmd = {
+			"LazyGit",
+			"LazyGitConfig",
+			"LazyGitCurrentFile",
+			"LazyGitFilter",
+			"LazyGitFilterCurrentFile",
+		},
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		keys = {
+			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+		},
 	},
 
 	-- Git signs in gutter

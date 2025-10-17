@@ -30,7 +30,14 @@ window#waybar {
     border-width: 0px;
 }
 
-#clock,
+#clock{
+    color: #f59e0b;
+    margin-top: 0px;
+    margin-right: 0px;
+    padding: 0px 12px;
+    border-radius: 0;
+    border-width: 0px;
+}
 #custom-power {
     color: #8a8a8d;
     margin-top: 0px;
@@ -39,7 +46,6 @@ window#waybar {
     border-radius: 0;
     border-width: 0px;
 }
-
 #network,
 #custom-lock {
     background-color: #0e0e0e;

@@ -1,6 +1,7 @@
 format = """
 $username$hostname$directory$git_branch$git_status$git_state$python$cmd_duration$character
 """
+add_newline = false
 
 [directory]
 style = "bold #f59e0b"

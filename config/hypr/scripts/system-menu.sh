@@ -2,7 +2,7 @@
 
 options="Shutdown\nReboot\nLock\nLogout\nSuspend"
 
-chosen=$(echo -e "$options" | wofi --dmenu --hide_search --prompt "System" --width 250 --height 220)
+chosen=$(echo -e "$options" | wofi --dmenu --hide-search --prompt "System" --width 250 --height 180)
 
 case $chosen in
     "Shutdown")

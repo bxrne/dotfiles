@@ -2,7 +2,7 @@
 
 options="performance\nbalanced\npower-saver"
 
-chosen=$(echo -e "$options" | wofi --dmenu --hide_search --prompt "Power Profile" --width 250 --height 220)
+chosen=$(echo -e "$options" | wofi --dmenu --hide-search --prompt "Power Profile" --width 250 --height 100)
 
 case $chosen in
     "performance")
@@ -11,7 +11,7 @@ case $chosen in
     "balanced")
         powerprofilesctl set balanced
         ;;
-    "power-saver")
+    "power saver")
         powerprofilesctl set power-saver
         ;;
 esac

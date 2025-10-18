@@ -2,7 +2,7 @@
 
 options="Extend\nMirror"
 
-chosen=$(echo -e "$options" | wofi --dmenu --hide_search --prompt "Display Mode" --width 250 --height 150)
+chosen=$(echo -e "$options" | wofi --dmenu --hide-search --prompt "Display Mode" --width 250 --height 75)
 
 case $chosen in
     "Extend")

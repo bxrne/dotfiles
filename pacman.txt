@@ -4,11 +4,11 @@ apple-t2-audio-config
 base
 base-devel
 bat
-blueberry
 bluetuith-bin
 brightnessctl
 btop
 cava
+chromium
 circumflex
 cmake
 discord
@@ -66,7 +66,6 @@ podman-docker
 podman-tui
 power-profiles-daemon
 pyright
-rxfetch
 slurp
 spotify-player
 starship
@@ -76,6 +75,7 @@ supabase
 sxiv
 t2fanrd
 texinfo
+tmux
 tree
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd

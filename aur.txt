@@ -16,7 +16,6 @@ helium-browser-bin
 helium-browser-bin-debug
 podman-tui
 podman-tui-debug
-rxfetch
 supabase
 supabase-debug
 walker-bin-debug

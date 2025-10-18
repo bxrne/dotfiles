@@ -1,0 +1,46 @@
+[manager]
+border = "none"
+bg = "#0e0e0e"
+fg = "#8a8a8d"
+highlight = "#f59e0b"
+preview_border = "none"
+cursor = "#f59e0b"
+
+[status]
+separator = " • "
+bg = "#0e0e0e"
+fg = "#8a8a8d"
+info = "#f59e0b"
+warning = "#f59e0b"
+error = "#b91c1c"
+success = "#22c55e"
+
+[selection]
+bg = "#0e0e0e"
+fg = "#f59e0b"
+
+[preview]
+bg = "#0e0e0e"
+fg = "#8a8a8d"
+highlight = "#f59e0b"
+
+[filetype]
+dir = "#f59e0b"
+exec = "#22c55e"
+symlink = "#8a8a8d"
+hidden = "#525252"
+socket = "#b91c1c"
+device = "#8a8a8d"
+
+[tab]
+active_fg = "#f59e0b"
+inactive_fg = "#8a8a8d"
+bg = "#0e0e0e"
+
+[footer]
+bg = "#0e0e0e"
+fg = "#8a8a8d"
+
+[icons]
+enable = true
+theme = "nerd"

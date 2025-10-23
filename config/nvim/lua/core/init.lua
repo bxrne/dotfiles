@@ -59,6 +59,6 @@ vim.opt.guifont = "JetBrains Mono Nerd Font"
 -- Encoding settings
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
-
+vim.cmd('set rtp^="' .. os.getenv "HOME" .. '/.opam/default/share/ocp-indent/vim"')
 -- Suppress deprecation warnings from plugins
 vim.deprecate = function() end

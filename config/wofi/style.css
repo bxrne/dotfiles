@@ -5,9 +5,9 @@
 
 window {
   margin: 0px;
-  border: 2px solid #333333;
+  border: 3px solid #f39c12;
   background-color: #121212;
-  border-radius: 0px;
+  border-radius: 8px;
 }
 
 #outer-box {
@@ -23,7 +23,6 @@ window {
   border-radius: 0px;
   color: #eaeaea;
   background-color: #333333;
-  display: none;
 }
 
 #inner-box {

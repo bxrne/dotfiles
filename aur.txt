@@ -1,3 +1,4 @@
+afetch-debug
 appimagelauncher-debug
 argagg
 bluetuith-bin
@@ -11,9 +12,8 @@ elephant-providerlist-debug
 facetimehd-data
 facetimehd-dkms-git
 facetimehd-firmware
+google-chrome
 gruvbox-icon-theme
-helium-browser-bin
-helium-browser-bin-debug
 podman-tui
 podman-tui-debug
 supabase

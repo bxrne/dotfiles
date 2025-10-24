@@ -8,7 +8,6 @@ bluetuith-bin
 brightnessctl
 btop
 cava
-chromium
 circumflex
 cmake
 discord
@@ -22,11 +21,11 @@ fzf
 ghostty
 gimp
 git
+google-chrome
 graphviz
 grim
 gruvbox-icon-theme
 gum
-helium-browser-bin
 hyprland
 hyprlock
 hyprpaper
@@ -42,6 +41,7 @@ linux-firmware
 linux-headers
 linux-t2
 linux-t2-headers
+love
 luarocks
 ly
 maim
@@ -52,6 +52,7 @@ nano
 nautilus
 neovim
 npm
+opam
 otf-font-awesome
 pamixer
 pavucontrol

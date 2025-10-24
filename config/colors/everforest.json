@@ -1,0 +1,17 @@
+{
+  "everforest": {
+    "bg_primary": "#2d353b",
+    "bg_secondary": "#232a2f", 
+    "bg_highlight": "#424b50",
+    "fg_primary": "#d3c6aa",
+    "fg_secondary": "#859289",
+    "accent": "#a7c080",
+    "accent_bright": "#b3d39c",
+    "success": "#87c095",
+    "warning": "#e69875",
+    "error": "#e67e80",
+    "border": "#4a555b",
+    "cursor": "#d3c6aa",
+    "selection": "#424b50"
+  }
+}

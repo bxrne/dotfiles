@@ -1,7 +1,7 @@
 font=JetBrainsMono Nerd Font 10
-background-color=#1e1e1e
-text-color=#8a8a8d
-border-color=#bebebe
+background-color=#2d353b
+text-color=#d3c6aa
+border-color=#4a555b
 border-size=2
 border-radius=1
 width=350
@@ -20,15 +20,15 @@ format=%a <b>%s</b>\n%b
 
 [urgency=low]
 format=[LOW] <b>%s</b>\n%b
-border-color=#bebebe
+border-color=#4a555b
 
 [urgency=normal]
 format=[NOR] <b>%s</b>\n%b
-border-color=#bebebe
+border-color=#4a555b
 
 [urgency=high]
 format=[URG] <b>%s</b>\n%b
-border-color=#bebebe
-text-color=#8a8a8d
-background-color=#1e1e1e
+border-color=#e67e80
+text-color=#d3c6aa
+background-color=#2d353b
 

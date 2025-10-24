@@ -20,12 +20,20 @@ return {
 	-- Theme
 
 	{
-		"tahayvr/matteblack.nvim",
+		"neanias/everforest-nvim",
+		version = false,
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.o.background = "dark"
-			vim.cmd.colorscheme "matteblack"
+			require("everforest").setup({
+				background = "medium",
+				transparent_background_level = 0,
+				italics = true,
+				disable_italic_comments = false,
+				ui_contrast = "low",
+				diagnostic_virtual_text = "coloured",
+			})
+			vim.cmd.colorscheme "everforest"
 		end,
 	},
 

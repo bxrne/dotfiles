@@ -2,34 +2,34 @@
 font-family = "JetBrainsMono Nerd Font"
 font-size = 12
 
-# === Color Theme (Matte Black) ===
-background = #121212
-background-opacity = 0.96
-foreground = #EAEAEA
-cursor-color = #F59E0B
-selection-background = #262626
-selection-foreground = #FFFFFF
+# === Color Theme (Everforest Dark) ===
+background = #2d353b
+background-opacity = 1.0
+foreground = #d3c6aa
+cursor-color = #a7c080
+selection-background = #424b50
+selection-foreground = #d3c6aa
 
-# === 16-Color Palette ===
+# === 16-Color Palette (Everforest) ===
 # Normal colors (0-7)
-palette = 0=#333333
-palette = 1=#B91C1C
-palette = 2=#129B70
-palette = 3=#F59E0B
-palette = 4=#325DCA
-palette = 5=#8D20B2
-palette = 6=#1EA7A0
-palette = 7=#BEBEBE
+palette = 0=#2d353b
+palette = 1=#e67e80
+palette = 2=#a7c080
+palette = 3=#e69875
+palette = 4=#7fbbb3
+palette = 5=#d699b6
+palette = 6=#83c092
+palette = 7=#d3c6aa
 
 # Bright colors (8-15)
-palette = 8=#8A8A8D
-palette = 9=#E62222
-palette = 10=#22C55E
-palette = 11=#F1CB42
-palette = 12=#3C71F6
-palette = 13=#B027DE
-palette = 14=#24D0C7
-palette = 15=#FFFFFF
+palette = 8=#859289
+palette = 9=#e67e80
+palette = 10=#a7c080
+palette = 11=#e69875
+palette = 12=#7fbbb3
+palette = 13=#d699b6
+palette = 14=#83c092
+palette = 15=#d3c6aa
 
 # === Cursor Settings ===
 cursor-style = block

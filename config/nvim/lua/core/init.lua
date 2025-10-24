@@ -38,20 +38,20 @@ vim.opt.laststatus = 3
 vim.opt.spell = true
 vim.opt.spelllang = "en_gb"
 
--- Gruvbox-themed backgrounds for popups
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#282828" })
-vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#282828", fg = "#fabd2f" })
-vim.api.nvim_set_hl(0, "Pmenu", { bg = "#282828" })
-vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#504945" })
-vim.api.nvim_set_hl(0, "SignColumn", { bg = "#282828" })
-vim.api.nvim_set_hl(0, "LineNr", { bg = "#282828" })
-vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "#282828" })
+-- Everforest-themed backgrounds for popups
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#2d353b" })
+vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#2d353b", fg = "#a7c080" })
+vim.api.nvim_set_hl(0, "Pmenu", { bg = "#2d353b" })
+vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#424b50" })
+vim.api.nvim_set_hl(0, "SignColumn", { bg = "#2d353b" })
+vim.api.nvim_set_hl(0, "LineNr", { bg = "#2d353b" })
+vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "#2d353b" })
 
 -- Bufferline backgrounds to match editor
-vim.api.nvim_set_hl(0, "BufferLineFill", { bg = "#282828" })
-vim.api.nvim_set_hl(0, "BufferLineBackground", { bg = "#282828" })
-vim.api.nvim_set_hl(0, "BufferLineBufferVisible", { bg = "#282828" })
-vim.api.nvim_set_hl(0, "BufferLineBufferSelected", { bg = "#282828" })
+vim.api.nvim_set_hl(0, "BufferLineFill", { bg = "#2d353b" })
+vim.api.nvim_set_hl(0, "BufferLineBackground", { bg = "#2d353b" })
+vim.api.nvim_set_hl(0, "BufferLineBufferVisible", { bg = "#2d353b" })
+vim.api.nvim_set_hl(0, "BufferLineBufferSelected", { bg = "#2d353b" })
 
 -- Font configuration with fallback
 vim.opt.guifont = "JetBrains Mono Nerd Font"

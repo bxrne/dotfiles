@@ -2,7 +2,6 @@
 [[ $- != *i* ]] && return
 
 # aliases
-alias ls='ls --color=auto'
 alias lg='lazygit'
 alias grep='grep --color=auto'
 alias cd='z'
@@ -10,10 +9,14 @@ alias cd='z'
 # scripts
 alias cm='~/scripts/cm/cm.sh'
 alias tmuxy='~/scripts/tmuxy/tmuxy.sh'
-export GUM_INPUT_CURSOR_FOREGROUND="#f59e0b"
-export GUM_INPUT_PROMPT_FOREGROUND="#8a8a8d"
-export GUM_INPUT_PROMPT="* "
-export GUM_INPUT_WIDTH=80
+
+# enhanced commands
+alias ls='exa --icons --group-directories-first --color=auto'
+alias ll='exa -la --icons --group-directories-first --color=auto'
+alias la='exa -a --icons --group-directories-first --color=auto'
+alias rg='rg --color=auto'
+alias cat='bat --paging=never --color=auto'
+alias tree='exa --tree --icons --group-directories-first --color=auto'
 
 # enable 
 eval "$(starship init bash)"

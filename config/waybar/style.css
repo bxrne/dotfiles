@@ -5,16 +5,32 @@
     border: none;
     border-radius: 0;
     min-height: 0;
-    background-color: #2d353b;
 }
 
 *:hover {
-    background-color: #2d353b;
+    background-color: rgba(167, 192, 128, 0.5);
 }
 
+
+
+/* Connected bar container */
 window#waybar {
-    background: rgba(0, 0, 0, 0);
+    background: rgba(45, 53, 59, 0.9);
+    border-radius: 0;
+    margin: 20px 40px 3px 40px;
+    padding: 0 8px;
     color: #d3c6aa;
+}
+
+/* Module containers - transparent background since parent provides it */
+.modules-left,
+.modules-center,
+.modules-right {
+    background-color: transparent;
+    border-radius: 0;
+    margin: 0;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 #workspaces:hover {
@@ -26,21 +42,18 @@ window#waybar {
 #window,
 #tray {
     color: #d3c6aa;
-    padding: 0px 0px;
-    margin-top: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    border-radius: 0px;
-    border-width: 0px;
+    padding: 2px 6px;
+    margin: 0px;
+    border-radius: 8px;
+    background-color: transparent;
 }
 
-#clock{
+#clock {
     color: #a7c080;
-    margin-top: 0px;
-    margin-right: 0px;
-    padding: 0px 12px;
-    border-radius: 0;
-    border-width: 0px;
+    margin: 0px;
+    padding: 2px 8px;
+    border-radius: 8px;
+    background-color: transparent;
 }
 #custom-power {
     color: #d3c6aa;
@@ -51,16 +64,7 @@ window#waybar {
     border-width: 0px;
 }
 #network,
-#custom-lock {
-    background-color: #2d353b;
-    color: #d3c6aa;
-    margin-top: 0px;
-    margin-left: 0px;
-    padding: 0px 6px;
-    border-radius: 0;
-    border-width: 0px;
-}
-
+#custom-lock,
 #custom-reboot,
 #bluetooth,
 #battery,
@@ -69,11 +73,11 @@ window#waybar {
 #custom-temperature,
 #memory,
 #cpu {
-    background-color: #2d353b;
     color: #d3c6aa;
-    margin-top: 0px;
-    padding: 0px 6px;
-    border-width: 0px;
+    margin: 0px;
+    padding: 2px 6px;
+    border-radius: 8px;
+    background-color: transparent;
 }
 
 #custom-temperature.critical,
@@ -111,12 +115,14 @@ window#waybar {
 }
 
 #workspaces button {
-    background-color: #2d353b;
+    background-color: transparent;
     color: #d3c6aa;
+    border-radius: 6px;
+    margin: 1px;
 }
 
 #workspaces button:hover {
-    background-color: #2d353b;
+    background-color: rgba(167, 192, 128, 0.3);
     color: #a7c080;
 }
 

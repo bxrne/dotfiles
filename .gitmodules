@@ -5,3 +5,24 @@
 [submodule "scripts/tmuxy"]
 	path = scripts/tmuxy
 	url = https://github.com/bxrne/tmuxy
+[submodule "home/.tmux/plugins/tmux-battery"]
+	path = home/.tmux/plugins/tmux-battery
+	url = https://github.com/tmux-plugins/tmux-battery
+[submodule "home/.tmux/plugins/tmux-continuum"]
+	path = home/.tmux/plugins/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum
+[submodule "home/.tmux/plugins/tmux-cpu"]
+	path = home/.tmux/plugins/tmux-cpu
+	url = https://github.com/tmux-plugins/tmux-cpu
+[submodule "home/.tmux/plugins/tmux-resurrect"]
+	path = home/.tmux/plugins/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect
+[submodule "home/.tmux/plugins/tmux-weather"]
+	path = home/.tmux/plugins/tmux-weather
+	url = https://github.com/xamut/tmux-weather
+[submodule "home/.tmux/plugins/tmux-yank"]
+	path = home/.tmux/plugins/tmux-yank
+	url = https://github.com/tmux-plugins/tmux-yank
+[submodule "home/.tmux/plugins/tpm"]
+	path = home/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm

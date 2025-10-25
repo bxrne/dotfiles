@@ -20,7 +20,7 @@
             "8": "8",
             "9": "9",
             "10": "10",
-            "special":"SP"
+            "special":"✏"
         },
         "on-click": "activate",
         "all-outputs": true,
@@ -28,10 +28,10 @@
     },
     "hyprland/window": {
         "format": "{}",
-        "max-length": 50
+        "max-length": 45
     },
     "clock": {
-        "format": "{:%a %d %b %H:%M}",
+        "format": "{:%H:%M %a %d %b}",
         "format-alt": "{:%Y-%m-%d}",
         "locale": "en_GB.utf8"
     },

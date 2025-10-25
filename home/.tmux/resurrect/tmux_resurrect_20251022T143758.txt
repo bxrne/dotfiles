@@ -1,0 +1,7 @@
+pane	ai	1	1	:*	1	bxrne@archbook:~	:/home/bxrne	1	bash	:
+pane	dev	1	1	:*	1	bxrne@archbook:~/code/lora	:/home/bxrne/code/lora	1	bash	:
+pane	dev	2	0	:-	1	bxrne@archbook:~/code/cs6514_ai	:/home/bxrne/code/cs6514_ai	1	nvim	:nvim
+window	ai	1	:[tmux]	1	:*	b47d,161x42,0,0,0	:
+window	dev	1	:bash	1	:*	b47e,161x42,0,0,1	:
+window	dev	2	:nvim	0	:-	b47f,161x42,0,0,2	:
+state	ai	

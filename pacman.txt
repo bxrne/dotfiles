@@ -1,6 +1,7 @@
 alsa-utils
 apple-bcm-firmware
 apple-t2-audio-config
+arch-audit
 base
 base-devel
 bat
@@ -16,6 +17,7 @@ evince
 eza
 facetimehd-data
 facetimehd-dkms-git
+fastfetch
 feh
 flameshot
 fzf
@@ -84,6 +86,7 @@ ttf-jetbrains-mono-nerd
 typescript
 typescript-language-server
 typst
+ufw
 unzip
 uv
 vim

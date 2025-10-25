@@ -1,0 +1,5 @@
+pane	dev	1	0	:-	1	bxrne@archbook:~/dotfiles	:/home/bxrne/dotfiles	1	bash	:
+pane	dev	2	1	:*	1	bxrne@archbook:~/dotfiles	:/home/bxrne/dotfiles	1	opencode	:opencode
+window	dev	1	:bash	0	:-	b47d,161x42,0,0,0	:
+window	dev	2	:opencode	1	:*	b47e,161x42,0,0,1	:
+state	dev	

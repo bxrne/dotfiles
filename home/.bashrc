@@ -48,4 +48,5 @@ export DOCKER_HOST=unix:///run/user/$UID/podman/podman.sock
 # set editor to neovim
 export EDITOR='nvim'
 
+fastfetch
 tmuxy

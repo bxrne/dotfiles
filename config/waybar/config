@@ -2,7 +2,8 @@
     "layer": "top",
     "position": "top",
     "height": 20,
-    "spacing": 3,
+    "spacing": 5,
+    "width": 1530,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["pulseaudio", "clock", "backlight"],
     "modules-right": ["memory", "cpu", "bluetooth", "network", "battery"],
@@ -18,9 +19,12 @@
             "7": "7",
             "8": "8",
             "9": "9",
-            "10": "10"
+            "10": "10",
+            "special":"SP"
         },
-        "on-click": "activate"
+        "on-click": "activate",
+        "all-outputs": true,
+        "show-special": true,
     },
     "hyprland/window": {
         "format": "{}",

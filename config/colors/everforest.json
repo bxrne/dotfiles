@@ -1,7 +1,7 @@
 {
   "everforest": {
     "bg_primary": "#2d353b",
-    "bg_secondary": "#232a2f", 
+    "bg_secondary": "#232a2f",
     "bg_highlight": "#424b50",
     "fg_primary": "#d3c6aa",
     "fg_secondary": "#859289",
@@ -12,6 +12,13 @@
     "error": "#e67e80",
     "border": "#4a555b",
     "cursor": "#d3c6aa",
-    "selection": "#424b50"
+    "selection": "#424b50",
+    "green": "#a7c080",
+    "aqua": "#83c092",
+    "blue": "#7fbbb3",
+    "purple": "#d699b6",
+    "yellow": "#dbbc7f",
+    "red": "#e67e80",
+    "orange": "#e69875"
   }
 }

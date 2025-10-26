@@ -35,11 +35,11 @@ window#waybar {
     color:  #a7c080;
 }
 #workspaces button.special {
-    color: #e69875;  /* Different color for scratchpad */
+    color: #d3c6aa;  /* White color for inactive scratchpad */
 }
 
 #workspaces button.special.active {
-    color: #e67e80;  /* Active scratchpad color */
+    color: #a7c080;  /* Green color for active scratchpad */
 }
 #workspaces,
 #window,

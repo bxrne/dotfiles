@@ -60,11 +60,6 @@
             }
         },
         {
-            "type": "os",
-            "key": "OS",
-            "keyColor": "green"
-        },
-        {
             "type": "host",
             "key": "Host",
             "keyColor": "green"
@@ -80,65 +75,106 @@
             "keyColor": "green"
         },
         {
-            "type": "kernel",
-            "key": "Kernel",
-            "keyColor": "green"
+            "type": "break"
         },
         {
-            "type": "uptime",
-            "key": "Uptime",
-            "keyColor": "green"
+            "type": "custom",
+            "key": "Software",
+            "format": "{1}"
+        },
+        {
+            "type": "os",
+            "key": "├─ OS",
+            "keyColor": "green",
+            "icon": "nf-fa-linux"
+        },
+        {
+            "type": "kernel",
+            "key": "├─ Kernel",
+            "keyColor": "green",
+            "icon": "nf-seti-kernel"
         },
         {
             "type": "packages",
-            "key": "Packages",
-            "keyColor": "green"
+            "key": "├─ Packages",
+            "keyColor": "green",
+            "icon": "nf-fa-archive"
         },
         {
             "type": "shell",
-            "key": "Shell",
-            "keyColor": "green"
+            "key": "├─ Shell",
+            "keyColor": "green",
+            "icon": "nf-fa-terminal"
         },
         {
             "type": "terminal",
-            "key": "Terminal",
-            "keyColor": "green"
+            "key": "├─ Terminal",
+            "keyColor": "green",
+            "icon": "nf-fa-terminal"
         },
         {
             "type": "wm",
-            "key": "WM",
-            "keyColor": "green"
+            "key": "├─ WM",
+            "keyColor": "green",
+            "icon": "nf-fa-window-maximize"
         },
         {
             "type": "cursor",
-            "key": "Cursor",
-            "keyColor": "green"
+            "key": "└─ Cursor",
+            "keyColor": "green",
+            "icon": "nf-fa-mouse-pointer"
+        },
+        {
+            "type": "break"
+        },
+        {
+            "type": "custom",
+            "key": "Hardware",
+            "format": "{1}"
         },
         {
             "type": "cpu",
-            "key": "CPU",
-            "keyColor": "cyan"
+            "key": "├─ CPU",
+            "keyColor": "cyan",
+            "icon": "nf-fa-microchip"
         },
         {
             "type": "gpu",
-            "key": "GPU",
-            "keyColor": "cyan"
+            "key": "├─ GPU",
+            "keyColor": "cyan",
+            "icon": "nf-fa-desktop"
         },
         {
             "type": "memory",
-            "key": "Memory",
+            "key": "├─ Memory",
             "keyColor": "yellow",
             "percent": {
                 "type": 2
-            }
+            },
+            "icon": "nf-fa-memory"
         },
         {
             "type": "disk",
-            "key": "Disk",
+            "key": "└─ Disk",
             "keyColor": "yellow",
             "percent": {
                 "type": 2
-            }
+            },
+            "icon": "nf-fa-hdd-o"
+        },
+        {
+            "type": "break"
+        },
+        {
+            "type": "custom",
+            "key": "Age",
+            "format": "{1}"
+        },
+        {
+            "type": "uptime",
+            "key": "└─ Uptime",
+            "keyColor": "magenta",
+            "icon": "nf-fa-clock-o"
         },
         {
             "type": "break"

@@ -3,7 +3,7 @@
     
     "logo": {
         "type": "file",
-        "source": "../about.txt",
+        "source": "~/.config/about.txt",
         "padding": {
             "top": 1,
             "left": 2
@@ -20,9 +20,9 @@
     "display": {
         "separator": " -> ",
         "color": {
-            "keys": "green",        // Module names in green
-            "separator": "yellow",  // Separator in yellow
-            "title": "cyan"         // Title in cyan
+            "keys": "#a7c080",      // Everforest green
+            "separator": "#dbbc7f", // Everforest yellow
+            "title": "#7fbbb3"      // Everforest cyan
         },
         "bar": {
             "char": {
@@ -55,25 +55,25 @@
         {
             "type": "title",
             "color": {
-                "user": "green",
-                "at": "yellow",
-                "host": "cyan"
+                "user": "#a7c080",
+                "at": "#dbbc7f",
+                "host": "#7fbbb3"
             }
         },
         {
             "type": "host",
             "key": "Host",
-            "keyColor": "green"
+            "keyColor": "#a7c080"
         },
         {
             "type": "localip",
             "key": "Local IP",
-            "keyColor": "green"
+            "keyColor": "#a7c080"
         },
         {
             "type": "publicip",
             "key": "Public IP",
-            "keyColor": "green"
+            "keyColor": "#a7c080"
         },
         {
             "type": "break"
@@ -86,43 +86,43 @@
         {
             "type": "os",
             "key": "├─ OS",
-            "keyColor": "green",
+            "keyColor": "#a7c080",
             "icon": "nf-fa-linux"
         },
         {
             "type": "kernel",
             "key": "├─ Kernel",
-            "keyColor": "green",
+            "keyColor": "#a7c080",
             "icon": "nf-seti-kernel"
         },
         {
             "type": "packages",
             "key": "├─ Packages",
-            "keyColor": "green",
+            "keyColor": "#a7c080",
             "icon": "nf-fa-archive"
         },
         {
             "type": "shell",
             "key": "├─ Shell",
-            "keyColor": "green",
+            "keyColor": "#a7c080",
             "icon": "nf-fa-terminal"
         },
         {
             "type": "terminal",
             "key": "├─ Terminal",
-            "keyColor": "green",
+            "keyColor": "#a7c080",
             "icon": "nf-fa-terminal"
         },
         {
             "type": "wm",
             "key": "├─ WM",
-            "keyColor": "green",
+            "keyColor": "#a7c080",
             "icon": "nf-fa-window-maximize"
         },
         {
             "type": "cursor",
             "key": "└─ Cursor",
-            "keyColor": "green",
+            "keyColor": "#a7c080",
             "icon": "nf-fa-mouse-pointer"
         },
         {
@@ -136,19 +136,19 @@
         {
             "type": "cpu",
             "key": "├─ CPU",
-            "keyColor": "cyan",
+            "keyColor": "#7fbbb3",
             "icon": "nf-fa-microchip"
         },
         {
             "type": "gpu",
             "key": "├─ GPU",
-            "keyColor": "cyan",
+            "keyColor": "#7fbbb3",
             "icon": "nf-fa-desktop"
         },
         {
             "type": "memory",
             "key": "├─ Memory",
-            "keyColor": "yellow",
+            "keyColor": "#dbbc7f",
             "percent": {
                 "type": 2
             },
@@ -157,7 +157,7 @@
         {
             "type": "disk",
             "key": "└─ Disk",
-            "keyColor": "yellow",
+            "keyColor": "#dbbc7f",
             "percent": {
                 "type": 2
             },
@@ -174,7 +174,7 @@
         {
             "type": "uptime",
             "key": "└─ Uptime",
-            "keyColor": "magenta",
+            "keyColor": "#d699b6",
             "icon": "nf-fa-clock-o"
         },
         {

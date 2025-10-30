@@ -5,7 +5,12 @@
 alias lg='lazygit'
 alias grep='grep --color=auto'
 alias cd='z'
-
+alias ptail='
+  FILE=$(fzf --preview "bat --style=numbers --color=always --line-range :200 {}" --height=40% --reverse --border) &&
+  clear &&
+  echo "🐍 Following: $FILE" &&
+  tail -n 50 -f "$FILE" | bat --paging=never --color=always -l log
+'
 # scripts
 alias cm='~/scripts/cm/cm.sh'
 alias tmuxy='~/scripts/tmuxy/tmuxy.sh'
@@ -47,6 +52,3 @@ export DOCKER_HOST=unix:///run/user/$UID/podman/podman.sock
 
 # set editor to neovim
 export EDITOR='nvim'
-
-fastfetch
-tmuxy

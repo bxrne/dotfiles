@@ -25,14 +25,14 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("everforest").setup({
+			require("everforest").setup {
 				background = "medium",
 				transparent_background_level = 0,
 				italics = true,
 				disable_italic_comments = false,
 				ui_contrast = "low",
 				diagnostic_virtual_text = "coloured",
-			})
+			}
 			vim.cmd.colorscheme "everforest"
 		end,
 	},
@@ -41,8 +41,7 @@ return {
 	{
 		"xiyaowong/transparent.nvim",
 		config = function()
-			--require("transparent").setup(require "config.transparent")
-			require "config.transparent"
+			require("transparent").setup(require "config.transparent")
 			vim.cmd "TransparentEnable"
 		end,
 	},

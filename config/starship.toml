@@ -4,24 +4,24 @@ $username$hostname$directory$git_branch$git_status$git_state$python$cmd_duration
 add_newline = false
 
 [directory]
-style = "bold #a7c080"
+style = "bold #f38d70"
 truncation_length = 3
 truncate_to_repo = true
 format = "[$path]($style) "
 
 [character]
-success_symbol = "[∷](bold #a7c080)"
-error_symbol = "[∷](bold #e67e80)"
-vimcmd_symbol = "[∷](bold #87c095)"
+success_symbol = "[∷](bold #f38d70)"
+error_symbol = "[∷](bold #fd6883)"
+vimcmd_symbol = "[∷](bold #85dacc)"
 
 [git_branch]
 symbol = " "                        # branch symbol
 format = "[$symbol$branch]($style) "
-style = "bold #a7c080"
+style = "bold #f38d70"
 
 [git_status]
 format = "([$all_status$ahead_behind]($style)) "
-style = "#a7c080"
+style = "#f38d70"
 conflicted = "="
 untracked = "?"
 modified = "!"
@@ -32,21 +32,21 @@ stashed = "≡"
 
 [git_state]
 format = "[$state( $progress_current/$progress_total)]($style)"
-style = "bold #e67e80"
+style = "bold #fd6883"
 
 [cmd_duration]
 min_time = 500
 format = " [$duration]($style) "
-style = "#859289"
+style = "#948a8b"
 
 [python]
 symbol = "  "                          # Python logo glyph
 format = "[$symbol$virtualenv]($style)"
-style = "#87c095"
+style = "#85dacc"
 
 [username]
-style_user = "bold #a7c080"
-style_root = "bold #e67e80"
+style_user = "bold #f38d70"
+style_root = "bold #fd6883"
 format = "[$user]($style)@"
 disabled = false
 show_always = true
@@ -54,5 +54,5 @@ show_always = true
 [hostname]
 ssh_only = true
 format = "📡 [$hostname]($style) "
-style = "bold #87c095"
+style = "bold #85dacc"
 disabled = false

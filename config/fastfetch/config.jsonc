@@ -10,20 +10,20 @@
             "left": 2
         },
         "color": {
-            "1": "#a7c080",    // Primary green
-            "2": "#7fbbb3",    // Accent cyan
-            "3": "#dbbc7f",    // Yellow
-            "4": "#d699b6",    // Magenta
-            "5": "#83c092"     // Blue
+            "1": "#f38d70",    // Primary orange
+            "2": "#85dacc",    // Accent blue
+            "3": "#f9cc6c",    // Yellow
+            "4": "#a8a9eb",    // Magenta
+            "5": "#adda78"     // Green
         }
     },
     
     "display": {
         "separator": ": ",
         "color": {
-            "keys": "#a7c080",      // Everforest green
-            "separator": "#dbbc7f", // Everforest yellow
-            "title": "#7fbbb3"      // Everforest cyan
+            "keys": "#f38d70",      // Monokai orange
+            "separator": "#f9cc6c", // Monokai yellow
+            "title": "#85dacc"      // Monokai blue
         },
         "bar": {
             "char": {
@@ -35,16 +35,16 @@
                 "right": ""
             },
             "color": {
-                "elapsed": "#a7c080",
-                "total": "#4a555b"
+                "elapsed": "#f38d70",
+                "total": "#403e41"
             }
         },
         "percent": {
             "type": 3,
             "color": {
-                "green": "#a7c080",
-                "yellow": "#dbbc7f",
-                "red": "#e67e80"
+                "green": "#adda78",
+                "yellow": "#f9cc6c",
+                "red": "#fd6883"
             }
         },
         "temp": {
@@ -56,25 +56,25 @@
         {
             "type": "title",
             "color": {
-                "user": "#a7c080",
-                "at": "#dbbc7f",
-                "host": "#7fbbb3"
+                "user": "#f38d70",
+                "at": "#f9cc6c",
+                "host": "#85dacc"
             }
         },
         {
             "type": "host",
             "key": "├─ Host",
-            "keyColor": "#a7c080"
+            "keyColor": "#f38d70"
         },
         {
             "type": "localip",
             "key": "├─ Local IP",
-            "keyColor": "#a7c080"
+            "keyColor": "#f38d70"
         },
         {
             "type": "publicip",
             "key": "└─ Public IP",
-            "keyColor": "#a7c080"
+            "keyColor": "#f38d70"
         },
         {
             "type": "break"
@@ -86,42 +86,42 @@
         {
             "type": "os",
             "key": "├─ OS",
-            "keyColor": "#a7c080",
+            "keyColor": "#f38d70",
         },
         {
             "type": "kernel",
             "key": "├─ Kernel",
-            "keyColor": "#a7c080",
+            "keyColor": "#f38d70",
             "icon": "nf-seti-kernel"
         },
         {
             "type": "packages",
             "key": "├─ Packages",
-            "keyColor": "#a7c080",
+            "keyColor": "#f38d70",
             "icon": "nf-fa-archive"
         },
         {
             "type": "shell",
             "key": "├─ Shell",
-            "keyColor": "#a7c080",
+            "keyColor": "#f38d70",
             "icon": "nf-fa-terminal"
         },
         {
             "type": "terminal",
             "key": "├─ Terminal",
-            "keyColor": "#a7c080",
+            "keyColor": "#f38d70",
             "icon": "nf-fa-terminal"
         },
         {
             "type": "wm",
             "key": "├─ WM",
-            "keyColor": "#a7c080",
+            "keyColor": "#f38d70",
             "icon": "nf-fa-window-maximize"
         },
         {
             "type": "cursor",
             "key": "└─ Cursor",
-            "keyColor": "#a7c080",
+            "keyColor": "#f38d70",
             "icon": "nf-fa-mouse-pointer"
         },
         {

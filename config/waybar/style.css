@@ -1,4 +1,4 @@
-/* Everforest Dark Theme for Waybar */
+/* Monokai Pro Ristretto Theme for Waybar */
 * {
     font-family: "JetBrainsMono Nerd Font", monospace;
     font-size: 12px;
@@ -8,20 +8,15 @@
 }
 
 *:hover {
-    background-color: rgba(167, 192, 128, 0.5);
+    background-color: rgba(243, 141, 112, 0.5);
 }
 
-
-/* Connected bar container */
 window#waybar {
-    background: rgba(45, 53, 59, 0.3);
-    border-radius: 6px;
-    border: 1px solid #a7c080;
+    background: rgba(25, 24, 26, 0.8);
     margin: 20px;
-    color: #d3c6aa;
+    color: #fcfcfa;
 }
 
-/* Module containers - transparent background since parent provides it */
 .modules-left,
 .modules-center,
 .modules-right {
@@ -32,41 +27,45 @@ window#waybar {
 
 #workspaces:hover {
     background: rgba(0, 0, 0, 0);
-    color:  #a7c080;
+    color: #f38d70;
 }
+
 #workspaces button.special {
-    color: #d3c6aa;  /* White color for inactive scratchpad */
+    color: #fcfcfa;
 }
 
 #workspaces button.special.active {
-    color: #a7c080;  /* Green color for active scratchpad */
+    color: #f38d70;
 }
+
 #workspaces,
 #window,
 #tray {
-    color: #d3c6aa;
+    color: #fcfcfa;
     padding: 2px 6px;
     margin: 0px;
-    border-radius: 8px;
+    border-radius: 0;
     background-color: transparent;
 }
 
 #clock {
-    color: #a7c080;
+    color: #f9cc6c;
     font-weight: 900;
     margin: 0px;
     padding: 2px 8px;
-    border-radius: 8px;
+    border-radius: 0;
     background-color: transparent;
 }
+
 #custom-power {
-    color: #d3c6aa;
+    color: #fcfcfa;
     margin-top: 0px;
     margin-right: 0px;
     padding: 0px 12px;
     border-radius: 0;
     border-width: 0px;
 }
+
 #network,
 #custom-lock,
 #custom-reboot,
@@ -77,16 +76,16 @@ window#waybar {
 #custom-temperature,
 #memory,
 #cpu {
-    color: #d3c6aa;
+    color: #fcfcfa;
     margin: 0px;
     padding: 2px 6px;
-    border-radius: 8px;
+    border-radius: 0;
     background-color: transparent;
 }
 
 #custom-temperature.critical,
 #pulseaudio.muted {
-    color: #e67e80;
+    color: #fd6883;
 }
 
 #bluetooth:hover,
@@ -99,43 +98,39 @@ window#waybar {
 #cpu:hover,
 #clock:hover,
 #window:hover {
-    color: #a7c080;
+    color: #f38d70;
 }
 
 #custom-lock:hover {
-    color: #e67e80;
+    color: #fd6883;
 }
 
 #custom-reboot:hover {
-    color: #e67e80;
-}
-
-#custom-power {
-    color: #d3c6aa;
+    color: #fd6883;
 }
 
 #custom-power:hover {
-    color: #e67e80;
+    color: #fd6883;
 }
 
 #workspaces button {
     background-color: transparent;
-    color: #d3c6aa;
-    border-radius: 6px;
+    color: #fcfcfa;
+    border-radius: 0;
     margin: 1px;
 }
 
 #workspaces button:hover {
-    background-color: #a7c080;
-    color: #2d353b;
+    background-color: #f38d70;
+    color: #19181a;
 }
 
 #workspaces button.active {
-    color: #a7c080;
+    color: #f38d70;
 }
 
 #workspaces button.urgent {
-    color: #e67e80;
+    color: #fd6883;
 }
 
 #window {
@@ -143,19 +138,19 @@ window#waybar {
 }
 
 #battery.warning {
-    color: #e69875;
+    color: #f38d70;
 }
 
 #battery.critical {
-    color: #e67e80;
+    color: #fd6883;
 }
 
 #battery.charging {
-    color: #87c095;
+    color: #f38d70;
 }
 
 tooltip {
-    background: #2d353b;
-    border: 1px solid #a7c080;
-    color: #d3c6aa;
+    background: #221f22;
+    border: 1px solid #f38d70;
+    color: #fcfcfa;
 }

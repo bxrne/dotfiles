@@ -1,45 +1,45 @@
 [mgr]
 border = "none"
-bg = "#2d353b"
-fg = "#d3c6aa"
-highlight = "#a7c080"
+bg = "#19181a"
+fg = "#fcfcfa"
+highlight = "#f38d70"
 preview_border = "none"
-cursor = "#a7c080"
+cursor = "#f38d70"
 
 [status]
 separator = " • "
-bg = "#2d353b"
-fg = "#d3c6aa"
-info = "#a7c080"
-warning = "#e69875"
-error = "#e67e80"
-success = "#87c095"
+bg = "#19181a"
+fg = "#fcfcfa"
+info = "#f38d70"
+warning = "#f38d70"
+error = "#fd6883"
+success = "#85dacc"
 
 [selection]
-bg = "#2d353b"
-fg = "#a7c080"
+bg = "#403e41"
+fg = "#f38d70"
 
 [preview]
-bg = "#2d353b"
-fg = "#d3c6aa"
-highlight = "#a7c080"
+bg = "#19181a"
+fg = "#fcfcfa"
+highlight = "#f38d70"
 
 [filetype]
-dir = "#a7c080"
-exec = "#87c095"
-symlink = "#d3c6aa"
-hidden = "#859289"
-socket = "#e67e80"
-device = "#d3c6aa"
+dir = "#f38d70"
+exec = "#85dacc"
+symlink = "#fcfcfa"
+hidden = "#948a8b"
+socket = "#fd6883"
+device = "#fcfcfa"
 
 [tab]
-active_fg = "#a7c080"
-inactive_fg = "#d3c6aa"
-bg = "#2d353b"
+active_fg = "#f38d70"
+inactive_fg = "#fcfcfa"
+bg = "#19181a"
 
 [footer]
-bg = "#2d353b"
-fg = "#d3c6aa"
+bg = "#19181a"
+fg = "#fcfcfa"
 
 [icons]
 enable = true

@@ -34,25 +34,6 @@ vim.opt.expandtab = true
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 3
 
--- Spell check for English (UK)
-vim.opt.spell = true
-vim.opt.spelllang = "en_gb"
-
--- Everforest-themed backgrounds for popups
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#2d353b" })
-vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#2d353b", fg = "#a7c080" })
-vim.api.nvim_set_hl(0, "Pmenu", { bg = "#2d353b" })
-vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#424b50" })
-vim.api.nvim_set_hl(0, "SignColumn", { bg = "#2d353b" })
-vim.api.nvim_set_hl(0, "LineNr", { bg = "#2d353b" })
-vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "#2d353b" })
-
--- Bufferline backgrounds to match editor
-vim.api.nvim_set_hl(0, "BufferLineFill", { bg = "#2d353b" })
-vim.api.nvim_set_hl(0, "BufferLineBackground", { bg = "#2d353b" })
-vim.api.nvim_set_hl(0, "BufferLineBufferVisible", { bg = "#2d353b" })
-vim.api.nvim_set_hl(0, "BufferLineBufferSelected", { bg = "#2d353b" })
-
 -- Font configuration with fallback
 vim.opt.guifont = "JetBrains Mono Nerd Font"
 
@@ -60,5 +41,6 @@ vim.opt.guifont = "JetBrains Mono Nerd Font"
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 vim.cmd('set rtp^="' .. os.getenv "HOME" .. '/.opam/default/share/ocp-indent/vim"')
+--
 -- Suppress deprecation warnings from plugins
 vim.deprecate = function() end

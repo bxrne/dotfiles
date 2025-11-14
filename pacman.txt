@@ -28,6 +28,7 @@ graphviz
 grim
 gruvbox-icon-theme
 gum
+helium-browser-bin
 hypridle
 hyprland
 hyprlock
@@ -91,7 +92,6 @@ supabase
 sxiv
 t2fanrd
 texinfo
-tmux
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
 typescript
@@ -108,6 +108,7 @@ wiremix
 wireplumber
 wl-clipboard
 wofi
+xcursor-vanilla-dmz-aa
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 xf86-video-vesa
@@ -161,5 +162,6 @@ xorg-xwud
 yay
 yay-debug
 yazi
+zellij
 zig
 zoxide

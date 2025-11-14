@@ -13,6 +13,8 @@ facetimehd-firmware
 google-chrome
 gruvbox-icon-theme
 gtk2
+helium-browser-bin
+helium-browser-bin-debug
 lazysql
 lazysql-debug
 picotool

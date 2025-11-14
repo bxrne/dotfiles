@@ -8,12 +8,12 @@ alias cd='z'
 alias ptail='
   FILE=$(fzf --preview "bat --style=numbers --color=always --line-range :200 {}" --height=40% --reverse --border) &&
   clear &&
-  echo "🐍 Following: $FILE" &&
+  echo "Following: $FILE" &&
   tail -n 50 -f "$FILE" | bat --paging=never --color=always -l log
 '
 # scripts
 alias cm='~/scripts/cm/cm.sh'
-alias tmuxy='~/scripts/tmuxy/tmuxy.sh'
+alias zellijy='~/scripts/zellijy/zellijy.sh'
 
 # enhanced commands
 alias ls='exa --icons --group-directories-first --color=auto'
@@ -42,14 +42,16 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 test -r '/home/bxrne/.opam/opam-init/init.sh' && . '/home/bxrne/.opam/opam-init/init.sh' > /dev/null 2> /dev/null || true
 export PATH="$HOME/.platformio/penv/bin:$PATH"
+export ZELLIJ_THEME="gruvbox-dark"
+export DOCKER_HOST=unix:///run/user/$UID/podman/podman.sock
+export EDITOR='nvim'
 
-# start podman socket if not running
+# Autostarts
 if ! pgrep -u "$USER" -f "podman system service" > /dev/null; then
     systemctl --user start podman.socket
 fi
 
-# set docker host to podman socket
-export DOCKER_HOST=unix:///run/user/$UID/podman/podman.sock
-
-# set editor to neovim
-export EDITOR='nvim'
+if [ -z "$ZELLIJ" ] && [ -z "$ZELLIJ_AUTO_ATTACH" ]; then
+    zellij setup --dump-config > /dev/null 2>&1 || true
+    zellij options --theme $ZELLIJ_THEME
+fi

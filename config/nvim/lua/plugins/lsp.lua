@@ -1,4 +1,14 @@
 -- LSP configuration
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+parser_config.ripple = {
+  install_info = {
+    url = "https://github.com/bxrne/tree-sitter-ripple",
+    files = {"src/parser.c"},
+    branch = "main",
+  },
+  filetype = "ripple",
+}
+
 return {
 	-- Mason for LSP management
 	{
@@ -42,11 +52,33 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "mason.nvim" },
 		opts = {
-			ensure_installed = { "gopls", "ts_ls", "lua_ls", "pyright", "zls", "rust_analyzer", "clangd", "omnisharp", "jsonls", "taplo", "yamlls", "marksman", "htmx", "bashls", "cssls" },
+			ensure_installed = {
+				"gopls",
+				"ts_ls",
+				"lua_ls",
+				"pyright",
+				"zls",
+				"rust_analyzer",
+				"clangd",
+				"omnisharp",
+				"jsonls",
+				"taplo",
+				"yamlls",
+				"marksman",
+				"htmx",
+				"bashls",
+				"cssls",
+			},
 			automatic_installation = true,
 		},
 	},
-
+	{
+		"bxrne/ripple.nvim",
+		ft = "ripple",
+		config = function()
+			require("ripple").setup()
+		end,
+	},
 	-- Main LSP configuration
 	{
 		"neovim/nvim-lspconfig",
@@ -61,4 +93,3 @@ return {
 		config = require "config.lsp",
 	},
 }
-

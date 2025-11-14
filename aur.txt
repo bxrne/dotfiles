@@ -1,9 +1,7 @@
-afetch-debug
 appimagelauncher-debug
 argagg
 bluetuith-bin
 bluetuith-bin-debug
-cbonsai-debug
 circumflex
 circumflex-debug
 elephant-debug
@@ -14,10 +12,14 @@ facetimehd-dkms-git
 facetimehd-firmware
 google-chrome
 gruvbox-icon-theme
+gtk2
+lazysql
+lazysql-debug
+picotool
+picotool-debug
 podman-tui
 podman-tui-debug
 supabase
 supabase-debug
-walker-bin-debug
 yay
 yay-debug

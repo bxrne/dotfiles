@@ -1,7 +1,6 @@
 default_shell "bash"
 default_theme "gruvbox-dark"
 default_layout "compact"
-
 mouse_mode false
 copy_command "wl-copy"
 pane_viewport_serialization true

@@ -8,8 +8,6 @@ bat
 bluetuith-bin
 brightnessctl
 btop
-cava
-circumflex
 cmake
 doxygen
 evince
@@ -23,6 +21,7 @@ fzf
 ghostty
 gimp
 git
+gnu-netcat
 google-chrome
 graphviz
 grim
@@ -48,16 +47,12 @@ linux-firmware
 linux-headers
 linux-t2
 linux-t2-headers
-lolcat
-love
 luarocks
 ly
 maim
 mako
 man-db
 man-pages
-nano
-nautilus
 neomutt
 neovim
 noto-fonts
@@ -81,6 +76,7 @@ podman-docker
 podman-tui
 power-profiles-daemon
 pyright
+rainfrog
 ripgrep
 slurp
 socat
@@ -89,6 +85,7 @@ starship
 stow
 sudo
 supabase
+swig
 sxiv
 t2fanrd
 texinfo

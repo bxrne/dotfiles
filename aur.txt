@@ -2,7 +2,6 @@ appimagelauncher-debug
 argagg
 bluetuith-bin
 bluetuith-bin-debug
-circumflex
 circumflex-debug
 elephant-debug
 elephant-desktopapplications-debug
@@ -10,11 +9,14 @@ elephant-providerlist-debug
 facetimehd-data
 facetimehd-dkms-git
 facetimehd-firmware
+gnu-netcat
+gnu-netcat-debug
 google-chrome
 gruvbox-icon-theme
 gtk2
 helium-browser-bin
 helium-browser-bin-debug
+hyprland-qtutils
 lazysql
 lazysql-debug
 picotool

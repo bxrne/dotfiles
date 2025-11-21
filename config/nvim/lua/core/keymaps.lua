@@ -24,3 +24,13 @@ vim.keymap.set("n", "<leader>fr", ":FzfLua registers<CR>", { desc = "Fuzzy searc
 vim.keymap.set("n", "<leader>fq", ":FzfLua quickfix<CR>", { desc = "Fuzzy search quickfix list" })
 vim.keymap.set("n", "<leader>fl", ":FzfLua loclist<CR>", { desc = "Fuzzy search location list" })
 
+-- Debugging keymaps (additional to debug.lua)
+vim.keymap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Debug: Toggle Breakpoint" })
+vim.keymap.set("n", "<leader>dc", "<cmd>lua require'dap'.continue()<CR>", { desc = "Debug: Continue" })
+vim.keymap.set("n", "<leader>dso", "<cmd>lua require'dap'.step_over()<CR>", { desc = "Debug: Step Over" })
+vim.keymap.set("n", "<leader>dsi", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Debug: Step Into" })
+vim.keymap.set("n", "<leader>dso", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Debug: Step Out" })
+vim.keymap.set("n", "<leader>dt", "<cmd>lua require'dapui'.toggle()<CR>", { desc = "Debug: Toggle UI" })
+vim.keymap.set("n", "<leader>dr", "<cmd>lua require'dap'.repl.open()<CR>", { desc = "Debug: Open REPL" })
+vim.keymap.set("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debug: Run Last" })
+

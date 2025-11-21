@@ -55,7 +55,7 @@ return function()
 	end
 
 	-- Language server configurations
-	local servers = { "lua_ls", "gopls", "ts_ls", "pyright", "zls", "rust_analyzer", "clangd", "omnisharp", "jsonls", "taplo", "yamlls", "marksman", "htmx", "bashls", "cssls" }
+	local servers = { "lua_ls", "gopls", "ts_ls", "pyright", "zls", "rust_analyzer", "clangd", "omnisharp", "jsonls", "taplo", "yamlls", "marksman", "htmx", "bashls", "cssls", "ocamllsp" }
 
 	-- Setup servers
 	for _, server in ipairs(servers) do

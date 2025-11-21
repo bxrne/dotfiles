@@ -1,46 +1,140 @@
+# Gruvbox Dark Theme for Yazi
+
 [mgr]
-border = "none"
-bg = "#19181a"
-fg = "#fcfcfa"
-highlight = "#f38d70"
-preview_border = "none"
-cursor = "#f38d70"
+cwd = { fg = "#ebdbb2" }
+
+# Hovered
+hovered = { fg = "#282828", bg = "#fabd2f" }
+preview_hovered = { underline = true }
+
+# Find
+find_keyword = { fg = "#b8bb26", italic = true }
+find_position = { fg = "#fe8019", bg = "reset", italic = true }
+
+# Marker
+marker_selected = { fg = "#b8bb26", bg = "#b8bb26" }
+marker_copied = { fg = "#fabd2f", bg = "#fabd2f" }
+marker_cut = { fg = "#fb4934", bg = "#fb4934" }
+
+# Tab
+tab_active = { fg = "#282828", bg = "#ebdbb2" }
+tab_inactive = { fg = "#a89984", bg = "#3c3836" }
+tab_width = 1
+
+# Border
+border_symbol = "│"
+border_style = { fg = "#665c54" }
+
+# Highlighting
+syntect_theme = "~/.config/yazi/gruvbox-dark.tmTheme"
 
 [status]
-separator = " • "
-bg = "#19181a"
-fg = "#fcfcfa"
-info = "#f38d70"
-warning = "#f38d70"
-error = "#fd6883"
-success = "#85dacc"
+separator_open = ""
+separator_close = ""
+separator_style = { fg = "#504945", bg = "#504945" }
 
-[selection]
-bg = "#403e41"
-fg = "#f38d70"
+# Mode
+mode_normal = { fg = "#ebdbb2", bg = "#504945", bold = true }
+mode_select = { fg = "#282828", bg = "#b8bb26", bold = true }
+mode_unset = { fg = "#282828", bg = "#fe8019", bold = true }
 
-[preview]
-bg = "#19181a"
-fg = "#fcfcfa"
-highlight = "#f38d70"
+# Progress
+progress_label = { fg = "#ebdbb2", bold = true }
+progress_normal = { fg = "#b8bb26", bg = "#504945" }
+progress_error = { fg = "#fb4934", bg = "#504945" }  # Permissions
+permissions_t = { fg = "#b8bb26" }
+permissions_r = { fg = "#fabd2f" }
+permissions_w = { fg = "#fb4934" }
+permissions_x = { fg = "#83a598" }
+permissions_s = { fg = "#665c54" }
+
+[input]
+border = { fg = "#83a598" }
+title = {}
+value = {}
+selected = { reversed = true }
+
+[select]
+border = { fg = "#83a598" }
+active = { fg = "#fe8019" }
+inactive = {}
+
+[tasks]
+border = { fg = "#83a598" }
+title = {}
+hovered = { underline = true }
+
+[which]
+cols = 3
+mask = { bg = "#32302f" }
+cand = { fg = "#83a598" }
+rest = { fg = "#a89984" }
+desc = { fg = "#fe8019" }
+separator = "  "
+separator_style = { fg = "#665c54" }
+
+[help]
+on = { fg = "#b8bb26" }
+run = { fg = "#fe8019" }
+desc = { fg = "#a89984" }
+hovered = { bg = "#504945", bold = true }
+footer = { fg = "#3c3836", bg = "#a89984" }
 
 [filetype]
-dir = "#f38d70"
-exec = "#85dacc"
-symlink = "#fcfcfa"
-hidden = "#948a8b"
-socket = "#fd6883"
-device = "#fcfcfa"
 
-[tab]
-active_fg = "#f38d70"
-inactive_fg = "#fcfcfa"
-bg = "#19181a"
+rules = [
+  # Images
+  { mime = "image/*", fg = "#d3869b" },
 
-[footer]
-bg = "#19181a"
-fg = "#fcfcfa"
+  # Videos
+  { mime = "video/*", fg = "#8ec07c" },
+  { mime = "audio/*", fg = "#8ec07c" },
 
-[icons]
-enable = true
-theme = "nerd"
+  # Archives
+  { mime = "application/zip", fg = "#fb4934" },
+  { mime = "application/gzip", fg = "#fb4934" },
+  { mime = "application/x-tar", fg = "#fb4934" },
+  { mime = "application/x-bzip", fg = "#fb4934" },
+  { mime = "application/x-bzip2", fg = "#fb4934" },
+  { mime = "application/x-7z-compressed", fg = "#fb4934" },
+  { mime = "application/x-rar", fg = "#fb4934" },
+
+  # Documents
+  { mime = "application/pdf", fg = "#fb4934" },
+  { mime = "text/*", fg = "#ebdbb2" },
+
+  # Code
+  { name = "*.rs", fg = "#fe8019" },
+  { name = "*.py", fg = "#fabd2f" },
+  { name = "*.js", fg = "#fabd2f" },
+  { name = "*.ts", fg = "#83a598" },
+  { name = "*.go", fg = "#83a598" },
+  { name = "*.c", fg = "#83a598" },
+  { name = "*.cpp", fg = "#83a598" },
+  { name = "*.java", fg = "#fb4934" },
+  { name = "*.sh", fg = "#b8bb26" },
+
+  # Special files
+  { name = "*.gitignore", fg = "#928374" },
+  { name = "*.gitmodules", fg = "#928374" },
+  { name = "Makefile", fg = "#8ec07c" },
+  { name = "Dockerfile", fg = "#83a598" },
+  { name = "*.toml", fg = "#d3869b" },
+  { name = "*.yaml", fg = "#d3869b" },
+  { name = "*.yml", fg = "#d3869b" },
+  { name = "*.json", fg = "#fabd2f" },
+  { name = "*.md", fg = "#ebdbb2" },
+]
+
+[icon]
+rules = [
+  { name = "*/", text = "" },
+  { name = "*.rs", text = "", fg = "#fe8019" },
+  { name = "*.py", text = "", fg = "#fabd2f" },
+  { name = "*.js", text = "", fg = "#fabd2f" },
+  { name = "*.json", text = "", fg = "#fabd2f" },
+  { name = "*.md", text = "", fg = "#ebdbb2" },
+  { name = "*.toml", text = "", fg = "#d3869b" },
+  { name = "*.yaml", text = "", fg = "#d3869b" },
+  { name = "*.yml", text = "", fg = "#d3869b" },
+]

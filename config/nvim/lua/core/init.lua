@@ -35,7 +35,7 @@ vim.opt.cmdheight = 1
 vim.opt.laststatus = 3
 
 -- Font configuration with fallback
-vim.opt.guifont = "JetBrains Mono Nerd Font"
+vim.opt.guifont = "JetBrainsMono Nerd Font"
 
 -- Encoding settings
 vim.opt.encoding = "utf-8"

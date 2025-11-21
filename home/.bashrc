@@ -11,6 +11,9 @@ alias ptail='
   echo "Following: $FILE" &&
   tail -n 50 -f "$FILE" | bat --paging=never --color=always -l log
 '
+
+alias diff='critique'
+
 # scripts
 alias cm='~/scripts/cm/cm.sh'
 alias zellijy='~/scripts/zellijy/zellijy.sh'

@@ -58,3 +58,5 @@ if [ -z "$ZELLIJ" ] && [ -z "$ZELLIJ_AUTO_ATTACH" ]; then
     zellij setup --dump-config > /dev/null 2>&1 || true
     zellij options --theme $ZELLIJ_THEME
 fi
+
+fastfetch

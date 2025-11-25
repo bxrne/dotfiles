@@ -20,11 +20,44 @@ return {
 	-- Theme
 
 	{
-		"gthelding/monokai-pro.nvim",
+		"loctvl842/monokai-pro.nvim",
 		config = function()
 			require("monokai-pro").setup({
+				transparent_background = false,
+				terminal_colors = true,
+				devicons = true,
+				styles = {
+					comment = { italic = true },
+					keyword = { italic = true },
+					type = { italic = true },
+					storageclass = { italic = true },
+					structure = { italic = true },
+					parameter = { italic = true },
+					annotation = { italic = true },
+					tag_attribute = { italic = true },
+				},
 				filter = "ristretto",
-				override = function()
+				day_night = {
+					enable = false,
+				},
+				inc_search = "background",
+				background_clear = {
+					"toggleterm",
+					"telescope",
+					"renamer",
+					"notify",
+				},
+				plugins = {
+					bufferline = {
+						underline_selected = false,
+						underline_visible = false,
+					},
+					indent_blankline = {
+						context_highlight = "default",
+						context_start_underline = false,
+					},
+				},
+				override = function(c)
 					return {
 						NonText = { fg = "#948a8b" },
 						MiniIconsGrey = { fg = "#948a8b" },
@@ -35,7 +68,7 @@ return {
 						MiniIconsOrange = { fg = "#f38d70" },
 						MiniIconsPurple = { fg = "#a8a9eb" },
 						MiniIconsAzure = { fg = "#a8a9eb" },
-						MiniIconsCyan = { fg = "#85dacc" }, -- same value as MiniIconsBlue for consistency
+						MiniIconsCyan = { fg = "#85dacc" },
 					}
 				end,
 			})

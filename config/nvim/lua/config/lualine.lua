@@ -15,7 +15,7 @@ local navic = require "nvim-navic"
 
 require("lualine").setup {
 	options = {
-		theme = "auto",
+		theme = "monokai-pro",
 		globalstatus = true,
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },

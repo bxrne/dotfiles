@@ -1,43 +1,31 @@
+
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-    
+
     "logo": {
         "type": "file",
         "source": "~/.config/about.txt",
-
-        "padding": {
-            "top": 3,
-            "left": 2
-        },
+        "padding": { "top": 3, "left": 2 },
         "color": {
-            "1": "#f38d70",    // Primary orange
-            "2": "#85dacc",    // Accent blue
-            "3": "#f9cc6c",    // Yellow
-            "4": "#a8a9eb",    // Magenta
-            "5": "#adda78"     // Green
+            "1": "#f38d70",
+            "2": "#85dacc",
+            "3": "#f9cc6c",
+            "4": "#a8a9eb",
+            "5": "#adda78"
         }
     },
-    
+
     "display": {
         "separator": ": ",
         "color": {
-            "keys": "#f38d70",      // Monokai orange
-            "separator": "#f9cc6c", // Monokai yellow
-            "title": "#85dacc"      // Monokai blue
+            "keys": "#f38d70",
+            "separator": "#f9cc6c",
+            "title": "#f9cc6c"
         },
         "bar": {
-            "char": {
-                "elapsed": "█",
-                "total": "░"
-            },
-            "border": {
-                "left": "",
-                "right": ""
-            },
-            "color": {
-                "elapsed": "#f38d70",
-                "total": "#403e41"
-            }
+            "char": { "elapsed": "█", "total": "░" },
+            "border": { "left": "", "right": "" },
+            "color": { "elapsed": "#7daea3", "total": "#403e41" }
         },
         "percent": {
             "type": 3,
@@ -47,140 +35,72 @@
                 "red": "#fd6883"
             }
         },
-        "temp": {
-            "unit": "C"
-        }
+        "temp": { "unit": "C" }
     },
-    
+
     "modules": [
         {
             "type": "title",
             "color": {
                 "user": "#f38d70",
                 "at": "#f9cc6c",
-                "host": "#85dacc"
+                "host": "#f9cc6c"
             }
         },
-        {
-            "type": "host",
-            "key": "├─ Host",
-            "keyColor": "#f38d70"
-        },
-        {
-            "type": "localip",
-            "key": "├─ Local IP",
-            "keyColor": "#f38d70"
-        },
-        {
-            "type": "publicip",
-            "key": "└─ Public IP",
-            "keyColor": "#f38d70"
-        },
-        {
-            "type": "break"
-        },
-        {
-            "type": "custom",
-            "key": "Software"
-        },
-        {
-            "type": "os",
-            "key": "├─ OS",
-            "keyColor": "#f38d70",
-        },
-        {
-            "type": "kernel",
-            "key": "├─ Kernel",
-            "keyColor": "#f38d70",
-            "icon": "nf-seti-kernel"
-        },
-        {
-            "type": "packages",
-            "key": "├─ Packages",
-            "keyColor": "#f38d70",
-            "icon": "nf-fa-archive"
-        },
-        {
-            "type": "shell",
-            "key": "├─ Shell",
-            "keyColor": "#f38d70",
-            "icon": "nf-fa-terminal"
-        },
-        {
-            "type": "terminal",
-            "key": "├─ Terminal",
-            "keyColor": "#f38d70",
-            "icon": "nf-fa-terminal"
-        },
-        {
-            "type": "wm",
-            "key": "├─ WM",
-            "keyColor": "#f38d70",
-            "icon": "nf-fa-window-maximize"
-        },
-        {
-            "type": "cursor",
-            "key": "└─ Cursor",
-            "keyColor": "#f38d70",
-            "icon": "nf-fa-mouse-pointer"
-        },
-        {
-            "type": "break"
-        },
-        {
-            "type": "custom",
-            "key": "Hardware",
-        },
-        {
-            "type": "cpu",
-            "key": "├─ CPU",
-            "keyColor": "#7fbbb3",
-            "icon": "nf-fa-microchip"
-        },
-        {
-            "type": "gpu",
-            "key": "├─ GPU",
-            "keyColor": "#7fbbb3",
-            "icon": "nf-fa-desktop"
-        },
+
+        /* --- SYSTEM --- */
+        { "type": "host",     "key": "├─ Host",     "keyColor": "#f38d70" },
+        { "type": "localip",  "key": "└─ Local IP", "keyColor": "#f38d70" },
+
+        { "type": "break" },
+
+        /* --- SOFTWARE --- */
+        { "type": "custom",   "key": "Software", "keyColor": "#d8a657" },
+
+        { "type": "os",        "key": "├─ OS",       "keyColor": "#d8a657" },
+        { "type": "kernel",    "key": "├─ Kernel",   "keyColor": "#d8a657" },
+        { "type": "packages",  "key": "├─ Packages", "keyColor": "#d8a657" },
+        { "type": "shell",     "key": "├─ Shell",    "keyColor": "#d8a657" },
+        { "type": "terminal",  "key": "├─ Terminal", "keyColor": "#d8a657" },
+        { "type": "wm",        "key": "├─ WM",       "keyColor": "#d8a657" },
+        { "type": "cursor",    "key": "└─ Cursor",   "keyColor": "#d8a657" },
+
+        { "type": "break" },
+
+        /* --- HARDWARE --- */
+        { "type": "custom", "key": "Hardware", "keyColor": "#7daea3" },
+
+        { "type": "cpu",    "key": "├─ CPU",    "keyColor": "#7daea3" },
+        { "type": "gpu",    "key": "├─ GPU",    "keyColor": "#7daea3" },
         {
             "type": "memory",
             "key": "├─ Memory",
-            "keyColor": "#dbbc7f",
-            "percent": {
-                "type": 2
-            },
-            "icon": "nf-fa-memory"
+            "keyColor": "#7daea3",
+            "percent": { "type": 2 }
         },
         {
             "type": "disk",
             "key": "└─ Disk",
-            "keyColor": "#dbbc7f",
-            "percent": {
-                "type": 2
-            },
-            "icon": "nf-fa-hdd-o"
+            "keyColor": "#7daea3",
+            "percent": { "type": 2 }
         },
+
+        { "type": "break" },
+
+        /* --- AGE --- */
+        { "type": "custom", "key": "Age", "keyColor": "#d3869b" },
+
         {
-            "type": "break"
+            "type": "command",
+            "key": "├─ OS Age",
+            "keyColor": "#d3869b",
+            "text": "birth_install=$(stat -c %W /); current=$(date +%s); days_difference=$(( (current - birth_install) / 86400 )); echo $days_difference days"
         },
-        {
-            "type": "custom",
-            "key": "Age",
-        },
-        {
-            "type": "uptime",
-            "key": "└─ Uptime",
-            "keyColor": "#d699b6",
-            "icon": "nf-fa-clock-o"
-        },
-        {
-            "type": "break"
-        },
-        {
-            "type": "colors",
-            "paddingLeft": 4,
-            "symbol": "circle"
-        }
+        { "type": "uptime", "key": "└─ Uptime", "keyColor": "#d3869b" },
+
+        { "type": "break" },
+
+        { "type": "colors", "paddingLeft": 4, "symbol": "circle" }
     ]
 }
+

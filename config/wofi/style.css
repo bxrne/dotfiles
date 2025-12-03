@@ -7,23 +7,21 @@ window {
   margin: 4px;
   border: 2px solid #f38d70;
   background-color: #382A20;
-  border-radius: 3px;
+  border-radius: 8px;
 }
 
 #outer-box {
   margin: 2px;
   padding: 2px;
   background-color: #382A20;
-  border-radius: 3px;
-;
-  border-radius: 12px;
+  border-radius: 6px;
 }
 
 #input {
   margin: 6px;
   padding: 4px 8px;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   color: #fcfcfa;
 
   background-color: #382A20;
@@ -33,6 +31,7 @@ window {
 
   background-color: #382A20;
   margin: 6px;
+  border-radius: 6px;
 }
 
 #scroll {
@@ -46,7 +45,7 @@ window {
 
 #entry {
   padding: 4px 8px;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 #entry:selected {

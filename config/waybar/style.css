@@ -7,8 +7,9 @@
 
 window#waybar {
     background:  #382A20;
-    margin: 20px;
+    margin: 20px 40px;
     color: #fcfcfa;
+    border-radius: 8px;
 }
 
 .modules-left,
@@ -131,4 +132,5 @@ tooltip {
     background: #221f22;
     border: 1px solid #f38d70;
     color: #fcfcfa;
+    border-radius: 6px;
 }

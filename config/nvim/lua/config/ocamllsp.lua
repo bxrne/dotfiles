@@ -1,23 +1,9 @@
 return {
-	settings = {
-		ocamllsp = {
-			analysis = {
-				diagnostics = true,
-				codelens = true,
-			},
-			codelens = {
-				enable = true,
-			},
-			formatting = {
-				enable = true,
-			},
-			inlayHints = {
-				enable = true,
-				typeAnnotations = true,
-			},
-			syntaxDocumentation = {
-				enable = true,
-			},
-		},
-	},
+	cmd = { "/home/bxrne/.opam/default/bin/ocamllsp" },
+	root_dir = require("lspconfig").util.root_pattern("*.opam", "dune-project", "dune", ".git"),
+	capabilities = {},
+	on_attach = function(client, bufnr)
+		-- OCaml-specific keymaps can be added here
+	end,
+	settings = {},
 }

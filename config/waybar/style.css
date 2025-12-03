@@ -7,7 +7,7 @@
 
 window#waybar {
     background:  #382A20;
-    margin: 20px 40px;
+    margin: 40px 40px;
     color: #fcfcfa;
     border-radius: 8px;
 }
@@ -31,7 +31,7 @@ window#waybar {
 #window,
 #tray {
     color: #fcfcfa;
-    padding: 2px 6px;
+    padding: 3px 6px;
     margin: 0px;
 }
 

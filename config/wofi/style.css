@@ -6,14 +6,16 @@
 window {
   margin: 4px;
   border: 2px solid #f38d70;
-  background-color: #19181a;
+  background-color: #382A20;
   border-radius: 3px;
 }
 
 #outer-box {
   margin: 2px;
   padding: 2px;
-  background-color: #19181a;
+  background-color: #382A20;
+  border-radius: 3px;
+;
   border-radius: 12px;
 }
 
@@ -23,12 +25,14 @@ window {
   border: none;
   border-radius: 8px;
   color: #fcfcfa;
-  background-color: #403e41;
+
+  background-color: #382A20;
 }
 
 #inner-box {
+
+  background-color: #382A20;
   margin: 6px;
-  background-color: #19181a;
 }
 
 #scroll {

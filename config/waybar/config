@@ -72,13 +72,11 @@
         "on-click": "ghostty -e btop"
     },
     "battery": {
-        "format": "PWR {capacity}",
-        "format-charging": "PWR {capacity}↑",
-        "format-discharging": "PWR {capacity}↓",
-        "format-full": "PWR {capacity}",
-        "states": {
-            "warning": 30,
-            "critical": 10
-        }
+  "states": { "warning": 30, "critical": 15 },
+  "format": "PWR {capacity} {power}",
+  "format-charging": "PWR {capacity} {power}",
+  "format-plugged": "PWR {capacity} {power}",
+  "format-full": "PWR FULL",
+  "format-alt": "{time} REM",
     }
 }

@@ -1,13 +1,15 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 10,
+    "height": 5,
     "width": 1527,
     "margin-top": 5,
+    "margin-left":10,
+    "margin-right":10,
     "spacing": 5,
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["pulseaudio", "clock", "backlight"],
-    "modules-right": ["memory", "cpu", "bluetooth", "network", "battery"],
+    "modules-center": ["hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["backlight","pulseaudio","bluetooth"] ,
+    "modules-right": ["network", "memory", "cpu", "battery"],
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
@@ -37,46 +39,46 @@
         "locale": "en_GB.utf8"
     },
     "pulseaudio": {
-        "format": "[VOL {volume}%]",
-        "format-muted": "[VOL MUT]",
+        "format": "VOL={volume}",
+        "format-muted": "VOL=MUT",
         "on-click": "pavucontrol",
         "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "scroll-step": 5
     },
     "backlight": {
       "device": "gmux_backlight", 
-      "format": "[DIS {percent}%]",
+      "format": "DIS={percent}",
       "on-scroll-up": "brightnessctl -d gmux_backlight s +5%",
       "on-scroll-down": "brightnessctl -d gmux_backlight s 5%-"
     },
     "network": {
-        "format-wifi": "[WIFI {signalStrength}%]",
-        "format-ethernet": "[ETH {ipaddr}]",
-        "format-disconnected": "[ETH DIS]",
+        "format-wifi": "WIFI={signalStrength}",
+        "format-ethernet": "ETH={ipaddr}]",
+        "format-disconnected": "ETH DIS]",
         "on-click": "ghostty -e impala"
     },
     "bluetooth": {
-        "format": "[BT {num_connections}]",
-        "format-connected": "[BT {num_connections}]",
-        "format-disabled": "[BT OFF]",
+        "format": "BT={num_connections}",
+        "format-connected": "BT={num_connections}",
+        "format-disabled": "BT DIS",
         "on-click": "ghostty -e bluetuith"
     },
     "cpu": {
-        "format": "[CPU {usage}%]",
+        "format": "CPU={usage}",
         "on-click": "ghostty -e btop"
     },
     "memory": {
-        "format": "[RAM {percentage}%]",
+        "format": "RAM={percentage}",
         "on-click": "ghostty -e btop"
     },
     "battery": {
-        "format": "[PWR {capacity}%]",
-        "format-charging": "[PWR {capacity}% ↑]",
-        "format-discharging": "[PWR {capacity}% ↓]",
-        "format-full": "[PWR {capacity}%]",
+        "format": "PWR={capacity}",
+        "format-charging": "PWR={capacity}↑",
+        "format-discharging": "PWR={capacity}↓",
+        "format-full": "PWR={capacity}",
         "states": {
             "warning": 30,
-            "critical": 15
+            "critical": 10
         }
     }
 }

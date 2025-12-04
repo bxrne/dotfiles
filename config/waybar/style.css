@@ -1,3 +1,4 @@
+
 * {
     font-family: "JetBrainsMono Nerd Font", monospace;
     font-size: 12px;
@@ -9,7 +10,7 @@
 }
 
 window#waybar {
-    background:  #382A20;
+    background: #382A20;
     margin: 60px 40px 10px 10px;
     color: #fcfcfa;
     border-radius: 8px;
@@ -21,38 +22,64 @@ window#waybar {
     margin: 0;
 }
 
+/* -------------------- WORKSPACES -------------------- */
+
+#workspaces {
+    padding: 3px 4px;
+    margin: 0px;
+}
+
+#workspaces button {
+    color: #fcfcfa;
+    background: rgba(255,255,255,0.05);
+    padding: 2px 8px;
+    margin: 4px;
+    border-radius: 12px;
+}
+
+#workspaces button.active {
+    color: #f38d70;
+    background: rgba(243,141,112,0.15);
+}
 
 #workspaces button.special {
     color: #fcfcfa;
-    border:none;
 }
 
 #workspaces button.special.active {
     color: #f38d70;
-    border:none;
 }
-#workspaces,
+
+#workspaces button:hover {
+    color: #f38d70;
+    background: rgba(243,141,112,0.2);
+}
+
+#workspaces button.urgent {
+    color: #fd6883;
+    background: rgba(253,104,131,0.2);
+}
+
+/* -------------------- WINDOW / TRAY / CLOCK -------------------- */
+
 #window,
-#tray {
-    color: #fcfcfa;
+#tray,
+#clock {
     padding: 3px 4px;
     margin: 0px;
+}
+
+#window {
+    font-weight: 700;
 }
 
 #clock {
     color: #f9cc6c;
     font-weight: 900;
-    margin: 0px;
     padding: 2px 4px;
 }
 
-#custom-power {
-    color: #fcfcfa;
-    margin-top: 0px;
-    margin-right: 0px;
-    padding: 0px 4px;
-    border-width: 0px;
-}
+/* -------------------- MAIN MODULE CHIPS -------------------- */
 
 #network,
 #custom-lock,
@@ -63,63 +90,20 @@ window#waybar {
 #backlight,
 #custom-temperature,
 #memory,
-#cpu {
+#cpu,
+#custom-power {
     color: #fcfcfa;
-    margin: 0px;
     padding: 2px 8px;
     margin: 4px;
     background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
 }
 
-#custom-temperature.critical,
-#pulseaudio.muted {
+/* -------------------- STATES -------------------- */
+
+#pulseaudio.muted,
+#custom-temperature.critical {
     color: #fd6883;
-}
-
-#bluetooth:hover,
-#network:hover,
-#backlight:hover,
-#battery:hover,
-#pulseaudio:hover,
-#custom-temperature:hover,
-#memory:hover,
-#cpu:hover,
-#clock:hover,
-#window:hover {
-    color: #f38d70;
-}
-
-#custom-lock:hover {
-    color: #fd6883;
-}
-
-#custom-reboot:hover {
-    color: #fd6883;
-}
-
-#custom-power:hover {
-    color: #fd6883;
-}
-
-#workspaces button.active {
-    color: #f38d70;
-}
-
-#workspaces button {
-    color: #fcfcfa;
-}
-
-#workspaces button:hover {
-    color: #f38d70;
-    background: rgba(243, 141, 112, 0.2);
-}
-
-#workspaces button.urgent {
-    color: #fd6883;
-}
-
-#window {
-    font-weight: 700;
 }
 
 #battery.warning {
@@ -134,9 +118,35 @@ window#waybar {
     color: #f38d70;
 }
 
+/* -------------------- HOVER EFFECTS (TEXT + BG) -------------------- */
+
+#network:hover,
+#bluetooth:hover,
+#battery:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#custom-temperature:hover,
+#memory:hover,
+#cpu:hover,
+#clock:hover,
+#window:hover {
+    color: #f38d70;
+    background: rgba(243, 141, 112, 0.18);
+}
+
+#custom-lock:hover,
+#custom-reboot:hover,
+#custom-power:hover {
+    color: #fd6883;
+    background: rgba(253, 104, 131, 0.18);
+}
+
+/* -------------------- TOOLTIP -------------------- */
+
 tooltip {
     background: #221f22;
     border: 1px solid #f38d70;
     color: #fcfcfa;
     border-radius: 6px;
 }
+

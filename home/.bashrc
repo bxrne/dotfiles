@@ -14,10 +14,6 @@ alias ptail='
 
 alias diff='critique'
 
-# scripts
-alias cm='~/scripts/cm/cm.sh'
-alias zellijy='~/scripts/zellijy/zellijy.sh'
-
 # enhanced commands
 alias ls='exa --icons --group-directories-first --color=auto'
 alias ll='exa -la --icons --group-directories-first --color=auto'
@@ -78,6 +74,8 @@ export EDITOR='nvim'
 if ! pgrep -u "$USER" -f "podman system service" > /dev/null; then
     systemctl --user start podman.socket
 fi
+
+tmux
 
 # if [ -z "$ZELLIJ" ] && [ -z "$ZELLIJ_AUTO_ATTACH" ]; then
 #     zellij setup --dump-config > /dev/null 2>&1 || true

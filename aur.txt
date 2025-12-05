@@ -16,7 +16,8 @@ gruvbox-icon-theme
 gtk2
 helium-browser-bin
 helium-browser-bin-debug
-hyprland-qtutils
+hyprqt6engine
+hyprqt6engine-debug
 lazysql
 lazysql-debug
 picotool

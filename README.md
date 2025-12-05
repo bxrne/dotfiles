@@ -7,14 +7,15 @@ Arch linux config
 # .configs 
 stow -t ~/.config config
 
+# tmux
+stow -t ~/.tmux .tmux
+
 # ~/'s
 stow -t ~/ home
 
 # etc/'s
 sudo stow -t /etc etc
 
-# scripts (conv commits, tmux sessions)
-stow -t ~/scripts scripts
 ```
 
 ## Pkgs

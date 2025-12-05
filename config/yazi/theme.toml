@@ -1,29 +1,29 @@
-# Gruvbox Dark Theme for Yazi
+# Waybar-matched Dark Theme for Yazi
 
 [mgr]
-cwd = { fg = "#ebdbb2" }
+cwd = { fg = "#fcfcfa" }
 
 # Hovered
-hovered = { fg = "#282828", bg = "#fabd2f" }
+hovered = { fg = "#382A20", bg = "#f38d70" }
 preview_hovered = { underline = true }
 
 # Find
-find_keyword = { fg = "#b8bb26", italic = true }
-find_position = { fg = "#fe8019", bg = "reset", italic = true }
+find_keyword = { fg = "#f9cc6c", italic = true }
+find_position = { fg = "#f38d70", bg = "#382A20", italic = true }
 
 # Marker
-marker_selected = { fg = "#b8bb26", bg = "#b8bb26" }
-marker_copied = { fg = "#fabd2f", bg = "#fabd2f" }
-marker_cut = { fg = "#fb4934", bg = "#fb4934" }
+marker_selected = { fg = "#f9cc6c", bg = "#f9cc6c" }
+marker_copied = { fg = "#f38d70", bg = "#f38d70" }
+marker_cut = { fg = "#fd6883", bg = "#fd6883" }
 
 # Tab
-tab_active = { fg = "#282828", bg = "#ebdbb2" }
-tab_inactive = { fg = "#a89984", bg = "#3c3836" }
+tab_active = { fg = "#382A20", bg = "#fcfcfa" }
+tab_inactive = { fg = "#fcfcfa", bg = "#382A20" }
 tab_width = 1
 
 # Border
 border_symbol = "│"
-border_style = { fg = "#665c54" }
+border_style = { fg = "#403e41" }
 
 # Highlighting
 syntect_theme = "~/.config/yazi/gruvbox-dark.tmTheme"
@@ -31,110 +31,110 @@ syntect_theme = "~/.config/yazi/gruvbox-dark.tmTheme"
 [status]
 separator_open = ""
 separator_close = ""
-separator_style = { fg = "#504945", bg = "#504945" }
+separator_style = { fg = "#403e41", bg = "#382A20" }
 
 # Mode
-mode_normal = { fg = "#ebdbb2", bg = "#504945", bold = true }
-mode_select = { fg = "#282828", bg = "#b8bb26", bold = true }
-mode_unset = { fg = "#282828", bg = "#fe8019", bold = true }
+mode_normal = { fg = "#fcfcfa", bg = "#382A20", bold = true }
+mode_select = { fg = "#382A20", bg = "#f9cc6c", bold = true }
+mode_unset = { fg = "#382A20", bg = "#f38d70", bold = true }
 
 # Progress
-progress_label = { fg = "#ebdbb2", bold = true }
-progress_normal = { fg = "#b8bb26", bg = "#504945" }
-progress_error = { fg = "#fb4934", bg = "#504945" }  # Permissions
-permissions_t = { fg = "#b8bb26" }
-permissions_r = { fg = "#fabd2f" }
-permissions_w = { fg = "#fb4934" }
-permissions_x = { fg = "#83a598" }
-permissions_s = { fg = "#665c54" }
+progress_label = { fg = "#fcfcfa", bold = true }
+progress_normal = { fg = "#f9cc6c", bg = "#382A20" }
+progress_error = { fg = "#fd6883", bg = "#382A20" }  # Permissions
+permissions_t = { fg = "#f9cc6c" }
+permissions_r = { fg = "#f38d70" }
+permissions_w = { fg = "#fd6883" }
+permissions_x = { fg = "#f9cc6c" }
+permissions_s = { fg = "#403e41" }
 
 [input]
-border = { fg = "#83a598" }
+border = { fg = "#f38d70" }
 title = {}
 value = {}
 selected = { reversed = true }
 
 [select]
-border = { fg = "#83a598" }
-active = { fg = "#fe8019" }
+border = { fg = "#f38d70" }
+active = { fg = "#f38d70" }
 inactive = {}
 
 [tasks]
-border = { fg = "#83a598" }
+border = { fg = "#f38d70" }
 title = {}
 hovered = { underline = true }
 
 [which]
 cols = 3
-mask = { bg = "#32302f" }
-cand = { fg = "#83a598" }
-rest = { fg = "#a89984" }
-desc = { fg = "#fe8019" }
+mask = { bg = "#221f22" }
+cand = { fg = "#f38d70" }
+rest = { fg = "#fcfcfa" }
+desc = { fg = "#f9cc6c" }
 separator = "  "
-separator_style = { fg = "#665c54" }
+separator_style = { fg = "#403e41" }
 
 [help]
-on = { fg = "#b8bb26" }
-run = { fg = "#fe8019" }
-desc = { fg = "#a89984" }
-hovered = { bg = "#504945", bold = true }
-footer = { fg = "#3c3836", bg = "#a89984" }
+on = { fg = "#f9cc6c" }
+run = { fg = "#f38d70" }
+desc = { fg = "#fcfcfa" }
+hovered = { bg = "#382A20", bold = true }
+footer = { fg = "#382A20", bg = "#fcfcfa" }
 
 [filetype]
 
 rules = [
   # Images
-  { mime = "image/*", fg = "#d3869b" },
+  { mime = "image/*", fg = "#fd6883" },
 
   # Videos
-  { mime = "video/*", fg = "#8ec07c" },
-  { mime = "audio/*", fg = "#8ec07c" },
+  { mime = "video/*", fg = "#f9cc6c" },
+  { mime = "audio/*", fg = "#f9cc6c" },
 
   # Archives
-  { mime = "application/zip", fg = "#fb4934" },
-  { mime = "application/gzip", fg = "#fb4934" },
-  { mime = "application/x-tar", fg = "#fb4934" },
-  { mime = "application/x-bzip", fg = "#fb4934" },
-  { mime = "application/x-bzip2", fg = "#fb4934" },
-  { mime = "application/x-7z-compressed", fg = "#fb4934" },
-  { mime = "application/x-rar", fg = "#fb4934" },
+  { mime = "application/zip", fg = "#fd6883" },
+  { mime = "application/gzip", fg = "#fd6883" },
+  { mime = "application/x-tar", fg = "#fd6883" },
+  { mime = "application/x-bzip", fg = "#fd6883" },
+  { mime = "application/x-bzip2", fg = "#fd6883" },
+  { mime = "application/x-7z-compressed", fg = "#fd6883" },
+  { mime = "application/x-rar", fg = "#fd6883" },
 
   # Documents
-  { mime = "application/pdf", fg = "#fb4934" },
-  { mime = "text/*", fg = "#ebdbb2" },
+  { mime = "application/pdf", fg = "#fd6883" },
+  { mime = "text/*", fg = "#fcfcfa" },
 
   # Code
-  { name = "*.rs", fg = "#fe8019" },
-  { name = "*.py", fg = "#fabd2f" },
-  { name = "*.js", fg = "#fabd2f" },
-  { name = "*.ts", fg = "#83a598" },
-  { name = "*.go", fg = "#83a598" },
-  { name = "*.c", fg = "#83a598" },
-  { name = "*.cpp", fg = "#83a598" },
-  { name = "*.java", fg = "#fb4934" },
-  { name = "*.sh", fg = "#b8bb26" },
+  { name = "*.rs", fg = "#f38d70" },
+  { name = "*.py", fg = "#f9cc6c" },
+  { name = "*.js", fg = "#f9cc6c" },
+  { name = "*.ts", fg = "#f38d70" },
+  { name = "*.go", fg = "#f38d70" },
+  { name = "*.c", fg = "#f38d70" },
+  { name = "*.cpp", fg = "#f38d70" },
+  { name = "*.java", fg = "#fd6883" },
+  { name = "*.sh", fg = "#f9cc6c" },
 
   # Special files
-  { name = "*.gitignore", fg = "#928374" },
-  { name = "*.gitmodules", fg = "#928374" },
-  { name = "Makefile", fg = "#8ec07c" },
-  { name = "Dockerfile", fg = "#83a598" },
-  { name = "*.toml", fg = "#d3869b" },
-  { name = "*.yaml", fg = "#d3869b" },
-  { name = "*.yml", fg = "#d3869b" },
-  { name = "*.json", fg = "#fabd2f" },
-  { name = "*.md", fg = "#ebdbb2" },
+  { name = "*.gitignore", fg = "#403e41" },
+  { name = "*.gitmodules", fg = "#403e41" },
+  { name = "Makefile", fg = "#f9cc6c" },
+  { name = "Dockerfile", fg = "#f38d70" },
+  { name = "*.toml", fg = "#fd6883" },
+  { name = "*.yaml", fg = "#fd6883" },
+  { name = "*.yml", fg = "#fd6883" },
+  { name = "*.json", fg = "#f9cc6c" },
+  { name = "*.md", fg = "#fcfcfa" },
 ]
 
 [icon]
 rules = [
   { name = "*/", text = "" },
-  { name = "*.rs", text = "", fg = "#fe8019" },
-  { name = "*.py", text = "", fg = "#fabd2f" },
-  { name = "*.js", text = "", fg = "#fabd2f" },
-  { name = "*.json", text = "", fg = "#fabd2f" },
-  { name = "*.md", text = "", fg = "#ebdbb2" },
-  { name = "*.toml", text = "", fg = "#d3869b" },
-  { name = "*.yaml", text = "", fg = "#d3869b" },
-  { name = "*.yml", text = "", fg = "#d3869b" },
+  { name = "*.rs", text = "", fg = "#f38d70" },
+  { name = "*.py", text = "", fg = "#f9cc6c" },
+  { name = "*.js", text = "", fg = "#f9cc6c" },
+  { name = "*.json", text = "", fg = "#f9cc6c" },
+  { name = "*.md", text = "", fg = "#fcfcfa" },
+  { name = "*.toml", text = "", fg = "#fd6883" },
+  { name = "*.yaml", text = "", fg = "#fd6883" },
+  { name = "*.yml", text = "", fg = "#fd6883" },
 ]

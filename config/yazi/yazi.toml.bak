@@ -74,3 +74,21 @@ suppress_preload = false
 prepend_preloaders = [
   { name = "*", cond = "!mime", run = "mime", multi = true, prio = "high" },
 ]
+
+[flavor]
+use = ""
+
+[theme]
+overrides = { bg = "#382A20" }
+
+[log]
+enabled = false
+
+[input]
+cursor_blink = false
+
+[select]
+open_title = true
+
+[help]
+on_hover = false

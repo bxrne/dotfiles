@@ -73,9 +73,9 @@
     },
     "battery": {
   "states": { "warning": 30, "critical": 15 },
-  "format": "PWR {capacity} {power}",
-  "format-charging": "PWR {capacity} {power}",
-  "format-plugged": "PWR {capacity} {power}",
+  "format": "PWR {capacity} -{power}",
+  "format-charging": "PWR {capacity} +{power}",
+  "format-plugged": "PWR {capacity} -{power}",
   "format-full": "PWR FULL",
   "format-alt": "{time} REM",
     }

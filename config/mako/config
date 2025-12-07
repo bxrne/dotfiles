@@ -1,7 +1,7 @@
 font=JetBrainsMono Nerd Font 10
-background-color=#19181a
-text-color=#fcfcfa
-border-color=#403e41
+background-color=#000000
+text-color=#FFFFFF
+border-color=#333333
 border-size=2
 border-radius=6
 width=350
@@ -19,20 +19,20 @@ layer=overlay
 format=<b>%s</b>\n%b
 
 [urgency=low]
-background-color=#19181a
-text-color=#948a8b
-border-color=#403e41
+background-color=#000000
+text-color=#CCCCCC
+border-color=#333333
 format=🔔 <b>%s</b>\n%b
 
 [urgency=normal]
-background-color=#19181a
-text-color=#fcfcfa
-border-color=#f38d70
+background-color=#000000
+text-color=#FFFFFF
+border-color=#FFA500
 format=📢 <b>%s</b>\n%b
 
 [urgency=high]
-background-color=#221f22
-text-color=#fd6883
-border-color=#fd6883
+background-color=#1a1a1a
+text-color=#FF8C00
+border-color=#FF8C00
 format=⚠️ <b>%s</b>\n%b
 

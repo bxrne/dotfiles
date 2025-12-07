@@ -5,15 +5,15 @@
 
 window {
   margin: 4px;
-  border: 2px solid #f38d70;
-  background-color: #382A20;
+  border: 2px solid #FFA500;
+  background-color: #000000;
   border-radius: 8px;
 }
 
 #outer-box {
   margin: 2px;
   padding: 2px;
-  background-color: #382A20;
+  background-color: #000000;
   border-radius: 6px;
 }
 
@@ -22,14 +22,14 @@ window {
   padding: 4px 8px;
   border: none;
   border-radius: 6px;
-  color: #fcfcfa;
+  color: #FFFFFF;
 
-  background-color: #382A20;
+  background-color: #000000;
 }
 
 #inner-box {
 
-  background-color: #382A20;
+  background-color: #000000;
   margin: 6px;
   border-radius: 6px;
 }
@@ -40,7 +40,7 @@ window {
 
 #text {
   margin: 2px;
-  color: #fcfcfa;
+  color: #FFFFFF;
 }
 
 #entry {
@@ -49,7 +49,7 @@ window {
 }
 
 #entry:selected {
-  background-color: #f38d70;
-  color: #19181a;
+  background-color: #FFA500;
+  color: #000000;
 }
 

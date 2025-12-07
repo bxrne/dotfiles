@@ -10,9 +10,9 @@
 }
 
 window#waybar {
-    background: #382A20;
+    background: transparent;
     margin: 60px 40px 10px 10px;
-    color: #fcfcfa;
+    color: #FFFFFF;
     border-radius: 8px;
 }
 
@@ -38,8 +38,8 @@ window#waybar {
 }
 
 #workspaces button.active {
-    color: #f38d70;
-    background: rgba(243,141,112,0.15);
+    color: #FFA500;
+    background: rgba(255,165,0,0.15);
 }
 
 #workspaces button.special {
@@ -47,12 +47,12 @@ window#waybar {
 }
 
 #workspaces button.special.active {
-    color: #f38d70;
+    color: #FFA500;
 }
 
 #workspaces button:hover {
-    color: #f38d70;
-    background: rgba(243,141,112,0.2);
+    color: #FFA500;
+    background: rgba(255,165,0,0.2);
 }
 
 #workspaces button.urgent {
@@ -74,7 +74,7 @@ window#waybar {
 }
 
 #clock {
-    color: #f9cc6c;
+    color: #FFB347;
     font-weight: 900;
     padding: 2px 4px;
 }
@@ -107,7 +107,7 @@ window#waybar {
 }
 
 #battery.warning {
-    color: #f38d70;
+    color: #FFA500;
 }
 
 #battery.critical {
@@ -115,7 +115,7 @@ window#waybar {
 }
 
 #battery.charging {
-    color: #f38d70;
+    color: #FFA500;
 }
 
 /* -------------------- HOVER EFFECTS (TEXT + BG) -------------------- */
@@ -130,8 +130,8 @@ window#waybar {
 #cpu:hover,
 #clock:hover,
 #window:hover {
-    color: #f38d70;
-    background: rgba(243, 141, 112, 0.18);
+    color: #FFA500;
+    background: rgba(255, 165, 0, 0.18);
 }
 
 #custom-lock:hover,
@@ -144,9 +144,9 @@ window#waybar {
 /* -------------------- TOOLTIP -------------------- */
 
 tooltip {
-    background: #221f22;
-    border: 1px solid #f38d70;
-    color: #fcfcfa;
+    background: #1a1a1a;
+    border: 1px solid #FFA500;
+    color: #FFFFFF;
     border-radius: 6px;
 }
 

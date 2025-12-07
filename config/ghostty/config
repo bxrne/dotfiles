@@ -2,34 +2,34 @@
 font-family = "JetBrainsMono Nerd Font"
 font-size = 12
 
-# === Color Theme (Monokai Pro Ristretto) ===
-background = #19181a
+# === Color Theme (IBM Dark Orange) ===
+background = #000000
 background-opacity = 1.0
-foreground = #fcfcfa
-cursor-color = #f38d70
-selection-background = #403e41
-selection-foreground = #fcfcfa
+foreground = #FFFFFF
+cursor-color = #FFA500
+selection-background = #333333
+selection-foreground = #FFFFFF
 
-# === 16-Color Palette (Monokai Pro Ristretto) ===
+# === 16-Color Palette (IBM Dark Orange) ===
 # Normal colors (0-7)
-palette = 0=#19181a
-palette = 1=#fd6883
-palette = 2=#adda78
-palette = 3=#f9cc6c
-palette = 4=#85dacc
-palette = 5=#a8a9eb
-palette = 6=#85dacc
-palette = 7=#fcfcfa
+palette = 0=#000000
+palette = 1=#FF8C00
+palette = 2=#00FF00
+palette = 3=#FFB347
+palette = 4=#0080FF
+palette = 5=#FF00FF
+palette = 6=#00FFFF
+palette = 7=#FFFFFF
 
 # Bright colors (8-15)
-palette = 8=#403e41
-palette = 9=#fd6883
-palette = 10=#adda78
-palette = 11=#f9cc6c
-palette = 12=#85dacc
-palette = 13=#a8a9eb
-palette = 14=#85dacc
-palette = 15=#c1c0c0
+palette = 8=#333333
+palette = 9=#FFA500
+palette = 10=#90EE90
+palette = 11=#FFD700
+palette = 12=#87CEEB
+palette = 13=#FF69B4
+palette = 14=#00CED1
+palette = 15=#F0F8FF
 
 # === Cursor Settings ===
 cursor-style = block

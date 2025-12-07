@@ -7,20 +7,20 @@
         "source": "~/.config/about.txt",
         "padding": { "top": 3, "left": 2 },
         "color": {
-            "1": "#f38d70",
-            "2": "#85dacc",
-            "3": "#f9cc6c",
-            "4": "#a8a9eb",
-            "5": "#adda78"
+            "1": "#FFA500",
+            "2": "#87CEEB",
+            "3": "#FFB347",
+            "4": "#FF69B4",
+            "5": "#90EE90"
         }
     },
 
     "display": {
         "separator": ": ",
         "color": {
-            "keys": "#f38d70",
-            "separator": "#f9cc6c",
-            "title": "#f9cc6c"
+            "keys": "#FFA500",
+            "separator": "#FFB347",
+            "title": "#FFB347"
         },
         "bar": {
             "char": { "elapsed": "█", "total": "░" },
@@ -30,9 +30,9 @@
         "percent": {
             "type": 3,
             "color": {
-                "green": "#adda78",
-                "yellow": "#f9cc6c",
-                "red": "#fd6883"
+                "green": "#90EE90",
+                "yellow": "#FFB347",
+                "red": "#FF8C00"
             }
         },
         "temp": { "unit": "C" }
@@ -42,9 +42,9 @@
         {
             "type": "title",
             "color": {
-                "user": "#f38d70",
-                "at": "#f9cc6c",
-                "host": "#f9cc6c"
+                "user": "#FFA500",
+                "at": "#FFB347",
+                "host": "#FFB347"
             }
         },
 
@@ -55,48 +55,48 @@
         { "type": "break" },
 
         /* --- SOFTWARE --- */
-        { "type": "custom",   "key": "Software", "keyColor": "#d8a657" },
+        { "type": "custom",   "key": "Software", "keyColor": "#FF8C00" },
 
-        { "type": "os",        "key": "├─ OS",       "keyColor": "#d8a657" },
-        { "type": "kernel",    "key": "├─ Kernel",   "keyColor": "#d8a657" },
-        { "type": "packages",  "key": "├─ Packages", "keyColor": "#d8a657" },
-        { "type": "shell",     "key": "├─ Shell",    "keyColor": "#d8a657" },
-        { "type": "terminal",  "key": "├─ Terminal", "keyColor": "#d8a657" },
-        { "type": "wm",        "key": "├─ WM",       "keyColor": "#d8a657" },
-        { "type": "cursor",    "key": "└─ Cursor",   "keyColor": "#d8a657" },
+        { "type": "os",        "key": "├─ OS",       "keyColor": "#FF8C00" },
+        { "type": "kernel",    "key": "├─ Kernel",   "keyColor": "#FF8C00" },
+        { "type": "packages",  "key": "├─ Packages", "keyColor": "#FF8C00" },
+        { "type": "shell",     "key": "├─ Shell",    "keyColor": "#FF8C00" },
+        { "type": "terminal",  "key": "├─ Terminal", "keyColor": "#FF8C00" },
+        { "type": "wm",        "key": "├─ WM",       "keyColor": "#FF8C00" },
+        { "type": "cursor",    "key": "└─ Cursor",   "keyColor": "#FF8C00" },
 
         { "type": "break" },
 
         /* --- HARDWARE --- */
-        { "type": "custom", "key": "Hardware", "keyColor": "#7daea3" },
+        { "type": "custom", "key": "Hardware", "keyColor": "#0080FF" },
 
-        { "type": "cpu",    "key": "├─ CPU",    "keyColor": "#7daea3" },
-        { "type": "gpu",    "key": "├─ GPU",    "keyColor": "#7daea3" },
+        { "type": "cpu",    "key": "├─ CPU",    "keyColor": "#0080FF" },
+        { "type": "gpu",    "key": "├─ GPU",    "keyColor": "#0080FF" },
         {
             "type": "memory",
             "key": "├─ Memory",
-            "keyColor": "#7daea3",
+            "keyColor": "#0080FF",
             "percent": { "type": 2 }
         },
         {
             "type": "disk",
             "key": "└─ Disk",
-            "keyColor": "#7daea3",
+            "keyColor": "#0080FF",
             "percent": { "type": 2 }
         },
 
         { "type": "break" },
 
         /* --- AGE --- */
-        { "type": "custom", "key": "Age", "keyColor": "#d3869b" },
+        { "type": "custom", "key": "Age", "keyColor": "#FF00FF" },
 
         {
             "type": "command",
             "key": "├─ OS Age",
-            "keyColor": "#d3869b",
+            "keyColor": "#FF00FF",
             "text": "birth_install=$(stat -c %W /); current=$(date +%s); days_difference=$(( (current - birth_install) / 86400 )); echo $days_difference days"
         },
-        { "type": "uptime", "key": "└─ Uptime", "keyColor": "#d3869b" },
+        { "type": "uptime", "key": "└─ Uptime", "keyColor": "#FF00FF" },
 
         { "type": "break" },
 

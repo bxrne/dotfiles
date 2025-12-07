@@ -1,4 +1,3 @@
-aerc
 alsa-utils
 apple-bcm-firmware
 apple-t2-audio-config
@@ -18,6 +17,7 @@ facetimehd-dkms-git
 fastfetch
 feh
 flameshot
+fuse2
 fzf
 ghostty
 gimp
@@ -43,6 +43,7 @@ iwd
 jq
 jre-openjdk
 kubectl
+kvantum
 lazygit
 lazysql
 libev
@@ -57,7 +58,6 @@ maim
 mako
 man-db
 man-pages
-neomutt
 neovim
 noto-fonts
 noto-fonts-cjk

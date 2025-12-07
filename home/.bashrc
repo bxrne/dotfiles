@@ -75,12 +75,4 @@ if ! pgrep -u "$USER" -f "podman system service" > /dev/null; then
     systemctl --user start podman.socket
 fi
 
-tmux
-
-# if [ -z "$ZELLIJ" ] && [ -z "$ZELLIJ_AUTO_ATTACH" ]; then
-#     zellij setup --dump-config > /dev/null 2>&1 || true
-#     zellij options --theme $ZELLIJ_THEME
-# fi
-#
 fastfetch
-

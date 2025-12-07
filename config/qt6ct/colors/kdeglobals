@@ -1,0 +1,6 @@
+[General]
+Applications=qt5ct,qt6ct
+IconTheme=gruvbox-dark
+Style=kvantum
+Palette=gruvbox-red-dark
+Font=JetBrainsMono Nerd Font,12,-1,5,50,0,0,0,0,0

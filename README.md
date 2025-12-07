@@ -7,9 +7,6 @@ Arch linux config
 # .configs 
 stow -t ~/.config config
 
-# tmux
-stow -t ~/.tmux .tmux
-
 # ~/'s
 stow -t ~/ home
 

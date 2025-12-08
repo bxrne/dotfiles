@@ -53,8 +53,8 @@
     },
     "network": {
         "format-wifi": "WIFI {signalStrength}",
-        "format-ethernet": "ETH {ipaddr}]",
-        "format-disconnected": "ETH ∅]",
+        "format-ethernet": "ETH {ipaddr}",
+        "format-disconnected": "ETH ∅",
         "on-click": "ghostty -e impala"
     },
     "bluetooth": {

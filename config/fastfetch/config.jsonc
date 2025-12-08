@@ -49,8 +49,8 @@
         },
 
         /* --- SYSTEM --- */
-        { "type": "host",     "key": "├─ Host",     "keyColor": "#f38d70" },
-        { "type": "localip",  "key": "└─ Local IP", "keyColor": "#f38d70" },
+        { "type": "host",     "key": "├─ Host",     "keyColor": "#FFB347" },
+        { "type": "localip",  "key": "└─ Local IP", "keyColor": "#FFB347" },
 
         { "type": "break" },
 

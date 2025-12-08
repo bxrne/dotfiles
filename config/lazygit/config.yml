@@ -1,18 +1,16 @@
 gui:
   theme:
     activeBorderColor:
-      - "#f38d70"
+      - "#FFA500"
       - bold
     inactiveBorderColor:
       - "#403e41"
     optionsTextColor:
-      - "#f38d70"
+      - "#FFA500"
     selectedLineBgColor:
       - "#403e41"
-    selectedRangeBgColor:
-      - "#403e41"
     cherryPickedCommitBgColor:
-      - "#f38d70"
+      - "#FFA500"
     cherryPickedCommitFgColor:
       - "#19181a"
     unstagedChangesColor:
@@ -20,92 +18,4 @@ gui:
     defaultFgColor:
       - "#fcfcfa"
     searchingActiveBorderColor:
-      - "#f38d70"
-    searchingMatchFgColor:
-      - "#19181a"
-    searchingMatchBgColor:
-      - "#f38d70"
-    diffTerminalColor:
-      - "#fcfcfa"
-    diffAddedFgColor:
-      - "#adda78"
-    diffAddedBgColor:
-      - "#19181a"
-    diffModifiedFgColor:
-      - "#948a8b"
-    diffModifiedBgColor:
-      - "#19181a"
-    diffDeletedFgColor:
-      - "#fd6883"
-    diffDeletedBgColor:
-      - "#19181a"
-    diffUntrackedFgColor:
-      - "#948a8b"
-    diffUntrackedBgColor:
-      - "#19181a"
-    diffStagedAddedFgColor:
-      - "#adda78"
-    diffStagedAddedBgColor:
-      - "#19181a"
-    diffStagedModifiedFgColor:
-      - "#948a8b"
-    diffStagedModifiedBgColor:
-      - "#19181a"
-    diffStagedDeletedFgColor:
-      - "#fd6883"
-    diffStagedDeletedBgColor:
-      - "#19181a"
-    diffStagedUntrackedFgColor:
-      - "#948a8b"
-    diffStagedUntrackedBgColor:
-      - "#19181a"
-    mergeConflictBgColor:
-      - "#fd6883"
-    mergeConflictFgColor:
-      - "#19181a"
-    commitHashColor:
-      - "#948a8b"
-    commitTimeColor:
-      - "#948a8b"
-    commitAuthorColor:
-      - "#f38d70"
-    commitMessageColor:
-      - "#fcfcfa"
-    branchFgColor:
-      - "#f38d70"
-    branchCurrentFgColor:
-      - "#f38d70"
-    branchCurrentBgColor:
-      - "#19181a"
-    tagFgColor:
-      - "#f38d70"
-    remoteBranchFgColor:
-      - "#948a8b"
-    pullRequestFgColor:
-      - "#948a8b"
-    statusShortBranchFgColor:
-      - "#f38d70"
-    statusShortBranchBgColor:
-      - "#19181a"
-    statusShortStatusFgColor:
-      - "#fcfcfa"
-    statusShortStatusBgColor:
-      - "#19181a"
-    fileStagedFgColor:
-      - "#adda78"
-    fileUnstagedFgColor:
-      - "#948a8b"
-    fileUntrackedFgColor:
-      - "#948a8b"
-    fileDeletedFgColor:
-      - "#fd6883"
-    fileAddedFgColor:
-      - "#adda78"
-    fileModifiedFgColor:
-      - "#948a8b"
-    fileRenamedFgColor:
-      - "#948a8b"
-    fileCopiedFgColor:
-      - "#948a8b"
-    fileIgnoredFgColor:
-      - "#948a8b"
+      - "#FFA500"

@@ -2,34 +2,34 @@
 font-family = "JetBrainsMono Nerd Font"
 font-size = 12
 
-# === Color Theme (IBM Dark Orange) ===
-background = #000000
+# === Color Theme (Tokyo Night Storm) ===
+background = #1f2335
 background-opacity = 1.0
-foreground = #FFFFFF
-cursor-color = #2f6fed
-selection-background = #333333
-selection-foreground = #FFFFFF
+foreground = #c0caf5
+cursor-color = #7aa2f7
+selection-background = #2a2f45
+selection-foreground = #c0caf5
 
-# === 16-Color Palette (IBM Dark Orange) ===
+# === 16-Color Palette (Tokyo Night Storm) ===
 # Normal colors (0-7)
-palette = 0=#000000
-palette = 1=#FF8C00
-palette = 2=#00FF00
-palette = 3=#7AA2F7
-palette = 4=#0080FF
-palette = 5=#FF00FF
-palette = 6=#00FFFF
-palette = 7=#FFFFFF
+palette = 0=#1d202f
+palette = 1=#f7768e
+palette = 2=#9ece6a
+palette = 3=#e0af68
+palette = 4=#7aa2f7
+palette = 5=#bb9af7
+palette = 6=#7dcfff
+palette = 7=#c0caf5
 
 # Bright colors (8-15)
-palette = 8=#333333
-palette = 9=#2f6fed
-palette = 10=#90EE90
-palette = 11=#FFD700
-palette = 12=#87CEEB
-palette = 13=#FF69B4
-palette = 14=#00CED1
-palette = 15=#F0F8FF
+palette = 8=#414868
+palette = 9=#f7768e
+palette = 10=#9ece6a
+palette = 11=#e0af68
+palette = 12=#7aa2f7
+palette = 13=#bb9af7
+palette = 14=#7dcfff
+palette = 15=#c0caf5
 
 # === Cursor Settings ===
 cursor-style = block

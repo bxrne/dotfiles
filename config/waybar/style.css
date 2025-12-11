@@ -12,7 +12,7 @@
 window#waybar {
     background: transparent;
     margin: 60px 40px 10px 10px;
-    color: #FFFFFF;
+    color: #c0caf5;
     border-radius: 8px;
 }
 
@@ -30,16 +30,16 @@ window#waybar {
 }
 
 #workspaces button {
-    color: #fcfcfa;
-    background: rgba(255,255,255,0.05);
+    color: #c0caf5;
+    background: rgba(31,35,53,0.8);
     padding: 2px 8px;
     margin: 4px;
     border-radius: 12px;
 }
 
 #workspaces button.active {
-    color: #2f6fed;
-    background: rgba(47,111,237,0.15);
+    color: #7aa2f7;
+    background: rgba(41,46,66,0.9);
 }
 
 #workspaces button.special {
@@ -47,17 +47,17 @@ window#waybar {
 }
 
 #workspaces button.special.active {
-    color: #2f6fed;
+    color: #7aa2f7;
 }
 
 #workspaces button:hover {
-    color: #2f6fed;
-    background: rgba(47,111,237,0.2);
+    color: #7aa2f7;
+    background: rgba(41,46,66,0.95);
 }
 
 #workspaces button.urgent {
-    color: #fd6883;
-    background: rgba(253,104,131,0.2);
+    color: #f7768e;
+    background: rgba(247,118,142,0.2);
 }
 
 /* -------------------- WINDOW / TRAY / CLOCK -------------------- */
@@ -74,7 +74,7 @@ window#waybar {
 }
 
 #clock {
-    color: #7AA2F7;
+    color: #7aa2f7;
     font-weight: 900;
     padding: 2px 4px;
 }
@@ -92,10 +92,10 @@ window#waybar {
 #memory,
 #cpu,
 #custom-power {
-    color: #fcfcfa;
+    color: #c0caf5;
     padding: 2px 8px;
     margin: 4px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(31,35,53,0.8);
     border-radius: 12px;
 }
 
@@ -103,19 +103,19 @@ window#waybar {
 
 #pulseaudio.muted,
 #custom-temperature.critical {
-    color: #fd6883;
+    color: #f7768e;
 }
 
 #battery.warning {
-    color: #2f6fed;
+    color: #e0af68;
 }
 
 #battery.critical {
-    color: #fd6883;
+    color: #f7768e;
 }
 
 #battery.charging {
-    color: #2f6fed;
+    color: #7dcfff;
 }
 
 /* -------------------- HOVER EFFECTS (TEXT + BG) -------------------- */
@@ -130,23 +130,23 @@ window#waybar {
 #cpu:hover,
 #clock:hover,
 #window:hover {
-    color: #2f6fed;
-    background: rgba(47, 111, 237, 0.18);
+    color: #7aa2f7;
+    background: rgba(41, 46, 66, 0.9);
 }
 
 #custom-lock:hover,
 #custom-reboot:hover,
 #custom-power:hover {
-    color: #fd6883;
-    background: rgba(253, 104, 131, 0.18);
+    color: #f7768e;
+    background: rgba(247, 118, 142, 0.18);
 }
 
 /* -------------------- TOOLTIP -------------------- */
 
 tooltip {
-    background: #1a1a1a;
-    border: 1px solid #2f6fed;
-    color: #FFFFFF;
+    background: #1f2335;
+    border: 1px solid #7aa2f7;
+    color: #c0caf5;
     border-radius: 6px;
 }
 

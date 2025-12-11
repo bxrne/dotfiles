@@ -7,32 +7,32 @@
         "source": "~/.config/about.txt",
         "padding": { "top": 3, "left": 2 },
         "color": {
-            "1": "#2f6fed",
-            "2": "#87CEEB",
-            "3": "#7AA2F7",
-            "4": "#FF69B4",
-            "5": "#90EE90"
+            "1": "#7aa2f7",
+            "2": "#7dcfff",
+            "3": "#bb9af7",
+            "4": "#ff9e64",
+            "5": "#9ece6a"
         }
     },
 
     "display": {
         "separator": ": ",
         "color": {
-            "keys": "#2f6fed",
-            "separator": "#7AA2F7",
-            "title": "#7AA2F7"
+            "keys": "#7aa2f7",
+            "separator": "#7dcfff",
+            "title": "#7aa2f7"
         },
         "bar": {
             "char": { "elapsed": "█", "total": "░" },
             "border": { "left": "", "right": "" },
-            "color": { "elapsed": "#7daea3", "total": "#403e41" }
+            "color": { "elapsed": "#7aa2f7", "total": "#292e42" }
         },
         "percent": {
             "type": 3,
             "color": {
-                "green": "#90EE90",
-                "yellow": "#FFB347",
-                "red": "#FF8C00"
+                "green": "#9ece6a",
+                "yellow": "#e0af68",
+                "red": "#f7768e"
             }
         },
         "temp": { "unit": "C" }
@@ -42,9 +42,9 @@
         {
             "type": "title",
             "color": {
-                "user": "#2f6fed",
-                "at": "#7AA2F7",
-                "host": "#7AA2F7"
+                "user": "#7aa2f7",
+                "at": "#7dcfff",
+                "host": "#bb9af7"
             }
         },
 
@@ -55,48 +55,48 @@
         { "type": "break" },
 
         /* --- SOFTWARE --- */
-        { "type": "custom",   "key": "Software", "keyColor": "#FF8C00" },
+        { "type": "custom",   "key": "Software", "keyColor": "#7aa2f7" },
 
-        { "type": "os",        "key": "├─ OS",       "keyColor": "#FF8C00" },
-        { "type": "kernel",    "key": "├─ Kernel",   "keyColor": "#FF8C00" },
-        { "type": "packages",  "key": "├─ Packages", "keyColor": "#FF8C00" },
-        { "type": "shell",     "key": "├─ Shell",    "keyColor": "#FF8C00" },
-        { "type": "terminal",  "key": "├─ Terminal", "keyColor": "#FF8C00" },
-        { "type": "wm",        "key": "├─ WM",       "keyColor": "#FF8C00" },
-        { "type": "cursor",    "key": "└─ Cursor",   "keyColor": "#FF8C00" },
+        { "type": "os",        "key": "├─ OS",       "keyColor": "#7aa2f7" },
+        { "type": "kernel",    "key": "├─ Kernel",   "keyColor": "#7aa2f7" },
+        { "type": "packages",  "key": "├─ Packages", "keyColor": "#7aa2f7" },
+        { "type": "shell",     "key": "├─ Shell",    "keyColor": "#7aa2f7" },
+        { "type": "terminal",  "key": "├─ Terminal", "keyColor": "#7aa2f7" },
+        { "type": "wm",        "key": "├─ WM",       "keyColor": "#7aa2f7" },
+        { "type": "cursor",    "key": "└─ Cursor",   "keyColor": "#7aa2f7" },
 
         { "type": "break" },
 
         /* --- HARDWARE --- */
-        { "type": "custom", "key": "Hardware", "keyColor": "#0080FF" },
+        { "type": "custom", "key": "Hardware", "keyColor": "#7dcfff" },
 
-        { "type": "cpu",    "key": "├─ CPU",    "keyColor": "#0080FF" },
-        { "type": "gpu",    "key": "├─ GPU",    "keyColor": "#0080FF" },
+        { "type": "cpu",    "key": "├─ CPU",    "keyColor": "#7dcfff" },
+        { "type": "gpu",    "key": "├─ GPU",    "keyColor": "#7dcfff" },
         {
             "type": "memory",
             "key": "├─ Memory",
-            "keyColor": "#0080FF",
+            "keyColor": "#7dcfff",
             "percent": { "type": 2 }
         },
         {
             "type": "disk",
             "key": "└─ Disk",
-            "keyColor": "#0080FF",
+            "keyColor": "#7dcfff",
             "percent": { "type": 2 }
         },
 
         { "type": "break" },
 
         /* --- AGE --- */
-        { "type": "custom", "key": "Age", "keyColor": "#FF00FF" },
+        { "type": "custom", "key": "Age", "keyColor": "#bb9af7" },
 
         {
             "type": "command",
             "key": "├─ OS Age",
-            "keyColor": "#FF00FF",
+            "keyColor": "#bb9af7",
             "text": "birth_install=$(stat -c %W /); current=$(date +%s); days_difference=$(( (current - birth_install) / 86400 )); echo $days_difference days"
         },
-        { "type": "uptime", "key": "└─ Uptime", "keyColor": "#FF00FF" },
+        { "type": "uptime", "key": "└─ Uptime", "keyColor": "#bb9af7" },
 
         { "type": "break" },
 

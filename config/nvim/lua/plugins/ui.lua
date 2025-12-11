@@ -20,25 +20,21 @@ return {
 	-- Theme
 
 	{
-		"blazkowolf/gruber-darker.nvim",
-		config = function()
-			require("gruber-darker").setup({
-				bold = true,
-				italic = {
-					strings = true,
-					comments = true,
-					operators = false,
-					folds = true,
-				},
-				undercurl = true,
-				underline = true,
-				invert = {
-					signs = false,
-					tabline = false,
-					visual = false,
-				},
-			})
-			vim.cmd([[colorscheme gruber-darker]])
+		"folke/tokyonight.nvim",
+		opts = {
+			style = "storm",
+			transparent = false,
+			styles = {
+				comments = { italic = true },
+				keywords = { italic = false },
+				sidebars = "dark",
+				floats = "dark",
+			},
+			dim_inactive = true,
+		},
+		config = function(_, opts)
+			require("tokyonight").setup(opts)
+			vim.cmd([[colorscheme tokyonight-storm]])
 		end,
 	},
 

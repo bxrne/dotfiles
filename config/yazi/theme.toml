@@ -4,12 +4,12 @@
 cwd = { fg = "#fcfcfa" }
 
 # Hovered
-hovered = { fg = "#382A20", bg = "#f38d70" }
+hovered = { fg = "#382A20", bg = "#2f6fed" }
 preview_hovered = { underline = true }
 
 # Find
 find_keyword = { fg = "#f9cc6c", italic = true }
-find_position = { fg = "#f38d70", bg = "#382A20", italic = true }
+find_position = { fg = "#2f6fed", bg = "#382A20", italic = true }
 
 # Marker
 marker_selected = { fg = "#f9cc6c", bg = "#f9cc6c" }
@@ -35,47 +35,47 @@ separator_style = { fg = "#403e41", bg = "#382A20" }
 
 # Mode
 mode_normal = { fg = "#fcfcfa", bg = "#382A20", bold = true }
-mode_select = { fg = "#382A20", bg = "#f9cc6c", bold = true }
-mode_unset = { fg = "#382A20", bg = "#f38d70", bold = true }
+mode_select = { fg = "#382A20", bg = "#2f6fed", bold = true }
+mode_unset = { fg = "#382A20", bg = "#2f6fed", bold = true }
 
 # Progress
 progress_label = { fg = "#fcfcfa", bold = true }
-progress_normal = { fg = "#f9cc6c", bg = "#382A20" }
+progress_normal = { fg = "#2f6fed", bg = "#382A20" }
 progress_error = { fg = "#fd6883", bg = "#382A20" }  # Permissions
-permissions_t = { fg = "#f9cc6c" }
-permissions_r = { fg = "#f38d70" }
+permissions_t = { fg = "#7AA2F7" }
+permissions_r = { fg = "#2f6fed" }
 permissions_w = { fg = "#fd6883" }
-permissions_x = { fg = "#f9cc6c" }
+permissions_x = { fg = "#7AA2F7" }
 permissions_s = { fg = "#403e41" }
 
 [input]
-border = { fg = "#f38d70" }
+border = { fg = "#2f6fed" }
 title = {}
 value = {}
 selected = { reversed = true }
 
 [select]
-border = { fg = "#f38d70" }
-active = { fg = "#f38d70" }
+border = { fg = "#2f6fed" }
+active = { fg = "#2f6fed" }
 inactive = {}
 
 [tasks]
-border = { fg = "#f38d70" }
+border = { fg = "#2f6fed" }
 title = {}
 hovered = { underline = true }
 
 [which]
 cols = 3
 mask = { bg = "#221f22" }
-cand = { fg = "#f38d70" }
+cand = { fg = "#2f6fed" }
 rest = { fg = "#fcfcfa" }
-desc = { fg = "#f9cc6c" }
+desc = { fg = "#7AA2F7" }
 separator = "  "
 separator_style = { fg = "#403e41" }
 
 [help]
-on = { fg = "#f9cc6c" }
-run = { fg = "#f38d70" }
+on = { fg = "#7AA2F7" }
+run = { fg = "#2f6fed" }
 desc = { fg = "#fcfcfa" }
 hovered = { bg = "#382A20", bold = true }
 footer = { fg = "#382A20", bg = "#fcfcfa" }
@@ -104,21 +104,21 @@ rules = [
   { mime = "text/*", fg = "#fcfcfa" },
 
   # Code
-  { name = "*.rs", fg = "#f38d70" },
-  { name = "*.py", fg = "#f9cc6c" },
-  { name = "*.js", fg = "#f9cc6c" },
-  { name = "*.ts", fg = "#f38d70" },
-  { name = "*.go", fg = "#f38d70" },
-  { name = "*.c", fg = "#f38d70" },
-  { name = "*.cpp", fg = "#f38d70" },
+  { name = "*.rs", fg = "#2f6fed" },
+  { name = "*.py", fg = "#7AA2F7" },
+  { name = "*.js", fg = "#7AA2F7" },
+  { name = "*.ts", fg = "#2f6fed" },
+  { name = "*.go", fg = "#2f6fed" },
+  { name = "*.c", fg = "#2f6fed" },
+  { name = "*.cpp", fg = "#2f6fed" },
   { name = "*.java", fg = "#fd6883" },
   { name = "*.sh", fg = "#f9cc6c" },
 
   # Special files
   { name = "*.gitignore", fg = "#403e41" },
   { name = "*.gitmodules", fg = "#403e41" },
-  { name = "Makefile", fg = "#f9cc6c" },
-  { name = "Dockerfile", fg = "#f38d70" },
+  { name = "Makefile", fg = "#7AA2F7" },
+  { name = "Dockerfile", fg = "#2f6fed" },
   { name = "*.toml", fg = "#fd6883" },
   { name = "*.yaml", fg = "#fd6883" },
   { name = "*.yml", fg = "#fd6883" },
@@ -129,10 +129,10 @@ rules = [
 [icon]
 rules = [
   { name = "*/", text = "" },
-  { name = "*.rs", text = "", fg = "#f38d70" },
-  { name = "*.py", text = "", fg = "#f9cc6c" },
-  { name = "*.js", text = "", fg = "#f9cc6c" },
-  { name = "*.json", text = "", fg = "#f9cc6c" },
+  { name = "*.rs", text = "", fg = "#2f6fed" },
+  { name = "*.py", text = "", fg = "#7AA2F7" },
+  { name = "*.js", text = "", fg = "#7AA2F7" },
+  { name = "*.json", text = "", fg = "#7AA2F7" },
   { name = "*.md", text = "", fg = "#fcfcfa" },
   { name = "*.toml", text = "", fg = "#fd6883" },
   { name = "*.yaml", text = "", fg = "#fd6883" },

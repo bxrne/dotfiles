@@ -27,7 +27,7 @@ format=🔔 <b>%s</b>\n%b
 [urgency=normal]
 background-color=#000000
 text-color=#FFFFFF
-border-color=#FFA500
+border-color=#2f6fed
 format=📢 <b>%s</b>\n%b
 
 [urgency=high]

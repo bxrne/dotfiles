@@ -4,24 +4,24 @@ $username$hostname$directory$git_branch$git_status$git_state$python$cmd_duration
 add_newline = false
 
 [directory]
-style = "bold #FFA500"
-truncation_length = 3
+ style = "bold #2f6fed"
+ truncation_length = 3
 truncate_to_repo = true
 format = "[$path]($style) "
 
 [character]
-success_symbol = "[∷](bold #FFA500)"
+ success_symbol = "[∷](bold #2f6fed)"
 error_symbol = "[∷](bold #FF8C00)"
 vimcmd_symbol = "[∷](bold #87CEEB)"
 
 [git_branch]
-symbol = " "                        # branch symbol
-format = "[$symbol$branch]($style) "
-style = "bold #FFA500"
+ symbol = " "                        # branch symbol
+ format = "[$symbol$branch]($style) "
+ style = "bold #2f6fed"
 
 [git_status]
-format = "([$all_status$ahead_behind]($style)) "
-style = "#FFA500"
+ format = "([$all_status$ahead_behind]($style)) "
+ style = "#2f6fed"
 conflicted = "="
 untracked = "?"
 modified = "!"
@@ -45,9 +45,9 @@ format = "[$symbol$virtualenv]($style)"
 style = "#87CEEB"
 
 [username]
-style_user = "bold #FFA500"
-style_root = "bold #FF8C00"
-format = "[$user]($style)@"
+ style_user = "bold #2f6fed"
+ style_root = "bold #FF8C00"
+ format = "[$user]($style)@"
 disabled = false
 show_always = true
 

@@ -7,9 +7,9 @@
         "source": "~/.config/about.txt",
         "padding": { "top": 3, "left": 2 },
         "color": {
-            "1": "#FFA500",
+            "1": "#2f6fed",
             "2": "#87CEEB",
-            "3": "#FFB347",
+            "3": "#7AA2F7",
             "4": "#FF69B4",
             "5": "#90EE90"
         }
@@ -18,9 +18,9 @@
     "display": {
         "separator": ": ",
         "color": {
-            "keys": "#FFA500",
-            "separator": "#FFB347",
-            "title": "#FFB347"
+            "keys": "#2f6fed",
+            "separator": "#7AA2F7",
+            "title": "#7AA2F7"
         },
         "bar": {
             "char": { "elapsed": "█", "total": "░" },
@@ -42,15 +42,15 @@
         {
             "type": "title",
             "color": {
-                "user": "#FFA500",
-                "at": "#FFB347",
-                "host": "#FFB347"
+                "user": "#2f6fed",
+                "at": "#7AA2F7",
+                "host": "#7AA2F7"
             }
         },
 
         /* --- SYSTEM --- */
-        { "type": "host",     "key": "├─ Host",     "keyColor": "#FFB347" },
-        { "type": "localip",  "key": "└─ Local IP", "keyColor": "#FFB347" },
+        { "type": "host",     "key": "├─ Host",     "keyColor": "#7AA2F7" },
+        { "type": "localip",  "key": "└─ Local IP", "keyColor": "#7AA2F7" },
 
         { "type": "break" },
 

@@ -9,14 +9,6 @@ return {
 		end,
 	},
 
-	{
-		"NickvanDyke/opencode.nvim",
-		dependencies = {
-			{ "folke/snacks.nvim", opts = { input = { enabled = true } } },
-		},
-		config = require "config.opencode",
-	},
-
 	-- Theme
 
 	{

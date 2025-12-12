@@ -76,3 +76,4 @@ if ! pgrep -u "$USER" -f "podman system service" > /dev/null; then
 fi
 
 fastfetch
+export PATH="$HOME/.local/bin:$PATH"

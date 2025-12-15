@@ -19,10 +19,36 @@ vim.keymap.set("n", "<A-=>", "<C-w>=", { desc = "Equalize window sizes" })
 -- Terminal mode escape
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
+-- File explorer keymaps
+-- NeoTree - traditional file tree
+vim.keymap.set("n", "<leader>n", "<cmd>Neotree toggle<CR>", { desc = "Toggle NeoTree" })
+vim.keymap.set("n", "<leader>N", "<cmd>Neotree focus<CR>", { desc = "Focus NeoTree" })
+
+-- Oil - modern file explorer
+vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Open parent directory in Oil" })
+vim.keymap.set("n", "<leader>E", "<cmd>Oil --float<cr>", { desc = "Open Oil in floating window" })
+
 -- FZF fuzzy search
 vim.keymap.set("n", "<leader>fr", ":FzfLua registers<CR>", { desc = "Fuzzy search registers" })
 vim.keymap.set("n", "<leader>fq", ":FzfLua quickfix<CR>", { desc = "Fuzzy search quickfix list" })
 vim.keymap.set("n", "<leader>fl", ":FzfLua loclist<CR>", { desc = "Fuzzy search location list" })
+
+-- Git keymaps
+vim.keymap.set("n", "<leader>gs", ":Git status<CR>", { desc = "Git status" })
+vim.keymap.set("n", "<leader>gc", ":Git commit<CR>", { desc = "Git commit" })
+vim.keymap.set("n", "<leader>gb", ":Git blame<CR>", { desc = "Git blame" })
+vim.keymap.set("n", "<leader>gp", ":Git push<CR>", { desc = "Git push" })
+vim.keymap.set("n", "<leader>ga", ":Git add .<CR>", { desc = "Git add all" })
+vim.keymap.set("n", "<leader>gd", ":Git diff<CR>", { desc = "Git diff" })
+vim.keymap.set("n", "<leader>lg", ":LazyGit<CR>", { desc = "Open lazygit" })
+
+-- Terminal keymaps
+vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
+vim.keymap.set("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal<CR>", { desc = "Horizontal terminal" })
+vim.keymap.set("n", "<leader>tv", "<cmd>ToggleTerm direction=vertical<CR>", { desc = "Vertical terminal" })
+
+-- Symbols outline
+vim.keymap.set("n", "<leader>so", "<cmd>SymbolsOutline<cr>", { desc = "Toggle symbols outline" })
 
 -- Debugging keymaps (additional to debug.lua)
 vim.keymap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Debug: Toggle Breakpoint" })

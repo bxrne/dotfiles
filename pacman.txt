@@ -5,6 +5,7 @@ arch-audit
 base
 base-devel
 bat
+bc
 bluetuith-bin
 brightnessctl
 btop
@@ -16,6 +17,7 @@ facetimehd-data
 facetimehd-dkms-git
 fastfetch
 feh
+figlet
 flameshot
 fuse2
 fzf
@@ -47,6 +49,7 @@ kvantum
 lazygit
 lazysql
 libev
+libnotify
 linux-firmware
 linux-headers
 linux-t2
@@ -59,6 +62,7 @@ mako
 man-db
 man-pages
 neovim
+nordzy-hyprcursors
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
@@ -103,14 +107,16 @@ typst
 ufw
 unzip
 uv
+v4l2loopback-dkms
+vicinae-bin
 vim
 vlc
 waybar
 wf-recorder
+whois
 wiremix
 wireplumber
 wl-clipboard
-wofi
 xcursor-vanilla-dmz-aa
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland

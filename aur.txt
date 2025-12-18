@@ -20,11 +20,14 @@ hyprqt6engine
 hyprqt6engine-debug
 lazysql
 lazysql-debug
+nordzy-hyprcursors
 picotool
 picotool-debug
 podman-tui
 podman-tui-debug
 supabase
 supabase-debug
+vicinae-bin
+vicinae-bin-debug
 yay
 yay-debug

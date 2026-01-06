@@ -13,8 +13,9 @@ require("lazy").setup({
 	{ import = "plugins.git" },
 	{ import = "plugins.lsp" },
 	{ import = "plugins.completion" },
-	{import = "plugins.debug" },
+	{ import = "plugins.debug" },
 	{ import = "plugins.dash" },
+	{ import = "plugins.99" },
 }, {
 	change_detection = {
 		notify = false,

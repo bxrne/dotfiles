@@ -52,38 +52,13 @@ return {
 		end,
 	},
 
-	-- Better AI chat (replacing CopilotChat for performance)
+	-- Cursor IDE integration
 	{
-		"yetone/avante.nvim",
+		"h4kbas/cursor.nvim",
 		lazy = true,
-		cmd = {
-			"AvanteAsk",
-			"AvanteRefresh",
-			"AvanteEdit",
-			"AvanteChat",
-			"AvanteBuild",
-			"AvanteConflictNextConflict",
-			"AvanteConflictPrevConflict",
-			"AvanteConflictChooseOurs",
-			"AvanteConflictChooseTheirs",
-			"AvanteConflictChooseBoth",
-			"AvanteConflictChooseNone",
-			"AvanteConflictChooseCursor",
-		},
-		version = false,
-		opts = function()
-			return require "config.avante"
-		end,
-		build = "make",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"stevearc/dressing.nvim",
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-			"nvim-tree/nvim-web-devicons",
-		},
-		config = function(_, opts)
-			require("avante").setup(opts)
+		cmd = "CursorChat",
+		config = function()
+			require("cursor").setup(require "config.cursor")
 		end,
 	},
 

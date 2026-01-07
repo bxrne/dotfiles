@@ -60,3 +60,6 @@ vim.keymap.set("n", "<leader>dt", "<cmd>lua require'dapui'.toggle()<CR>", { desc
 vim.keymap.set("n", "<leader>dr", "<cmd>lua require'dap'.repl.open()<CR>", { desc = "Debug: Open REPL" })
 vim.keymap.set("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debug: Run Last" })
 
+-- Cursor.nvim keymaps
+vim.keymap.set("n", "<leader>ac", "<cmd>CursorChat<CR>", { desc = "Cursor: Open Chat" })
+

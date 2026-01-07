@@ -3,7 +3,7 @@ return {
 	model = "auto",
 	bindings = {
 		chat = {
-			send_message = "<C-s>",
+			send_message = "<CR>",
 			close = "q",
 			stop = "<C-c>",
 		},

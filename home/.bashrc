@@ -66,7 +66,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 test -r '/home/bxrne/.opam/opam-init/init.sh' && . '/home/bxrne/.opam/opam-init/init.sh' > /dev/null 2> /dev/null || true
 export PATH="$HOME/.platformio/penv/bin:$PATH"
-export ZELLIJ_THEME="tokyonight"
+export ZELLIJ_THEME="matte"
 export DOCKER_HOST=unix:///run/user/$UID/podman/podman.sock
 export EDITOR='nvim'
 

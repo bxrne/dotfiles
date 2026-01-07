@@ -15,7 +15,28 @@ local navic = require "nvim-navic"
 
 	require("lualine").setup {
 	options = {
-		theme = "tokyonight",
+		theme = {
+			normal = {
+				a = { bg = "#121212", fg = "#8A8A8D" },
+				b = { bg = "#121212", fg = "#BEBEBE" },
+				c = { bg = "#121212", fg = "#BEBEBE" },
+			},
+			insert = {
+				a = { bg = "#121212", fg = "#FFC107" },
+				b = { bg = "#121212", fg = "#BEBEBE" },
+				c = { bg = "#121212", fg = "#BEBEBE" },
+			},
+			visual = {
+				a = { bg = "#121212", fg = "#E68E0D" },
+				b = { bg = "#121212", fg = "#BEBEBE" },
+				c = { bg = "#121212", fg = "#BEBEBE" },
+			},
+			replace = {
+				a = { bg = "#121212", fg = "#D35F5F" },
+				b = { bg = "#121212", fg = "#BEBEBE" },
+				c = { bg = "#121212", fg = "#BEBEBE" },
+			},
+		},
 		globalstatus = true,
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },

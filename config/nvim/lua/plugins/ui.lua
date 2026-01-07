@@ -12,21 +12,11 @@ return {
 	-- Theme
 
 	{
-		"folke/tokyonight.nvim",
-		opts = {
-			style = "storm",
-			transparent = false,
-			styles = {
-				comments = { italic = true },
-				keywords = { italic = false },
-				sidebars = "dark",
-				floats = "dark",
-			},
-			dim_inactive = true,
-		},
-		config = function(_, opts)
-			require("tokyonight").setup(opts)
-			vim.cmd([[colorscheme tokyonight-storm]])
+		"tahayvr/matteblack.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd([[colorscheme matteblack]])
 		end,
 	},
 

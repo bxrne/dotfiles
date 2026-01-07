@@ -15,7 +15,7 @@
     },
     "theme": {
         "iconTheme": "Gruvbox",
-        "name": "tokyo-night-storm"
+        "name": "gruvbox-dark"
     },
     "window": {
         "csd": true,

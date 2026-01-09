@@ -53,7 +53,22 @@ return {
 	},
 	{
 		"stevearc/oil.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" }, -- optional
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			{
+				"malewicz1337/oil-git.nvim",
+				opts = {
+					debounce_ms = 50,
+					show_file_highlights = true,
+					show_directory_highlights = true,
+					show_file_symbols = true,
+					show_directory_symbols = true,
+					show_ignored_files = false,
+					show_ignored_directories = false,
+					symbol_position = "eol", -- "eol", "signcolumn", or "none"
+				},
+			},
+		},
 		config = function()
 			require("oil").setup {
 				default_file_explorer = false, -- Don't hijack netrw, let NeoTree handle it

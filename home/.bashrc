@@ -76,4 +76,4 @@ if ! pgrep -u "$USER" -f "podman system service" > /dev/null; then
     systemctl --user start podman.socket
 fi
 
-cd ~/code && fastfetch
+fastfetch

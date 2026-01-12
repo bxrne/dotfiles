@@ -22,17 +22,17 @@ format=<b>%s</b>\n%b
 background-color=#121212
 text-color=#BEBEBE
 border-color=#333333
-format=🔔 <b>%s</b>\n%b
+format=<b>%s</b>\n%b
 
 [urgency=normal]
 background-color=#121212
 text-color=#EAEAEA
 border-color=#FFC107
-format=📢 <b>%s</b>\n%b
+format=<b>%s</b>\n%b
 
 [urgency=high]
 background-color=#121212
 text-color=#D35F5F
 border-color=#D35F5F
-format=⚠️ <b>%s</b>\n%b
+format=<b>%s</b>\n%b
 

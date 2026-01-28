@@ -51,37 +51,7 @@ return {
 		---@type ibl.config
 		opts = {},
 	},
-	{
-		"stevearc/oil.nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-			{
-				"malewicz1337/oil-git.nvim",
-				opts = {
-					debounce_ms = 50,
-					show_file_highlights = true,
-					show_directory_highlights = true,
-					show_file_symbols = true,
-					show_directory_symbols = true,
-					show_ignored_files = false,
-					show_ignored_directories = false,
-					symbol_position = "eol", -- "eol", "signcolumn", or "none"
-				},
-			},
-		},
-		config = function()
-			require("oil").setup {
-				default_file_explorer = false, -- Don't hijack netrw, let NeoTree handle it
-				view_options = {
-					show_hidden = true,
-				},
-			}
 
-			-- Oil keybindings - different from NeoTree
-			vim.keymap.set("n", "<leader>o", "<cmd>Oil<cr>", { desc = "Open parent directory in Oil" })
-			vim.keymap.set("n", "<leader>O", "<cmd>Oil --float<cr>", { desc = "Open Oil in floating window" })
-		end,
-	},
 
 	{
 		"windwp/nvim-autopairs",
@@ -193,30 +163,5 @@ return {
 		end,
 	},
 
-	-- AI coding assistant
-	{
-		"NickvanDyke/opencode.nvim",
-		dependencies = {
-			{ "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
-		},
-		config = function()
-			---@type opencode.Opts
-			vim.g.opencode_opts = {}
 
-			vim.o.autoread = true
-
-			vim.keymap.set({ "n", "x" }, "<C-a>", function() require("opencode").ask("@this: ", { submit = true }) end, { desc = "Ask opencode" })
-			vim.keymap.set({ "n", "x" }, "<C-x>", function() require("opencode").select() end,                          { desc = "Execute opencode action…" })
-			vim.keymap.set({ "n", "t" }, "<C-.>", function() require("opencode").toggle() end,                          { desc = "Toggle opencode" })
-
-			vim.keymap.set({ "n", "x" }, "go",  function() return require("opencode").operator("@this ") end,        { expr = true, desc = "Add range to opencode" })
-			vim.keymap.set("n",          "goo", function() return require("opencode").operator("@this ") .. "_" end, { expr = true, desc = "Add line to opencode" })
-
-			vim.keymap.set("n", "<S-C-u>", function() require("opencode").command("session.half.page.up") end,   { desc = "opencode half page up" })
-			vim.keymap.set("n", "<S-C-d>", function() require("opencode").command("session.half.page.down") end, { desc = "opencode half page down" })
-
-			vim.keymap.set("n", "+", "<C-a>", { desc = "Increment", noremap = true })
-			vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement", noremap = true })
-		end,
-	},
 }

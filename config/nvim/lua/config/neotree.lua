@@ -112,10 +112,10 @@ return function()
 				["C"] = "close_node",
 				["z"] = "close_all_nodes",
 				["a"] = {
-					"add",
-					config = {
-						show_path = "none",
-					},
+						"add",
+						config = {
+							show_path = "none",
+						},
 				},
 				["A"] = "add_directory",
 				["d"] = "delete",
@@ -253,16 +253,9 @@ return function()
 		},
 	})
 
-	local neotree_refresh_group = vim.api.nvim_create_augroup("NeotreeAutoRefresh", { clear = true })
-	vim.api.nvim_create_autocmd("BufWritePost", {
-		group = neotree_refresh_group,
-		desc = "Keep Neo-tree git status and diagnostics up to date",
-		callback = function()
-			if vim.fn.exists(":Neotree") == 2 then
-				vim.cmd("Neotree refresh")
-			end
-		end,
-	})
+	-- NOTE: Disabled Neo-tree BufWritePost refresh autocmd.
+	-- Your neo-tree version throws: "Invalid argument: refresh" when refreshing on save.
+	-- You can re-enable this once we confirm the correct command for your neo-tree version.
 
 	-- Keymaps
 	vim.keymap.set("n", "<leader>n", "<cmd>Neotree toggle<CR>", { desc = "Toggle file tree" })

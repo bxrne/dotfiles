@@ -146,28 +146,6 @@ return {
 		end,
 	},
 
-	-- Remote development
-	{
-		"amitds1997/remote-nvim.nvim",
-		version = "*",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-		},
-		config = true,
-	},
-
-	-- Auto-save session (was.nvim)
-	{
-		"bxrne/was.nvim",
-		version = "v0.0.1",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = true,
-		opts = {
-			defer_time = 2500,
-		},
-	},
-
 	-- Todo comments
 	{
 		"folke/todo-comments.nvim",
@@ -190,27 +168,9 @@ return {
 	{
 		"stevearc/conform.nvim",
 		lazy = false,
-		keys = {
-			{
-				"<leader>f",
-				function()
-					require("conform").format { async = true, lsp_fallback = true }
-				end,
-				mode = "",
-				desc = "Format buffer",
-			},
-		},
 		opts = function()
 			return require "config.conform"
 		end,
-	},
-
-	-- Amp IDE integration
-	{
-		"sourcegraph/amp.nvim",
-		branch = "main",
-		lazy = false,
-		opts = { auto_start = true, log_level = "info" },
 	},
 
 	{

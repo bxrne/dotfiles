@@ -1,0 +1,8 @@
+theme = Atom One Dark
+font-family = Cascadia Code
+font-family = JetBrainsMono Nerd Font
+font-family-bold = Cascadia Code
+font-family-bold = JetBrainsMono Nerd Font
+font-family-italic = Cascadia Code
+font-family-italic = JetBrainsMono Nerd Font
+font-size = 13

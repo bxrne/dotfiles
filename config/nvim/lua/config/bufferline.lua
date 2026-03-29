@@ -26,5 +26,29 @@ return {
 		persist_buffer_sort = true,
 		enforce_regular_tabs = false,
 		always_show_bufferline = true,
+		-- Keep bufferline transparent over terminal background
+		offsets = {
+			{
+				filetype = "neo-tree",
+				text = "File Explorer",
+				text_align = "left",
+				separator = true,
+			},
+		},
+		highlights = {
+			background = { bg = "NONE" },
+			buffer = { bg = "NONE" },
+			buffer_visible = { bg = "NONE" },
+			buffer_selected = { bg = "NONE" },
+			separator = { bg = "NONE" },
+			separator_visible = { bg = "NONE" },
+			separator_selected = { bg = "NONE" },
+			close_button = { bg = "NONE" },
+			close_button_visible = { bg = "NONE" },
+			close_button_selected = { bg = "NONE" },
+			modified = { bg = "NONE" },
+			modified_visible = { bg = "NONE" },
+			modified_selected = { bg = "NONE" },
+		},
 	},
 }

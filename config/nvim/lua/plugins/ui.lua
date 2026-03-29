@@ -12,11 +12,40 @@ return {
 	-- Theme
 
 	{
-		"tahayvr/matteblack.nvim",
-		lazy = false,
+		"navarasu/onedark.nvim",
 		priority = 1000,
 		config = function()
-			vim.cmd([[colorscheme matteblack]])
+			require("onedark").setup({
+				style = "warmer",
+				transparent = true,
+				code_style = {
+					comments = "italic",
+					keywords = "none",
+					functions = "none",
+					strings = "none",
+					variables = "none",
+				},
+					highlights = {
+					ColorColumn = { bg = "#2c313c" },
+					CursorLine = { bg = "#2c313c" },
+					FloatBorder = { bg = "NONE" },
+					NormalFloat = { bg = "NONE" },
+					NeoTreeFloatBorder = { bg = "NONE" },
+					NeoTreeNormal = { bg = "NONE" },
+					NeoTreeNormalNC = { bg = "NONE" },
+					TabLine = { bg = "NONE" },
+					TabLineFill = { bg = "NONE" },
+					TabLineSel = { bg = "NONE" },
+					StatusLine = { bg = "NONE" },
+					StatusLineNC = { bg = "NONE" },
+					WinSeparator = { bg = "NONE" },
+					VertSplit = { bg = "NONE" },
+					DiagnosticWarn = { fg = "#d19a66" },
+					DiagnosticHint = { fg = "#d19a66" },
+					DiagnosticInfo = { fg = "#c0c4cc" },
+				},
+			})
+			require("onedark").load()
 		end,
 	},
 

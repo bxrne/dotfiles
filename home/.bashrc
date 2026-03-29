@@ -1,11 +1,15 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Default to Development directory for interactive shells
+if [ -d "$HOME/Development" ]; then
+  cd "$HOME/Development"
+fi
+
 # aliases
 alias lg='lazygit'
 alias n='nvim'
 alias grep='grep --color=auto'
-alias cd='z'
 alias podstop='podman ps -q | xargs podman stop'
 alias kindstop='podman ps -q --filter "label=io.x-k8s.kind.cluster" | xargs podman pause'
 alias ptail='
@@ -48,7 +52,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 export KIND_EXPERIMENTAL_PROVIDER=podman
-export FZF_DEFAULT_OPTS="--preview 'bat --style=numbers --color=always {}' --preview-window=right:60%:wrap"
+export FZF_DEFAULT_OPTS="--preview 'bat --style=numbers --color=always {}' --preview-window=right:60%:wrap --color=bg+:#3e4452,fg+:#abb2bf,hl:#d19a66,hl+:#d19a66,pointer:#d19a66,marker:#d19a66,prompt:#d19a66,spinner:#d19a66,info:#abb2bf"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 test -r '/home/bxrne/.opam/opam-init/init.sh' && . '/home/bxrne/.opam/opam-init/init.sh' > /dev/null 2> /dev/null || true
@@ -73,3 +77,22 @@ fi
 fastfetch
 
 export PATH="$HOME/.zigup:$HOME/.zig:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# ZVM
+export ZVM_INSTALL="$HOME/.zvm/self"
+export PATH="$PATH:$HOME/.zvm/bin"
+export PATH="$PATH:$ZVM_INSTALL/"
+
+[[ -s "/home/bxrne/.gvm/scripts/gvm" ]] && source "/home/bxrne/.gvm/scripts/gvm"
+
+# pnpm
+export PNPM_HOME="/home/bxrne/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

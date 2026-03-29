@@ -17,24 +17,24 @@ local navic = require "nvim-navic"
 	options = {
 		theme = {
 			normal = {
-				a = { bg = "#121212", fg = "#8A8A8D" },
-				b = { bg = "#121212", fg = "#BEBEBE" },
-				c = { bg = "#121212", fg = "#BEBEBE" },
+				a = { bg = "#1f2329", fg = "#abb2bf" },
+				b = { bg = "#1f2329", fg = "#abb2bf" },
+				c = { bg = "#1f2329", fg = "#abb2bf" },
 			},
 			insert = {
-				a = { bg = "#121212", fg = "#FFC107" },
-				b = { bg = "#121212", fg = "#BEBEBE" },
-				c = { bg = "#121212", fg = "#BEBEBE" },
+				a = { bg = "#1f2329", fg = "#d19a66" },
+				b = { bg = "#1f2329", fg = "#abb2bf" },
+				c = { bg = "#1f2329", fg = "#abb2bf" },
 			},
 			visual = {
-				a = { bg = "#121212", fg = "#E68E0D" },
-				b = { bg = "#121212", fg = "#BEBEBE" },
-				c = { bg = "#121212", fg = "#BEBEBE" },
+				a = { bg = "#1f2329", fg = "#d19a66" },
+				b = { bg = "#1f2329", fg = "#abb2bf" },
+				c = { bg = "#1f2329", fg = "#abb2bf" },
 			},
 			replace = {
-				a = { bg = "#121212", fg = "#D35F5F" },
-				b = { bg = "#121212", fg = "#BEBEBE" },
-				c = { bg = "#121212", fg = "#BEBEBE" },
+				a = { bg = "#1f2329", fg = "#e06c75" },
+				b = { bg = "#1f2329", fg = "#abb2bf" },
+				c = { bg = "#1f2329", fg = "#abb2bf" },
 			},
 		},
 		globalstatus = true,

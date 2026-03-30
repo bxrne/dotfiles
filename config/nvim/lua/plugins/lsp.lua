@@ -1,5 +1,4 @@
 -- LSP configuration
-local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 return {
 -- Mason for LSP management
 {

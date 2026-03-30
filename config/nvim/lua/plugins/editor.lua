@@ -60,51 +60,35 @@ return {
 		end,
 	},
 	{
-		"dmtrKovalenko/fff.nvim",
-		build = function()
-			-- this will download prebuild binary or try to use existing rustup toolchain to build from source
-			-- (if you are using lazy you can use gb for rebuilding a plugin if needed)
-			require("fff.download").download_or_build_binary()
-		end,
-		-- if you are using nixos
-		-- build = "nix run .#release",
-		opts = { -- (optional)
-			debug = {
-				enabled = false,
-				show_scores = true,
-			},
-		},
-		lazy = false,
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {},
 		keys = {
 			{
-				"ff", -- try it if you didn't it is a banger keybinding for a picker
+				"ff",
 				function()
-					require("fff").find_files()
+					require("fzf-lua").files()
 				end,
-				desc = "FFFind files",
+				desc = "Find files",
 			},
 			{
 				"fg",
 				function()
-					require("fff").live_grep()
+					require("fzf-lua").live_grep()
 				end,
-				desc = "LiFFFe grep",
+				desc = "Live grep",
 			},
 			{
 				"fz",
 				function()
-					require("fff").live_grep {
-						grep = {
-							modes = { "fuzzy", "plain" },
-						},
-					}
+					require("fzf-lua").grep()
 				end,
-				desc = "Live fffuzy grep",
+				desc = "Fuzzy grep",
 			},
 			{
 				"fc",
 				function()
-					require("fff").live_grep { query = vim.fn.expand "<cword>" }
+					require("fzf-lua").grep_cword()
 				end,
 				desc = "Search current word",
 			},
@@ -159,9 +143,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			require("nvim-treesitter.configs").setup(require "config.treesitter")
-		end,
+		opts = require "config.treesitter",
 	},
 
 	-- Code formatting

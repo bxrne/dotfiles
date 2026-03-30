@@ -9,43 +9,48 @@ return {
 		end,
 	},
 
-	-- Theme
 
+	-- Theme
 	{
-		"navarasu/onedark.nvim",
+		"scottmckendry/cyberdream.nvim",
+		lazy = false,
 		priority = 1000,
 		config = function()
-			require("onedark").setup({
-				style = "warmer",
+			require("cyberdream").setup({
 				transparent = true,
-				code_style = {
-					comments = "italic",
-					keywords = "none",
-					functions = "none",
-					strings = "none",
-					variables = "none",
-				},
+				italic_comments = true,
+				hide_fillchars = true,
+				borderless_telescope = true,
+				terminal_colors = true,
+				theme = {
+					variant = "default",
 					highlights = {
-					ColorColumn = { bg = "#2c313c" },
-					CursorLine = { bg = "#2c313c" },
-					FloatBorder = { bg = "NONE" },
-					NormalFloat = { bg = "NONE" },
-					NeoTreeFloatBorder = { bg = "NONE" },
-					NeoTreeNormal = { bg = "NONE" },
-					NeoTreeNormalNC = { bg = "NONE" },
-					TabLine = { bg = "NONE" },
-					TabLineFill = { bg = "NONE" },
-					TabLineSel = { bg = "NONE" },
-					StatusLine = { bg = "NONE" },
-					StatusLineNC = { bg = "NONE" },
-					WinSeparator = { bg = "NONE" },
-					VertSplit = { bg = "NONE" },
-					DiagnosticWarn = { fg = "#d19a66" },
-					DiagnosticHint = { fg = "#d19a66" },
-					DiagnosticInfo = { fg = "#c0c4cc" },
-				},
+						-- Custom amber accents
+						Comment = { fg = "#7c6f64", italic = true },
+						String = { fg = "#a89984" },
+						Function = { fg = "#d79921", bold = true },
+						Keyword = { fg = "#d79921", italic = true },
+						Identifier = { fg = "#c1c1c1" },
+						Constant = { fg = "#d79921" },
+						Type = { fg = "#d79921" },
+						Statement = { fg = "#d79921" },
+						Operator = { fg = "#d79921" },
+						DiagnosticWarn = { fg = "#d79921" },
+						DiagnosticHint = { fg = "#d79921" },
+						-- Transparency overrides
+						ColorColumn = { bg = "#121212" },
+						CursorLine = { bg = "#121212" },
+						FloatBorder = { bg = "NONE", fg = "#d79921" },
+						NormalFloat = { bg = "NONE" },
+						NeoTreeFloatBorder = { bg = "NONE", fg = "#d79921" },
+						NeoTreeNormal = { bg = "NONE" },
+						NeoTreeNormalNC = { bg = "NONE" },
+						WinSeparator = { bg = "NONE", fg = "#3c3836" },
+						VertSplit = { bg = "NONE", fg = "#3c3836" },
+					}
+				}
 			})
-			require("onedark").load()
+			vim.cmd("colorscheme cyberdream")
 		end,
 	},
 

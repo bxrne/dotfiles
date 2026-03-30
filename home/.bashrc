@@ -52,7 +52,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 export KIND_EXPERIMENTAL_PROVIDER=podman
-export FZF_DEFAULT_OPTS="--preview 'bat --style=numbers --color=always {}' --preview-window=right:60%:wrap --color=bg+:#3e4452,fg+:#abb2bf,hl:#d19a66,hl+:#d19a66,pointer:#d19a66,marker:#d19a66,prompt:#d19a66,spinner:#d19a66,info:#abb2bf"
+export FZF_DEFAULT_OPTS="--preview 'bat --style=numbers --color=always {}' --preview-window=right:60%:wrap --color=bg+:#121212,fg+:#a89984,hl:#d79921,hl+:#d79921,pointer:#d79921,marker:#d79921,prompt:#d79921,spinner:#d79921,info:#a89984"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 test -r '/home/bxrne/.opam/opam-init/init.sh' && . '/home/bxrne/.opam/opam-init/init.sh' > /dev/null 2> /dev/null || true

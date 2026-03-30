@@ -1,58 +1,58 @@
 format = """
-$username$hostname$directory$git_branch$git_status$git_state$python$cmd_duration$character
-"""
+[](#d79921)\
+$username\
+$hostname\
+[](bg:#000000 fg:#d79921)\
+$directory\
+[](fg:#000000 bg:#d79921)\
+$git_branch\
+$git_status\
+[](fg:#d79921)\
+$character"""
+
 add_newline = false
 
 [directory]
- style = "bold #a89984"
-   truncation_length = 3
-  truncate_to_repo = true
-  format = "[$path]($style) "
+style = "bold #d79921 bg:#000000"
+truncation_length = 3
+truncate_to_repo = true
+format = "[ $path ]($style)"
 
 [character]
-  success_symbol = "[∷](bold #d79921)"
-  error_symbol = "[∷](bold #cc241d)"
-  vimcmd_symbol = "[∷](bold #d79921)"
+success_symbol = "[❯](bold #d79921)"
+error_symbol = "[❯](bold #cc241d)"
+vimcmd_symbol = "[❮](bold #d79921)"
 
 [git_branch]
-  symbol = " "                        # branch symbol
-  format = "[$symbol$branch]($style) "
-  style = "bold #d79921"
+symbol = ""
+format = "[ $symbol $branch ]($style)"
+style = "bold #000000 bg:#d79921"
 
 [git_status]
-  format = "([$all_status$ahead_behind]($style)) "
-  style = "#d79921"
-  conflicted = "="
-  untracked = "?"
-  modified = "!"
-  staged = "+"
-  renamed = "»"
-  deleted = "✘"
-  stashed = "≡"
-
-[git_state]
-  format = "[$state( $progress_current/$progress_total)]($style)"
-  style = "bold #d79921"
+format = "([$all_status$ahead_behind ]($style))"
+style = "bold #000000 bg:#d79921"
+conflicted = "="
+untracked = "?"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+stashed = "≡"
 
 [cmd_duration]
-  min_time = 500
-  format = " [$duration]($style) "
-  style = "#7c6f64"
-
-[python]
-  symbol = "  "                          # Python logo glyph
-  format = "[$symbol$virtualenv]($style)"
-  style = "#d79921"
+min_time = 500
+format = " [$duration]($style) "
+style = "bold #000000 bg:#d79921"
 
 [username]
-  style_user = "bold #7c6f64"
-  style_root = "bold #cc241d"
-  format = "[$user]($style)@"
-  disabled = false
-  show_always = true
+style_user = "bold #000000 bg:#d79921"
+style_root = "bold #cc241d bg:#d79921"
+format = "[$user ]($style)"
+disabled = false
+show_always = true
 
 [hostname]
-  ssh_only = true
-  format = "📡 [$hostname]($style) "
-  style = "bold #7c6f64"
-  disabled = false
+ssh_only = true
+format = "[@ $hostname ]($style)"
+style = "bold #000000 bg:#d79921"
+disabled = false

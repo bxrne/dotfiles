@@ -1,69 +1,58 @@
-local navic = require "nvim-navic"
+local navic = require("nvim-navic")
 
--- local function pomo_status()
--- 	local status, remaining, cycles = require("pomo").status()
--- 	if status == "running" then
--- 		local minutes = math.floor(remaining / 60)
--- 		local seconds = remaining % 60
--- 		return string.format("🍅 S%d %02d:%02d", cycles + 1, minutes, seconds)
--- 	elseif status == "break" then
--- 		return string.format("☕ Break (%d)", cycles)
--- 	else
--- 		return cycles > 0 and string.format("✅ %d", cycles) or ""
--- 	end
--- end
-
-	require("lualine").setup {
+require("lualine").setup({
 	options = {
 		theme = {
 			normal = {
-				a = { bg = "#000000", fg = "#d79921" },
-				b = { bg = "#000000", fg = "#c1c1c1" },
-				c = { bg = "#000000", fg = "#c1c1c1" },
+				a = { bg = "#000000", fg = "#d79921", gui = "bold" },
+				b = { bg = "#d79921", fg = "#000000" },
+				c = { bg = "#d79921", fg = "#000000" },
 			},
 			insert = {
-				a = { bg = "#000000", fg = "#d79921" },
-				b = { bg = "#000000", fg = "#c1c1c1" },
-				c = { bg = "#000000", fg = "#c1c1c1" },
+				a = { bg = "#000000", fg = "#fabd2f", gui = "bold" },
+				b = { bg = "#d79921", fg = "#000000" },
+				c = { bg = "#d79921", fg = "#000000" },
 			},
 			visual = {
-				a = { bg = "#000000", fg = "#d79921" },
-				b = { bg = "#000000", fg = "#c1c1c1" },
-				c = { bg = "#000000", fg = "#c1c1c1" },
+				a = { bg = "#000000", fg = "#d3869b", gui = "bold" },
+				b = { bg = "#d79921", fg = "#000000" },
+				c = { bg = "#d79921", fg = "#000000" },
 			},
 			replace = {
-				a = { bg = "#000000", fg = "#cc241d" },
-				b = { bg = "#000000", fg = "#c1c1c1" },
-				c = { bg = "#000000", fg = "#c1c1c1" },
+				a = { bg = "#000000", fg = "#cc241d", gui = "bold" },
+				b = { bg = "#d79921", fg = "#000000" },
+				c = { bg = "#d79921", fg = "#000000" },
+			},
+			inactive = {
+				a = { bg = "#d79921", fg = "#000000" },
+				b = { bg = "#d79921", fg = "#000000" },
+				c = { bg = "#d79921", fg = "#000000" },
 			},
 		},
 		globalstatus = true,
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
+		component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
 		disabled_filetypes = { statusline = {}, winbar = {} },
 	},
 	sections = {
-		lualine_a = {},
+		lualine_a = { "mode" },
 		lualine_b = {
-			{ "branch", icon = "" },
-			{
-				"diff",
-				symbols = { added = "+", modified = "~", removed = "-" },
-			},
+			{ "branch", icon = "" },
+			{ "diff", symbols = { added = " ", modified = " ", removed = " " } },
 		},
 		lualine_c = {
-			{ "filename", icon = "" },
+			{ "filename", icon = "" },
 			{
 				function()
-					local line = vim.fn.line "."
-					local file = vim.fn.expand "%"
+					local line = vim.fn.line(".")
+					local file = vim.fn.expand("%")
 					local result = vim.fn.system("git blame --porcelain -L " .. line .. "," .. line .. " " .. file .. " 2>/dev/null")
-					local hash = result:match "^(%w+)"
+					local hash = result:match("^(%w+)")
 					if hash then
 						local summary = vim.fn.system("git show --format=%s -s " .. hash .. " 2>/dev/null"):gsub("\n", "")
-						local author = result:match "author (.-)\n"
+						local author = result:match("author (.-)\n")
 						if author and summary then
-							return author .. ": " .. summary
+							return " " .. author .. ": " .. summary
 						end
 					end
 					return ""
@@ -84,7 +73,7 @@ local navic = require "nvim-navic"
 					end
 					if #names > 0 then
 						local lsp_str = table.concat(names, ", ")
-						return "lsp: " .. lsp_str
+						return "  " .. lsp_str
 					else
 						return ""
 					end
@@ -93,41 +82,28 @@ local navic = require "nvim-navic"
 			{
 				"diagnostics",
 				sources = { "nvim_lsp" },
-				symbols = {
-					error = "E",
-					warn = "W",
-					info = "I",
-					hint = "H",
-				},
-				colored = true,
+				symbols = { error = " ", warn = " ", info = " ", hint = " " },
+				colored = false, -- Disable distinct diagnostic colors to stick to black/amber
 				update_in_insert = false,
 			},
 		},
-		lualine_y = {},
-		lualine_z = {
-			{ "mode", icon = "" },
-		},
+		lualine_y = { "progress" },
+		lualine_z = { "location" },
 	},
 	winbar = {
 		lualine_c = {
 			{
 				function()
-					local filename = vim.fn.expand "%:t"
+					local filename = vim.fn.expand("%:t")
 					if filename == "" or filename == "[No Name]" then
 						return ""
 					else
-						return vim.fn.pathshorten(vim.fn.expand "%:~")
+						return " " .. vim.fn.pathshorten(vim.fn.expand("%:~"))
 					end
 				end,
-				icon = "",
+				icon = " ",
 				file_status = true,
-				newfile_status = true,
-				symbols = {
-					modified = "●",
-					readonly = "",
-					unnamed = "",
-					newfile = "",
-				},
+				symbols = { modified = " ●", readonly = " ", unnamed = "", newfile = " " },
 			},
 			{
 				function()
@@ -143,31 +119,17 @@ local navic = require "nvim-navic"
 		lualine_c = {
 			{
 				function()
-					local filename = vim.fn.expand "%:t"
+					local filename = vim.fn.expand("%:t")
 					if filename == "" or filename == "[No Name]" then
 						return ""
 					else
-						return vim.fn.pathshorten(vim.fn.expand "%:~")
+						return " " .. vim.fn.pathshorten(vim.fn.expand("%:~"))
 					end
 				end,
-				icon = "",
+				icon = " ",
 				file_status = true,
-				newfile_status = true,
-				symbols = {
-					modified = "●",
-					readonly = "",
-					unnamed = "",
-					newfile = "",
-				},
-			},
-			{
-				function()
-					return navic.get_location()
-				end,
-				cond = function()
-					return navic.is_available()
-				end,
+				symbols = { modified = " ●", readonly = " ", unnamed = "", newfile = " " },
 			},
 		},
 	},
-}
+})

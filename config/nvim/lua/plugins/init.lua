@@ -18,6 +18,9 @@ require("lazy").setup({
 	change_detection = {
 		notify = false,
 	},
+	rocks = {
+		enabled = false, -- Disable luarocks integration
+	},
 	performance = {
 		rtp = {
 			disabled_plugins = {

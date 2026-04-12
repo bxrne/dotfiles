@@ -22,6 +22,7 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = { "gopls" },
 			automatic_installation = true,
+			automatic_enable = false, -- Disable auto-enabling servers without explicit vim.lsp.config
 		})
 	end,
 },

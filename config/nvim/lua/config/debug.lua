@@ -85,41 +85,7 @@ require('dap-go').setup({
 	},
 })
 
--- Python debugging
-dap.adapters.python = {
-	type = 'executable',
-	command = 'python',
-	args = { '-m', 'debugpy.adapter' },
-}
 
-dap.configurations.python = {
-	{
-		type = 'python',
-		request = 'launch',
-		name = 'Debug current file',
-		program = '${file}',
-		console = 'integratedTerminal',
-	},
-	{
-		type = 'python',
-		request = 'launch',
-		name = 'Debug module',
-		module = function()
-			return vim.fn.input('Module name: ')
-		end,
-		console = 'integratedTerminal',
-	},
-	{
-		type = 'python',
-		request = 'launch',
-		name = 'Debug tests',
-		module = 'pytest',
-		args = function()
-			return vim.fn.split(vim.fn.input('Pytest args: '), ' ')
-		end,
-		console = 'integratedTerminal',
-	},
-}
 
 -- TypeScript/JavaScript debugging
 require('dap-vscode-js').setup({
@@ -171,27 +137,6 @@ dap.configurations.typescript = {
 }
 
 dap.configurations.javascript = dap.configurations.typescript
-
--- OCaml debugging (requires ocamlearlybird)
-dap.adapters.ocaml = {
-	type = 'executable',
-	command = 'ocamlearlybird',
-	args = { 'dap' },
-}
-
-dap.configurations.ocaml = {
-	{
-		type = 'ocaml',
-		name = 'Debug OCaml',
-		request = 'launch',
-		program = function()
-			return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/main.exe')
-		end,
-		cwd = '${workspaceFolder}',
-		stopOnEntry = false,
-		args = {},
-	},
-}
 
 -- DAP UI listeners
 dap.listeners.after.event_initialized['dapui_config'] = function()

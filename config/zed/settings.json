@@ -1,0 +1,107 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "terminal": {
+    "dock": "bottom"
+  },
+  "debugger": {
+    "dock": "bottom"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "git_panel": {
+    "dock": "right"
+  },
+  "git": {
+    "inline_blame": {
+      "show_commit_summary": true
+    }
+  },
+  "current_line_highlight": "all",
+  "unnecessary_code_fade": 0.3,
+  "cursor_shape": "underline",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "restore_on_startup": "launchpad",
+  "on_last_window_closed": "quit_app",
+  "edit_predictions": {
+    "provider": "copilot"
+  },
+  "agent_ui_font_size": 13.0,
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "agent": {
+    "dock": "left",
+    "show_turn_stats": true,
+    "favorite_models": [],
+    "single_file_review": true,
+    "model_parameters": []
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
+  "semantic_tokens": "combined",
+  "vim": {
+    "toggle_relative_line_numbers": true,
+    "default_mode": "insert"
+  },
+  "toolbar": {
+    "code_actions": true
+  },
+  "minimap": {
+    "show": "never"
+  },
+  "auto_signature_help": true,
+  "diff_view_style": "unified",
+  "autosave": "on_focus_change",
+  "buffer_line_height": "comfortable",
+  "buffer_font_family": ".ZedMono",
+  "redact_private_values": true,
+  "agent_servers": {
+    "amp-acp": {
+      "type": "registry"
+    },
+    "pi-acp": {
+      "type": "registry"
+    },
+    "github-copilot-cli": {
+      "type": "registry"
+    },
+    "cursor": {
+      "favorite_config_option_values": {
+        "mode": [
+          "agent"
+        ]
+      },
+      "type": "registry"
+    },
+    "opencode": {
+      "type": "registry"
+    }
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "vim_mode": true,
+  "ui_font_size": 15.0,
+  "buffer_font_size": 13.5,
+  "theme": {
+    "mode": "system",
+    "light": "Ayu Dark",
+    "dark": "Ayu Dark"
+  },
+}

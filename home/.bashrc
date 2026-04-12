@@ -13,7 +13,6 @@ alias ptail='
   echo "Following: $FILE" &&
   tail -n 50 -f "$FILE" | bat --paging=never --color=always -l log
 '
-alias diff='critique'
 
 # enhanced commands
 alias ls='exa --icons --group-directories-first --color=auto'

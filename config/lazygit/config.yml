@@ -19,3 +19,5 @@ gui:
       - "#a89984"
     searchingActiveBorderColor:
       - "#d79921"
+git:
+  overrideGpg: true

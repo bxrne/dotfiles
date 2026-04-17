@@ -93,4 +93,11 @@ esac
 # pnpm end
 . "$HOME/.cargo/env"
 
+set -a
+source ~/.env_secrets
+set +a
+
 fastfetch
+eval "$(zoxide init bash)"
+
+eval "$(/home/bxrne/.local/bin/mise activate bash)" # added by https://mise.run/bash

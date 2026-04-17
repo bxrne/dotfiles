@@ -7,63 +7,121 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "languages": {
+    "Rust": {
+      "show_edit_predictions": true
+    }
+  },
+  "show_edit_predictions": true,
+  "context_servers": {
+    
+  },
+  "proxy": "",
+  "focus_follows_mouse": {
+    "enabled": true
+  },
+  "bottom_dock_layout": "full",
+  "tab_bar": {
+    "show_pinned_tabs_in_separate_row": true
+  },
+  "tabs": {
+    "show_diagnostics": "all",
+    "file_icons": true,
+    "git_status": true
+  },
+  "title_bar": {
+    "button_layout": "platform_default",
+    "show_menus": false,
+    "show_branch_status_icon": true
+  },
+  "status_bar": {
+    "show_active_file": false,
+    "cursor_position_button": false
+  },
+  "close_on_file_delete": true,
+  "cli_default_open_behavior": "new_window",
+  "collaboration_panel": {
+    "dock": "right",
+  },
+  "project_panel": {
+    "hide_root": true,
+    "git_status_indicator": false,
+    "diagnostic_badges": true,
+    "bold_folder_labels": false,
+    "dock": "left",
+  },
   "terminal": {
-    "dock": "bottom"
+    "toolbar": {
+      "breadcrumbs": true
+    },
+    "font_size": 13.5,
+    "show_count_badge": false,
+    "dock": "bottom",
   },
   "debugger": {
-    "dock": "bottom"
+    "dock": "right",
   },
   "outline_panel": {
-    "dock": "right"
+    "dock": "left",
   },
   "git_panel": {
-    "dock": "right"
+    "show_count_badge": true,
+    "fallback_branch_name": "main",
+    "collapse_untracked_diff": true,
+    "tree_view": true,
+    "dock": "right",
   },
   "git": {
     "inline_blame": {
-      "show_commit_summary": true
-    }
+      "show_commit_summary": true,
+    },
   },
   "current_line_highlight": "all",
   "unnecessary_code_fade": 0.3,
   "cursor_shape": "underline",
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "restore_on_startup": "launchpad",
   "on_last_window_closed": "quit_app",
   "edit_predictions": {
-    "provider": "copilot"
+    "copilot": {
+      "enable_next_edit_suggestions": true
+    },
+    "mode": "eager",
+    "provider": "copilot",
   },
   "agent_ui_font_size": 13.0,
   "icon_theme": {
     "mode": "system",
     "light": "Zed (Default)",
-    "dark": "Zed (Default)"
+    "dark": "Zed (Default)",
   },
   "agent": {
+    "sidebar_side": "right",
+    "button": true,
     "dock": "left",
     "show_turn_stats": true,
     "favorite_models": [],
     "single_file_review": true,
-    "model_parameters": []
+    "model_parameters": [],
   },
   "diagnostics": {
     "inline": {
-      "enabled": true
-    }
+      "enabled": true,
+    },
   },
   "semantic_tokens": "combined",
   "vim": {
     "toggle_relative_line_numbers": true,
-    "default_mode": "insert"
+    "default_mode": "insert",
   },
   "toolbar": {
-    "code_actions": true
+    "code_actions": true,
   },
   "minimap": {
-    "show": "never"
+    "show": "never",
   },
   "auto_signature_help": true,
   "diff_view_style": "unified",
@@ -73,28 +131,26 @@
   "redact_private_values": true,
   "agent_servers": {
     "amp-acp": {
-      "type": "registry"
+      "type": "registry",
     },
     "pi-acp": {
-      "type": "registry"
+      "type": "registry",
     },
     "github-copilot-cli": {
-      "type": "registry"
+      "type": "registry",
     },
     "cursor": {
       "favorite_config_option_values": {
-        "mode": [
-          "agent"
-        ]
+        "mode": ["agent"],
       },
-      "type": "registry"
+      "type": "registry",
     },
     "opencode": {
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "session": {
-    "trust_all_worktrees": true
+    "trust_all_worktrees": true,
   },
   "vim_mode": true,
   "ui_font_size": 15.0,
@@ -102,6 +158,6 @@
   "theme": {
     "mode": "system",
     "light": "Ayu Dark",
-    "dark": "Ayu Dark"
+    "dark": "Snazzy Theme",
   },
 }

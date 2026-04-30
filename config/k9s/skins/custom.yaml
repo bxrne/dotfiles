@@ -1,63 +1,63 @@
 k9s:
-  # General K9s styles
+  # General K9s styles (Ayu Dark)
   body:
-    fgColor: "#a89984"
-    bgColor: default # Matches your transparent Waybar vibe
-    logoColor: "#d79921"
+    fgColor: "#bfbdb6"
+    bgColor: default
+    logoColor: "#e6b450"
 
   # ClusterInfoView (Top left info)
   info:
-    fgColor: "#d79921"
-    sectionColor: "#3c3836"
+    fgColor: "#e6b450"
+    sectionColor: "#131721"
 
   frame:
     border:
-      fgColor: "#7c6f64"
-      focusColor: "#d79921" # Active window border
+      fgColor: "#565b66"
+      focusColor: "#e6b450"
 
     menu:
-      fgColor: "#a89984"
-      keyColor: "#d79921" # Hotkeys match your clock/active workspace
-      numKeyColor: "#d79921"
+      fgColor: "#bfbdb6"
+      keyColor: "#39bae6"
+      numKeyColor: "#e6b450"
 
     crumbs:
-      fgColor: "#000000"
-      bgColor: "#a89984"
-      activeColor: "#d79921"
+      fgColor: "#0b0e14"
+      bgColor: "#565b66"
+      activeColor: "#e6b450"
 
     status:
-      newColor: "#a89984"
-      modifyColor: "#d79921"
-      addColor: "#a89984"
-      errorColor: "#cc241d" # Matches your 'urgent'/'critical' color
-      highlightcolor: "#d79921"
-      killColor: "#cc241d"
-      completedColor: "#7c6f64"
+      newColor: "#bfbdb6"
+      modifyColor: "#39bae6"
+      addColor: "#aad94c"
+      errorColor: "#d95757"
+      highlightcolor: "#e6b450"
+      killColor: "#d95757"
+      completedColor: "#565b66"
 
     title:
-      fgColor: "#d79921"
+      fgColor: "#e6b450"
       bgColor: default
-      highlightColor: "#3c3836"
-      counterColor: "#a89984"
-      filterColor: "#d79921"
+      highlightColor: "#131721"
+      counterColor: "#bfbdb6"
+      filterColor: "#d2a6ff"
 
   views:
     table:
-      fgColor: "#a89984"
+      fgColor: "#bfbdb6"
       bgColor: default
-      cursorColor: "#3c3836" # Subtle dark highlight for selection
+      cursorColor: "#131721"
       header:
-        fgColor: "#d79921"
+        fgColor: "#e6b450"
         bgColor: default
-        sorterColor: "#d79921"
+        sorterColor: "#d2a6ff"
 
     yaml:
-      keyColor: "#d79921"
-      colonColor: "#a89984"
-      valueColor: "#3c3836"
+      keyColor: "#e6b450"
+      colonColor: "#bfbdb6"
+      valueColor: "#565b66"
 
     logs:
-      fgColor: "#a89984"
+      fgColor: "#bfbdb6"
       bgColor: default
       indicator:
-        fgColor: "#d79921"
+        fgColor: "#39bae6"

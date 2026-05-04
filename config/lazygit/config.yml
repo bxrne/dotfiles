@@ -22,4 +22,5 @@ gui:
 git:
   overrideGpg: true
   pagers:
-    - pager: critique --stdin
+    - colorArg: always
+      pager: delta --dark --paging=never --file-style=omit --hunk-header-style=omit --line-numbers

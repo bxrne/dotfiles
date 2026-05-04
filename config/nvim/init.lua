@@ -45,6 +45,7 @@ vim.pack.add({
   "https://github.com/akinsho/bufferline.nvim", -- Modern buffer tabline
   "https://github.com/github/copilot.vim", -- GitHub Copilot inline completion
   "https://github.com/lewis6991/gitsigns.nvim", -- Git signs in buffers
+  "https://github.com/olimorris/codecompanion.nvim",
 })
 
 local autocmd = vim.api.nvim_create_autocmd
@@ -299,6 +300,36 @@ pcall(function()
   end
   map("n", "<C-S-P>", function() harpoon:list():prev() end, { desc = "Harpoon prev" })
   map("n", "<C-S-N>", function() harpoon:list():next() end, { desc = "Harpoon next" })
+end)
+
+-- CODECOMPANION (ACP for OpenCode)
+pcall(function()
+  require("codecompanion").setup({
+    adapters = {
+      opencode = function()
+        local Path = require("plenary.path")
+        local adapter = require("codecompanion.adapters.acp")
+        adapter.base_url = "http://localhost:6714"
+
+        adapter.get_envs = function()
+          return {}
+        end
+
+        adapter.get_headers = function()
+          return {
+            ["Content-Type"] = "application/json",
+          }
+        end
+
+        return adapter
+      end,
+    },
+    opts = {
+      log_level = "ERROR",
+    },
+  })
+  map("n", "<leader>cc", "<cmd>CodeCompanion<cr>", { desc = "Open CodeCompanion" })
+  map("n", "<leader>ca", "<cmd>CodeCompanionChat<cr>", { desc = "CodeCompanion Chat" })
 end)
 
 -- Helpful defaults

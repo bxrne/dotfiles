@@ -8,6 +8,10 @@
       "rev": "cbc7b02bb99fae35cb42f514762b89b5126651ef",
       "src": "https://github.com/hrsh7th/cmp-nvim-lsp"
     },
+    "codecompanion.nvim": {
+      "rev": "60d031862715a77b3655eac724e8926965e47b86",
+      "src": "https://github.com/olimorris/codecompanion.nvim"
+    },
     "copilot.vim": {
       "rev": "a12fd5672110c8aa7e3c8419e28c96943ca179be",
       "src": "https://github.com/github/copilot.vim"

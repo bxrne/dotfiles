@@ -57,6 +57,9 @@ pcall(function()
   vim.cmd.colorscheme("ayu-dark")
 end)
 
+vim.cmd("highlight LineNr guifg=#787C99")
+vim.cmd("highlight CursorLineNr guifg=#FF9940 guibg=NONE")
+
 -- BUFFERLINE
 pcall(function()
   require("bufferline").setup {

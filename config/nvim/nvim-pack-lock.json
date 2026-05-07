@@ -24,6 +24,10 @@
       "rev": "b437bafc981a180d609bb4092c56ce8999f7a2c4",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
+    "ghlite.nvim": {
+      "rev": "43e12c921554be41a75fe1f7be512881f1bd0a5d",
+      "src": "https://github.com/daliusd/ghlite.nvim"
+    },
     "gitlinker.nvim": {
       "rev": "cc59f732f3d043b626c8702cb725c82e54d35c25",
       "src": "https://github.com/ruifm/gitlinker.nvim"
@@ -57,6 +61,10 @@
       "rev": "f7e89f3d19fb436e1fbeff3bf4291eef35da94e3",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
+    "nvim-raccoon": {
+      "rev": "ef5c78d38182363b24881cb16b53d2653fafb748",
+      "src": "https://github.com/bajor/nvim-raccoon"
+    },
     "nvim-treesitter": {
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
@@ -77,6 +85,10 @@
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "pr.nvim": {
+      "rev": "15a0583ca5e896dbe034ac3428b1984851cd2cc6",
+      "src": "https://github.com/0xKitsune/pr.nvim"
     },
     "vim-fugitive": {
       "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",

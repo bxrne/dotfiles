@@ -18,6 +18,7 @@ sudo stow -t /etc etc
 ## Pkgs
 
 ```bash
+
 sudo pacman -S --needed - < pacman.txt # install pacman pkgs
 sudo pacman -Qqe > pacman.txt # dump pacman pkgs
 

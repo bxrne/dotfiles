@@ -1,63 +1,63 @@
 k9s:
-  # General K9s styles (Ayu Dark)
+  # General K9s styles (Oxocarbon)
   body:
-    fgColor: "#bfbdb6"
+    fgColor: "#dde1e6"
     bgColor: default
-    logoColor: "#e6b450"
+    logoColor: "#be95ff"
 
   # ClusterInfoView (Top left info)
   info:
-    fgColor: "#e6b450"
-    sectionColor: "#131721"
+    fgColor: "#be95ff"
+    sectionColor: "#393939"
 
   frame:
     border:
-      fgColor: "#565b66"
-      focusColor: "#e6b450"
+      fgColor: "#525252"
+      focusColor: "#be95ff"
 
     menu:
-      fgColor: "#bfbdb6"
-      keyColor: "#39bae6"
-      numKeyColor: "#e6b450"
+      fgColor: "#dde1e6"
+      keyColor: "#33b1ff"
+      numKeyColor: "#be95ff"
 
     crumbs:
-      fgColor: "#0b0e14"
-      bgColor: "#565b66"
-      activeColor: "#e6b450"
+      fgColor: "#161616"
+      bgColor: "#525252"
+      activeColor: "#be95ff"
 
     status:
-      newColor: "#bfbdb6"
-      modifyColor: "#39bae6"
-      addColor: "#aad94c"
-      errorColor: "#d95757"
-      highlightcolor: "#e6b450"
-      killColor: "#d95757"
-      completedColor: "#565b66"
+      newColor: "#dde1e6"
+      modifyColor: "#33b1ff"
+      addColor: "#42be65"
+      errorColor: "#fa4d56"
+      highlightcolor: "#be95ff"
+      killColor: "#fa4d56"
+      completedColor: "#525252"
 
     title:
-      fgColor: "#e6b450"
+      fgColor: "#be95ff"
       bgColor: default
-      highlightColor: "#131721"
-      counterColor: "#bfbdb6"
-      filterColor: "#d2a6ff"
+      highlightColor: "#393939"
+      counterColor: "#dde1e6"
+      filterColor: "#ee5396"
 
   views:
     table:
-      fgColor: "#bfbdb6"
+      fgColor: "#dde1e6"
       bgColor: default
-      cursorColor: "#131721"
+      cursorColor: "#393939"
       header:
-        fgColor: "#e6b450"
+        fgColor: "#be95ff"
         bgColor: default
-        sorterColor: "#d2a6ff"
+        sorterColor: "#ee5396"
 
     yaml:
-      keyColor: "#e6b450"
-      colonColor: "#bfbdb6"
-      valueColor: "#565b66"
+      keyColor: "#be95ff"
+      colonColor: "#dde1e6"
+      valueColor: "#525252"
 
     logs:
-      fgColor: "#bfbdb6"
+      fgColor: "#dde1e6"
       bgColor: default
       indicator:
-        fgColor: "#39bae6"
+        fgColor: "#33b1ff"

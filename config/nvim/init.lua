@@ -33,7 +33,7 @@ end
 vim.pack.add({
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/bajor/nvim-raccoon",
-	"https://github.com/Shatur/neovim-ayu",
+	"https://github.com/nyoom-engineering/oxocarbon.nvim",
 	"https://github.com/nvim-lualine/lualine.nvim",
 	"https://github.com/nvim-tree/nvim-web-devicons",
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
@@ -54,25 +54,23 @@ vim.pack.add({
 
 -- Colorscheme
 pcall(function()
-	require("ayu").setup({ mirage = false, overrides = {} })
-	vim.cmd.colorscheme("ayu-dark")
+	require("oxocarbon").setup({ mirage = false, overrides = {} })
+	vim.cmd.colorscheme("oxocarbon")
 end)
 
-vim.cmd("highlight LineNr guifg=#787C99")
-vim.cmd("highlight CursorLineNr guifg=#FF9940 guibg=NONE")
 
 -- Lualine
 pcall(function()
 	require("lualine").setup({
 		options = {
-			theme = "ayu_dark",
+			theme = "oxocarbon",
 			globalstatus = true,
-			component_separators = { left = "|", right = "|" },
+			component_separators = { left = " ", right = " " },
 			section_separators = { left = "", right = "" },
 			disabled_filetypes = { statusline = { "alpha", "dashboard" } },
 		},
 		sections = {
-			lualine_a = { { "mode", fmt = function(str) return str:sub(1, 3):upper() end, gui = "bold" } },
+			lualine_a = { { "mode", gui = "bold" } },
 			lualine_b = {
 				{ "branch", icon = "" },
 				{ "filename", path = 1, symbols = { modified = "[+]", readonly = "[RO]", unnamed = "[EMPTY]" } },
@@ -83,12 +81,13 @@ pcall(function()
 				{
 					function()
 						local clients = vim.lsp.get_clients({ bufnr = 0 })
-						if #clients == 0 then return "LSP: NONE" end
+						if #clients == 0 then return " (no lsp)" end
 						local names = {}
 						for _, client in ipairs(clients) do table.insert(names, client.name) end
 						return " " .. table.concat(names, ", ")
 					end,
-					color = { fg = "#ffcc66" },
+					color = { fg = "#be95ff", gui = "italic" },
+
 				},
 			},
 			lualine_y = { { "filetype" } },

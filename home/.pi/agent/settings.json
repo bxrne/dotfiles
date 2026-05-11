@@ -1,0 +1,24 @@
+{
+  "lastChangelogVersion": "0.74.0",
+  "defaultProvider": "github-copilot",
+  "defaultModel": "gpt-5.2-codex",
+  "defaultThinkingLevel": "high",
+  "hideThinkingBlock": true,
+  "quietStartup": false,
+  "terminal": {
+    "showTerminalProgress": true,
+    "clearOnShrink": true
+  },
+  "enableInstallTelemetry": false,
+  "theme": "dark",
+  "packages": [
+    "npm:pi-autoresearch"
+  ],
+  "showHardwareCursor": true,
+  "editorPaddingX": 0,
+  "steeringMode": "one-at-a-time",
+  "followUpMode": "one-at-a-time",
+  "transport": "auto",
+  "collapseChangelog": true,
+  "treeFilterMode": "default"
+}

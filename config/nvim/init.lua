@@ -6,6 +6,7 @@ local autocmd = vim.api.nvim_create_autocmd
 g.mapleader = " "
 g.maplocalleader = " "
 
+opt.cmdheight = 0
 opt.number = true
 opt.relativenumber = true
 opt.mouse = "a"
@@ -41,7 +42,7 @@ vim.pack.add({
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/hrsh7th/nvim-cmp",
 	"https://github.com/hrsh7th/cmp-nvim-lsp",
-	"https://github.com/ibhagwan/fzf-lua",
+	"https://github.com/dmtrKovalenko/fff.nvim",
 	"https://github.com/karb94/neoscroll.nvim",
 	"https://github.com/stevearc/oil.nvim",
 	"https://github.com/akinsho/bufferline.nvim",
@@ -54,7 +55,7 @@ vim.pack.add({
 
 -- Colorscheme
 pcall(function()
-	require("oxocarbon").setup({ mirage = false, overrides = {} })
+	require("oxocarbon").setup({})
 	vim.cmd.colorscheme("oxocarbon")
 end)
 
@@ -190,7 +191,19 @@ pcall(function()
 end)
 
 -- Plugin configs
-pcall(function() require("fzf-lua").setup({}) end)
+g.fff = {
+	lazy_sync = true,
+	debug = { enabled = false, show_scores = false },
+}
+autocmd("PackChanged", {
+	callback = function(ev)
+		local name, kind = ev.data.spec.name, ev.data.kind
+		if name == "fff.nvim" and (kind == "install" or kind == "update") then
+			if not ev.data.active then pcall(vim.cmd.packadd, "fff.nvim") end
+			pcall(function() require("fff.download").download_or_build_binary() end)
+		end
+	end,
+})
 pcall(function() require("neoscroll").setup({ duration_multiplier = 0.4 }) end)
 pcall(function() require("gitsigns").setup({}) end)
 pcall(function() require("raccoon").setup({}) end)
@@ -229,10 +242,13 @@ map('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', { desc = 'Next buffer' })
 map('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', { desc = 'Prev buffer' })
 map('n', '<leader>x', '<Cmd>BufferLinePickClose<CR>', { desc = 'Close buffer' })
 
--- Fzf-lua
-map("n", "<leader>ff", ":FzfLua files<cr>", { desc = "Find files" })
-map("n", "<leader>fg", ":FzfLua live_grep<cr>", { desc = "Live grep" })
-map("n", "<leader>fb", ":FzfLua buffers<cr>", { desc = "Buffers" })
+-- fff.nvim
+map("n", "ff", function() require('fff').find_files() end, { desc = "FFFind files" })
+map("n", "fg", function() require('fff').live_grep() end, { desc = "LiFFFe grep" })
+map("n", "fz", function() require('fff').live_grep({ grep = { modes = { 'fuzzy', 'plain' } } }) end,
+	{ desc = "Live fffuzy grep" })
+map("n", "fc", function() require('fff').live_grep({ query = vim.fn.expand("<cword>") }) end,
+	{ desc = "Search current word" })
 
 -- Oil
 map("n", "<leader>e", "<cmd>Oil --float<cr>", { desc = "Open file explorer (oil)" })

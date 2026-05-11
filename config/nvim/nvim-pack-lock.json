@@ -20,6 +20,10 @@
       "rev": "ae752c13e95fb7c5f58da4b5123cb804ea7568ee",
       "src": "https://github.com/Mofiqul/dracula.nvim"
     },
+    "fff.nvim": {
+      "rev": "8cb1f4768b4badab5edcb0c5f45184e236fa3f8a",
+      "src": "https://github.com/dmtrKovalenko/fff.nvim"
+    },
     "fzf-lua": {
       "rev": "b437bafc981a180d609bb4092c56ce8999f7a2c4",
       "src": "https://github.com/ibhagwan/fzf-lua"

@@ -1,31 +1,61 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
-  "share": "disabled",
   "mcp": {
-    "shadcn": {
-      "type": "local",
-      "command": ["npx", "-y", "shadcn@latest", "mcp"]
+    "carpenter-mcp": {
+      "command": [
+        "/home/bxrne/Development/carpenter/src-tauri/target/debug/carpenter-mcp"
+      ],
+      "enabled": true,
+      "environment": {
+        "CARPENTER_MCP_DEBUG": "1",
+        "CARPENTER_MCP_LOG": "/home/bxrne/.local/share/com.bxrne.carpenter/logs/carpenter-mcp.log"
+      },
+      "timeout": 120000,
+      "type": "local"
     },
     "charta": {
-      "type": "local",
-      "command": ["charta"]
+      "command": [
+        "/home/bxrne/Development/charta/target/release/charta"
+      ],
+      "type": "local"
     },
     "filesystem": {
-      "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "~/"]
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "~/"
+      ],
+      "type": "local"
+    },
+    "memory": {
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "type": "local"
     },
     "sequential-thinking": {
-      "type": "local",
       "command": [
         "npx",
         "-y",
         "@modelcontextprotocol/server-sequential-thinking"
-      ]
+      ],
+      "type": "local"
     },
-    "memory": {
-      "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-memory"]
+    "shadcn": {
+      "command": [
+        "npx",
+        "-y",
+        "shadcn@latest",
+        "mcp"
+      ],
+      "type": "local"
     }
-  }
+  },
+  "plugin": [
+    "superpowers@git+https://github.com/obra/superpowers.git"
+  ],
+  "share": "disabled"
 }

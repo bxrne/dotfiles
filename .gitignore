@@ -7,3 +7,6 @@ home/.tmux/resurrect/pane_contents.tar.gz
 home/.tmux/resurrect/tmux_resurrect_*.txt
 augur
 /home/.env_secrets
+/home/.pi/agent/bin
+/home/.pi/agent/auth.json
+/home/.pi/pi-acp/session-map.json

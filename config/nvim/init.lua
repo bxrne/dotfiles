@@ -49,6 +49,7 @@ vim.pack.add({
 	"https://github.com/github/copilot.vim",
 	"https://github.com/lewis6991/gitsigns.nvim",
 	"https://github.com/tpope/vim-fugitive",
+	"https://github.com/hedyhli/outline.nvim",
 })
 
 -- UI
@@ -208,6 +209,30 @@ pcall(function() require("neoscroll").setup({ duration_multiplier = 0.4 }) end)
 pcall(function() require("gitsigns").setup({}) end)
 pcall(function() require("raccoon").setup({}) end)
 
+-- Outline (Symbols Outline fork)
+pcall(function()
+	require("outline").setup({
+		relative_width = true,
+		width = 25,
+		position = "right",
+		auto_close = false,
+		keymaps = {
+			close = { "<Esc>", "q" },
+			goto_location = "<Cr>",
+			focus_location = "o",
+			hover_symbol = "<C-space>",
+			toggle_preview = "K",
+			rename_symbol = "r",
+			code_actions = "a",
+			fold = "h",
+			unfold = "l",
+			fold_all = "W",
+			unfold_all = "E",
+			fold_reset = "R",
+		},
+	})
+end)
+
 pcall(function()
 	require("treesitter-context").setup({
 		max_lines = 3,
@@ -252,6 +277,9 @@ map("n", "fc", function() require('fff').live_grep({ query = vim.fn.expand("<cwo
 
 -- Oil
 map("n", "<leader>e", "<cmd>Oil --float<cr>", { desc = "Open file explorer (oil)" })
+
+-- Outline
+map("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle outline" })
 
 -- Fugitive
 -- -- use leader v for git fugitive commands

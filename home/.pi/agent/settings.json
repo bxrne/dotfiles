@@ -1,10 +1,10 @@
 {
   "lastChangelogVersion": "0.74.0",
-  "defaultProvider": "github-copilot",
-  "defaultModel": "gpt-5.2-codex",
+  "defaultProvider": "openrouter",
+  "defaultModel": "poolside/laguna-xs.2:free",
   "defaultThinkingLevel": "high",
   "hideThinkingBlock": true,
-  "quietStartup": false,
+  "quietStartup": true,
   "terminal": {
     "showTerminalProgress": true,
     "clearOnShrink": true
@@ -12,7 +12,11 @@
   "enableInstallTelemetry": false,
   "theme": "dark",
   "packages": [
-    "npm:pi-autoresearch"
+    "npm:pi-autoresearch",
+    "npm:pi-mcp-adapter",
+    "npm:pi-lens",
+    "npm:pi-powerline-footer",
+    "npm:pi-ask-user"
   ],
   "showHardwareCursor": true,
   "editorPaddingX": 0,

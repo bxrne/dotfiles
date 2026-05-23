@@ -20,6 +20,15 @@ opt.termguicolors = true
 opt.splitright = true
 opt.splitbelow = true
 
+-- VimWiki config (must be set before vim.pack.add loads the plugin)
+vim.g.vimwiki_list = {{
+	path = "~/notes/",
+	syntax = "markdown",
+	ext = ".md",
+}}
+vim.g.vimwiki_global_ext = 0        -- only activate in ~/notes/, not all .md files
+vim.g.vimwiki_markdown_link_ext = 1 -- append .md to [[wiki links]]
+
 -- Plugins
 if not vim.pack or type(vim.pack.add) ~= "function" then
 	vim.schedule(function()
@@ -50,6 +59,7 @@ vim.pack.add({
 	"https://github.com/lewis6991/gitsigns.nvim",
 	"https://github.com/tpope/vim-fugitive",
 	"https://github.com/hedyhli/outline.nvim",
+	"https://github.com/vimwiki/vimwiki",
 })
 
 -- UI
@@ -260,6 +270,43 @@ end)
 
 
 
+-- Wiki git sync (async via jobstart so it never blocks editing)
+local function wiki_git_sync(action)
+	local wiki_dir = vim.fn.expand("~/notes")
+	local cmd
+	if action == "push" then
+		local ts = os.date("%Y-%m-%d %H:%M")
+		cmd = string.format(
+			"sh -c 'cd %s && git add -A && git diff --cached --quiet || git commit -m \"wiki: %s\" && git push'",
+			wiki_dir, ts
+		)
+	else
+		cmd = string.format("sh -c 'cd %s && git pull'", wiki_dir)
+	end
+	vim.fn.jobstart(cmd, {
+		stdout_buffered = true,
+		stderr_buffered = true,
+		on_stdout = function(_, data)
+			if data and data[1] ~= "" then
+				vim.notify(table.concat(data, "\n"), vim.log.levels.INFO)
+			end
+		end,
+		on_stderr = function(_, data)
+			if data and data[1] ~= "" then
+				vim.notify(table.concat(data, "\n"), vim.log.levels.WARN)
+			end
+		end,
+		on_exit = function(_, code)
+			local msg = action == "push" and "Wiki push" or "Wiki pull"
+			if code == 0 then
+				vim.notify(msg .. " complete ✓", vim.log.levels.INFO)
+			else
+				vim.notify(msg .. " failed (exit " .. code .. ")", vim.log.levels.ERROR)
+			end
+		end,
+	})
+end
+
 -- Keybindings
 
 -- Navigation
@@ -310,3 +357,7 @@ map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Move to below window" })
 map("n", "<C-k>", "<C-w>k", { desc = "Move to above window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
+
+-- Wiki (vimwiki installs <leader>ww/wi/wt/<leader>w<leader>w automatically)
+map("n", "<leader>wp", function() wiki_git_sync("push") end, { desc = "Wiki: git push notes" })
+map("n", "<leader>wP", function() wiki_git_sync("pull") end, { desc = "Wiki: git pull notes" })

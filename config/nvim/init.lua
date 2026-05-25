@@ -19,6 +19,8 @@ opt.timeoutlen = 300
 opt.termguicolors = true
 opt.splitright = true
 opt.splitbelow = true
+opt.winborder = "rounded" -- default border for all floating windows (nvim 0.11+)
+opt.pumborder = "rounded" -- native popup menu border (nvim 0.12+)
 
 -- VimWiki config (must be set before vim.pack.add loads the plugin)
 vim.g.vimwiki_list = {{
@@ -184,8 +186,11 @@ pcall(function()
 	cmp.setup({
 		window = {
 			completion = {
-				border = 'none',
+				border = "rounded",
 				winhighlight = "Normal:Normal,FloatBorder:Normal,CursorLine:Visual,Search:None",
+			},
+			documentation = {
+				border = "rounded",
 			},
 		},
 		mapping = cmp.mapping.preset.insert({

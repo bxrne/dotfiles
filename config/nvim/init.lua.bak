@@ -6,34 +6,12 @@ local autocmd = vim.api.nvim_create_autocmd
 g.mapleader = " "
 g.maplocalleader = " "
 g.copilot_enabled = false
-
--- Skip unused built-in plugins / remote providers (faster startup, quieter :checkhealth)
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
-g.loaded_gzip = 1
-g.loaded_tar = 1
-g.loaded_tarPlugin = 1
-g.loaded_zip = 1
-g.loaded_zipPlugin = 1
-g.loaded_2html_plugin = 1
-g.loaded_tutor_mode_plugin = 1
-g.loaded_remote_plugins = 1
-g.loaded_python3_provider = 0
-g.loaded_perl_provider = 0
-g.loaded_ruby_provider = 0
-g.loaded_node_provider = 0
-
--- Mason bins (lua-language-server, stylua, …) are not on $PATH by default
-do
-	local mason_bin = vim.fs.joinpath(vim.fn.stdpath("data"), "mason", "bin")
-	if vim.uv.fs_stat(mason_bin) then
-		vim.env.PATH = mason_bin .. ":" .. vim.env.PATH
-	end
-end
 
 opt.cmdheight = 0
 opt.laststatus = 3
-opt.showmode = false
+opt.showmode = false   
 opt.number = true
 opt.relativenumber = true
 opt.mouse = "a"
@@ -41,20 +19,13 @@ opt.clipboard = "unnamedplus"
 opt.ignorecase = true
 opt.smartcase = true
 opt.signcolumn = "yes"
-opt.updatetime = 250
+opt.updatetime = 200
 opt.timeoutlen = 300
 opt.termguicolors = true
 opt.splitright = true
 opt.splitbelow = true
-opt.winborder = "rounded"
+opt.winborder = "rounded" 
 opt.pumborder = "rounded"
-opt.undofile = true
-opt.swapfile = false
-opt.confirm = true
-opt.shortmess:append("WcC") -- quieter writes / completion
-
--- Less noisy LSP log (was multi-MB of noise)
-vim.lsp.log.set_level(vim.log.levels.WARN)
 
 
 vim.g.vimwiki_list = {{
@@ -80,7 +51,8 @@ vim.pack.add({
 		"https://github.com/nvim-lua/plenary.nvim",
 		"https://github.com/bajor/nvim-raccoon",
 		"https://github.com/stevearc/quicker.nvim",
-		"https://github.com/scottmckendry/cyberdream.nvim", -- high-contrast cyberpunk theme
+		"https://github.com/gthelding/monokai-pro.nvim", -- Omarchy theme colorscheme (ristretto filter)
+		"https://github.com/nvim-lualine/lualine.nvim",
 		"https://github.com/nvim-tree/nvim-web-devicons",
 		{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 		"https://github.com/nvim-treesitter/nvim-treesitter-context",
@@ -90,7 +62,7 @@ vim.pack.add({
 		"https://github.com/dmtrKovalenko/fff.nvim",
 		"https://github.com/sphamba/smear-cursor.nvim",
 		"https://github.com/stevearc/oil.nvim",
-		"https://github.com/MunifTanjim/nui.nvim",
+"https://github.com/MunifTanjim/nui.nvim",
 		{ src = "https://github.com/nvim-neo-tree/neo-tree.nvim", version = "v3.x" },
 		"https://github.com/elixir-editors/vim-elixir",
 		"https://github.com/akinsho/bufferline.nvim",
@@ -111,19 +83,29 @@ vim.pack.add({
 
 -- UI
 
--- cyberdream — high-contrast futuristic theme
+-- Colorscheme (follows the active Omarchy theme: ristretto / monokai-pro)
 pcall(function()
-	vim.o.background = "dark"
-	require("cyberdream").setup({
-		variant = "default",
-		transparent = false,
-		italic_comments = true,
-		hide_fillchars = false,
-		borderless_pickers = true,
-		terminal_colors = true,
-		cache = true,
+	require("monokai-pro").setup({
+		filter = "ristretto",
+		-- Use the editor background (#2c2525) for sidebars/floats instead of the
+		-- darker sideBar shade, so neo-tree/oil/cmp match the rest of the UI.
+		background_clear = {"lualine", "bufferline", "neo-tree", "nvim-tree", "telescope", "float_win", "cmp", "renamer" },
+		override = function()
+			return {
+				NonText = { fg = "#948a8b" },
+				MiniIconsGrey = { fg = "#948a8b" },
+				MiniIconsRed = { fg = "#fd6883" },
+				MiniIconsBlue = { fg = "#85dacc" },
+				MiniIconsGreen = { fg = "#adda78" },
+				MiniIconsYellow = { fg = "#f9cc6c" },
+				MiniIconsOrange = { fg = "#f38d70" },
+				MiniIconsPurple = { fg = "#a8a9eb" },
+				MiniIconsAzure = { fg = "#a8a9eb" },
+				MiniIconsCyan = { fg = "#85dacc" },
+			}
+		end,
 	})
-	vim.cmd.colorscheme("cyberdream")
+	vim.cmd.colorscheme("monokai-pro")
 end)
 
 pcall(function()
@@ -135,102 +117,59 @@ pcall(function()
 	})
 end)
 
--- Navic (LSP breadcrumbs for hardline / winbar)
-pcall(function()
-	require("nvim-navic").setup({
-		highlight = true,
-		separator = " › ",
-		depth_limit = 5,
-		lazy_update_context = true,
-		lsp = {
-			auto_attach = true,
-		},
-	})
-end)
 
--- Hardline statusline — palette from cyberdream
+-- Lualine
 pcall(function()
-	local c = require("cyberdream.colors").default
-	local function color(gui)
-		return { gui = gui, cterm = "NONE", cterm16 = "NONE" }
-	end
-
-	require("hardline").setup({
-		bufferline = false, -- using bufferline.nvim instead
-		theme = "custom",
-		custom_theme = {
-			text = color(c.bg), -- dark fg on bright mode segments
-			normal = color(c.green),
-			insert = color(c.blue),
-			replace = color(c.orange),
-			visual = color(c.purple),
-			command = color(c.pink),
-			inactive_comment = color(c.grey),
-			inactive_cursor = color(c.bg_alt),
-			inactive_menu = color(c.bg_highlight),
-			alt_text = color(c.fg),
-			warning = color(c.yellow),
+	require("lualine").setup({
+		options = {
+			theme = "auto",
+			globalstatus = true,
+			-- Flat separators avoid tall glyphs that can clip or look duplicated
+			-- when using adjust-cell-height in the terminal.
+			component_separators = { left = '', right = '' },
+			section_separators = { left = '', right = '' },
 		},
 		sections = {
-			{ class = "mode", item = require("hardline.parts.mode").get_item },
-			{ class = "high", item = require("hardline.parts.git").get_item, hide = 100 },
-			{ class = "med", item = require("hardline.parts.filename").get_item },
-			{
-				class = "med",
-				item = function()
-					local ok, navic = pcall(require, "nvim-navic")
-					if ok and navic.is_available() then
-						return navic.get_location()
-					end
-					return ""
-				end,
-				hide = 80,
+			lualine_a = { "mode" },
+			lualine_b = { { "branch", icon = "" }, "filename" },
+			lualine_c = {
+				{ "diff", symbols = { added = "+", modified = "~", removed = "-" } },
+				{ "diagnostics", symbols = { error = "E:", warn = "W:", info = "I:", hint = "H:" } },
 			},
-			"%<",
-			{ class = "med", item = "%=" },
-			{
-				class = "low",
-				item = function()
-					local clients = vim.lsp.get_clients({ bufnr = 0 })
-					if #clients == 0 then
-						return ""
-					end
-					local names = {}
-					for _, client in ipairs(clients) do
-						table.insert(names, client.name)
-					end
-					return table.concat(names, ", ")
-				end,
-				hide = 100,
+			lualine_x = {
+				{
+					function()
+						local clients = vim.lsp.get_clients({ bufnr = 0 })
+						if #clients == 0 then return "" end
+						local names = {}
+						for _, c in ipairs(clients) do table.insert(names, c.name) end
+						return table.concat(names, ", ")
+					end,
+				},
 			},
-			{ class = "error", item = require("hardline.parts.lsp").get_error },
-			{ class = "warning", item = require("hardline.parts.lsp").get_warning },
-			{ class = "warning", item = require("hardline.parts.whitespace").get_item },
-			{ class = "high", item = require("hardline.parts.filetype").get_item, hide = 60 },
-			{ class = "mode", item = require("hardline.parts.line").get_item },
+			lualine_y = { "progress" },
+			lualine_z = { "filetype" },
 		},
 	})
 end)
 
 -- Bufferline
 pcall(function()
-	require("bufferline").setup({
+	require("bufferline").setup {
 		options = {
 			diagnostics = "nvim_lsp",
 			close_command = "bdelete! %d",
-			offsets = {
-				{ filetype = "neo-tree", text = "Explorer", text_align = "center" },
-			},
+			offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = "center" } },
 			show_buffer_close_icons = true,
 			show_close_icon = false,
 			enforce_regular_tabs = true,
 		},
-	})
+	}
 end)
 
 -- LSP and Treesitter Setup
 
--- Treesitter (nvim-treesitter main branch — no configs.setup; enable via vim.treesitter.start)
+-- Treesitter
 local ts_parsers = {
 	"bash", "c", "cpp", "dockerfile", "git_config", "git_rebase", "gitattributes", "gitcommit",
 	"gitignore", "go", "gomod", "gosum", "html", "javascript", "json", "lua", "make",
@@ -240,93 +179,46 @@ local ts_parsers = {
 
 pcall(function()
 	local nts = require("nvim-treesitter")
-	nts.setup({})
-	-- install is async + no-op when present; schedule so it never blocks UI
-	vim.schedule(function()
-		nts.install(ts_parsers)
-	end)
-	autocmd("PackChanged", {
-		callback = function()
-			pcall(function()
-				require("nvim-treesitter").update()
-			end)
-		end,
-	})
+	nts.install(ts_parsers)
+	autocmd("PackChanged", { callback = function() pcall(nts.update) end })
 
-	-- Enable highlight + experimental indent for any filetype with a parser.
-	-- (Neovim only auto-starts treesitter for a few built-in ftplugins like lua/markdown.)
-	autocmd("FileType", {
-		callback = function(ev)
-			if not pcall(vim.treesitter.start) then
-				return
-			end
-			vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-		end,
+	require("nvim-treesitter.configs").setup({
+		highlight = {
+			enable = true,
+			additional_vim_regex_highlighting = false,
+		},
+		indent = { enable = true },
 	})
 end)
 
--- LSP Setup — only enable servers whose binary is on PATH
+-- LSP Setup
 pcall(function()
-	local caps = require("cmp_nvim_lsp").default_capabilities()
-
-	-- server name -> executable candidates (first match wins)
-	local servers = {
-		lua_ls = { "lua-language-server" },
-		gopls = { "gopls" },
-		ts_ls = { "typescript-language-server" },
-		jsonls = { "vscode-json-language-server" },
-		eslint = { "vscode-eslint-language-server", "eslint-language-server" },
-		pyright = { "pyright-langserver", "pyright" },
-		bashls = { "bash-language-server" },
-		rust_analyzer = { "rust-analyzer" },
-		zls = { "zls" },
-		clangd = { "clangd" },
-	}
-
-	local function has_exe(candidates)
-		for _, bin in ipairs(candidates) do
-			if vim.fn.executable(bin) == 1 then
-				return true
-			end
-		end
-		return false
-	end
-
-	for name, bins in pairs(servers) do
-		if has_exe(bins) then
-			vim.lsp.config(name, { capabilities = caps })
-			vim.lsp.enable(name)
-		end
+	local servers = { "lua_ls", "gopls", "ts_ls", "jsonls", "eslint", "pyright", "bashls", "rust_analyzer", "zls", "clangd" }
+	for _, server in ipairs(servers) do
+		vim.lsp.config(server, {
+			capabilities = require('cmp_nvim_lsp').default_capabilities(),
+		})
+		vim.lsp.enable(server)
 	end
 
 	-- clangd (C/C++): prefer project-local compile_commands.json (e.g. from
 	-- `bazel run @hedron_compile_commands//:refresh_all` or a symlinked build/
 	-- dir). Fall back to a compile_flags.txt so clangd still understands Bazel
 	-- includes/layouts when no compile_commands.json is present.
-	if has_exe(servers.clangd) then
-		vim.lsp.config("clangd", {
-			capabilities = caps,
-			cmd = {
-				"clangd",
-				"--background-index",
-				"--clang-tidy",
-				"--header-insertion=iwyu",
-				"--completion-style=detailed",
-				"--function-arg-placeholders=false",
-				"--all-scopes-completion",
-				"--pch-storage=memory",
-			},
-			root_markers = {
-				"compile_commands.json",
-				"compile_flags.txt",
-				"WORKSPACE",
-				"WORKSPACE.bazel",
-				"MODULE.bazel",
-				".git",
-			},
-			filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
-		})
-	end
+	vim.lsp.config("clangd", {
+		cmd = {
+			"clangd",
+			"--background-index",
+			"--clang-tidy",
+			"--header-insertion=iwyu",
+			"--completion-style=detailed",
+			"--function-arg-placeholders=false",
+			"--all-scopes-completion",
+			"--pch-storage=memory",
+		},
+		root_markers = { "compile_commands.json", "compile_flags.txt", "WORKSPACE", "WORKSPACE.bazel", "MODULE.bazel", ".git" },
+		filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+	})
 end)
 
 -- todo comments
@@ -342,27 +234,22 @@ pcall(function()
 end)
 
 
--- Autosave: avoid TextChanged (disk write on every normal-mode edit → lag on big files)
+vim.opt.shortmess:append("W") -- suppress "written" message on :w
+
 local function silent_save()
 	if vim.bo.modified and vim.bo.buftype == "" and vim.fn.expand("%") ~= "" then
 		vim.cmd("silent! write")
 	end
 end
 
-autocmd({ "FocusLost", "InsertLeave", "BufLeave" }, { callback = silent_save })
+autocmd({ "FocusLost", "InsertLeave", "TextChanged" }, { callback = silent_save })
 
 autocmd("BufWritePre", {
-	callback = function(ev)
-		-- Skip huge buffers / special buftypes
-		if vim.bo[ev.buf].buftype ~= "" then
-			return
-		end
-		local clients = vim.lsp.get_clients({ bufnr = ev.buf })
-		if #clients == 0 then
-			return
-		end
-		vim.lsp.buf.format({ async = false, bufnr = ev.buf, timeout_ms = 2000 })
+	callback = function()
+		local clients = vim.lsp.get_clients({ bufnr = 0 })
+		if #clients > 0 then vim.lsp.buf.format({ async = false }) end
 	end,
+
 })
 
 -- Diagnostics Config
@@ -460,8 +347,6 @@ pcall(function()
 	vim.treesitter.language.register("markdown", "vimwiki")
 	require("render-markdown").setup({
 		file_types = { "markdown", "vimwiki" },
-		-- No latex parser / converters installed (checkhealth warnings)
-		latex = { enabled = false },
 	})
 end)
 
@@ -549,67 +434,32 @@ end)
 
 pcall(function()
 	require("toggleterm").setup({
-		size = function(term)
-			if term.direction == "vertical" then
-				return math.floor(vim.o.columns * 0.4)
-			end
-			return 15
-		end,
+		size = 15,
 		open_mapping = false,
 		hide_numbers = true,
 		shade_terminals = true,
 		shading_factor = 2,
 		start_in_insert = true,
-		insert_mappings = true,
-		terminal_mappings = true,
-		persist_size = true,
 		close_on_exit = true,
 		direction = "horizontal",
 		float_opts = { border = "rounded" },
 	})
-
-	-- Easier navigation / leave terminal mode (tmux-like feel inside nvim)
-	autocmd("TermOpen", {
-		pattern = "term://*",
-		callback = function()
-			local opts = { buffer = 0, silent = true }
-			map("t", "<Esc>", [[<C-\><C-n>]], opts)
-			map("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
-			map("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
-			map("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
-			map("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
-		end,
-	})
 end)
 
 pcall(function()
-	require("resession").setup({
-		-- Attach autosave only after an explicit save/load
-		autosave = {
-			enabled = true,
-			interval = 60,
-			notify = false,
-		},
-	})
+	require("resession").setup()
 end)
 
--- Per-directory sessions: restore on `nvim` / `nvim .` with no file args
 autocmd("VimEnter", {
-	nested = true,
 	callback = function()
-		if vim.fn.argc(-1) == 0 and not vim.g.using_stdin then
-			require("resession").load(vim.fn.getcwd(), { dir = "dirsession", silence_errors = true })
+		if vim.fn.argc(-1) == 0 then
+			require("resession").load("last", { dir = "dir" })
 		end
 	end,
 })
 autocmd("VimLeavePre", {
 	callback = function()
-		require("resession").save(vim.fn.getcwd(), { dir = "dirsession", notify = false })
-	end,
-})
-autocmd("StdinReadPre", {
-	callback = function()
-		vim.g.using_stdin = true
+		require("resession").save("last", { dir = "dir" })
 	end,
 })
 
@@ -669,19 +519,13 @@ map("n", "<C-k>", "<C-w>k", { desc = "Move to above window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
 -- Terminal (toggleterm)
-map({ "n", "t" }, "<leader>tt", "<Cmd>ToggleTerm direction=horizontal<CR>", { desc = "Toggle horizontal terminal" })
-map({ "n", "t" }, "<leader>tf", "<Cmd>ToggleTerm direction=float<CR>", { desc = "Toggle floating terminal" })
+map("n", "<leader>tt", "<Cmd>ToggleTerm direction=horizontal<CR>", { desc = "Toggle horizontal terminal" })
+map("n", "<leader>tf", "<Cmd>ToggleTerm direction=float<CR>", { desc = "Toggle floating terminal" })
 
--- Sessions (resession) — Lua API; resession has no :Resession user commands
-map("n", "<leader>Ss", function()
-	require("resession").save()
-end, { desc = "Save session" })
-map("n", "<leader>Sl", function()
-	require("resession").load()
-end, { desc = "Load session" })
-map("n", "<leader>Sd", function()
-	require("resession").delete()
-end, { desc = "Delete session" })
+-- Sessions (resession)
+map("n", "<leader>Ss", "<Cmd>Resession save<CR>", { desc = "Save session" })
+map("n", "<leader>Sl", "<Cmd>Resession load<CR>", { desc = "Load session" })
+map("n", "<leader>Sd", "<Cmd>Resession delete<CR>", { desc = "Delete session" })
 
 -- Qfl
 map("n", "<leader>cn", "<cmd>cnext<cr>", { desc = "Next quickfix" })

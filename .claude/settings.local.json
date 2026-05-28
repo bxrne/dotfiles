@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/bxrne/.local/share/nvim/site/pack/core/opt/fff.nvim/**)",
+      "Read(//home/bxrne/.local/share/nvim/site/pack/core/opt/fff.nvim/target/**)",
+      "Bash(cargo --version)"
+    ]
+  }
+}

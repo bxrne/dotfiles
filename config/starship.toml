@@ -5,56 +5,55 @@ $username$hostname$directory$git_branch$git_status$git_state$python$cmd_duration
 add_newline = false
 
 [directory]
-  style = "bold #ee5396"              # Oxocarbon Magenta
+  style = "bold #b294bb"              # Ghostty Magenta
   truncation_length = 3
   truncate_to_repo = true
   format = "[$path]($style) "
 
 [character]
-  success_symbol = "[λ](bold #42be65)" # Oxocarbon Green
-  error_symbol = "[λ](bold #fa4d56)"   # Oxocarbon Red
-  vimcmd_symbol = "[λ](bold #82cfff)"  # Oxocarbon Blue
+  success_symbol = "[λ](bold #b6bd68)" # Ghostty Green
+  error_symbol = "[λ](bold #cc6566)"   # Ghostty Red
+  vimcmd_symbol = "[λ](bold #82a2be)"  # Ghostty Blue
 
 [git_branch]
-  symbol = " "                        
+  symbol = " "
   format = "[$symbol$branch]($style) "
-  style = "bold #33b1ff"               # Oxocarbon Cyan
+  style = "bold #8abeb7"               # Ghostty Cyan
 
 [git_status]
   format = "([$all_status$ahead_behind]($style)) "
-  style = "#42be65"
+  style = "#b6bd68"
   conflicted = "="
   untracked = "?"
   modified = "!"
   staged = "+"
   renamed = "»"
-  deleted = "x"                       # Replaced emoji-like ✘ with x
+  deleted = "x"
   stashed = "≡"
 
 [git_state]
   format = "[$state( $progress_current/$progress_total)]($style)"
-  style = "bold #be95ff"               # Oxocarbon Purple
+  style = "bold #f0c674"               # Ghostty Yellow
 
 [cmd_duration]
   min_time = 500
   format = " [$duration]($style) "
-  style = "#525252"                    # Oxocarbon Gray
+  style = "#666666"                    # Ghostty Bright Black / Gray
 
 [python]
-  symbol = " "                         
+  symbol = " "
   format = "[$symbol$virtualenv]($style)"
-  style = "#be95ff"
+  style = "#c397d8"                    # Ghostty Bright Magenta
 
 [username]
-  style_user = "bold #dde1e6"          # Oxocarbon White/Gray
-  style_root = "bold #fa4d56"
+  style_user = "bold #eaeaea"          # Ghostty Bright White
+  style_root = "bold #cc6566"
   format = "[$user]($style)@"
   disabled = false
   show_always = true
 
 [hostname]
   ssh_only = true
-  format = "[$hostname]($style) "      # Removed satellite emoji
-  style = "bold #ee5396"
+  format = "[$hostname]($style) "
+  style = "bold #b294bb"               # Ghostty Magenta
   disabled = false
-

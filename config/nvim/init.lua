@@ -80,7 +80,6 @@ vim.pack.add({
 		"https://github.com/nvim-lua/plenary.nvim",
 		"https://github.com/bajor/nvim-raccoon",
 		"https://github.com/stevearc/quicker.nvim",
-		"https://github.com/scottmckendry/cyberdream.nvim", -- high-contrast cyberpunk theme
 		"https://github.com/nvim-tree/nvim-web-devicons",
 		{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 		"https://github.com/nvim-treesitter/nvim-treesitter-context",
@@ -111,20 +110,215 @@ vim.pack.add({
 
 -- UI
 
--- cyberdream — high-contrast futuristic theme
-pcall(function()
-	vim.o.background = "dark"
-	require("cyberdream").setup({
-		variant = "default",
-		transparent = false,
-		italic_comments = true,
-		hide_fillchars = false,
-		borderless_pickers = true,
-		terminal_colors = true,
-		cache = true,
-	})
-	vim.cmd.colorscheme("cyberdream")
-end)
+-- Ghostty Default Style Dark — terminal theme ported to Neovim
+local ghostty = {
+	bg          = "#282c34",
+	bg_alt      = "#1d1f21",
+	bg_highlight  = "#353a44",
+	fg          = "#ffffff",
+	grey        = "#666666",
+	black       = "#1d1f21",
+	red         = "#cc6566",
+	green       = "#b6bd68",
+	yellow      = "#f0c674",
+	blue        = "#82a2be",
+	purple      = "#b294bb",
+	cyan        = "#8abeb7",
+	white       = "#c4c8c6",
+	bright_black = "#666666",
+	bright_red   = "#d54e53",
+	bright_green = "#b9ca4b",
+	bright_yellow= "#e7c547",
+	bright_blue  = "#7aa6da",
+	bright_purple= "#c397d8",
+	bright_cyan  = "#70c0b1",
+	bright_white = "#eaeaea",
+}
+
+-- Apply theme: set highlights to match Ghostty default style dark
+vim.cmd([[
+	hi clear
+	syntax reset
+	set background=dark
+	hi! default link None NONE
+]])
+vim.g.colors_name = "ghostty"
+
+local bg, fg = ghostty.bg, ghostty.fg
+local hl = vim.api.nvim_set_hl
+
+hl(0, "Normal", { fg = fg, bg = bg })
+hl(0, "NormalFloat", { fg = fg, bg = ghostty.bg_highlight })
+hl(0, "FloatBorder", { fg = ghostty.blue, bg = ghostty.bg_highlight })
+hl(0, "FloatTitle", { fg = bg, bg = ghostty.blue, bold = true })
+hl(0, "Comment", { fg = ghostty.grey, italic = true })
+hl(0, "Constant", { fg = ghostty.bright_red })
+hl(0, "String", { fg = ghostty.bright_green })
+hl(0, "Character", { fg = ghostty.bright_green })
+hl(0, "Number", { fg = ghostty.bright_purple })
+hl(0, "Boolean", { fg = ghostty.bright_purple })
+hl(0, "Float", { fg = ghostty.bright_purple })
+hl(0, "Identifier", { fg = fg })
+hl(0, "Function", { fg = ghostty.bright_blue })
+hl(0, "Definition", { fg = ghostty.bright_blue })
+hl(0, "Keyword", { fg = ghostty.bright_magenta, bold = true })
+hl(0, "KeywordReturn", { fg = ghostty.bright_purple })
+hl(0, "Statement", { fg = ghostty.bright_purple, bold = true })
+hl(0, "Conditional", { fg = ghostty.bright_purple, bold = true })
+hl(0, "Repeat", { fg = ghostty.bright_purple, bold = true })
+hl(0, "Label", { fg = ghostty.bright_red })
+hl(0, "Operator", { fg = ghostty.bright_purple })
+hl(0, "Sign", { link = "Normal" })
+hl(0, "PreProc", { fg = ghostty.bright_yellow })
+hl(0, "Include", { fg = ghostty.bright_purple })
+hl(0, "Type", { fg = ghostty.bright_cyan, bold = true })
+hl(0, "Structure", { fg = ghostty.bright_cyan })
+hl(0, "Special", { fg = ghostty.bright_yellow })
+hl(0, "SpecialText", { fg = ghostty.bright_yellow })
+hl(0, "Tag", { fg = ghostty.bright_yellow })
+hl(0, "Delimeter", { fg = ghostty.bright_magenta })
+hl(0, "CharDevAucd", { link = "Special" })
+hl(0, "Underlined", { underline = true })
+hl(0, "Todo", { fg = bg, bg = ghostty.bright_yellow })
+hl(0, "SpecialComment", { fg = ghostty.grey, italic = true })
+hl(0, "Error", { fg = bg, bg = ghostty.bright_red })
+hl(0, "ErrorMsg", { fg = ghostty.bright_red, bold = true })
+hl(0, "WarningMsg", { fg = ghostty.bright_yellow, bold = true })
+hl(0, "InfoMsg", { fg = ghostty.bright_blue, bold = true })
+hl(0, "Hint", { link = "Special" })
+hl(0, "HintWord", { link = "Special" })
+hl(0, "MoreMsg", { fg = ghostty.bright_cyan, bold = true })
+hl(0, "ModeMsg", { fg = fg, bold = true })
+hl(0, "LineNr", { fg = ghostty.bright_black, bold = true })
+hl(0, "LineNrAbove", { fg = ghostty.grey })
+hl(0, "LineNrBelow", { fg = ghostty.grey })
+hl(0, "SignColumn", { fg = ghostty.grey, bg = bg })
+hl(0, "GitSignsAdd", { fg = ghostty.green })
+hl(0, "GitSignsChange", { fg = ghostty.yellow })
+hl(0, "GitSignsDelete", { fg = ghostty.red })
+hl(0, "GitSignsChangeLnInline", { bg = ghostty.bg_highlight })
+hl(0, "GitSignsAddLnInline", { bg = ghostty.bg_highlight })
+hl(0, "GitSignsDeleteLnInline", { bg = ghostty.bg_highlight })
+hl(0, "GitSignsAddLn", { fg = ghostty.green, bg = ghostty.bg_highlight })
+hl(0, "GitSignsChangeLn", { fg = ghostty.yellow, bg = ghostty.bg_highlight })
+hl(0, "GitSignsDeleteLn", { fg = ghostty.red, bg = ghostty.bg_highlight })
+hl(0, "Search", { fg = bg, bg = ghostty.bright_yellow })
+hl(0, "IncSearch", { fg = bg, bg = ghostty.bright_yellow })
+hl(0, "CurSearch", { fg = bg, bg = ghostty.bright_yellow })
+hl(0, "Substitute", { fg = bg, bg = ghostty.bright_magenta })
+hl(0, "Visual", { fg = ghostty.bg, bg = ghostty.bright_blue })
+hl(0, "VisualNOS", { fg = ghostty.bg, bg = ghostty.bright_blue })
+hl(0, "VertSplit", { fg = ghostty.grey, bg = bg })
+hl(0, "WinSeparator", { fg = ghostty.grey })
+hl(0, "WinBar", { fg = ghostty.grey, bg = bg })
+hl(0, "WinBarNC", { fg = ghostty.grey, bg = bg })
+hl(0, "MsgArea", { fg = fg })
+hl(0, "MsgSeparator", { fg = fg, bg = bg })
+hl(0, "Pmenu", { fg = fg, bg = ghostty.bg_highlight })
+hl(0, "PmenuSel", { fg = bg, bg = ghostty.bright_blue, bold = true })
+hl(0, "PmenuSbar", { bg = ghostty.bg_highlight })
+hl(0, "PmenuThumb", { bg = ghostty.grey })
+hl(0, "WildMenu", { fg = bg, bg = ghostty.bright_yellow, bold = true })
+hl(0, "TabLine", { fg = fg, bg = ghostty.bg_highlight })
+hl(0, "TabLineSel", { fg = bg, bg = ghostty.bright_blue, bold = true })
+hl(0, "TabLineFill", { fg = fg, bg = ghostty.bg_alt })
+hl(0, "Folded", { fg = ghostty.grey, bg = ghostty.bg_highlight })
+hl(0, "FoldColumn", { fg = ghostty.grey, bg = bg })
+hl(0, "Cursor", { fg = bg, bg = ghostty.fg })
+hl(0, "CursorLine", { bg = ghostty.bg_highlight })
+hl(0, "CursorColumn", { bg = ghostty.bg_highlight })
+hl(0, "ColorColumn", { bg = ghostty.bg_highlight })
+hl(0, "Whitespace", { fg = ghostty.bg_alt })
+hl(0, "EndOfBuffer", { fg = bg })
+hl(0, "NonText", { fg = ghostty.bg_alt })
+hl(0, "SpecialKey", { fg = ghostty.bg_alt })
+hl(0, "SpellCap", { fg = ghostty.bright_red, undercurl = true, sp = ghostty.bright_red })
+hl(0, "SpellRare", { fg = ghostty.bright_red, undercurl = true, sp = ghostty.bright_red })
+hl(0, "SpellLocal", { fg = ghostty.bright_blue, undercurl = true, sp = ghostty.bright_blue })
+hl(0, "LspReferenceText", { fg = bg, bg = ghostty.bright_yellow })
+hl(0, "LspReferenceRead", { fg = bg, bg = ghostty.bright_yellow })
+hl(0, "LspReferenceWrite", { fg = bg, bg = ghostty.bright_yellow })
+hl(0, "LspReferenceWc", { fg = bg, bg = ghostty.bright_yellow })
+hl(0, "DiagnosticSignError", { fg = ghostty.bright_red })
+hl(0, "DiagnosticSignWarn", { fg = ghostty.bright_yellow })
+hl(0, "DiagnosticSignInfo", { fg = ghostty.bright_blue })
+hl(0, "DiagnosticSignHint", { fg = ghostty.bright_purple })
+hl(0, "DiagnosticVirtualTextError", { fg = ghostty.bright_red, bg = ghostty.bg_highlight })
+hl(0, "DiagnosticVirtualTextWarn", { fg = ghostty.bright_yellow, bg = ghostty.bg_highlight })
+hl(0, "DiagnosticVirtualTextInfo", { fg = ghostty.bright_blue, bg = ghostty.bg_highlight })
+hl(0, "DiagnosticVirtualTextHint", { fg = ghostty.bright_purple, bg = ghostty.bg_highlight })
+hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = ghostty.bright_red })
+hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = ghostty.bright_yellow })
+hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = ghostty.bright_blue })
+hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = ghostty.bright_purple })
+hl(0, "WhichKey", { fg = fg, bg = ghostty.bg_highlight })
+hl(0, "WhichKeySeparator", { fg = ghostty.grey, bg = ghostty.bg_highlight })
+hl(0, "WhichKeyNormal", { fg = fg, bg = ghostty.bg_highlight })
+hl(0, "WinSeparator", { fg = ghostty.grey, bg = bg })
+hl(0, "NormalAnchor", { fg = fg, bg = bg })
+hl(0, "NormalFloatBorderTitle", { fg = bg, bg = ghostty.bright_blue })
+hl(0, "NormalFloatBorder", { fg = ghostty.bright_blue, bg = ghostty.bg_highlight })
+hl(0, "NvimTreeNormal", { fg = fg, bg = bg })
+hl(0, "NvimTreeNormalCursor", { fg = bg, bg = ghostty.bright_blue })
+hl(0, "NvimTreeSignColumn", { fg = ghostty.grey, bg = bg })
+hl(0, "NvimTreeGitIgnoredFg", { fg = ghostty.grey })
+hl(0, "NvimTreeGitNew", { fg = ghostty.green })
+hl(0, "NvimTreeGitDeleted", { fg = ghostty.bright_red })
+hl(0, "NvimTreeGitDirty", { fg = ghostty.bright_yellow })
+hl(0, "NvimTreeModifiedIcon", { fg = ghostty.bright_yellow })
+hl(0, "NvimTreeOpenedIcon", { fg = ghostty.bright_blue })
+hl(0, "NvimTreeImageFile", { fg = ghostty.grey })
+hl(0, "NvimTreeIndentMarker", { fg = ghostty.bg_alt })
+hl(0, "NvimTreeEndOfBuffer", { fg = bg })
+hl(0, "BufferLineIndicatorSelected", { fg = ghostty.bright_blue })
+hl(0, "BufferLineIndicatorVisible", { fg = ghostty.grey })
+hl(0, "BufferLineIndicator", { fg = ghostty.grey })
+hl(0, "BufferLineDevIcon", { fg = ghostty.grey })
+hl(0, "BufferLineDevIconActive", { fg = ghostty.bright_blue })
+hl(0, "BufferLineDevIconInactive", { fg = ghostty.grey })
+hl(0, "BufferLineTabSelected", { fg = fg, bg = ghostty.bright_blue })
+hl(0, "BufferLineTab", { fg = ghostty.grey, bg = ghostty.bg_highlight })
+hl(0, "BufferLineTabClose", { fg = ghostty.bright_red })
+hl(0, "BufferLineCloseIcon", { fg = ghostty.bright_red })
+hl(0, "BufferLineCloseIconVisible", { fg = ghostty.bright_red })
+hl(0, "BufferLineCloseIconSelected", { fg = ghostty.bright_red })
+hl(0, "BufferLineDuplicate", { fg = ghostty.grey, bg = ghostty.bg_highlight })
+hl(0, "BufferLineDuplicateVisible", { fg = ghostty.grey, bg = ghostty.bg_highlight })
+hl(0, "BufferLineDuplicateSelected", { fg = fg, bg = ghostty.bright_blue })
+hl(0, "BufferLineLeftSide", { bg = ghostty.bg_alt })
+hl(0, "BufferLineRightSide", { bg = ghostty.bg_alt })
+hl(0, "BufferLineRightSeparator", { fg = ghostty.bg_alt, bg = ghostty.bg_alt })
+hl(0, "BufferLineLeftSeparator", { fg = ghostty.bg_alt, bg = ghostty.bg_alt })
+hl(0, "BufferLineRightSeparatorVisible", { fg = ghostty.bg_alt, bg = ghostty.bg_highlight })
+hl(0, "BufferLineLeftSeparatorVisible", { fg = ghostty.bg_alt, bg = ghostty.bg_highlight })
+hl(0, "BufferLineRightSeparatorSelected", { fg = ghostty.bg_alt, bg = ghostty.bright_blue })
+hl(0, "BufferLineLeftSeparatorSelected", { fg = ghostty.bg_alt, bg = ghostty.bright_blue })
+hl(0, "BufferLineRightSeparatorInactive", { fg = ghostty.bg_alt, bg = ghostty.bg_alt })
+hl(0, "BufferLineLeftSeparatorInactive", { fg = ghostty.bg_alt, bg = ghostty.bg_alt })
+hl(0, "BufferLineVisible", { fg = ghostty.grey, bg = ghostty.bg_highlight })
+hl(0, "BufferLineSelected", { fg = fg, bg = ghostty.bright_blue })
+hl(0, "BufferLineFill", { bg = bg })
+hl(0, "BufferLineBackground", { fg = ghostty.grey, bg = bg })
+hl(0, "BufferLineBackgroundVisible", { fg = ghostty.grey, bg = bg })
+hl(0, "BufferLineBackgroundSelected", { fg = fg, bg = ghostty.bright_blue })
+
+-- Set terminal colors for built-in terminal
+vim.g.terminal_color_0 = ghostty.black
+vim.g.terminal_color_1 = ghostty.red
+vim.g.terminal_color_2 = ghostty.green
+vim.g.terminal_color_3 = ghostty.yellow
+vim.g.terminal_color_4 = ghostty.blue
+vim.g.terminal_color_5 = ghostty.purple
+vim.g.terminal_color_6 = ghostty.cyan
+vim.g.terminal_color_7 = ghostty.white
+vim.g.terminal_color_8 = ghostty.bright_black
+vim.g.terminal_color_9 = ghostty.bright_red
+vim.g.terminal_color_10 = ghostty.bright_green
+vim.g.terminal_color_11 = ghostty.bright_yellow
+vim.g.terminal_color_12 = ghostty.bright_blue
+vim.g.terminal_color_13 = ghostty.bright_purple
+vim.g.terminal_color_14 = ghostty.bright_cyan
+vim.g.terminal_color_15 = ghostty.bright_white
 
 pcall(function()
 	require("quicker").setup({
@@ -148,9 +342,9 @@ pcall(function()
 	})
 end)
 
--- Hardline statusline — palette from cyberdream
+-- Hardline statusline — palette from ghostty
 pcall(function()
-	local c = require("cyberdream.colors").default
+	local c = ghostty
 	local function color(gui)
 		return { gui = gui, cterm = "NONE", cterm16 = "NONE" }
 	end
@@ -162,7 +356,7 @@ pcall(function()
 			text = color(c.bg), -- dark fg on bright mode segments
 			normal = color(c.green),
 			insert = color(c.blue),
-			replace = color(c.orange),
+			replace = color(c.yellow),
 			visual = color(c.purple),
 			command = color(c.pink),
 			inactive_comment = color(c.grey),

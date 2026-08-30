@@ -1,29 +1,24 @@
-
 # dotfiles
 
-Arch linux config
-
+macOS config, packages managed with nix.
 
 ## Cfgs
 ```bash
-# .configs 
+# .configs
 stow -t ~/.config config
 
 # ~/'s
 stow -t ~/ home
-
-
-# etc/'s
-sudo stow -t /etc etc
 ```
 
 ## Pkgs
 
+Packages live in the active nix profile (`$HOME/.nix-profile`). The
+registry maps the `nixpkgs` flake to `nixpkgs-26.05-darwin`.
+
 ```bash
-
-sudo pacman -S --needed - < pacman.txt # install pacman pkgs
-sudo pacman -Qqe > pacman.txt # dump pacman pkgs
-
-yay -S --needed - < aur.txt # install aur pkgs
-yay -Qqm > aur.txt # dump aur pkgs
+nix profile add 'nixpkgs#<pkg>' # install a package
+nix profile list                # list installed packages
+nix profile remove <name>       # remove a package by name
+nix-collect-garbage -d          # clean the nix store
 ```

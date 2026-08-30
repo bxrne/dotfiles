@@ -175,6 +175,10 @@
       "rev": "9a88eae817ef395952e08650b3283726786fb5fb",
       "src": "https://github.com/akinsho/toggleterm.nvim"
     },
+    "tokyonight.nvim": {
+      "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
+      "src": "https://github.com/folke/tokyonight.nvim"
+    },
     "vantablack.nvim": {
       "rev": "8a05ea96343914f1001e937b4fa7d9d44b51d221",
       "src": "https://github.com/bjarneo/vantablack.nvim"

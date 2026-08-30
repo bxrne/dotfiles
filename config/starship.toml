@@ -1,53 +1,77 @@
 
 format = """
-$username$hostname$directory$git_branch$git_status$git_state$python$cmd_duration$character
+$directory$git_branch$git_status$git_state$python$cmd_duration$character
 """
 add_newline = false
+palette = "ghostty"
+
+[palettes.ghostty]
+bg          = "#282c34"
+fg          = "#ffffff"
+black       = "#1d1f21"
+red         = "#cc6566"
+green       = "#b6bd68"
+yellow      = "#f0c674"
+blue        = "#82a2be"
+magenta     = "#b294bb"
+cyan        = "#8abeb7"
+white       = "#c4c8c6"
+bblack      = "#666666"
+bred        = "#d54e53"
+bgreen      = "#b9ca4b"
+byellow     = "#e7c547"
+bblue       = "#7aa6da"
+bmagenta    = "#c397d8"
+bcyan       = "#70c0b1"
+bwhite      = "#eaeaea"
 
 [directory]
-  style = "bold #b294bb"              # Ghostty Magenta
+  style = "green"
   truncation_length = 3
   truncate_to_repo = true
   format = "[$path]($style) "
 
 [character]
-  success_symbol = "[λ](bold #b6bd68)" # Ghostty Green
-  error_symbol = "[λ](bold #cc6566)"   # Ghostty Red
-  vimcmd_symbol = "[λ](bold #82a2be)"  # Ghostty Blue
+  success_symbol = "[>](bold green)"
+  error_symbol = "[>](bold red)"
+  vimcmd_symbol = "[>](bold blue)"
 
 [git_branch]
-  symbol = " "
+  symbol = ""
   format = "[$symbol$branch]($style) "
-  style = "bold #8abeb7"               # Ghostty Cyan
+  style = "cyan"
 
 [git_status]
-  format = "([$all_status$ahead_behind]($style)) "
-  style = "#b6bd68"
-  conflicted = "="
+  format = "[$all_status$ahead_behind]($style) "
+  style = "bblack"
+  conflicted = "!"
   untracked = "?"
   modified = "!"
   staged = "+"
-  renamed = "»"
-  deleted = "x"
-  stashed = "≡"
+  renamed = "*"
+  deleted = "-"
+  stashed = ""
+  ahead = ">"
+  behind = "<"
+  diverged = "<>"
 
 [git_state]
-  format = "[$state( $progress_current/$progress_total)]($style)"
-  style = "bold #f0c674"               # Ghostty Yellow
+  format = "\\([$state]($style)\\) "
+  style = "magenta"
 
 [cmd_duration]
   min_time = 500
   format = " [$duration]($style) "
-  style = "#666666"                    # Ghostty Bright Black / Gray
+  style = "bblack"
 
 [python]
-  symbol = " "
-  format = "[$symbol$virtualenv]($style)"
-  style = "#c397d8"                    # Ghostty Bright Magenta
+  symbol = ""
+  format = " [$symbol$virtualenv]($style) "
+  style = "bmagenta"
 
 [username]
-  style_user = "bold #eaeaea"          # Ghostty Bright White
-  style_root = "bold #cc6566"
+  style_user = "bwhite"
+  style_root = "red"
   format = "[$user]($style)@"
   disabled = false
   show_always = true
@@ -55,5 +79,5 @@ add_newline = false
 [hostname]
   ssh_only = true
   format = "[$hostname]($style) "
-  style = "bold #b294bb"               # Ghostty Magenta
+  style = "magenta"
   disabled = false

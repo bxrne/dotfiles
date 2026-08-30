@@ -1,0 +1,13 @@
+# Base window padding
+window-padding-x = 0
+window-padding-y = 0
+
+# Snap window sizes to whole-cell increments (macOS only) so the viewport is
+# always an exact multiple of the cell height. This removes the leftover strip
+# below the nvim statusline instead of painting over it.
+window-step-resize = true
+
+# For forced window sizes (fullscreen, tiling) that cannot be an exact cell
+# multiple, split whatever remainder is left across top and bottom rather than
+# collecting it all below the statusline.
+window-padding-balance = true

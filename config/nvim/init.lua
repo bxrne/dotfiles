@@ -1,3 +1,5 @@
+--- @diagnostic disable:undefined-global
+
 local opt = vim.opt
 local g = vim.g
 local map = vim.keymap.set
@@ -5,31 +7,6 @@ local autocmd = vim.api.nvim_create_autocmd
 
 g.mapleader = " "
 g.maplocalleader = " "
-g.copilot_enabled = false
-
--- Skip unused built-in plugins / remote providers (faster startup, quieter :checkhealth)
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
-g.loaded_gzip = 1
-g.loaded_tar = 1
-g.loaded_tarPlugin = 1
-g.loaded_zip = 1
-g.loaded_zipPlugin = 1
-g.loaded_2html_plugin = 1
-g.loaded_tutor_mode_plugin = 1
-g.loaded_remote_plugins = 1
-g.loaded_python3_provider = 0
-g.loaded_perl_provider = 0
-g.loaded_ruby_provider = 0
-g.loaded_node_provider = 0
-
--- Mason bins (lua-language-server, stylua, …) are not on $PATH by default
-do
-	local mason_bin = vim.fs.joinpath(vim.fn.stdpath("data"), "mason", "bin")
-	if vim.uv.fs_stat(mason_bin) then
-		vim.env.PATH = mason_bin .. ":" .. vim.env.PATH
-	end
-end
 
 opt.cmdheight = 0
 opt.laststatus = 3
@@ -40,7 +17,6 @@ opt.mouse = "a"
 opt.clipboard = "unnamedplus"
 opt.ignorecase = true
 opt.smartcase = true
-opt.signcolumn = "yes"
 opt.updatetime = 250
 opt.timeoutlen = 300
 opt.termguicolors = true
@@ -48,22 +24,8 @@ opt.splitright = true
 opt.splitbelow = true
 opt.winborder = "rounded"
 opt.pumborder = "rounded"
-opt.undofile = true
 opt.swapfile = false
-opt.confirm = true
-opt.shortmess:append("WcC") -- quieter writes / completion
 
--- Less noisy LSP log (was multi-MB of noise)
-vim.lsp.log.set_level(vim.log.levels.WARN)
-
-
-vim.g.vimwiki_list = {{
-	path = "~/notes/",
-	syntax = "markdown",
-	ext = ".md",
-}}
-vim.g.vimwiki_global_ext = 0        -- only activate in ~/notes/, not all .md files
-vim.g.vimwiki_markdown_link_ext = 1 -- append .md to [[wiki links]]
 
 -- Plugins
 if not vim.pack or type(vim.pack.add) ~= "function" then
@@ -77,248 +39,43 @@ if not vim.pack or type(vim.pack.add) ~= "function" then
 end
 
 vim.pack.add({
-		"https://github.com/nvim-lua/plenary.nvim",
-		"https://github.com/bajor/nvim-raccoon",
-		"https://github.com/stevearc/quicker.nvim",
-		"https://github.com/nvim-tree/nvim-web-devicons",
-		{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
-		"https://github.com/nvim-treesitter/nvim-treesitter-context",
-		"https://github.com/neovim/nvim-lspconfig",
-		"https://github.com/hrsh7th/nvim-cmp",
-		"https://github.com/hrsh7th/cmp-nvim-lsp",
-		"https://github.com/dmtrKovalenko/fff.nvim",
-		"https://github.com/sphamba/smear-cursor.nvim",
-		"https://github.com/stevearc/oil.nvim",
-		"https://github.com/MunifTanjim/nui.nvim",
-		{ src = "https://github.com/nvim-neo-tree/neo-tree.nvim", version = "v3.x" },
-		"https://github.com/elixir-editors/vim-elixir",
-		"https://github.com/akinsho/bufferline.nvim",
-		"https://github.com/github/copilot.vim",
-		"https://github.com/lewis6991/gitsigns.nvim",
-		"https://github.com/tpope/vim-fugitive",
-		"https://github.com/hedyhli/outline.nvim",
-		"https://github.com/vimwiki/vimwiki",
-		"https://github.com/MeanderingProgrammer/render-markdown.nvim",
-		"https://github.com/folke/todo-comments.nvim",
-		"https://github.com/windwp/nvim-ts-autotag",
-		"https://github.com/bxrne/clank.nvim",
-		"https://github.com/akinsho/toggleterm.nvim",
-		"https://github.com/stevearc/resession.nvim",
-		"https://github.com/ojroques/nvim-hardline",
-		"https://github.com/SmiteshP/nvim-navic",
+	"https://github.com/nvim-lua/plenary.nvim",
+	"https://github.com/bajor/nvim-raccoon",
+	"https://github.com/stevearc/quicker.nvim",
+	"https://github.com/nvim-tree/nvim-web-devicons",
+	"https://github.com/folke/tokyonight.nvim",
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+	"https://github.com/nvim-treesitter/nvim-treesitter-context",
+	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/hrsh7th/nvim-cmp",
+	"https://github.com/hrsh7th/cmp-nvim-lsp",
+	"https://github.com/dmtrKovalenko/fff.nvim",
+	"https://github.com/sphamba/smear-cursor.nvim",
+	"https://github.com/stevearc/oil.nvim",
+	"https://github.com/MunifTanjim/nui.nvim",
+	{ src = "https://github.com/nvim-neo-tree/neo-tree.nvim",     version = "v3.x" },
+	"https://github.com/akinsho/bufferline.nvim",
+	"https://github.com/lewis6991/gitsigns.nvim",
+	"https://github.com/tpope/vim-fugitive",
+	"https://github.com/hedyhli/outline.nvim",
+	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
+	"https://github.com/folke/todo-comments.nvim",
+	"https://github.com/windwp/nvim-ts-autotag",
+	"https://github.com/bxrne/clank.nvim",
+	"https://github.com/akinsho/toggleterm.nvim",
+	{ src = "https://github.com/nvim-neo-tree/neo-tree.nvim", version = "v3.x" },
+	"https://github.com/ojroques/nvim-hardline",
+	"https://github.com/SmiteshP/nvim-navic",
+})
+
+-- Colorscheme: tokyonight (moon)
+pcall(function()
+	require("tokyonight").setup({
+		style = "moon",
+		terminal_colors = true,
 	})
-
--- UI
-
--- Ghostty Default Style Dark — terminal theme ported to Neovim
-local ghostty = {
-	bg          = "#282c34",
-	bg_alt      = "#1d1f21",
-	bg_highlight  = "#353a44",
-	fg          = "#ffffff",
-	grey        = "#666666",
-	black       = "#1d1f21",
-	red         = "#cc6566",
-	green       = "#b6bd68",
-	yellow      = "#f0c674",
-	blue        = "#82a2be",
-	purple      = "#b294bb",
-	cyan        = "#8abeb7",
-	white       = "#c4c8c6",
-	bright_black = "#666666",
-	bright_red   = "#d54e53",
-	bright_green = "#b9ca4b",
-	bright_yellow= "#e7c547",
-	bright_blue  = "#7aa6da",
-	bright_purple= "#c397d8",
-	bright_cyan  = "#70c0b1",
-	bright_white = "#eaeaea",
-}
-
--- Apply theme: set highlights to match Ghostty default style dark
-vim.cmd([[
-	hi clear
-	syntax reset
-	set background=dark
-	hi! default link None NONE
-]])
-vim.g.colors_name = "ghostty"
-
-local bg, fg = ghostty.bg, ghostty.fg
-local hl = vim.api.nvim_set_hl
-
-hl(0, "Normal", { fg = fg, bg = bg })
-hl(0, "NormalFloat", { fg = fg, bg = ghostty.bg_highlight })
-hl(0, "FloatBorder", { fg = ghostty.blue, bg = ghostty.bg_highlight })
-hl(0, "FloatTitle", { fg = bg, bg = ghostty.blue, bold = true })
-hl(0, "Comment", { fg = ghostty.grey, italic = true })
-hl(0, "Constant", { fg = ghostty.bright_red })
-hl(0, "String", { fg = ghostty.bright_green })
-hl(0, "Character", { fg = ghostty.bright_green })
-hl(0, "Number", { fg = ghostty.bright_purple })
-hl(0, "Boolean", { fg = ghostty.bright_purple })
-hl(0, "Float", { fg = ghostty.bright_purple })
-hl(0, "Identifier", { fg = fg })
-hl(0, "Function", { fg = ghostty.bright_blue })
-hl(0, "Definition", { fg = ghostty.bright_blue })
-hl(0, "Keyword", { fg = ghostty.bright_magenta, bold = true })
-hl(0, "KeywordReturn", { fg = ghostty.bright_purple })
-hl(0, "Statement", { fg = ghostty.bright_purple, bold = true })
-hl(0, "Conditional", { fg = ghostty.bright_purple, bold = true })
-hl(0, "Repeat", { fg = ghostty.bright_purple, bold = true })
-hl(0, "Label", { fg = ghostty.bright_red })
-hl(0, "Operator", { fg = ghostty.bright_purple })
-hl(0, "Sign", { link = "Normal" })
-hl(0, "PreProc", { fg = ghostty.bright_yellow })
-hl(0, "Include", { fg = ghostty.bright_purple })
-hl(0, "Type", { fg = ghostty.bright_cyan, bold = true })
-hl(0, "Structure", { fg = ghostty.bright_cyan })
-hl(0, "Special", { fg = ghostty.bright_yellow })
-hl(0, "SpecialText", { fg = ghostty.bright_yellow })
-hl(0, "Tag", { fg = ghostty.bright_yellow })
-hl(0, "Delimeter", { fg = ghostty.bright_magenta })
-hl(0, "CharDevAucd", { link = "Special" })
-hl(0, "Underlined", { underline = true })
-hl(0, "Todo", { fg = bg, bg = ghostty.bright_yellow })
-hl(0, "SpecialComment", { fg = ghostty.grey, italic = true })
-hl(0, "Error", { fg = bg, bg = ghostty.bright_red })
-hl(0, "ErrorMsg", { fg = ghostty.bright_red, bold = true })
-hl(0, "WarningMsg", { fg = ghostty.bright_yellow, bold = true })
-hl(0, "InfoMsg", { fg = ghostty.bright_blue, bold = true })
-hl(0, "Hint", { link = "Special" })
-hl(0, "HintWord", { link = "Special" })
-hl(0, "MoreMsg", { fg = ghostty.bright_cyan, bold = true })
-hl(0, "ModeMsg", { fg = fg, bold = true })
-hl(0, "LineNr", { fg = ghostty.bright_black, bold = true })
-hl(0, "LineNrAbove", { fg = ghostty.grey })
-hl(0, "LineNrBelow", { fg = ghostty.grey })
-hl(0, "SignColumn", { fg = ghostty.grey, bg = bg })
-hl(0, "GitSignsAdd", { fg = ghostty.green })
-hl(0, "GitSignsChange", { fg = ghostty.yellow })
-hl(0, "GitSignsDelete", { fg = ghostty.red })
-hl(0, "GitSignsChangeLnInline", { bg = ghostty.bg_highlight })
-hl(0, "GitSignsAddLnInline", { bg = ghostty.bg_highlight })
-hl(0, "GitSignsDeleteLnInline", { bg = ghostty.bg_highlight })
-hl(0, "GitSignsAddLn", { fg = ghostty.green, bg = ghostty.bg_highlight })
-hl(0, "GitSignsChangeLn", { fg = ghostty.yellow, bg = ghostty.bg_highlight })
-hl(0, "GitSignsDeleteLn", { fg = ghostty.red, bg = ghostty.bg_highlight })
-hl(0, "Search", { fg = bg, bg = ghostty.bright_yellow })
-hl(0, "IncSearch", { fg = bg, bg = ghostty.bright_yellow })
-hl(0, "CurSearch", { fg = bg, bg = ghostty.bright_yellow })
-hl(0, "Substitute", { fg = bg, bg = ghostty.bright_magenta })
-hl(0, "Visual", { fg = ghostty.bg, bg = ghostty.bright_blue })
-hl(0, "VisualNOS", { fg = ghostty.bg, bg = ghostty.bright_blue })
-hl(0, "VertSplit", { fg = ghostty.grey, bg = bg })
-hl(0, "WinSeparator", { fg = ghostty.grey })
-hl(0, "WinBar", { fg = ghostty.grey, bg = bg })
-hl(0, "WinBarNC", { fg = ghostty.grey, bg = bg })
-hl(0, "MsgArea", { fg = fg })
-hl(0, "MsgSeparator", { fg = fg, bg = bg })
-hl(0, "Pmenu", { fg = fg, bg = ghostty.bg_highlight })
-hl(0, "PmenuSel", { fg = bg, bg = ghostty.bright_blue, bold = true })
-hl(0, "PmenuSbar", { bg = ghostty.bg_highlight })
-hl(0, "PmenuThumb", { bg = ghostty.grey })
-hl(0, "WildMenu", { fg = bg, bg = ghostty.bright_yellow, bold = true })
-hl(0, "TabLine", { fg = fg, bg = ghostty.bg_highlight })
-hl(0, "TabLineSel", { fg = bg, bg = ghostty.bright_blue, bold = true })
-hl(0, "TabLineFill", { fg = fg, bg = ghostty.bg_alt })
-hl(0, "Folded", { fg = ghostty.grey, bg = ghostty.bg_highlight })
-hl(0, "FoldColumn", { fg = ghostty.grey, bg = bg })
-hl(0, "Cursor", { fg = bg, bg = ghostty.fg })
-hl(0, "CursorLine", { bg = ghostty.bg_highlight })
-hl(0, "CursorColumn", { bg = ghostty.bg_highlight })
-hl(0, "ColorColumn", { bg = ghostty.bg_highlight })
-hl(0, "Whitespace", { fg = ghostty.bg_alt })
-hl(0, "EndOfBuffer", { fg = bg })
-hl(0, "NonText", { fg = ghostty.bg_alt })
-hl(0, "SpecialKey", { fg = ghostty.bg_alt })
-hl(0, "SpellCap", { fg = ghostty.bright_red, undercurl = true, sp = ghostty.bright_red })
-hl(0, "SpellRare", { fg = ghostty.bright_red, undercurl = true, sp = ghostty.bright_red })
-hl(0, "SpellLocal", { fg = ghostty.bright_blue, undercurl = true, sp = ghostty.bright_blue })
-hl(0, "LspReferenceText", { fg = bg, bg = ghostty.bright_yellow })
-hl(0, "LspReferenceRead", { fg = bg, bg = ghostty.bright_yellow })
-hl(0, "LspReferenceWrite", { fg = bg, bg = ghostty.bright_yellow })
-hl(0, "LspReferenceWc", { fg = bg, bg = ghostty.bright_yellow })
-hl(0, "DiagnosticSignError", { fg = ghostty.bright_red })
-hl(0, "DiagnosticSignWarn", { fg = ghostty.bright_yellow })
-hl(0, "DiagnosticSignInfo", { fg = ghostty.bright_blue })
-hl(0, "DiagnosticSignHint", { fg = ghostty.bright_purple })
-hl(0, "DiagnosticVirtualTextError", { fg = ghostty.bright_red, bg = ghostty.bg_highlight })
-hl(0, "DiagnosticVirtualTextWarn", { fg = ghostty.bright_yellow, bg = ghostty.bg_highlight })
-hl(0, "DiagnosticVirtualTextInfo", { fg = ghostty.bright_blue, bg = ghostty.bg_highlight })
-hl(0, "DiagnosticVirtualTextHint", { fg = ghostty.bright_purple, bg = ghostty.bg_highlight })
-hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = ghostty.bright_red })
-hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = ghostty.bright_yellow })
-hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = ghostty.bright_blue })
-hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = ghostty.bright_purple })
-hl(0, "WhichKey", { fg = fg, bg = ghostty.bg_highlight })
-hl(0, "WhichKeySeparator", { fg = ghostty.grey, bg = ghostty.bg_highlight })
-hl(0, "WhichKeyNormal", { fg = fg, bg = ghostty.bg_highlight })
-hl(0, "WinSeparator", { fg = ghostty.grey, bg = bg })
-hl(0, "NormalAnchor", { fg = fg, bg = bg })
-hl(0, "NormalFloatBorderTitle", { fg = bg, bg = ghostty.bright_blue })
-hl(0, "NormalFloatBorder", { fg = ghostty.bright_blue, bg = ghostty.bg_highlight })
-hl(0, "NvimTreeNormal", { fg = fg, bg = bg })
-hl(0, "NvimTreeNormalCursor", { fg = bg, bg = ghostty.bright_blue })
-hl(0, "NvimTreeSignColumn", { fg = ghostty.grey, bg = bg })
-hl(0, "NvimTreeGitIgnoredFg", { fg = ghostty.grey })
-hl(0, "NvimTreeGitNew", { fg = ghostty.green })
-hl(0, "NvimTreeGitDeleted", { fg = ghostty.bright_red })
-hl(0, "NvimTreeGitDirty", { fg = ghostty.bright_yellow })
-hl(0, "NvimTreeModifiedIcon", { fg = ghostty.bright_yellow })
-hl(0, "NvimTreeOpenedIcon", { fg = ghostty.bright_blue })
-hl(0, "NvimTreeImageFile", { fg = ghostty.grey })
-hl(0, "NvimTreeIndentMarker", { fg = ghostty.bg_alt })
-hl(0, "NvimTreeEndOfBuffer", { fg = bg })
-hl(0, "BufferLineIndicatorSelected", { fg = ghostty.bright_blue })
-hl(0, "BufferLineIndicatorVisible", { fg = ghostty.grey })
-hl(0, "BufferLineIndicator", { fg = ghostty.grey })
-hl(0, "BufferLineDevIcon", { fg = ghostty.grey })
-hl(0, "BufferLineDevIconActive", { fg = ghostty.bright_blue })
-hl(0, "BufferLineDevIconInactive", { fg = ghostty.grey })
-hl(0, "BufferLineTabSelected", { fg = fg, bg = ghostty.bright_blue })
-hl(0, "BufferLineTab", { fg = ghostty.grey, bg = ghostty.bg_highlight })
-hl(0, "BufferLineTabClose", { fg = ghostty.bright_red })
-hl(0, "BufferLineCloseIcon", { fg = ghostty.bright_red })
-hl(0, "BufferLineCloseIconVisible", { fg = ghostty.bright_red })
-hl(0, "BufferLineCloseIconSelected", { fg = ghostty.bright_red })
-hl(0, "BufferLineDuplicate", { fg = ghostty.grey, bg = ghostty.bg_highlight })
-hl(0, "BufferLineDuplicateVisible", { fg = ghostty.grey, bg = ghostty.bg_highlight })
-hl(0, "BufferLineDuplicateSelected", { fg = fg, bg = ghostty.bright_blue })
-hl(0, "BufferLineLeftSide", { bg = ghostty.bg_alt })
-hl(0, "BufferLineRightSide", { bg = ghostty.bg_alt })
-hl(0, "BufferLineRightSeparator", { fg = ghostty.bg_alt, bg = ghostty.bg_alt })
-hl(0, "BufferLineLeftSeparator", { fg = ghostty.bg_alt, bg = ghostty.bg_alt })
-hl(0, "BufferLineRightSeparatorVisible", { fg = ghostty.bg_alt, bg = ghostty.bg_highlight })
-hl(0, "BufferLineLeftSeparatorVisible", { fg = ghostty.bg_alt, bg = ghostty.bg_highlight })
-hl(0, "BufferLineRightSeparatorSelected", { fg = ghostty.bg_alt, bg = ghostty.bright_blue })
-hl(0, "BufferLineLeftSeparatorSelected", { fg = ghostty.bg_alt, bg = ghostty.bright_blue })
-hl(0, "BufferLineRightSeparatorInactive", { fg = ghostty.bg_alt, bg = ghostty.bg_alt })
-hl(0, "BufferLineLeftSeparatorInactive", { fg = ghostty.bg_alt, bg = ghostty.bg_alt })
-hl(0, "BufferLineVisible", { fg = ghostty.grey, bg = ghostty.bg_highlight })
-hl(0, "BufferLineSelected", { fg = fg, bg = ghostty.bright_blue })
-hl(0, "BufferLineFill", { bg = bg })
-hl(0, "BufferLineBackground", { fg = ghostty.grey, bg = bg })
-hl(0, "BufferLineBackgroundVisible", { fg = ghostty.grey, bg = bg })
-hl(0, "BufferLineBackgroundSelected", { fg = fg, bg = ghostty.bright_blue })
-
--- Set terminal colors for built-in terminal
-vim.g.terminal_color_0 = ghostty.black
-vim.g.terminal_color_1 = ghostty.red
-vim.g.terminal_color_2 = ghostty.green
-vim.g.terminal_color_3 = ghostty.yellow
-vim.g.terminal_color_4 = ghostty.blue
-vim.g.terminal_color_5 = ghostty.purple
-vim.g.terminal_color_6 = ghostty.cyan
-vim.g.terminal_color_7 = ghostty.white
-vim.g.terminal_color_8 = ghostty.bright_black
-vim.g.terminal_color_9 = ghostty.bright_red
-vim.g.terminal_color_10 = ghostty.bright_green
-vim.g.terminal_color_11 = ghostty.bright_yellow
-vim.g.terminal_color_12 = ghostty.bright_blue
-vim.g.terminal_color_13 = ghostty.bright_purple
-vim.g.terminal_color_14 = ghostty.bright_cyan
-vim.g.terminal_color_15 = ghostty.bright_white
+	vim.cmd.colorscheme("tokyonight-moon")
+end)
 
 pcall(function()
 	require("quicker").setup({
@@ -342,9 +99,9 @@ pcall(function()
 	})
 end)
 
--- Hardline statusline — palette from ghostty
+-- Hardline statusline: palette from tokyonight
 pcall(function()
-	local c = ghostty
+	local colors = require("tokyonight.colors").setup()
 	local function color(gui)
 		return { gui = gui, cterm = "NONE", cterm16 = "NONE" }
 	end
@@ -353,22 +110,22 @@ pcall(function()
 		bufferline = false, -- using bufferline.nvim instead
 		theme = "custom",
 		custom_theme = {
-			text = color(c.bg), -- dark fg on bright mode segments
-			normal = color(c.green),
-			insert = color(c.blue),
-			replace = color(c.yellow),
-			visual = color(c.purple),
-			command = color(c.pink),
-			inactive_comment = color(c.grey),
-			inactive_cursor = color(c.bg_alt),
-			inactive_menu = color(c.bg_highlight),
-			alt_text = color(c.fg),
-			warning = color(c.yellow),
+			text = color(colors.bg), -- dark fg on bright mode segments
+			normal = color(colors.green),
+			insert = color(colors.blue),
+			replace = color(colors.yellow),
+			visual = color(colors.magenta),
+			command = color(colors.orange),
+			inactive_comment = color(colors.comment),
+			inactive_cursor = color(colors.bg_dark),
+			inactive_menu = color(colors.bg_highlight),
+			alt_text = color(colors.fg),
+			warning = color(colors.yellow),
 		},
 		sections = {
 			{ class = "mode", item = require("hardline.parts.mode").get_item },
-			{ class = "high", item = require("hardline.parts.git").get_item, hide = 100 },
-			{ class = "med", item = require("hardline.parts.filename").get_item },
+			{ class = "high", item = require("hardline.parts.git").get_item,     hide = 100 },
+			{ class = "med",  item = require("hardline.parts.filename").get_item },
 			{
 				class = "med",
 				item = function()
@@ -381,7 +138,7 @@ pcall(function()
 				hide = 80,
 			},
 			"%<",
-			{ class = "med", item = "%=" },
+			{ class = "med",     item = "%=" },
 			{
 				class = "low",
 				item = function()
@@ -397,11 +154,11 @@ pcall(function()
 				end,
 				hide = 100,
 			},
-			{ class = "error", item = require("hardline.parts.lsp").get_error },
+			{ class = "error",   item = require("hardline.parts.lsp").get_error },
 			{ class = "warning", item = require("hardline.parts.lsp").get_warning },
 			{ class = "warning", item = require("hardline.parts.whitespace").get_item },
-			{ class = "high", item = require("hardline.parts.filetype").get_item, hide = 60 },
-			{ class = "mode", item = require("hardline.parts.line").get_item },
+			{ class = "high",    item = require("hardline.parts.filetype").get_item,  hide = 60 },
+			{ class = "mode",    item = require("hardline.parts.line").get_item },
 		},
 	})
 end)
@@ -493,6 +250,27 @@ pcall(function()
 		end
 	end
 
+	-- rust-analyzer: ensure proc-macro expansion works on the rustup toolchain.
+	-- `procMacro.enable` is on by default but the proc-macro server needs to
+	-- resolve the toolchain via `rustc`, so keep the full toolchain installed
+	-- through rustup (rustc + rust-analyzer + clippy).
+	if has_exe(servers.rust_analyzer) then
+		vim.lsp.config("rust_analyzer", {
+			capabilities = caps,
+			settings = {
+				["rust-analyzer"] = {
+					procMacro = { enable = true },
+					cargo = { allFeatures = true },
+					-- `check` replaced the old `checkOnSave` map (rust-analyzer#13799).
+					-- `checkOnSave` is now a plain boolean gate, and `check.command`
+					-- selects the cargo subcommand for fly-check diagnostics.
+					checkOnSave = true,
+					check = { command = "clippy" },
+				},
+			},
+		})
+	end
+
 	-- clangd (C/C++): prefer project-local compile_commands.json (e.g. from
 	-- `bazel run @hedron_compile_commands//:refresh_all` or a symlinked build/
 	-- dir). Fall back to a compile_flags.txt so clangd still understands Bazel
@@ -536,14 +314,45 @@ pcall(function()
 end)
 
 
--- Autosave: avoid TextChanged (disk write on every normal-mode edit → lag on big files)
-local function silent_save()
-	if vim.bo.modified and vim.bo.buftype == "" and vim.fn.expand("%") ~= "" then
-		vim.cmd("silent! write")
+-- Autosave without `:w`
+--
+-- A debounced write fires shortly after the last edit, in insert mode and
+-- normal mode, so you never need to write manually. Writes are debounced,
+-- not per keystroke, so large files do not lag. Event-based saves
+-- (FocusLost, InsertLeave, BufLeave) keep the file fresh on navigation,
+-- and VimLeavePre flushes any change made in the final debounce window.
+local AUTOSAVE_DELAY_MS = 1000
+local autosave_timer
+
+local function silent_save(buf)
+	buf = buf or vim.api.nvim_get_current_buf()
+	if
+	    vim.bo[buf].buftype == ""
+	    and vim.bo[buf].modified
+	    and vim.api.nvim_buf_get_name(buf) ~= ""
+	then
+		vim.api.nvim_buf_call(buf, function()
+			vim.cmd("silent! write")
+		end)
 	end
 end
 
-autocmd({ "FocusLost", "InsertLeave", "BufLeave" }, { callback = silent_save })
+local function debounced_save()
+	if autosave_timer then
+		autosave_timer:close()
+		autosave_timer = nil
+	end
+	local buf = vim.api.nvim_get_current_buf()
+	autosave_timer = vim.uv.new_timer()
+	autosave_timer:start(AUTOSAVE_DELAY_MS, 0, vim.schedule_wrap(function()
+		autosave_timer = nil
+		silent_save(buf)
+	end))
+end
+
+autocmd({ "TextChanged", "TextChangedI" }, { callback = function() debounced_save() end })
+autocmd({ "FocusLost", "InsertLeave", "BufLeave" }, { callback = function(ev) silent_save(ev.buf) end })
+autocmd("VimLeavePre", { callback = function() vim.cmd("silent! wall") end })
 
 autocmd("BufWritePre", {
 	callback = function(ev)
@@ -559,14 +368,14 @@ autocmd("BufWritePre", {
 	end,
 })
 
--- Diagnostics Config
+-- Diagnostics Config: virtual text only
 vim.diagnostic.config({
 	virtual_text = { spacing = 2, prefix = "", source = "if_many" },
-	signs = true,
-	underline = true,
-	update_in_insert = false, 
+	signs = false,
+	underline = false,
+	update_in_insert = false,
 	severity_sort = true,
-	float = { border = "rounded", source = "if_many" },
+	float = false,
 })
 
 -- Completion (CMP)
@@ -613,12 +422,12 @@ autocmd("PackChanged", {
 autocmd("VimEnter", {
 	once = true,
 	callback = function()
-		local so = vim.fn.globpath(
-			vim.fn.stdpath("data") .. "/site/pack/core/opt/fff.nvim/target/release",
-			"libfff_nvim.so", false, true
-		)
-		if #so == 0 then
-			vim.notify("fff.nvim: Rust backend missing — building now (this takes ~30s)…", vim.log.levels.INFO)
+		local dir = vim.fn.stdpath("data") .. "/site/pack/core/opt/fff.nvim/target/release"
+		local has_so = #vim.fn.globpath(dir, "libfff_nvim.so", false, true) > 0
+		local has_dylib = #vim.fn.globpath(dir, "libfff_nvim.dylib", false, true) > 0
+		if not has_so and not has_dylib then
+			vim.notify("fff.nvim: Rust backend missing — building now (this takes ~30s)…",
+				vim.log.levels.INFO)
 			pcall(function() require("fff.download").download_or_build_binary() end)
 		end
 	end,
@@ -642,7 +451,7 @@ pcall(function() require("nvim-ts-autotag").setup({}) end)
 -- clank.nvim (local dev plugin)
 pcall(function()
 	require("clank").setup({
-		harness = "opencode",
+		harness = "opencode2",
 		model = "openrouter/free",
 		keymaps = {
 			fill = "<leader>af",
@@ -651,10 +460,9 @@ pcall(function()
 end)
 
 pcall(function()
-	vim.treesitter.language.register("markdown", "vimwiki")
+	vim.treesitter.language.register("markdown")
 	require("render-markdown").setup({
-		file_types = { "markdown", "vimwiki" },
-		-- No latex parser / converters installed (checkhealth warnings)
+		file_types = { "markdown" },
 		latex = { enabled = false },
 	})
 end)
@@ -776,36 +584,6 @@ pcall(function()
 	})
 end)
 
-pcall(function()
-	require("resession").setup({
-		-- Attach autosave only after an explicit save/load
-		autosave = {
-			enabled = true,
-			interval = 60,
-			notify = false,
-		},
-	})
-end)
-
--- Per-directory sessions: restore on `nvim` / `nvim .` with no file args
-autocmd("VimEnter", {
-	nested = true,
-	callback = function()
-		if vim.fn.argc(-1) == 0 and not vim.g.using_stdin then
-			require("resession").load(vim.fn.getcwd(), { dir = "dirsession", silence_errors = true })
-		end
-	end,
-})
-autocmd("VimLeavePre", {
-	callback = function()
-		require("resession").save(vim.fn.getcwd(), { dir = "dirsession", notify = false })
-	end,
-})
-autocmd("StdinReadPre", {
-	callback = function()
-		vim.g.using_stdin = true
-	end,
-})
 
 -- Keybindings
 
@@ -867,17 +645,7 @@ map({ "n", "t" }, "<leader>tt", "<Cmd>ToggleTerm direction=horizontal<CR>", { de
 map({ "n", "t" }, "<leader>tf", "<Cmd>ToggleTerm direction=float<CR>", { desc = "Toggle floating terminal" })
 
 -- Sessions (resession) — Lua API; resession has no :Resession user commands
-map("n", "<leader>Ss", function()
-	require("resession").save()
-end, { desc = "Save session" })
-map("n", "<leader>Sl", function()
-	require("resession").load()
-end, { desc = "Load session" })
-map("n", "<leader>Sd", function()
-	require("resession").delete()
-end, { desc = "Delete session" })
 
--- Qfl
 map("n", "<leader>cn", "<cmd>cnext<cr>", { desc = "Next quickfix" })
 map("n", "<leader>cp", "<cmd>cprev<cr>", { desc = "Prev quickfix" })
 map("n", "<leader>co", "<cmd>copen<cr>", { desc = "Open quickfix" })
@@ -885,4 +653,3 @@ map("n", "<leader>cc", "<cmd>cclose<cr>", { desc = "Close quickfix" })
 map('n', '<leader>gQ', vim.diagnostic.setqflist, { desc = 'Open All Project Diagnostics' })
 
 map('n', '<leader>gq', vim.diagnostic.setloclist, { desc = 'Open File Diagnostics' })
-

@@ -98,6 +98,10 @@
       "rev": "9b85ebfba065091715676fb440c16a37c465b9a5",
       "src": "https://github.com/ojroques/nvim-hardline"
     },
+    "nvim-lint": {
+      "rev": "3d55c8f67c6ae5c15e1042571e107c7a3d5c5f4e",
+      "src": "https://github.com/mfussenegger/nvim-lint"
+    },
     "nvim-lspconfig": {
       "rev": "f7e89f3d19fb436e1fbeff3bf4291eef35da94e3",
       "src": "https://github.com/neovim/nvim-lspconfig"

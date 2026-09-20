@@ -43,68 +43,81 @@ vim.pack.add({
 	"https://github.com/bajor/nvim-raccoon",
 	"https://github.com/stevearc/quicker.nvim",
 	"https://github.com/nvim-tree/nvim-web-devicons",
-	"https://github.com/scottmckendry/cyberdream.nvim",
+	"https://github.com/nyoom-engineering/oxocarbon.nvim",
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 	"https://github.com/nvim-treesitter/nvim-treesitter-context",
 	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/hrsh7th/nvim-cmp",
 	"https://github.com/hrsh7th/cmp-nvim-lsp",
 	"https://github.com/dmtrKovalenko/fff.nvim",
 	"https://github.com/sphamba/smear-cursor.nvim",
 	"https://github.com/stevearc/oil.nvim",
-	"https://github.com/MunifTanjim/nui.nvim",
+	"https://github.com/refractalize/oil-git-status.nvim",
+	"https://github.com/JezerM/oil-lsp-diagnostics.nvim",
 	"https://github.com/akinsho/bufferline.nvim",
 	"https://github.com/lewis6991/gitsigns.nvim",
 	"https://github.com/tpope/vim-fugitive",
+	"https://github.com/github/copilot.vim",
 	"https://github.com/hedyhli/outline.nvim",
 	"https://github.com/folke/todo-comments.nvim",
 	"https://github.com/windwp/nvim-ts-autotag",
 	"https://github.com/akinsho/toggleterm.nvim",
-	"https://github.com/sontungexpt/witch-line",
-	"https://github.com/rcarriga/nvim-notify",
+	"https://github.com/ojroques/nvim-hardline",
+	"https://github.com/SmiteshP/nvim-navic",
 })
 
--- Colorscheme: cyberdream
+-- Colorscheme: oxocarbon (IBM Carbon-inspired dark theme)
 pcall(function()
-	require("cyberdream").setup({
-		transparent = false,
-		terminal_colors = true,
-		borderless_pickers = false,
-	})
-	vim.cmd.colorscheme("cyberdream")
+	vim.o.background = "dark"
+	vim.cmd.colorscheme("oxocarbon")
 end)
 
--- Simple palette used by statusline below (matches cyberdream default)
-local oxo_colors = {
-	bg = "#16181a",
-	bg_dark = "#16181a",
-	bg_highlight = "#3c4048",
-	fg = "#ffffff",
-	comment = "#7b8496",
-	green = "#5eff6c",
-	blue = "#5ea1ff",
-	cyan = "#5ef1ff",
-	red = "#ff6e5e",
-	yellow = "#f1ff5e",
-	magenta = "#ff5ef1",
-	orange = "#ffbd5e",
+-- Simple palette used by statusline / plugins below (matches oxocarbon's palette)
+local colors = {
+	bg = "#161616",
+	bg_dark = "#161616",
+	bg_highlight = "#262626",
+	fg = "#f2f4f8",
+	comment = "#525252",
+	green = "#42be65",
+	blue = "#33b1ff",
+	yellow = "#ffe97b",
+	magenta = "#be95ff",
+	orange = "#ff832b",
+	cyan = "#3ddbd9",
+	float_bg = "#131313", -- oxocarbon's float background: one step under Normal
+	border = "#525252",   -- visible against both float_bg and Normal
 }
 
--- Theme background normalizer: keep floats, filler and tabline gaps on the
--- theme bg instead of near-black. Re-applied on ColorScheme since loading a
--- scheme resets highlights.
-local function style_theme_bg()
+-- Floating window style
+--
+-- `winborder` draws a rounded edge on every float — LSP hover, diagnostics, oil,
+-- toggleterm, cmp — but oxocarbon ships FloatBorder with fg and bg both set to
+-- the float background, so that edge is painted in the panel's own colour and
+-- reads as a smudge instead of an outline. cmp then overrode FloatBorder to
+-- Normal for its menu alone, so completion was the one panel with a visible
+-- (and much brighter) border. Give every float the same card: dark panel,
+-- subtle grey edge, accent title. Re-applied on ColorScheme because loading a
+-- scheme wipes these back to the scheme's own values.
+local function style_floats()
 	local set = vim.api.nvim_set_hl
-	local bg = oxo_colors.bg
-	set(0, "NormalFloat", { bg = bg })
-	set(0, "FloatBorder", { fg = "#30363d", bg = bg })
-	set(0, "FloatTitle", { fg = oxo_colors.blue, bg = bg, bold = true })
-	set(0, "BufferLineFill", { bg = bg })
-	set(0, "StatusLine", { fg = oxo_colors.fg, bg = bg })
-	set(0, "StatusLineNC", { fg = oxo_colors.comment, bg = bg })
+	set(0, "NormalFloat", { fg = colors.fg, bg = colors.float_bg })
+	set(0, "FloatBorder", { fg = colors.border, bg = colors.float_bg })
+	set(0, "FloatTitle", { fg = colors.blue, bg = colors.float_bg, bold = true })
+	set(0, "FloatFooter", { fg = colors.comment, bg = colors.float_bg })
+	-- The completion menu is a float too, so it gets the same panel colour
+	-- rather than Pmenu's lighter grey.
+	set(0, "Pmenu", { fg = colors.fg, bg = colors.float_bg })
+	set(0, "PmenuSel", { fg = colors.cyan, bg = colors.bg_highlight, bold = true })
+	set(0, "PmenuSbar", { bg = colors.float_bg })
+	set(0, "PmenuThumb", { bg = colors.border })
+	-- Hover and signature help render markdown; keep their rules from cutting
+	-- across the panel at full brightness.
+	set(0, "LspInfoBorder", { fg = colors.border, bg = colors.float_bg })
 end
 
-style_theme_bg()
-autocmd("ColorScheme", { callback = style_theme_bg })
+style_floats()
+autocmd("ColorScheme", { callback = style_floats })
 
 pcall(function()
 	require("quicker").setup({
@@ -115,68 +128,88 @@ pcall(function()
 	})
 end)
 
--- nvim-notify: routes all vim.notify traffic through fancy floating windows
+-- Navic (LSP breadcrumbs for hardline / winbar)
 pcall(function()
-	local notify = require("notify")
-	notify.setup({
-		stages = "fade_in_slide_out",
-		timeout = 3000,
-		render = "default",
-		background_colour = "#16181a",
-		max_width = 60,
+	require("nvim-navic").setup({
+		highlight = true,
+		separator = " › ",
+		depth_limit = 5,
+		lazy_update_context = true,
+		lsp = {
+			auto_attach = true,
+		},
 	})
-	vim.notify = notify
 end)
 
--- Witch-line statusline.
--- Left: mode, git branch, git status. Right: lsp clients, diagnostics,
--- progress percentage, language.
--- Runs once per session: re-sourcing init.lua would register every component
--- a second time and double the bar, so statusline changes need a restart.
-if vim.g.witchline_configured ~= true then
+-- Hardline statusline: palette from github_dark
 pcall(function()
-	require("witch-line").setup({
-		statusline = {
-			global = {
-				"mode",
-				"git.branch",
-				"git.diff.added",
-				"git.diff.modified",
-				"git.diff.removed",
-				"%=",
-				"lsp.clients",
-				"diagnostic.error",
-				"diagnostic.warn",
-				"diagnostic.hint",
-				"diagnostic.info",
-				{
-					id = "progress_pct",
-					update = function()
-						local total = vim.fn.line("$")
-						if total == 0 then
-							return "0%%"
-						end
-						return string.format("%d%%%%", math.floor(vim.fn.line(".") * 100 / total))
-					end,
-					events = { "CursorMoved", "CursorHold", "BufEnter" },
-				},
-				{
-					id = "file_lang",
-					update = function()
-						return vim.bo.filetype
-					end,
-					events = { "BufEnter", "FileType" },
-				},
+	local function color(gui)
+		return { gui = gui, cterm = "NONE", cterm16 = "NONE" }
+	end
+
+	require("hardline").setup({
+		bufferline = false, -- using bufferline.nvim instead
+		theme = "custom",
+		custom_theme = {
+			text = color(colors.bg), -- dark fg on bright mode segments
+			normal = color(colors.green),
+			insert = color(colors.blue),
+			replace = color(colors.yellow),
+			visual = color(colors.magenta),
+			command = color(colors.orange),
+			inactive_comment = color(colors.comment),
+			inactive_cursor = color(colors.bg_dark),
+			inactive_menu = color(colors.bg_highlight),
+			alt_text = color(colors.fg),
+			warning = color(colors.yellow),
+		},
+		sections = {
+			{ class = "mode", item = require("hardline.parts.mode").get_item },
+			{ class = "high", item = require("hardline.parts.git").get_item,     hide = 100 },
+			{ class = "med",  item = require("hardline.parts.filename").get_item },
+			{
+				class = "med",
+				item = function()
+					local ok, navic = pcall(require, "nvim-navic")
+					if ok and navic.is_available() then
+						return navic.get_location()
+					end
+					return ""
+				end,
+				hide = 80,
+			},
+			"%<",
+			{ class = "med",     item = "%=" },
+			{
+				class = "low",
+				item = function()
+					local clients = vim.lsp.get_clients({ bufnr = 0 })
+					if #clients == 0 then
+						return ""
+					end
+					local names = {}
+					for _, client in ipairs(clients) do
+						table.insert(names, client.name)
+					end
+					return table.concat(names, ", ")
+				end,
+				hide = 100,
+			},
+			{ class = "error",   item = require("hardline.parts.lsp").get_error },
+			{ class = "warning", item = require("hardline.parts.lsp").get_warning },
+			{ class = "warning", item = require("hardline.parts.whitespace").get_item },
+			{ class = "high",    item = require("hardline.parts.filetype").get_item,  hide = 60 },
+			{
+				class = "mode",
+				item = function()
+					local total = vim.fn.line("$")
+					local line = vim.fn.line(".")
+					return string.format("%d%%%%", math.floor(line * 100 / total))
+				end,
 			},
 		},
-		disabled = {
-			filetypes = { "help" },
-			buftypes = { "terminal" },
-		},
 	})
-	vim.g.witchline_configured = true
 end)
-end
 
 -- Bufferline
 pcall(function()
@@ -184,7 +217,6 @@ pcall(function()
 		options = {
 			diagnostics = "nvim_lsp",
 			close_command = "bdelete! %d",
-			separator_style = "slant",
 			show_buffer_close_icons = true,
 			show_close_icon = false,
 			enforce_regular_tabs = true,
@@ -196,10 +228,10 @@ end)
 
 -- Treesitter (nvim-treesitter main branch — no configs.setup; enable via vim.treesitter.start)
 local ts_parsers = {
-	"bash", "c", "cpp", "dockerfile", "git_config", "git_rebase", "gitattributes", "gitcommit",
-	"gitignore", "go", "gomod", "gosum", "html", "javascript", "json", "lua", "make",
-	"markdown", "markdown_inline", "python", "rust", "sql", "toml", "tsx", "typescript", "typst", "vim",
-	"yaml", "zig",
+	"bash", "c", "cpp", "css", "dockerfile", "git_config", "git_rebase", "gitattributes", "gitcommit",
+	"gitignore", "go", "gomod", "gosum", "graphql", "html", "javascript", "jsdoc", "json",
+	"lua", "make", "markdown", "markdown_inline", "python", "regex", "rust", "sql", "toml", "tmux", "tsx",
+	"typescript", "typst", "vim", "yaml", "zig",
 }
 
 pcall(function()
@@ -256,11 +288,91 @@ pcall(function()
 		return false
 	end
 
+	-- TypeScript: prefer the native TS 7 server (tsgo) over typescript-language-server.
+	--
+	-- `typescript-language-server` (ts_ls) shells out to the JavaScript tsserver and
+	-- refuses to start unless it can resolve a `typescript` install ("Could not find a
+	-- valid TypeScript installation"), so it dies in any project that does not carry
+	-- typescript as a local dependency. TypeScript 7 replaced that JS tsserver with a
+	-- native binary that speaks LSP directly (`--lsp --stdio`) and bundles its own
+	-- compiler, so it works in a bare .ts file with no node_modules at all.
+	--
+	-- The binary is published two ways: as `tsgo` (@typescript/native-preview) and,
+	-- since typescript@7, as the platform package behind the global `tsc` shim — where
+	-- it is named `tsc`, not `tsgo`, so a plain PATH lookup misses it.
+	local tsgo_global -- nil = not looked up yet, false = looked up and absent
+
+	local function resolve_tsgo(root_dir)
+		-- A project-local copy wins, so the editor matches what the project builds with.
+		if root_dir then
+			local local_bin = vim.fs.joinpath(root_dir, "node_modules", ".bin", "tsgo")
+			if vim.fn.executable(local_bin) == 1 then
+				return local_bin
+			end
+		end
+
+		if tsgo_global ~= nil then
+			return tsgo_global or nil
+		end
+
+		if vim.fn.executable("tsgo") == 1 then
+			tsgo_global = "tsgo"
+			return tsgo_global
+		end
+
+		-- Walk from the `tsc` shim to the typescript package, then to the native
+		-- executable in its @typescript/typescript-<platform>-<arch> dependency.
+		local tsc = vim.fn.exepath("tsc")
+		if tsc ~= "" then
+			local pkg = vim.fs.dirname(vim.fs.dirname(vim.uv.fs_realpath(tsc) or tsc))
+			for _, glob in ipairs({
+				"node_modules/@typescript/typescript-*/lib/tsc", -- nested (npm -g)
+				"../@typescript/typescript-*/lib/tsc",           -- hoisted
+			}) do
+				for _, hit in ipairs(vim.fn.globpath(pkg, glob, false, true)) do
+					if vim.fn.executable(hit) == 1 then
+						tsgo_global = hit
+						return tsgo_global
+					end
+				end
+			end
+		end
+
+		tsgo_global = false
+		return nil
+	end
+
+	if resolve_tsgo(nil) then
+		servers.ts_ls = nil -- one TS server per buffer, or diagnostics arrive twice
+		vim.lsp.config("tsgo", {
+			capabilities = caps,
+			-- Resolved per client start so a project-local tsgo can win; lspconfig's
+			-- root_dir (monorepo- and Deno-aware) and inlay hint settings are kept.
+			cmd = function(dispatchers, config)
+				local exe = resolve_tsgo((config or {}).root_dir)
+				return vim.lsp.rpc.start({ exe, "--lsp", "--stdio" }, dispatchers)
+			end,
+		})
+		vim.lsp.enable("tsgo")
+	end
+
 	for name, bins in pairs(servers) do
 		if has_exe(bins) then
 			vim.lsp.config(name, { capabilities = caps })
 			vim.lsp.enable(name)
 		end
+	end
+
+	-- tmux (tmux.conf). No lspconfig builtin, so define it here.
+	-- Install with `pip install tmux-language-server`. Binary is `tmux-language-server`.
+	if has_exe({ "tmux-language-server" }) then
+		vim.lsp.config("tmux", {
+			capabilities = caps,
+			cmd = { "tmux-language-server" },
+			filetypes = { "tmux" },
+			root_markers = { ".tmux.conf", "tmux.conf", ".git" },
+		})
+		vim.lsp.enable("tmux")
 	end
 
 	-- rust-analyzer: ensure proc-macro expansion works on the rustup toolchain.
@@ -327,16 +439,12 @@ pcall(function()
 end)
 
 
--- Autosave without `:w`
+-- Autosave on focus change
 --
--- A debounced write fires shortly after the last edit, in insert mode and
--- normal mode, so you never need to write manually. Writes are debounced,
--- not per keystroke, so large files do not lag. Event-based saves
--- (FocusLost, InsertLeave, BufLeave) keep the file fresh on navigation,
--- and VimLeavePre flushes any change made in the final debounce window.
-local AUTOSAVE_DELAY_MS = 1000
-local autosave_timer
-
+-- Writes only when focus leaves the buffer: another window or buffer, another
+-- app, or quitting. Nothing fires while you are typing, which matters because
+-- every write reformats through BufWritePre below — a timer- or InsertLeave-
+-- driven save reflows the text under the cursor mid-edit.
 local function silent_save(buf)
 	buf = buf or vim.api.nvim_get_current_buf()
 	if
@@ -350,22 +458,14 @@ local function silent_save(buf)
 	end
 end
 
-local function debounced_save()
-	if autosave_timer then
-		autosave_timer:close()
-		autosave_timer = nil
-	end
-	local buf = vim.api.nvim_get_current_buf()
-	autosave_timer = vim.uv.new_timer()
-	autosave_timer:start(AUTOSAVE_DELAY_MS, 0, vim.schedule_wrap(function()
-		autosave_timer = nil
-		silent_save(buf)
-	end))
-end
-
-autocmd({ "TextChanged", "TextChangedI" }, { callback = function() debounced_save() end })
-autocmd({ "FocusLost", "InsertLeave", "BufLeave" }, { callback = function(ev) silent_save(ev.buf) end })
-autocmd("VimLeavePre", { callback = function() vim.cmd("silent! wall") end })
+-- `nested` matters: a :write issued from inside an autocmd does not fire
+-- BufWritePre unless the outer autocmd nests, so without it these saves would
+-- skip the formatter below entirely.
+autocmd({ "FocusLost", "BufLeave", "WinLeave" }, {
+	nested = true,
+	callback = function(ev) silent_save(ev.buf) end,
+})
+autocmd("VimLeavePre", { nested = true, callback = function() vim.cmd("silent! wall") end })
 
 autocmd("BufWritePre", {
 	callback = function(ev)
@@ -373,11 +473,26 @@ autocmd("BufWritePre", {
 		if vim.bo[ev.buf].buftype ~= "" then
 			return
 		end
-		local clients = vim.lsp.get_clients({ bufnr = ev.buf })
-		if #clients == 0 then
+		-- Format with exactly one client. A TS/JS buffer attaches both a TS server
+		-- and eslint, and an unfiltered vim.lsp.buf.format runs every client that
+		-- advertises formatting — so the two rewrite the same bytes in turn and
+		-- fight. eslint wins where it is attached because it applies the project's
+		-- own rules (including prettier, when wired in through eslint); otherwise
+		-- the first formatting-capable client does the work.
+		local formatter
+		for _, client in ipairs(vim.lsp.get_clients({ bufnr = ev.buf })) do
+			if client:supports_method("textDocument/formatting", ev.buf) then
+				if client.name == "eslint" then
+					formatter = client
+					break
+				end
+				formatter = formatter or client
+			end
+		end
+		if not formatter then
 			return
 		end
-		vim.lsp.buf.format({ async = false, bufnr = ev.buf, timeout_ms = 2000 })
+		vim.lsp.buf.format({ async = false, bufnr = ev.buf, timeout_ms = 2000, id = formatter.id })
 	end,
 })
 
@@ -391,38 +506,51 @@ vim.diagnostic.config({
 	float = false,
 })
 
--- Completion (CMP): loaded on first InsertEnter instead of at startup.
--- cmp-nvim-lsp stays eager (it is cheap and does not pull in cmp core) so
--- LSP capabilities keep their completion extensions.
-autocmd("InsertEnter", {
-	once = true,
+-- Diagnostic virtual_text and Copilot's inline suggestion ghost text both
+-- render as end-of-line virtual text, so an existing diagnostic on the
+-- current line can visually clobber/hide the Copilot suggestion. Hide
+-- diagnostic virtual_text while in insert mode (where Copilot suggestions
+-- actually appear) and restore it on leaving.
+autocmd("InsertEnter", { callback = function() vim.diagnostic.config({ virtual_text = false }) end })
+autocmd("InsertLeave", {
 	callback = function()
-		vim.pack.add({ "https://github.com/hrsh7th/nvim-cmp" }, { confirm = false })
-		pcall(function()
-			local cmp = require("cmp")
-			cmp.setup({
-				window = {
-					completion = {
-						border = "rounded",
-					},
-					documentation = {
-						border = "rounded",
-					},
-				},
-				mapping = cmp.mapping.preset.insert({
-					['<C-b>'] = cmp.mapping.scroll_docs(-4),
-					['<C-f>'] = cmp.mapping.scroll_docs(4),
-					['<C-Space>'] = cmp.mapping.complete(),
-					['<CR>'] = cmp.mapping.confirm({ select = true }),
-					['<Tab>'] = cmp.mapping.select_next_item(),
-					['<S-Tab>'] = cmp.mapping.select_prev_item(),
-				}),
-				sources = { { name = 'nvim_lsp' } },
-				experimental = { ghost_text = false },
-			})
-		end)
+		vim.diagnostic.config({ virtual_text = { spacing = 2, prefix = "", source = "if_many" } })
 	end,
 })
+
+-- Completion (CMP)
+pcall(function()
+	local cmp = require("cmp")
+	cmp.setup({
+		window = {
+			completion = {
+				border = "rounded",
+				-- Inherit the shared float highlights above; the old
+				-- FloatBorder:Normal made this the only panel with a bright edge.
+				winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+			},
+			documentation = {
+				border = "rounded",
+				winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,Search:None",
+			},
+		},
+		mapping = cmp.mapping.preset.insert({
+			['<C-b>'] = cmp.mapping.scroll_docs(-4),
+			['<C-f>'] = cmp.mapping.scroll_docs(4),
+			['<C-Space>'] = cmp.mapping.complete(),
+			['<CR>'] = cmp.mapping.confirm({ select = true }),
+			['<Tab>'] = cmp.mapping.select_next_item(),
+			['<S-Tab>'] = cmp.mapping.select_prev_item(),
+		}),
+		sources = { { name = 'nvim_lsp' } },
+		experimental = { ghost_text = false },
+	})
+end)
+
+-- Copilot: enabled by default. copilot.vim already defaults to on, so this is a
+-- guard against that default changing, not a fix. It keeps the plugin's own
+-- opt-outs for commit-message buffers, where suggestions are just noise.
+g.copilot_enabled = 1
 
 -- Plugin configs
 g.fff = {
@@ -468,6 +596,14 @@ pcall(function() require("gitsigns").setup({}) end)
 pcall(function() require("raccoon").setup({}) end)
 pcall(function() require("nvim-ts-autotag").setup({}) end)
 
+-- tmux — *.tmux (e.g. swiss.tmux) plus .tmux.conf. Neovim already maps
+-- .tmux.conf. The extension rule covers plugin entry files.
+vim.filetype.add({
+	extension = {
+		tmux = "tmux",
+	},
+})
+
 -- ISPC (Intel SPMD Program Compiler) — no dedicated treesitter grammar exists,
 -- so borrow C's parser/highlighting since ISPC syntax is a close superset of C.
 vim.filetype.add({
@@ -489,6 +625,8 @@ autocmd("FileType", {
 -- Outline (Symbols Outline fork)
 pcall(function()
 	require("outline").setup({
+		-- These belong under outline_window; at the top level outline.nvim drops
+		-- them without a word and falls back to its default right-hand split.
 		outline_window = {
 			position = "left",
 			width = 25,
@@ -524,18 +662,27 @@ end)
 
 pcall(function()
 	require("oil").setup({
-		default_file_explorer = false,
+		default_file_explorer = true,
 		delete_to_trash = true,
 		skip_confirm_for_simple_edits = true,
 		-- Do not prompt to save pending moves/renames when selecting a new entry.
 		prompt_save_on_select_new_entry = false,
 		watch_for_changes = true,
+		-- `columns` is top level. Nested under view_options oil drops it silently
+		-- and falls back to its default of icon alone. There is no built-in "git"
+		-- column either — git status comes from oil-git-status below, in the
+		-- sign column.
+		columns = { "icon" },
 		view_options = {
 			show_hidden = true,
-			columns = { "icon", "permissions", "size", "mtime", "git" },
+		},
+		-- oil-git-status needs two sign columns: index on the left, working tree
+		-- on the right, the same pair `git status --short` prints.
+		win_options = {
+			signcolumn = "yes:2",
 		},
 		keymaps = { ["q"] = "actions.close", ["<C-h>"] = false, ["<C-l>"] = false },
-		float = { padding = 0.02, max_width = 0.6, max_height = 0.6, border = "rounded" },
+		float = { padding = 0.02, max_width = 0.8, max_height = 0.7, border = "rounded" },
 	})
 
 	-- Deletes/moves/copies apply on :w with no confirmation popup.
@@ -556,6 +703,21 @@ pcall(function()
 			end
 		end
 	end
+
+	-- Git status in oil's sign columns, filled in asynchronously after the
+	-- listing renders so large repos do not stall the window.
+	require("oil-git-status").setup({
+		show_ignored = false, -- ignored files are already hidden noise here
+	})
+
+	-- LSP diagnostics per entry, as end-of-line virtual text (so it does not
+	-- contend with the git signs). Directories aggregate what is under them.
+	-- Note this reads loaded buffers only: a file shows a count once it has been
+	-- opened in this session, not from a project-wide scan.
+	require("oil-lsp-diagnostics").setup({
+		count = true,
+		parent_dirs = true,
+	})
 end)
 
 pcall(function()
@@ -641,6 +803,9 @@ map("n", "gt", function() vim.lsp.buf.type_definition() end, { desc = "Go to typ
 map("n", "K", function() vim.lsp.buf.hover() end, { desc = "Hover" })
 map("n", "<leader>h", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
 map("n", "<leader>s", function() vim.lsp.buf.rename() end, { desc = "Rename symbol" })
+map("n", "<leader>i", function()
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
+end, { desc = "Toggle inlay hints" })
 
 -- Window navigation
 map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })

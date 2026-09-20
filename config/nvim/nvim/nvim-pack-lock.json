@@ -102,9 +102,9 @@
       "rev": "f7e89f3d19fb436e1fbeff3bf4291eef35da94e3",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
-    "nvim-notify": {
-      "rev": "8701bece920b38ea289b457f902e2ad184131a5d",
-      "src": "https://github.com/rcarriga/nvim-notify"
+    "nvim-navic": {
+      "rev": "f5eba192f39b453675d115351808bd51276d9de5",
+      "src": "https://github.com/SmiteshP/nvim-navic"
     },
     "nvim-raccoon": {
       "rev": "ef5c78d38182363b24881cb16b53d2653fafb748",
@@ -214,10 +214,6 @@
     "vscode.nvim": {
       "rev": "aa1102a7e15195c9cca22730b09224a7f7745ba8",
       "src": "https://github.com/Mofiqul/vscode.nvim"
-    },
-    "witch-line": {
-      "rev": "eed1550d0947da701e72f9816dd3b759081285fb",
-      "src": "https://github.com/sontungexpt/witch-line"
     }
   }
 }

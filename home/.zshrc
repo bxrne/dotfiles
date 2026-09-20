@@ -1,65 +1,95 @@
-export PATH="$HOME/.nix-profile/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/go/bin:$PATH"
 
-# Prefer rustup-managed Rust (rustc, cargo, rust-analyzer) over any Nix copy.
-# Sourced after PATH export so $HOME/.cargo/bin wins.
+# Auto-attach to the most recently used tmux session, or start one
+if [[ -z "$TMUX" && -o interactive ]] && command -v tmux &> /dev/null; then
+  last_session=$(tmux list-sessions -F '#{session_last_attached} #{session_name}' 2>/dev/null | sort -rn | head -n1 | cut -d' ' -f2-)
+  if [ -n "$last_session" ]; then
+    exec tmux attach-session -t "$last_session"
+  else
+    exec tmux new-session
+  fi
+fi
+
 if [ -s "$HOME/.cargo/env" ]; then
   . "$HOME/.cargo/env"
 fi
 
-export EDITOR="zed"
-export VISUAL="zed"
+if [ -f "$HOME/.local/bin/env" ]; then
+  . "$HOME/.local/bin/env"
+fi
 
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+export NVM_DIR="$HOME/.nvm"
 
-export COLORTERM="truecolor"
-export TERM="xterm-256color"
-export PODMAN_COMPOSE_WARNING_LOGS=false
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  . "$NVM_DIR/nvm.sh"
+fi
+
+if [ -s "$NVM_DIR/bash_completion" ]; then
+  . "$NVM_DIR/bash_completion"
+fi
+
+
+
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+
+
+export LANG=C.utf8
+unset LC_ALL
+
+
+
+
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=50000
 SAVEHIST=50000
-setopt HIST_IGNORE_ALL_DUPS    # Delete old duplicate entries in history
-setopt HIST_REDUCE_BLANKS      # Remove redundant blanks
-setopt SHARE_HISTORY           # Share history across all terminal instances
-setopt INC_APPEND_HISTORY      # Write to history file immediately
 
-autoload -Uz compinit && compinit -i
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY
+
+
+
+autoload -Uz compinit
+compinit -i
 
 if [ -z "$SSH_AUTH_SOCK" ]; then
   eval "$(ssh-agent -s)" > /dev/null
+
   if [ -f "$HOME/.ssh/id_ed25519" ]; then
-    ssh-add --apple-use-keychain "$HOME/.ssh/id_ed25519" 2>/dev/null
+    ssh-add "$HOME/.ssh/id_ed25519" 2>/dev/null
   fi
 fi
 
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
 
 
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias docker=podman
 
-eval "$(zoxide init zsh)"
-export DOCKER_HOST="unix:///var/folders/zh/mtxmqnfs5yn2vkj4t4r_qhyr0000gn/T/podman/podman-machine-default-api.sock"
+
 
 if command -v eza &> /dev/null; then
-  alias ls="eza --icons=auto --group-directories-first"
-  alias ll="eza -lh --icons=auto --group-directories-first --git"
-  alias la="eza -lah --icons=auto --group-directories-first --git"
-  alias lt="eza --tree --level=2 --icons=auto"
-  alias lta="eza --tree --level=2 -a --icons=auto"
+  alias ls="eza --icons=always --group-directories-first"
+  alias ll="eza -lh --icons=always --group-directories-first --git"
+  alias la="eza -lah --icons=always --group-directories-first --git"
+  alias lt="eza --tree --level=2 --icons=always"
+  alias lta="eza --tree --level=2 -a --icons=always"
+elif command -v exa &> /dev/null; then
+  alias ls="exa --icons --group-directories-first"
+  alias ll="exa -lh --icons --group-directories-first --git"
+  alias la="exa -lah --icons --group-directories-first --git"
+  alias lt="exa --tree --level=2 --icons"
+  alias lta="exa --tree --level=2 -a --icons"
 else
-  alias ls="ls -G"
-  alias ll="ls -laG"
-  alias la="ls -aG"
+  alias ls="ls --color=auto"
+  alias ll="ls -la"
+  alias la="ls -a"
 fi
 
 alias grep="grep --color=auto"
-
-alias docker="podman"
 
 alias g="git"
 alias gs="git status"
@@ -68,20 +98,29 @@ alias gl="git log --oneline --graph --decorate"
 alias gc="git commit"
 alias gca="git commit -a"
 
-alias nix-clean="nix-collect-garbage -d"
+alias vim="nvim"
+alias vi="nvim"
+alias n="nvim"
 
-if command -v pfetch &> /dev/null; then
-  pfetch
+alias lg="lazygit"
+alias ld="lazydocker"
+
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
 fi
 
 if command -v direnv &> /dev/null; then
   eval "$(direnv hook zsh)"
 fi
 
-if command -v starship &> /dev/null; then
-  eval "$(starship init zsh)"
-fi
-
 if command -v fzf &> /dev/null; then
   source <(fzf --zsh)
 fi
+
+if command -v starship &> /dev/null; then
+  eval "$(starship init zsh)"
+fi
+export PATH="/home/adamr/.terragrunt/bin:$PATH"
+
+# Added by the Hunk installer (https://hunk.dev)
+export PATH='/home/adamr/.hunk/bin':"$PATH"

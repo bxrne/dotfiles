@@ -44,6 +44,10 @@
       "rev": "43e12c921554be41a75fe1f7be512881f1bd0a5d",
       "src": "https://github.com/daliusd/ghlite.nvim"
     },
+    "github-nvim-theme": {
+      "rev": "c106c9472154d6b2c74b74565616b877ae8ed31d",
+      "src": "https://github.com/projekt0n/github-nvim-theme"
+    },
     "gitlinker.nvim": {
       "rev": "cc59f732f3d043b626c8702cb725c82e54d35c25",
       "src": "https://github.com/ruifm/gitlinker.nvim"
@@ -123,6 +127,14 @@
       "rev": "4fc505ac7bd7692824a142e96e5f529c133862f8",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
+    "oil-git-status.nvim": {
+      "rev": "a3e2ccb00cb8822115e28a9a1791eda051d940c9",
+      "src": "https://github.com/refractalize/oil-git-status.nvim"
+    },
+    "oil-lsp-diagnostics.nvim": {
+      "rev": "282308383d8d8485937aaf3c28b44fa1cb26007a",
+      "src": "https://github.com/JezerM/oil-lsp-diagnostics.nvim"
+    },
     "oil.nvim": {
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
@@ -138,6 +150,10 @@
     "outline.nvim": {
       "rev": "c293eb56db880a0539bf9d85b4a27816960b863e",
       "src": "https://github.com/hedyhli/outline.nvim"
+    },
+    "oxocarbon.nvim": {
+      "rev": "cd6523a0836d6e8ee823d343149fd06c7b71fdde",
+      "src": "https://github.com/nyoom-engineering/oxocarbon.nvim"
     },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
@@ -162,6 +178,10 @@
     "smear-cursor.nvim": {
       "rev": "9e9378d6ee34bb3782e0e8c63d9ec8ca618b479b",
       "src": "https://github.com/sphamba/smear-cursor.nvim"
+    },
+    "stay-centered.nvim": {
+      "rev": "e1a63ccaf2584e97c0ef8e64f9654c9a80d983f6",
+      "src": "https://github.com/arnamak/stay-centered.nvim"
     },
     "thorn.nvim": {
       "rev": "719f558623eb05d0e391401c419820ffb9042fb6",

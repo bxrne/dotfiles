@@ -232,7 +232,7 @@ end)
 local ts_parsers = {
 	"bash", "c", "cpp", "css", "dockerfile", "git_config", "git_rebase", "gitattributes", "gitcommit",
 	"gitignore", "go", "gomod", "gosum", "graphql", "html", "javascript", "jsdoc", "json",
-	"lua", "make", "markdown", "markdown_inline", "python", "regex", "rust", "sql", "toml", "tsx",
+	"lua", "make", "markdown", "markdown_inline", "python", "regex", "rust", "sql", "toml", "tmux", "tsx",
 	"typescript", "typst", "vim", "yaml", "zig",
 }
 
@@ -363,6 +363,18 @@ pcall(function()
 			vim.lsp.config(name, { capabilities = caps })
 			vim.lsp.enable(name)
 		end
+	end
+
+	-- tmux (tmux.conf). No lspconfig builtin, so define it here.
+	-- Install with `pip install tmux-language-server`. Binary is `tmux-language-server`.
+	if has_exe({ "tmux-language-server" }) then
+		vim.lsp.config("tmux", {
+			capabilities = caps,
+			cmd = { "tmux-language-server" },
+			filetypes = { "tmux" },
+			root_markers = { ".tmux.conf", "tmux.conf", ".git" },
+		})
+		vim.lsp.enable("tmux")
 	end
 
 	-- rust-analyzer: ensure proc-macro expansion works on the rustup toolchain.
@@ -604,6 +616,14 @@ pcall(function()
 		latex = { enabled = false },
 	})
 end)
+
+-- tmux — *.tmux (e.g. swiss.tmux) plus .tmux.conf. Neovim already maps
+-- .tmux.conf. The extension rule covers plugin entry files.
+vim.filetype.add({
+	extension = {
+		tmux = "tmux",
+	},
+})
 
 -- ISPC (Intel SPMD Program Compiler) — no dedicated treesitter grammar exists,
 -- so borrow C's parser/highlighting since ISPC syntax is a close superset of C.

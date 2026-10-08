@@ -1,0 +1,39 @@
+# Nix
+result
+result-*
+.direnv/
+*.nix.bak
+nixos/hardware-configuration.nix
+
+# Secrets -- never commit these
+*.key
+*.pem
+*.gpg
+secrets
+**/service.json
+**/cli.json
+.grok/
+
+# Emacs
+.emacs.d/
+auto-save-list/
+eln-cache/
+*.elc
+flycheck-*.el
+
+# Accidental nested nvim config (live file is .config/nvim/init.lua)
+.config/nvim/nvim/
+
+# Rust / Go / Node build output
+target/
+node_modules/
+dist/
+build/
+
+# Misc
+.DS_Store
+*.swp
+*~
+.cache/
+.idea/
+.vscode/

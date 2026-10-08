@@ -1,0 +1,11 @@
+# clangd parses with Clang. These drivers are only queried for system includes
+# and the target triple, so the editor matches a gcc/g++ build. The nvim clangd
+# cmd must pass a --query-driver glob that allows these binaries.
+CompileFlags:
+  Compiler: g++
+
+---
+If:
+  PathMatch: .*\.c$
+CompileFlags:
+  Compiler: gcc
